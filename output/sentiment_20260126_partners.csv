@@ -1,0 +1,13 @@
+﻿partner_name,category,video_count,total_comments,positive,negative,neutral,positive_ratio,negative_ratio,neutral_ratio,avg_compound,overall_sentiment
+Unknown,,34,1652,817,311,524,49.46,18.83,31.72,0.2247,positive
+BABYMONSTER,IP,2,231,140,32,59,60.61,13.85,25.54,0.3616,positive
+Dying Light,IP,2,205,100,47,58,48.78,22.93,28.29,0.1782,positive
+Skibidi Toilet,IP,1,184,58,47,79,31.52,25.54,42.93,0.0548,positive
+Sonic,IP,2,181,80,33,68,44.2,18.23,37.57,0.1738,positive
+TRANSFORMERS,Movie,2,164,82,24,58,50.0,14.63,35.37,0.2373,positive
+Porsche,Brand,2,148,70,25,53,47.3,16.89,35.81,0.1815,positive
+BABYMONSTER Live,Artist,1,142,88,17,37,61.97,11.97,26.06,0.3709,positive
+Peaky Blinders,IP,1,138,64,18,56,46.38,13.04,40.58,0.191,positive
+t 2026,IP,1,135,68,31,36,50.37,22.96,26.67,0.1602,positive
+PUBG MOBILE x Porsche Trailer,Brand,1,93,36,9,48,38.71,9.68,51.61,0.1744,positive
+Shelby American,IP,1,19,10,2,7,52.63,10.53,36.84,0.3055,positive
