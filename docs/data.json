@@ -1,6 +1,6 @@
 [
   {
-    "name": "Unknown",
+    "name": "Others",
     "category": "Other",
     "videos": [
       {
@@ -4618,7 +4618,7 @@
     "video_count": 512
   },
   {
-    "name": "BABYMONSTER Live",
+    "name": "BABYMONSTER",
     "category": "Artist",
     "videos": [
       {
@@ -4629,17 +4629,7 @@
         "like_count": 31814,
         "comment_count": 1162,
         "url": "https://www.youtube.com/watch?v=loNIwFH3SQo"
-      }
-    ],
-    "total_views": 40878803,
-    "total_likes": 31814,
-    "total_comments": 1162,
-    "video_count": 1
-  },
-  {
-    "name": "BABYMONSTER",
-    "category": "IP",
-    "videos": [
+      },
       {
         "video_id": "rjg_n6_3Udo",
         "title": "PUBG MOBILE x BABYMONSTER | Special Message From BABYMONSTER!",
@@ -4704,10 +4694,10 @@
         "url": "https://www.youtube.com/watch?v=dnkOdWFiiYM"
       }
     ],
-    "total_views": 34142610,
-    "total_likes": 43327,
-    "total_comments": 1529,
-    "video_count": 7
+    "total_views": 75021413,
+    "total_likes": 75141,
+    "total_comments": 2691,
+    "video_count": 8
   },
   {
     "name": "Sonic",
