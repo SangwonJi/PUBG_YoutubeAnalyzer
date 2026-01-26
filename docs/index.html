@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PUBG MOBILE Collab Analysis</title>
+    <title>PUBG MOBILE Collab Analysis Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,450 +14,754 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #fff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0f0f1a;
+            color: #e2e8f0;
             min-height: 100vh;
-            padding: 20px;
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
+            padding: 20px;
         }
         
+        /* Header */
         header {
             text-align: center;
-            padding: 40px 0;
+            padding: 40px 0 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 30px;
         }
         
-        h1 {
+        .logo {
             font-size: 2.5rem;
-            background: linear-gradient(90deg, #f5af19, #f12711);
+            font-weight: 700;
+            background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         
         .subtitle {
-            color: #8892b0;
-            font-size: 1.1rem;
+            color: #64748b;
+            font-size: 1rem;
         }
         
+        /* Stats Cards */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
-            margin: 40px 0;
+            margin-bottom: 30px;
         }
         
         .stat-card {
-            background: rgba(255,255,255,0.05);
+            background: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(139,92,246,0.1) 100%);
+            border: 1px solid rgba(99,102,241,0.2);
             border-radius: 16px;
             padding: 24px;
             text-align: center;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: transform 0.3s;
         }
         
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .stat-number {
+        .stat-value {
             font-size: 2.5rem;
-            font-weight: bold;
-            background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+            font-weight: 700;
+            background: linear-gradient(135deg, #818cf8, #c084fc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         
         .stat-label {
-            color: #8892b0;
-            margin-top: 8px;
-            font-size: 0.9rem;
+            color: #94a3b8;
+            font-size: 0.875rem;
+            margin-top: 4px;
         }
         
-        .charts-section {
+        /* Main Layout */
+        .main-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            grid-template-columns: 400px 1fr;
             gap: 30px;
-            margin: 40px 0;
         }
         
-        .chart-card {
-            background: rgba(255,255,255,0.05);
-            border-radius: 16px;
-            padding: 24px;
+        /* Sidebar - Partners List */
+        .sidebar {
+            background: rgba(255,255,255,0.02);
             border: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .chart-title {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: #ccd6f6;
-        }
-        
-        .table-section {
-            margin: 40px 0;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: rgba(255,255,255,0.05);
             border-radius: 16px;
             overflow: hidden;
-        }
-        
-        th, td {
-            padding: 16px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        th {
-            background: rgba(255,255,255,0.1);
-            font-weight: 600;
-            color: #ccd6f6;
-        }
-        
-        tr:hover {
-            background: rgba(255,255,255,0.05);
-        }
-        
-        .positive { color: #4ade80; }
-        .negative { color: #f87171; }
-        .neutral { color: #fbbf24; }
-        
-        .sentiment-bar {
+            height: calc(100vh - 300px);
             display: flex;
-            height: 8px;
-            border-radius: 4px;
-            overflow: hidden;
-            background: rgba(255,255,255,0.1);
+            flex-direction: column;
         }
         
-        .sentiment-bar .pos { background: #4ade80; }
-        .sentiment-bar .neu { background: #fbbf24; }
-        .sentiment-bar .neg { background: #f87171; }
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.02);
+        }
         
-        .badge {
+        .sidebar-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: 10px 16px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: #e2e8f0;
+            font-size: 0.875rem;
+        }
+        
+        .search-box::placeholder {
+            color: #64748b;
+        }
+        
+        .search-box:focus {
+            outline: none;
+            border-color: #6366f1;
+        }
+        
+        .partners-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 8px;
+        }
+        
+        .partner-item {
+            display: flex;
+            align-items: center;
+            padding: 14px 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 4px;
+        }
+        
+        .partner-item:hover {
+            background: rgba(99,102,241,0.1);
+        }
+        
+        .partner-item.active {
+            background: rgba(99,102,241,0.2);
+            border: 1px solid rgba(99,102,241,0.3);
+        }
+        
+        .partner-rank {
+            width: 28px;
+            height: 28px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 12px;
+            color: #94a3b8;
+        }
+        
+        .partner-item.active .partner-rank,
+        .partner-item:nth-child(1) .partner-rank { background: #f59e0b; color: #fff; }
+        .partner-item:nth-child(2) .partner-rank { background: #94a3b8; color: #fff; }
+        .partner-item:nth-child(3) .partner-rank { background: #cd7f32; color: #fff; }
+        
+        .partner-info {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .partner-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .partner-meta {
+            font-size: 0.75rem;
+            color: #64748b;
+            margin-top: 2px;
+        }
+        
+        .partner-views {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #818cf8;
+        }
+        
+        /* Detail Panel */
+        .detail-panel {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .detail-header {
+            padding: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.02);
+        }
+        
+        .detail-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .detail-category {
             display: inline-block;
             padding: 4px 12px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
+            margin-bottom: 16px;
         }
         
-        .badge-artist { background: #8b5cf6; }
-        .badge-brand { background: #3b82f6; }
-        .badge-anime { background: #ec4899; }
-        .badge-movie { background: #f59e0b; }
-        .badge-game { background: #10b981; }
-        .badge-ip { background: #6366f1; }
+        .cat-Artist { background: #8b5cf6; }
+        .cat-Brand { background: #3b82f6; }
+        .cat-Anime { background: #ec4899; }
+        .cat-Movie { background: #f59e0b; }
+        .cat-Game { background: #10b981; }
+        .cat-IP { background: #6366f1; }
+        .cat-Other { background: #64748b; }
         
-        footer {
+        .detail-stats {
+            display: flex;
+            gap: 24px;
+        }
+        
+        .detail-stat {
             text-align: center;
-            padding: 40px 0;
-            color: #8892b0;
         }
         
-        footer a {
-            color: #64ffda;
+        .detail-stat-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #818cf8;
+        }
+        
+        .detail-stat-label {
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+        
+        /* Videos List */
+        .videos-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+        }
+        
+        .videos-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 16px;
+            margin-bottom: 12px;
+        }
+        
+        .videos-title {
+            font-weight: 600;
+            color: #94a3b8;
+        }
+        
+        .video-item {
+            display: grid;
+            grid-template-columns: 120px 1fr auto auto auto;
+            gap: 16px;
+            align-items: center;
+            padding: 16px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            margin-bottom: 8px;
+            transition: all 0.2s;
+        }
+        
+        .video-item:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(99,102,241,0.3);
+        }
+        
+        .video-thumb {
+            width: 120px;
+            height: 68px;
+            background: #1e1e2e;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .video-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .video-info {
+            min-width: 0;
+        }
+        
+        .video-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .video-title a {
+            color: #e2e8f0;
             text-decoration: none;
         }
         
-        @media (max-width: 768px) {
-            .charts-section {
+        .video-title a:hover {
+            color: #818cf8;
+        }
+        
+        .video-date {
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+        
+        .video-stat {
+            text-align: center;
+            min-width: 80px;
+        }
+        
+        .video-stat-value {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .video-stat-label {
+            font-size: 0.7rem;
+            color: #64748b;
+        }
+        
+        .views-color { color: #818cf8; }
+        .likes-color { color: #f472b6; }
+        .comments-color { color: #34d399; }
+        
+        /* Charts */
+        .charts-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .chart-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 24px;
+        }
+        
+        .chart-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #94a3b8;
+        }
+        
+        /* Empty State */
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #64748b;
+        }
+        
+        .empty-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #64748b;
+            font-size: 0.875rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 40px;
+        }
+        
+        footer a {
+            color: #818cf8;
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .main-content {
                 grid-template-columns: 1fr;
             }
             
-            h1 {
-                font-size: 1.8rem;
+            .sidebar {
+                height: auto;
+                max-height: 400px;
             }
             
-            .stat-number {
-                font-size: 2rem;
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
+        }
+        
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-item {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .video-thumb {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 16/9;
+            }
+            
+            .charts-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.02);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,255,255,0.2);
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>PUBG MOBILE Collab Analysis</h1>
-            <p class="subtitle">YouTube Channel Data Analysis (2025.01 - 2026.01)</p>
+            <div class="logo">PUBG MOBILE Collab Analysis</div>
+            <p class="subtitle">YouTube Channel Data Dashboard (2025.01 - 2026.01)</p>
         </header>
         
-        <section class="stats-grid">
+        <section class="stats-grid" id="statsGrid">
             <div class="stat-card">
-                <div class="stat-number">1,004</div>
+                <div class="stat-value" id="totalVideos">-</div>
                 <div class="stat-label">Total Videos</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">115</div>
+                <div class="stat-value" id="totalPartners">-</div>
                 <div class="stat-label">Collab Partners</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">702M</div>
+                <div class="stat-value" id="totalViews">-</div>
                 <div class="stat-label">Total Views</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">49%</div>
-                <div class="stat-label">Positive Comments</div>
+                <div class="stat-value" id="totalLikes">-</div>
+                <div class="stat-label">Total Likes</div>
             </div>
         </section>
         
-        <section class="charts-section">
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h2 class="sidebar-title">Collab Partners</h2>
+                    <input type="text" class="search-box" id="searchInput" placeholder="Search partners...">
+                </div>
+                <div class="partners-list" id="partnersList">
+                    <!-- Partners loaded dynamically -->
+                </div>
+            </aside>
+            
+            <main class="detail-panel">
+                <div class="empty-state" id="emptyState">
+                    <div class="empty-icon">👈</div>
+                    <p>Select a partner to view details</p>
+                </div>
+                
+                <div id="detailContent" style="display: none;">
+                    <div class="detail-header">
+                        <span class="detail-category" id="detailCategory">-</span>
+                        <h1 class="detail-title" id="detailTitle">-</h1>
+                        <div class="detail-stats">
+                            <div class="detail-stat">
+                                <div class="detail-stat-value" id="detailVideos">-</div>
+                                <div class="detail-stat-label">Videos</div>
+                            </div>
+                            <div class="detail-stat">
+                                <div class="detail-stat-value" id="detailViews">-</div>
+                                <div class="detail-stat-label">Views</div>
+                            </div>
+                            <div class="detail-stat">
+                                <div class="detail-stat-value" id="detailLikes">-</div>
+                                <div class="detail-stat-label">Likes</div>
+                            </div>
+                            <div class="detail-stat">
+                                <div class="detail-stat-value" id="detailComments">-</div>
+                                <div class="detail-stat-label">Comments</div>
+                            </div>
+                            <div class="detail-stat">
+                                <div class="detail-stat-value" id="detailLikeRate">-</div>
+                                <div class="detail-stat-label">Like Rate</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="videos-container">
+                        <div class="videos-header">
+                            <span class="videos-title">Videos</span>
+                        </div>
+                        <div id="videosList">
+                            <!-- Videos loaded dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        <section class="charts-row">
             <div class="chart-card">
                 <h3 class="chart-title">Top 10 Partners by Views</h3>
-                <canvas id="partnersChart"></canvas>
+                <canvas id="topPartnersChart"></canvas>
             </div>
-            <div class="chart-card">
-                <h3 class="chart-title">Sentiment Distribution</h3>
-                <canvas id="sentimentChart"></canvas>
-            </div>
-        </section>
-        
-        <section class="charts-section">
             <div class="chart-card">
                 <h3 class="chart-title">Category Distribution</h3>
                 <canvas id="categoryChart"></canvas>
             </div>
-            <div class="chart-card">
-                <h3 class="chart-title">Partner Sentiment Comparison</h3>
-                <canvas id="partnerSentimentChart"></canvas>
-            </div>
-        </section>
-        
-        <section class="table-section">
-            <div class="chart-card">
-                <h3 class="chart-title">Top Collab Partners</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Rank</th>
-                            <th>Partner</th>
-                            <th>Category</th>
-                            <th>Videos</th>
-                            <th>Total Views</th>
-                            <th>Sentiment</th>
-                        </tr>
-                    </thead>
-                    <tbody id="partnersTable">
-                    </tbody>
-                </table>
-            </div>
         </section>
         
         <footer>
-            <p>Data collected from <a href="https://www.youtube.com/@PUBGMOBILE" target="_blank">PUBG MOBILE YouTube Channel</a></p>
-            <p style="margin-top: 10px;">
-                <a href="https://github.com/SangwonJi/PUBG_YoutubeAnalyzer" target="_blank">View on GitHub</a>
-            </p>
+            <p>Data from <a href="https://www.youtube.com/@PUBGMOBILE" target="_blank">PUBG MOBILE YouTube</a> | 
+            <a href="https://github.com/SangwonJi/PUBG_YoutubeAnalyzer" target="_blank">View on GitHub</a></p>
         </footer>
     </div>
     
     <script>
-        // Data
-        const partnersData = [
-            { name: 'BABYMONSTER', views: 75021413, videos: 8, category: 'Artist', positive: 61.3, negative: 12.9 },
-            { name: 'Sonic', views: 20971453, videos: 2, category: 'IP', positive: 44.2, negative: 18.2 },
-            { name: 'Dying Light', views: 20793698, videos: 3, category: 'Game', positive: 48.8, negative: 22.9 },
-            { name: 'TRANSFORMERS', views: 20100050, videos: 22, category: 'Movie', positive: 50.0, negative: 14.6 },
-            { name: 'Porsche', views: 14338123, videos: 2, category: 'Brand', positive: 47.3, negative: 16.9 },
-            { name: 'Peaky Blinders', views: 10109030, videos: 1, category: 'Movie', positive: 46.4, negative: 13.0 },
-            { name: 'Bugatti', views: 9044795, videos: 9, category: 'Brand', positive: 45.0, negative: 15.0 },
-            { name: 'Attack on Titan', views: 6202653, videos: 20, category: 'Anime', positive: 52.0, negative: 12.0 },
-            { name: 'Skibidi Toilet', views: 5715245, videos: 2, category: 'IP', positive: 31.5, negative: 25.5 },
-            { name: 'Godzilla', views: 5344200, videos: 7, category: 'Movie', positive: 48.0, negative: 14.0 }
-        ];
+        let partnersData = [];
+        let selectedPartner = null;
         
-        const sentimentData = {
-            positive: 49.0,
-            neutral: 32.9,
-            negative: 18.1
-        };
+        // Load data
+        fetch('data.json')
+            .then(res => res.json())
+            .then(data => {
+                partnersData = data;
+                initDashboard();
+            })
+            .catch(err => {
+                console.error('Failed to load data:', err);
+            });
         
-        const categoryData = {
-            'IP': 45,
-            'Brand': 18,
-            'Movie': 15,
-            'Anime': 12,
-            'Artist': 8,
-            'Game': 7,
-            'Other': 10
-        };
-        
-        // Chart colors
-        const colors = {
-            primary: '#3a7bd5',
-            secondary: '#00d2ff',
-            positive: '#4ade80',
-            neutral: '#fbbf24',
-            negative: '#f87171',
-            purple: '#8b5cf6',
-            pink: '#ec4899',
-            orange: '#f59e0b'
-        };
-        
-        // Partners Bar Chart
-        new Chart(document.getElementById('partnersChart'), {
-            type: 'bar',
-            data: {
-                labels: partnersData.map(p => p.name),
-                datasets: [{
-                    label: 'Views (Millions)',
-                    data: partnersData.map(p => (p.views / 1000000).toFixed(1)),
-                    backgroundColor: [
-                        '#8b5cf6', '#3b82f6', '#10b981', '#f59e0b', '#3b82f6',
-                        '#f59e0b', '#3b82f6', '#ec4899', '#6366f1', '#f59e0b'
-                    ],
-                    borderRadius: 8
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { display: false }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        grid: { color: 'rgba(255,255,255,0.1)' },
-                        ticks: { color: '#8892b0' }
-                    },
-                    x: {
-                        grid: { display: false },
-                        ticks: { color: '#8892b0', maxRotation: 45 }
-                    }
-                }
-            }
-        });
-        
-        // Sentiment Doughnut Chart
-        new Chart(document.getElementById('sentimentChart'), {
-            type: 'doughnut',
-            data: {
-                labels: ['Positive', 'Neutral', 'Negative'],
-                datasets: [{
-                    data: [sentimentData.positive, sentimentData.neutral, sentimentData.negative],
-                    backgroundColor: [colors.positive, colors.neutral, colors.negative],
-                    borderWidth: 0
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: { color: '#ccd6f6', padding: 20 }
-                    }
-                },
-                cutout: '60%'
-            }
-        });
-        
-        // Category Pie Chart
-        new Chart(document.getElementById('categoryChart'), {
-            type: 'pie',
-            data: {
-                labels: Object.keys(categoryData),
-                datasets: [{
-                    data: Object.values(categoryData),
-                    backgroundColor: [
-                        '#6366f1', '#3b82f6', '#f59e0b', '#ec4899', 
-                        '#8b5cf6', '#10b981', '#64748b'
-                    ],
-                    borderWidth: 0
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: { color: '#ccd6f6', padding: 15 }
-                    }
-                }
-            }
-        });
-        
-        // Partner Sentiment Comparison
-        new Chart(document.getElementById('partnerSentimentChart'), {
-            type: 'bar',
-            data: {
-                labels: partnersData.slice(0, 8).map(p => p.name),
-                datasets: [
-                    {
-                        label: 'Positive %',
-                        data: partnersData.slice(0, 8).map(p => p.positive),
-                        backgroundColor: colors.positive,
-                        borderRadius: 4
-                    },
-                    {
-                        label: 'Negative %',
-                        data: partnersData.slice(0, 8).map(p => p.negative),
-                        backgroundColor: colors.negative,
-                        borderRadius: 4
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                        labels: { color: '#ccd6f6' }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 70,
-                        grid: { color: 'rgba(255,255,255,0.1)' },
-                        ticks: { color: '#8892b0' }
-                    },
-                    x: {
-                        grid: { display: false },
-                        ticks: { color: '#8892b0', maxRotation: 45 }
-                    }
-                }
-            }
-        });
-        
-        // Populate table
-        const tableBody = document.getElementById('partnersTable');
-        partnersData.forEach((partner, index) => {
-            const badgeClass = {
-                'Artist': 'badge-artist',
-                'Brand': 'badge-brand',
-                'Anime': 'badge-anime',
-                'Movie': 'badge-movie',
-                'Game': 'badge-game',
-                'IP': 'badge-ip'
-            }[partner.category] || 'badge-ip';
+        function initDashboard() {
+            updateStats();
+            renderPartnersList();
+            initCharts();
             
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${index + 1}</td>
-                <td><strong>${partner.name}</strong></td>
-                <td><span class="badge ${badgeClass}">${partner.category}</span></td>
-                <td>${partner.videos}</td>
-                <td>${(partner.views / 1000000).toFixed(1)}M</td>
-                <td>
-                    <div class="sentiment-bar">
-                        <div class="pos" style="width: ${partner.positive}%"></div>
-                        <div class="neu" style="width: ${100 - partner.positive - partner.negative}%"></div>
-                        <div class="neg" style="width: ${partner.negative}%"></div>
+            // Search functionality
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                renderPartnersList(e.target.value);
+            });
+        }
+        
+        function formatNumber(num) {
+            if (num >= 1000000000) return (num / 1000000000).toFixed(1) + 'B';
+            if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+            if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+            return num.toString();
+        }
+        
+        function updateStats() {
+            const totalVideos = partnersData.reduce((sum, p) => sum + p.video_count, 0);
+            const totalViews = partnersData.reduce((sum, p) => sum + p.total_views, 0);
+            const totalLikes = partnersData.reduce((sum, p) => sum + p.total_likes, 0);
+            
+            document.getElementById('totalVideos').textContent = totalVideos.toLocaleString();
+            document.getElementById('totalPartners').textContent = partnersData.length;
+            document.getElementById('totalViews').textContent = formatNumber(totalViews);
+            document.getElementById('totalLikes').textContent = formatNumber(totalLikes);
+        }
+        
+        function renderPartnersList(filter = '') {
+            const list = document.getElementById('partnersList');
+            const filtered = partnersData.filter(p => 
+                p.name.toLowerCase().includes(filter.toLowerCase())
+            );
+            
+            list.innerHTML = filtered.map((partner, index) => `
+                <div class="partner-item ${selectedPartner === partner.name ? 'active' : ''}" 
+                     onclick="selectPartner('${partner.name.replace(/'/g, "\\'")}')">
+                    <div class="partner-rank">${index + 1}</div>
+                    <div class="partner-info">
+                        <div class="partner-name">${partner.name}</div>
+                        <div class="partner-meta">${partner.category} · ${partner.video_count} videos</div>
                     </div>
-                    <small class="positive">${partner.positive}%</small> / 
-                    <small class="negative">${partner.negative}%</small>
-                </td>
-            `;
-            tableBody.appendChild(row);
-        });
+                    <div class="partner-views">${formatNumber(partner.total_views)}</div>
+                </div>
+            `).join('');
+        }
+        
+        function selectPartner(name) {
+            selectedPartner = name;
+            const partner = partnersData.find(p => p.name === name);
+            
+            if (!partner) return;
+            
+            document.getElementById('emptyState').style.display = 'none';
+            document.getElementById('detailContent').style.display = 'flex';
+            document.getElementById('detailContent').style.flexDirection = 'column';
+            document.getElementById('detailContent').style.height = '100%';
+            
+            document.getElementById('detailTitle').textContent = partner.name;
+            document.getElementById('detailCategory').textContent = partner.category;
+            document.getElementById('detailCategory').className = 'detail-category cat-' + partner.category;
+            document.getElementById('detailVideos').textContent = partner.video_count;
+            document.getElementById('detailViews').textContent = formatNumber(partner.total_views);
+            document.getElementById('detailLikes').textContent = formatNumber(partner.total_likes);
+            document.getElementById('detailComments').textContent = formatNumber(partner.total_comments);
+            
+            const likeRate = partner.total_views > 0 
+                ? ((partner.total_likes / partner.total_views) * 100).toFixed(2) + '%'
+                : '0%';
+            document.getElementById('detailLikeRate').textContent = likeRate;
+            
+            renderVideosList(partner.videos);
+            renderPartnersList(document.getElementById('searchInput').value);
+        }
+        
+        function renderVideosList(videos) {
+            const list = document.getElementById('videosList');
+            
+            list.innerHTML = videos.map(video => `
+                <div class="video-item">
+                    <div class="video-thumb">
+                        <img src="https://img.youtube.com/vi/${video.video_id}/mqdefault.jpg" 
+                             alt="${video.title}" loading="lazy">
+                    </div>
+                    <div class="video-info">
+                        <div class="video-title">
+                            <a href="${video.url}" target="_blank">${video.title}</a>
+                        </div>
+                        <div class="video-date">${video.published_at}</div>
+                    </div>
+                    <div class="video-stat">
+                        <div class="video-stat-value views-color">${formatNumber(video.view_count)}</div>
+                        <div class="video-stat-label">Views</div>
+                    </div>
+                    <div class="video-stat">
+                        <div class="video-stat-value likes-color">${formatNumber(video.like_count)}</div>
+                        <div class="video-stat-label">Likes</div>
+                    </div>
+                    <div class="video-stat">
+                        <div class="video-stat-value comments-color">${formatNumber(video.comment_count)}</div>
+                        <div class="video-stat-label">Comments</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function initCharts() {
+            // Top Partners Chart
+            const top10 = partnersData.slice(0, 10);
+            new Chart(document.getElementById('topPartnersChart'), {
+                type: 'bar',
+                data: {
+                    labels: top10.map(p => p.name),
+                    datasets: [{
+                        label: 'Views',
+                        data: top10.map(p => p.total_views / 1000000),
+                        backgroundColor: [
+                            '#8b5cf6', '#6366f1', '#3b82f6', '#0ea5e9', '#14b8a6',
+                            '#10b981', '#84cc16', '#eab308', '#f59e0b', '#f97316'
+                        ],
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: (ctx) => ctx.raw.toFixed(1) + 'M views'
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255,255,255,0.05)' },
+                            ticks: { 
+                                color: '#64748b',
+                                callback: (v) => v + 'M'
+                            }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { 
+                                color: '#64748b',
+                                maxRotation: 45,
+                                minRotation: 45
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Category Chart
+            const categories = {};
+            partnersData.forEach(p => {
+                categories[p.category] = (categories[p.category] || 0) + p.video_count;
+            });
+            
+            new Chart(document.getElementById('categoryChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(categories),
+                    datasets: [{
+                        data: Object.values(categories),
+                        backgroundColor: [
+                            '#6366f1', '#8b5cf6', '#ec4899', '#f59e0b',
+                            '#10b981', '#3b82f6', '#64748b'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: { color: '#94a3b8', padding: 12 }
+                        }
+                    },
+                    cutout: '60%'
+                }
+            });
+        }
     </script>
 </body>
 </html>
