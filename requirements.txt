@@ -1,0 +1,23 @@
+# YouTube API
+google-api-python-client>=2.108.0
+google-auth>=2.23.0
+google-auth-oauthlib>=1.1.0
+
+# OpenAI GPT API
+openai>=1.6.0
+
+# Data Processing
+pandas>=2.1.0
+pydantic>=2.5.0
+
+# Utilities
+python-dotenv>=1.0.0
+tqdm>=4.66.0
+tenacity>=8.2.0
+httpx>=0.25.0
+
+# CLI
+click>=8.1.0
+
+# Database (optional ORM)
+# SQLAlchemy>=2.0.0
