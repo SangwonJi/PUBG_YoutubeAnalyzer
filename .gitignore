@@ -17,8 +17,8 @@ data/*.sqlite
 data/*.sqlite3
 *.db
 
-# Output files (generated reports)
-output/*.csv
+# Output files (generated reports) - keep CSV for sharing
+# output/*.csv
 output/*.json
 !output/.gitkeep
 

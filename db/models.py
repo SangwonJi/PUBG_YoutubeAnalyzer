@@ -117,7 +117,7 @@ class Database:
     @contextmanager
     def get_connection(self):
         """Get database connection context manager."""
-        conn = sqlite3.connect(self.db_path, detect_types=sqlite3.PARSE_DECLTYPES)
+        conn = sqlite3.connect(self.db_path)
         conn.row_factory = sqlite3.Row
         try:
             yield conn

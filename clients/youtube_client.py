@@ -150,9 +150,11 @@ class YouTubeClient:
                     published_at = datetime.fromisoformat(
                         published_at_str.replace("Z", "+00:00")
                     )
+                    # Remove timezone for comparison
+                    published_at_naive = published_at.replace(tzinfo=None)
                     
                     # Filter by date if specified
-                    if published_after and published_at < published_after:
+                    if published_after and published_at_naive < published_after:
                         # Playlist is in reverse chronological order
                         # Once we hit videos older than the cutoff, stop
                         yield video_ids, None
