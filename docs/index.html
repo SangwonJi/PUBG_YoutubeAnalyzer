@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUBG MOBILE Collab Analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #f5af19, #f12711);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #8892b0;
+            font-size: 1.1rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-label {
+            color: #8892b0;
+            margin-top: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .charts-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .chart-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .chart-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #ccd6f6;
+        }
+        
+        .table-section {
+            margin: 40px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        th {
+            background: rgba(255,255,255,0.1);
+            font-weight: 600;
+            color: #ccd6f6;
+        }
+        
+        tr:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        
+        .positive { color: #4ade80; }
+        .negative { color: #f87171; }
+        .neutral { color: #fbbf24; }
+        
+        .sentiment-bar {
+            display: flex;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .sentiment-bar .pos { background: #4ade80; }
+        .sentiment-bar .neu { background: #fbbf24; }
+        .sentiment-bar .neg { background: #f87171; }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .badge-artist { background: #8b5cf6; }
+        .badge-brand { background: #3b82f6; }
+        .badge-anime { background: #ec4899; }
+        .badge-movie { background: #f59e0b; }
+        .badge-game { background: #10b981; }
+        .badge-ip { background: #6366f1; }
+        
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #8892b0;
+        }
+        
+        footer a {
+            color: #64ffda;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .charts-section {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PUBG MOBILE Collab Analysis</h1>
+            <p class="subtitle">YouTube Channel Data Analysis (2025.01 - 2026.01)</p>
+        </header>
+        
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">1,004</div>
+                <div class="stat-label">Total Videos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">115</div>
+                <div class="stat-label">Collab Partners</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">702M</div>
+                <div class="stat-label">Total Views</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">49%</div>
+                <div class="stat-label">Positive Comments</div>
+            </div>
+        </section>
+        
+        <section class="charts-section">
+            <div class="chart-card">
+                <h3 class="chart-title">Top 10 Partners by Views</h3>
+                <canvas id="partnersChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3 class="chart-title">Sentiment Distribution</h3>
+                <canvas id="sentimentChart"></canvas>
+            </div>
+        </section>
+        
+        <section class="charts-section">
+            <div class="chart-card">
+                <h3 class="chart-title">Category Distribution</h3>
+                <canvas id="categoryChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3 class="chart-title">Partner Sentiment Comparison</h3>
+                <canvas id="partnerSentimentChart"></canvas>
+            </div>
+        </section>
+        
+        <section class="table-section">
+            <div class="chart-card">
+                <h3 class="chart-title">Top Collab Partners</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Partner</th>
+                            <th>Category</th>
+                            <th>Videos</th>
+                            <th>Total Views</th>
+                            <th>Sentiment</th>
+                        </tr>
+                    </thead>
+                    <tbody id="partnersTable">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Data collected from <a href="https://www.youtube.com/@PUBGMOBILE" target="_blank">PUBG MOBILE YouTube Channel</a></p>
+            <p style="margin-top: 10px;">
+                <a href="https://github.com/SangwonJi/PUBG_YoutubeAnalyzer" target="_blank">View on GitHub</a>
+            </p>
+        </footer>
+    </div>
+    
+    <script>
+        // Data
+        const partnersData = [
+            { name: 'BABYMONSTER', views: 75021413, videos: 8, category: 'Artist', positive: 61.3, negative: 12.9 },
+            { name: 'Sonic', views: 20971453, videos: 2, category: 'IP', positive: 44.2, negative: 18.2 },
+            { name: 'Dying Light', views: 20793698, videos: 3, category: 'Game', positive: 48.8, negative: 22.9 },
+            { name: 'TRANSFORMERS', views: 20100050, videos: 22, category: 'Movie', positive: 50.0, negative: 14.6 },
+            { name: 'Porsche', views: 14338123, videos: 2, category: 'Brand', positive: 47.3, negative: 16.9 },
+            { name: 'Peaky Blinders', views: 10109030, videos: 1, category: 'Movie', positive: 46.4, negative: 13.0 },
+            { name: 'Bugatti', views: 9044795, videos: 9, category: 'Brand', positive: 45.0, negative: 15.0 },
+            { name: 'Attack on Titan', views: 6202653, videos: 20, category: 'Anime', positive: 52.0, negative: 12.0 },
+            { name: 'Skibidi Toilet', views: 5715245, videos: 2, category: 'IP', positive: 31.5, negative: 25.5 },
+            { name: 'Godzilla', views: 5344200, videos: 7, category: 'Movie', positive: 48.0, negative: 14.0 }
+        ];
+        
+        const sentimentData = {
+            positive: 49.0,
+            neutral: 32.9,
+            negative: 18.1
+        };
+        
+        const categoryData = {
+            'IP': 45,
+            'Brand': 18,
+            'Movie': 15,
+            'Anime': 12,
+            'Artist': 8,
+            'Game': 7,
+            'Other': 10
+        };
+        
+        // Chart colors
+        const colors = {
+            primary: '#3a7bd5',
+            secondary: '#00d2ff',
+            positive: '#4ade80',
+            neutral: '#fbbf24',
+            negative: '#f87171',
+            purple: '#8b5cf6',
+            pink: '#ec4899',
+            orange: '#f59e0b'
+        };
+        
+        // Partners Bar Chart
+        new Chart(document.getElementById('partnersChart'), {
+            type: 'bar',
+            data: {
+                labels: partnersData.map(p => p.name),
+                datasets: [{
+                    label: 'Views (Millions)',
+                    data: partnersData.map(p => (p.views / 1000000).toFixed(1)),
+                    backgroundColor: [
+                        '#8b5cf6', '#3b82f6', '#10b981', '#f59e0b', '#3b82f6',
+                        '#f59e0b', '#3b82f6', '#ec4899', '#6366f1', '#f59e0b'
+                    ],
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(255,255,255,0.1)' },
+                        ticks: { color: '#8892b0' }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#8892b0', maxRotation: 45 }
+                    }
+                }
+            }
+        });
+        
+        // Sentiment Doughnut Chart
+        new Chart(document.getElementById('sentimentChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Positive', 'Neutral', 'Negative'],
+                datasets: [{
+                    data: [sentimentData.positive, sentimentData.neutral, sentimentData.negative],
+                    backgroundColor: [colors.positive, colors.neutral, colors.negative],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { color: '#ccd6f6', padding: 20 }
+                    }
+                },
+                cutout: '60%'
+            }
+        });
+        
+        // Category Pie Chart
+        new Chart(document.getElementById('categoryChart'), {
+            type: 'pie',
+            data: {
+                labels: Object.keys(categoryData),
+                datasets: [{
+                    data: Object.values(categoryData),
+                    backgroundColor: [
+                        '#6366f1', '#3b82f6', '#f59e0b', '#ec4899', 
+                        '#8b5cf6', '#10b981', '#64748b'
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { color: '#ccd6f6', padding: 15 }
+                    }
+                }
+            }
+        });
+        
+        // Partner Sentiment Comparison
+        new Chart(document.getElementById('partnerSentimentChart'), {
+            type: 'bar',
+            data: {
+                labels: partnersData.slice(0, 8).map(p => p.name),
+                datasets: [
+                    {
+                        label: 'Positive %',
+                        data: partnersData.slice(0, 8).map(p => p.positive),
+                        backgroundColor: colors.positive,
+                        borderRadius: 4
+                    },
+                    {
+                        label: 'Negative %',
+                        data: partnersData.slice(0, 8).map(p => p.negative),
+                        backgroundColor: colors.negative,
+                        borderRadius: 4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: { color: '#ccd6f6' }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 70,
+                        grid: { color: 'rgba(255,255,255,0.1)' },
+                        ticks: { color: '#8892b0' }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#8892b0', maxRotation: 45 }
+                    }
+                }
+            }
+        });
+        
+        // Populate table
+        const tableBody = document.getElementById('partnersTable');
+        partnersData.forEach((partner, index) => {
+            const badgeClass = {
+                'Artist': 'badge-artist',
+                'Brand': 'badge-brand',
+                'Anime': 'badge-anime',
+                'Movie': 'badge-movie',
+                'Game': 'badge-game',
+                'IP': 'badge-ip'
+            }[partner.category] || 'badge-ip';
+            
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td><strong>${partner.name}</strong></td>
+                <td><span class="badge ${badgeClass}">${partner.category}</span></td>
+                <td>${partner.videos}</td>
+                <td>${(partner.views / 1000000).toFixed(1)}M</td>
+                <td>
+                    <div class="sentiment-bar">
+                        <div class="pos" style="width: ${partner.positive}%"></div>
+                        <div class="neu" style="width: ${100 - partner.positive - partner.negative}%"></div>
+                        <div class="neg" style="width: ${partner.negative}%"></div>
+                    </div>
+                    <small class="positive">${partner.positive}%</small> / 
+                    <small class="negative">${partner.negative}%</small>
+                </td>
+            `;
+            tableBody.appendChild(row);
+        });
+    </script>
+</body>
+</html>
