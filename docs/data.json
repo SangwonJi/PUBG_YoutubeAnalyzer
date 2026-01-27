@@ -398,6 +398,54 @@
     "video_count": 22
   },
   {
+    "name": "Peaky Blinders",
+    "category": "Other",
+    "videos": [
+      {
+        "video_id": "Tw-F9ZMddSU",
+        "title": "PUBG MOBILE x Peaky Blinders Collaboration Trailer",
+        "published_at": "2026-01-09",
+        "view_count": 10109030,
+        "like_count": 19281,
+        "comment_count": 1049,
+        "url": "https://www.youtube.com/watch?v=Tw-F9ZMddSU"
+      },
+      {
+        "video_id": "ZMxaKxLyVDE",
+        "title": "PUBG MOBILE | Let‘s enjoy Peaky Blinders Style!",
+        "published_at": "2026-01-14",
+        "view_count": 3112126,
+        "like_count": 1904,
+        "comment_count": 47,
+        "url": "https://www.youtube.com/watch?v=ZMxaKxLyVDE"
+      },
+      {
+        "video_id": "IlgtxzdEOTE",
+        "title": "PUBG MOBILE | 420 IP Peaky Blinders In-game Showcase Video",
+        "published_at": "2026-01-10",
+        "view_count": 2171612,
+        "like_count": 746,
+        "comment_count": 45,
+        "url": "https://www.youtube.com/watch?v=IlgtxzdEOTE"
+      }
+    ],
+    "total_views": 15392768,
+    "total_likes": 21931,
+    "total_comments": 1141,
+    "sentiment": {
+      "total_comments_analyzed": 138,
+      "positive": 64,
+      "negative": 18,
+      "neutral": 56,
+      "positive_ratio": 46.38,
+      "negative_ratio": 13.04,
+      "neutral_ratio": 40.58,
+      "avg_compound": 0.191,
+      "overall_sentiment": "positive"
+    },
+    "video_count": 3
+  },
+  {
     "name": "Porsche",
     "category": "Brand",
     "videos": [
@@ -435,36 +483,6 @@
       "overall_sentiment": "positive"
     },
     "video_count": 2
-  },
-  {
-    "name": "Peaky Blinders",
-    "category": "IP",
-    "videos": [
-      {
-        "video_id": "Tw-F9ZMddSU",
-        "title": "PUBG MOBILE x Peaky Blinders Collaboration Trailer",
-        "published_at": "2026-01-09",
-        "view_count": 10109030,
-        "like_count": 19281,
-        "comment_count": 1049,
-        "url": "https://www.youtube.com/watch?v=Tw-F9ZMddSU"
-      }
-    ],
-    "total_views": 10109030,
-    "total_likes": 19281,
-    "total_comments": 1049,
-    "sentiment": {
-      "total_comments_analyzed": 138,
-      "positive": 64,
-      "negative": 18,
-      "neutral": 56,
-      "positive_ratio": 46.38,
-      "negative_ratio": 13.04,
-      "neutral_ratio": 40.58,
-      "avg_compound": 0.191,
-      "overall_sentiment": "positive"
-    },
-    "video_count": 1
   },
   {
     "name": "Bugatti",
@@ -3047,26 +3065,6 @@
     "total_views": 2450,
     "total_likes": 71,
     "total_comments": 3,
-    "sentiment": null,
-    "video_count": 1
-  },
-  {
-    "name": "Empyrean Charm",
-    "category": "Movie",
-    "videos": [
-      {
-        "video_id": "QbZBQEqPFn0",
-        "title": "PUBG MOBILE | New Empyrean Series Sets featuring Empyrean Charm - QBZ Coming Soon",
-        "published_at": "2025-01-26",
-        "view_count": 2141,
-        "like_count": 147,
-        "comment_count": 5,
-        "url": "https://www.youtube.com/watch?v=QbZBQEqPFn0"
-      }
-    ],
-    "total_views": 2141,
-    "total_likes": 147,
-    "total_comments": 5,
     "sentiment": null,
     "video_count": 1
   },

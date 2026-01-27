@@ -381,15 +381,6 @@
       "url": "https://www.youtube.com/watch?v=McmLjThdLLQ"
     },
     {
-      "video_id": "ZMxaKxLyVDE",
-      "title": "PUBG MOBILE | Let‘s enjoy Peaky Blinders Style!",
-      "published_at": "2026-01-14",
-      "view_count": 3112126,
-      "like_count": 1904,
-      "comment_count": 47,
-      "url": "https://www.youtube.com/watch?v=ZMxaKxLyVDE"
-    },
-    {
       "video_id": "d-Gv5C9nEHs",
       "title": "PUBG MOBILE | V4.2 TREANT SMART ALLY BARKLE GUIDE",
       "published_at": "2026-01-08",
@@ -658,15 +649,6 @@
       "like_count": 5366,
       "comment_count": 56,
       "url": "https://www.youtube.com/watch?v=ZXvr4kcB68s"
-    },
-    {
-      "video_id": "IlgtxzdEOTE",
-      "title": "PUBG MOBILE | 420 IP Peaky Blinders In-game Showcase Video",
-      "published_at": "2026-01-10",
-      "view_count": 2171612,
-      "like_count": 746,
-      "comment_count": 45,
-      "url": "https://www.youtube.com/watch?v=IlgtxzdEOTE"
     },
     {
       "video_id": "B4jfk27BhiQ",
@@ -4611,9 +4593,9 @@
       "url": "https://www.youtube.com/watch?v=lGySzZZFDPo"
     }
   ],
-  "total_views": 447052965,
-  "total_likes": 706906,
-  "total_comments": 23406,
+  "total_views": 441769227,
+  "total_likes": 704256,
+  "total_comments": 23314,
   "sentiment": {
     "total_comments_analyzed": 1652,
     "positive": 817,
@@ -4625,5 +4607,5 @@
     "avg_compound": 0.2247,
     "overall_sentiment": "positive"
   },
-  "video_count": 512
+  "video_count": 510
 }

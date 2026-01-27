@@ -38,11 +38,21 @@ merge_map = {
     '': 'Others'
 }
 
+# Video ID overrides for misclassified videos
+video_id_override = {
+    'ZMxaKxLyVDE': 'Peaky Blinders',  # Let's enjoy Peaky Blinders Style!
+    'IlgtxzdEOTE': 'Peaky Blinders',  # 420 IP Peaky Blinders In-game Showcase
+}
+
 partners_data = {}
 for v in videos:
-    # Apply merge rules
-    original_partner = v.collab_partner
-    partner = merge_map.get(original_partner, original_partner) or 'Others'
+    # Check video ID override first
+    if v.video_id in video_id_override:
+        partner = video_id_override[v.video_id]
+    else:
+        # Apply merge rules
+        original_partner = v.collab_partner
+        partner = merge_map.get(original_partner, original_partner) or 'Others'
     
     if partner not in partners_data:
         partners_data[partner] = {
