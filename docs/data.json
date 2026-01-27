@@ -31,6 +31,15 @@
         "url": "https://www.youtube.com/watch?v=jEP_3nH61h4"
       },
       {
+        "video_id": "GurTT4S84a0",
+        "title": "Join BABYMONSTER in Celebrating PUBG MOBILE’s 7th Anniversary!",
+        "published_at": "2025-03-21",
+        "view_count": 2953749,
+        "like_count": 6785,
+        "comment_count": 311,
+        "url": "https://www.youtube.com/watch?v=GurTT4S84a0"
+      },
+      {
         "video_id": "Lov6rzsKpiY",
         "title": "PUBG MOBILE X BABYMONSTER:Your Ultimate Guide​",
         "published_at": "2025-11-21",
@@ -67,6 +76,15 @@
         "url": "https://www.youtube.com/watch?v=BtHarMkQm9k"
       },
       {
+        "video_id": "od5c6A_4hj0",
+        "title": "PUBG MOBILE | WOW-BABYMONSTER MapRecommendation",
+        "published_at": "2025-11-28",
+        "view_count": 1216390,
+        "like_count": 71,
+        "comment_count": 4,
+        "url": "https://www.youtube.com/watch?v=od5c6A_4hj0"
+      },
+      {
         "video_id": "dnkOdWFiiYM",
         "title": "PUBG MOBILE X BABYMONSTER Collaboration Teaser",
         "published_at": "2025-03-20",
@@ -74,11 +92,29 @@
         "like_count": 3061,
         "comment_count": 162,
         "url": "https://www.youtube.com/watch?v=dnkOdWFiiYM"
+      },
+      {
+        "video_id": "dnKgM0QzgPk",
+        "title": "Show Off Your Style With BABYMONSTER Drip Dance",
+        "published_at": "2025-04-04",
+        "view_count": 5132,
+        "like_count": 261,
+        "comment_count": 30,
+        "url": "https://www.youtube.com/watch?v=dnKgM0QzgPk"
+      },
+      {
+        "video_id": "lNBqoistei8",
+        "title": "PUBG MOBILE | BABYMONSTER COLLAB IN 1 MINUTE",
+        "published_at": "2025-12-19",
+        "view_count": 4628,
+        "like_count": 106,
+        "comment_count": 7,
+        "url": "https://www.youtube.com/watch?v=lNBqoistei8"
       }
     ],
-    "total_views": 75021413,
-    "total_likes": 75141,
-    "total_comments": 2691,
+    "total_views": 79201312,
+    "total_likes": 82364,
+    "total_comments": 3043,
     "sentiment": {
       "total_comments_analyzed": 373,
       "positive": 228,
@@ -89,46 +125,7 @@
       "neutral_ratio": 25.74,
       "overall_sentiment": "positive"
     },
-    "video_count": 8
-  },
-  {
-    "name": "Sonic",
-    "category": "IP",
-    "videos": [
-      {
-        "video_id": "WDfRUd6iS8A",
-        "title": "PUBG MOBILE X Sonic | Collaboration Trailer",
-        "published_at": "2025-10-03",
-        "view_count": 16724637,
-        "like_count": 2639,
-        "comment_count": 250,
-        "url": "https://www.youtube.com/watch?v=WDfRUd6iS8A"
-      },
-      {
-        "video_id": "3-OhIBUz-O8",
-        "title": "PUBG MOBILE X Sonic Collaboration Is Now Alive!",
-        "published_at": "2025-10-03",
-        "view_count": 4246816,
-        "like_count": 628,
-        "comment_count": 52,
-        "url": "https://www.youtube.com/watch?v=3-OhIBUz-O8"
-      }
-    ],
-    "total_views": 20971453,
-    "total_likes": 3267,
-    "total_comments": 302,
-    "sentiment": {
-      "total_comments_analyzed": 181,
-      "positive": 80,
-      "negative": 33,
-      "neutral": 68,
-      "positive_ratio": 44.2,
-      "negative_ratio": 18.23,
-      "neutral_ratio": 37.57,
-      "avg_compound": 0.1738,
-      "overall_sentiment": "positive"
-    },
-    "video_count": 2
+    "video_count": 12
   },
   {
     "name": "Dying Light",
@@ -160,11 +157,38 @@
         "like_count": 641,
         "comment_count": 92,
         "url": "https://www.youtube.com/watch?v=hfzAHb4-W9g"
+      },
+      {
+        "video_id": "MBAQcvgQhTE",
+        "title": "PUBG MOBILE | Dying Light: The Beast-Themed WOW Map PV",
+        "published_at": "2025-10-26",
+        "view_count": 1621578,
+        "like_count": 214,
+        "comment_count": 13,
+        "url": "https://www.youtube.com/watch?v=MBAQcvgQhTE"
+      },
+      {
+        "video_id": "uzRMCFH5cW4",
+        "title": "PUBG MOBILE | Dying Light The Beast Creative",
+        "published_at": "2025-10-29",
+        "view_count": 13349,
+        "like_count": 462,
+        "comment_count": 11,
+        "url": "https://www.youtube.com/watch?v=uzRMCFH5cW4"
+      },
+      {
+        "video_id": "TMRypFxyPpw",
+        "title": "PUBG MOBILE X Dying Light The Beast Dev Talk",
+        "published_at": "2025-10-31",
+        "view_count": 5209,
+        "like_count": 126,
+        "comment_count": 32,
+        "url": "https://www.youtube.com/watch?v=TMRypFxyPpw"
       }
     ],
-    "total_views": 20793698,
-    "total_likes": 3130,
-    "total_comments": 308,
+    "total_views": 22433834,
+    "total_likes": 3932,
+    "total_comments": 364,
     "sentiment": {
       "total_comments_analyzed": 205,
       "positive": 100,
@@ -176,7 +200,7 @@
       "avg_compound": 0.1782,
       "overall_sentiment": "positive"
     },
-    "video_count": 3
+    "video_count": 6
   },
   {
     "name": "TRANSFORMERS",
@@ -246,6 +270,33 @@
         "url": "https://www.youtube.com/watch?v=9EdCLPvyYTc"
       },
       {
+        "video_id": "C-oPrajCTnk",
+        "title": "PUBG MOBILE | 3.9 Version Update Patch Note is Here",
+        "published_at": "2025-07-07",
+        "view_count": 491037,
+        "like_count": 3305,
+        "comment_count": 322,
+        "url": "https://www.youtube.com/watch?v=C-oPrajCTnk"
+      },
+      {
+        "video_id": "49ybY1Axq8o",
+        "title": "🎙️ Optimus Prime’s Voice Joins the Battle in PUBG MOBILE’s TRANSFORMERS Crossover",
+        "published_at": "2025-07-25",
+        "view_count": 267664,
+        "like_count": 2117,
+        "comment_count": 8,
+        "url": "https://www.youtube.com/watch?v=49ybY1Axq8o"
+      },
+      {
+        "video_id": "UfTCb8mxPkA",
+        "title": "PUBG MOBILE | Cyber Clash: Decepticon Domination",
+        "published_at": "2025-08-08",
+        "view_count": 199580,
+        "like_count": 1177,
+        "comment_count": 14,
+        "url": "https://www.youtube.com/watch?v=UfTCb8mxPkA"
+      },
+      {
         "video_id": "EHukoOBYQX8",
         "title": "🎬 You Answered the Signal of Cybertron | PUBG MOBILE x TRANSFORMERS",
         "published_at": "2025-07-25",
@@ -253,6 +304,24 @@
         "like_count": 1405,
         "comment_count": 18,
         "url": "https://www.youtube.com/watch?v=EHukoOBYQX8"
+      },
+      {
+        "video_id": "U8hSWoDJ4DA",
+        "title": "PUBG MOBILE x TRANSFORMERS Epic Collaboration!",
+        "published_at": "2025-08-23",
+        "view_count": 144802,
+        "like_count": 145,
+        "comment_count": 17,
+        "url": "https://www.youtube.com/watch?v=U8hSWoDJ4DA"
+      },
+      {
+        "video_id": "sbSXn8oBgxg",
+        "title": "PUBG MOBILE | The Cosmic Hoverboard Has Arrived",
+        "published_at": "2025-07-26",
+        "view_count": 141505,
+        "like_count": 86,
+        "comment_count": 15,
+        "url": "https://www.youtube.com/watch?v=sbSXn8oBgxg"
       },
       {
         "video_id": "sPuRQYdobIY",
@@ -280,6 +349,15 @@
         "like_count": 6068,
         "comment_count": 100,
         "url": "https://www.youtube.com/watch?v=ZJWDU2nMC9U"
+      },
+      {
+        "video_id": "IIF8_fMdP5g",
+        "title": "PUBG MOBILE | Welcome to the Astro Den 👊",
+        "published_at": "2025-07-11",
+        "view_count": 98287,
+        "like_count": 187,
+        "comment_count": 30,
+        "url": "https://www.youtube.com/watch?v=IIF8_fMdP5g"
       },
       {
         "video_id": "USHmtQ8b7mA",
@@ -318,6 +396,15 @@
         "url": "https://www.youtube.com/watch?v=nqE-Q2EMPaI"
       },
       {
+        "video_id": "5cWdSFKjA64",
+        "title": "PUBG MOBILE | V3.9 STRATEGY - TRANSFORMERS",
+        "published_at": "2025-07-08",
+        "view_count": 24934,
+        "like_count": 520,
+        "comment_count": 74,
+        "url": "https://www.youtube.com/watch?v=5cWdSFKjA64"
+      },
+      {
         "video_id": "vvia80qrQ1o",
         "title": "PUBG MOBILE x TRANSFORMERS | Cybertron Dance Battle",
         "published_at": "2025-08-06",
@@ -334,6 +421,33 @@
         "like_count": 1012,
         "comment_count": 16,
         "url": "https://www.youtube.com/watch?v=a4oIyzQEiJ8"
+      },
+      {
+        "video_id": "Mk0gQcw8vEo",
+        "title": "PUBG MOBILE | Cyber Clash: Funny Faction Moments!",
+        "published_at": "2025-08-16",
+        "view_count": 14969,
+        "like_count": 570,
+        "comment_count": 7,
+        "url": "https://www.youtube.com/watch?v=Mk0gQcw8vEo"
+      },
+      {
+        "video_id": "xho0qJUXRko",
+        "title": "PUBG MOBILE: Cyber Clash | $5K USD Prize and MASSIVE UC Giveaway!",
+        "published_at": "2025-07-23",
+        "view_count": 14343,
+        "like_count": 421,
+        "comment_count": 9,
+        "url": "https://www.youtube.com/watch?v=xho0qJUXRko"
+      },
+      {
+        "video_id": "JJAJgW7KeRs",
+        "title": "PUBG MOBILE | Cyber Clash: Optimus Prime vs Megatron Highlights",
+        "published_at": "2025-08-07",
+        "view_count": 13171,
+        "like_count": 703,
+        "comment_count": 8,
+        "url": "https://www.youtube.com/watch?v=JJAJgW7KeRs"
       },
       {
         "video_id": "cvFDQNX0LNQ",
@@ -354,6 +468,42 @@
         "url": "https://www.youtube.com/watch?v=CmqGl6CZgNQ"
       },
       {
+        "video_id": "T10NokrJ6N0",
+        "title": "PUBG MOBILE | DEV TALK - TRANSFORMERS VERSION",
+        "published_at": "2025-07-10",
+        "view_count": 10469,
+        "like_count": 269,
+        "comment_count": 21,
+        "url": "https://www.youtube.com/watch?v=T10NokrJ6N0"
+      },
+      {
+        "video_id": "9BQJY--j79c",
+        "title": "PUBG MOBILE | How To Summon TRANSFORMERS in PUBG MOBILE",
+        "published_at": "2025-07-19",
+        "view_count": 10335,
+        "like_count": 107,
+        "comment_count": 17,
+        "url": "https://www.youtube.com/watch?v=9BQJY--j79c"
+      },
+      {
+        "video_id": "zkje9VvRYYA",
+        "title": "PUBG MOBILE | Skateboarding x Cosmic Hoverboard",
+        "published_at": "2025-08-07",
+        "view_count": 9515,
+        "like_count": 547,
+        "comment_count": 7,
+        "url": "https://www.youtube.com/watch?v=zkje9VvRYYA"
+      },
+      {
+        "video_id": "HwKAANw7v7s",
+        "title": "PUBG MOBILE | V3.9 STRATEGY - THEMED AREAS",
+        "published_at": "2025-07-08",
+        "view_count": 6881,
+        "like_count": 275,
+        "comment_count": 42,
+        "url": "https://www.youtube.com/watch?v=HwKAANw7v7s"
+      },
+      {
         "video_id": "iXLsmAkT8zY",
         "title": "PUBG MOBILE x TRANSFORMERS | Roll Out with Bumblebee",
         "published_at": "2025-08-02",
@@ -361,6 +511,24 @@
         "like_count": 103,
         "comment_count": 24,
         "url": "https://www.youtube.com/watch?v=iXLsmAkT8zY"
+      },
+      {
+        "video_id": "RKTKpB9zfv8",
+        "title": "PUBG MOBILE | Check Out What’s New in Version 3.9",
+        "published_at": "2025-07-27",
+        "view_count": 4866,
+        "like_count": 120,
+        "comment_count": 8,
+        "url": "https://www.youtube.com/watch?v=RKTKpB9zfv8"
+      },
+      {
+        "video_id": "yBbOE1faRnA",
+        "title": "PUBG MOBILE | \"Man vs Machine\" song by DarWin",
+        "published_at": "2025-07-25",
+        "view_count": 4864,
+        "like_count": 84,
+        "comment_count": 14,
+        "url": "https://www.youtube.com/watch?v=yBbOE1faRnA"
       },
       {
         "video_id": "hS1OEH0x60s",
@@ -379,11 +547,20 @@
         "like_count": 103,
         "comment_count": 7,
         "url": "https://www.youtube.com/watch?v=OAcXu4ed0tM"
+      },
+      {
+        "video_id": "2PoOAGJqASQ",
+        "title": "PUBG MOBILE | Step into the Ring and claim the Splinterstar Boxer Set",
+        "published_at": "2025-07-26",
+        "view_count": 1802,
+        "like_count": 30,
+        "comment_count": 6,
+        "url": "https://www.youtube.com/watch?v=2PoOAGJqASQ"
       }
     ],
-    "total_views": 20100050,
-    "total_likes": 32621,
-    "total_comments": 1487,
+    "total_views": 21559074,
+    "total_likes": 43284,
+    "total_comments": 2106,
     "sentiment": {
       "total_comments_analyzed": 164,
       "positive": 82,
@@ -395,7 +572,103 @@
       "avg_compound": 0.2373,
       "overall_sentiment": "positive"
     },
-    "video_count": 22
+    "video_count": 39
+  },
+  {
+    "name": "Sonic",
+    "category": "IP",
+    "videos": [
+      {
+        "video_id": "WDfRUd6iS8A",
+        "title": "PUBG MOBILE X Sonic | Collaboration Trailer",
+        "published_at": "2025-10-03",
+        "view_count": 16724637,
+        "like_count": 2639,
+        "comment_count": 250,
+        "url": "https://www.youtube.com/watch?v=WDfRUd6iS8A"
+      },
+      {
+        "video_id": "3-OhIBUz-O8",
+        "title": "PUBG MOBILE X Sonic Collaboration Is Now Alive!",
+        "published_at": "2025-10-03",
+        "view_count": 4246816,
+        "like_count": 628,
+        "comment_count": 52,
+        "url": "https://www.youtube.com/watch?v=3-OhIBUz-O8"
+      }
+    ],
+    "total_views": 20971453,
+    "total_likes": 3267,
+    "total_comments": 302,
+    "sentiment": {
+      "total_comments_analyzed": 181,
+      "positive": 80,
+      "negative": 33,
+      "neutral": 68,
+      "positive_ratio": 44.2,
+      "negative_ratio": 18.23,
+      "neutral_ratio": 37.57,
+      "avg_compound": 0.1738,
+      "overall_sentiment": "positive"
+    },
+    "video_count": 2
+  },
+  {
+    "name": "Porsche",
+    "category": "Other",
+    "videos": [
+      {
+        "video_id": "VrrnjG4cvZ4",
+        "title": "PUBG MOBILE x Porsche Collaboration Trailer",
+        "published_at": "2025-12-03",
+        "view_count": 9050200,
+        "like_count": 680,
+        "comment_count": 79,
+        "url": "https://www.youtube.com/watch?v=VrrnjG4cvZ4"
+      },
+      {
+        "video_id": "0wTp0E0suQA",
+        "title": "PUBG MOBILE x Porsche | Dominate in style with iconic Porsche vehicles!",
+        "published_at": "2025-12-04",
+        "view_count": 5287923,
+        "like_count": 442,
+        "comment_count": 78,
+        "url": "https://www.youtube.com/watch?v=0wTp0E0suQA"
+      },
+      {
+        "video_id": "Ka29yHhLBHs",
+        "title": "PUBG x PUBG MOBILE x Porsche Trailer",
+        "published_at": "2025-10-31",
+        "view_count": 4877042,
+        "like_count": 734,
+        "comment_count": 96,
+        "url": "https://www.youtube.com/watch?v=Ka29yHhLBHs"
+      },
+      {
+        "video_id": "y3VSTvbWack",
+        "title": "PUBG MOBILE |  Chicko's Porsche",
+        "published_at": "2025-12-10",
+        "view_count": 1602034,
+        "like_count": 5078,
+        "comment_count": 11,
+        "url": "https://www.youtube.com/watch?v=y3VSTvbWack"
+      }
+    ],
+    "total_views": 20817199,
+    "total_likes": 6934,
+    "total_comments": 264,
+    "sentiment": {
+      "total_comments_analyzed": 148,
+      "positive": 70,
+      "negative": 25,
+      "neutral": 53,
+      "positive_ratio": 47.3,
+      "negative_ratio": 16.89,
+      "neutral_ratio": 35.81,
+      "avg_compound": 0.1815,
+      "overall_sentiment": "positive"
+    },
+    "video_count": 4
   },
   {
     "name": "Peaky Blinders",
@@ -453,45 +726,6 @@
       "overall_sentiment": "positive"
     },
     "video_count": 4
-  },
-  {
-    "name": "Porsche",
-    "category": "Brand",
-    "videos": [
-      {
-        "video_id": "VrrnjG4cvZ4",
-        "title": "PUBG MOBILE x Porsche Collaboration Trailer",
-        "published_at": "2025-12-03",
-        "view_count": 9050200,
-        "like_count": 680,
-        "comment_count": 79,
-        "url": "https://www.youtube.com/watch?v=VrrnjG4cvZ4"
-      },
-      {
-        "video_id": "0wTp0E0suQA",
-        "title": "PUBG MOBILE x Porsche | Dominate in style with iconic Porsche vehicles!",
-        "published_at": "2025-12-04",
-        "view_count": 5287923,
-        "like_count": 442,
-        "comment_count": 78,
-        "url": "https://www.youtube.com/watch?v=0wTp0E0suQA"
-      }
-    ],
-    "total_views": 14338123,
-    "total_likes": 1122,
-    "total_comments": 157,
-    "sentiment": {
-      "total_comments_analyzed": 148,
-      "positive": 70,
-      "negative": 25,
-      "neutral": 53,
-      "positive_ratio": 47.3,
-      "negative_ratio": 16.89,
-      "neutral_ratio": 35.81,
-      "avg_compound": 0.1815,
-      "overall_sentiment": "positive"
-    },
-    "video_count": 2
   },
   {
     "name": "Bugatti",
@@ -918,36 +1152,6 @@
     "total_comments": 123,
     "sentiment": null,
     "video_count": 7
-  },
-  {
-    "name": "PUBG MOBILE x Porsche Trailer",
-    "category": "Brand",
-    "videos": [
-      {
-        "video_id": "Ka29yHhLBHs",
-        "title": "PUBG x PUBG MOBILE x Porsche Trailer",
-        "published_at": "2025-10-31",
-        "view_count": 4877042,
-        "like_count": 734,
-        "comment_count": 96,
-        "url": "https://www.youtube.com/watch?v=Ka29yHhLBHs"
-      }
-    ],
-    "total_views": 4877042,
-    "total_likes": 734,
-    "total_comments": 96,
-    "sentiment": {
-      "total_comments_analyzed": 93,
-      "positive": 36,
-      "negative": 9,
-      "neutral": 48,
-      "positive_ratio": 38.71,
-      "negative_ratio": 9.68,
-      "neutral_ratio": 51.61,
-      "avg_compound": 0.1744,
-      "overall_sentiment": "positive"
-    },
-    "video_count": 1
   },
   {
     "name": "PUBG MOBILE x G",
@@ -1906,26 +2110,6 @@
     "video_count": 1
   },
   {
-    "name": "TRANSFORMERS Epic",
-    "category": "Movie",
-    "videos": [
-      {
-        "video_id": "U8hSWoDJ4DA",
-        "title": "PUBG MOBILE x TRANSFORMERS Epic Collaboration!",
-        "published_at": "2025-08-23",
-        "view_count": 144802,
-        "like_count": 145,
-        "comment_count": 17,
-        "url": "https://www.youtube.com/watch?v=U8hSWoDJ4DA"
-      }
-    ],
-    "total_views": 144802,
-    "total_likes": 145,
-    "total_comments": 17,
-    "sentiment": null,
-    "video_count": 1
-  },
-  {
     "name": "the Jadefang Aurora Gilt Set",
     "category": "IP",
     "videos": [
@@ -2618,26 +2802,6 @@
     "video_count": 1
   },
   {
-    "name": "Cosmic Hoverboard",
-    "category": "IP",
-    "videos": [
-      {
-        "video_id": "zkje9VvRYYA",
-        "title": "PUBG MOBILE | Skateboarding x Cosmic Hoverboard",
-        "published_at": "2025-08-07",
-        "view_count": 9515,
-        "like_count": 547,
-        "comment_count": 7,
-        "url": "https://www.youtube.com/watch?v=zkje9VvRYYA"
-      }
-    ],
-    "total_views": 9515,
-    "total_likes": 547,
-    "total_comments": 7,
-    "sentiment": null,
-    "video_count": 1
-  },
-  {
     "name": "t Star Spooky Showdown",
     "category": "IP",
     "videos": [
@@ -2854,46 +3018,6 @@
     "total_views": 5642,
     "total_likes": 155,
     "total_comments": 26,
-    "sentiment": null,
-    "video_count": 1
-  },
-  {
-    "name": "Dying Light The Beast Dev Talk",
-    "category": "IP",
-    "videos": [
-      {
-        "video_id": "TMRypFxyPpw",
-        "title": "PUBG MOBILE X Dying Light The Beast Dev Talk",
-        "published_at": "2025-10-31",
-        "view_count": 5209,
-        "like_count": 126,
-        "comment_count": 32,
-        "url": "https://www.youtube.com/watch?v=TMRypFxyPpw"
-      }
-    ],
-    "total_views": 5209,
-    "total_likes": 126,
-    "total_comments": 32,
-    "sentiment": null,
-    "video_count": 1
-  },
-  {
-    "name": "BABYMONSTER Drip Dance",
-    "category": "IP",
-    "videos": [
-      {
-        "video_id": "dnKgM0QzgPk",
-        "title": "Show Off Your Style With BABYMONSTER Drip Dance",
-        "published_at": "2025-04-04",
-        "view_count": 5132,
-        "like_count": 261,
-        "comment_count": 30,
-        "url": "https://www.youtube.com/watch?v=dnKgM0QzgPk"
-      }
-    ],
-    "total_views": 5132,
-    "total_likes": 261,
-    "total_comments": 30,
     "sentiment": null,
     "video_count": 1
   },
@@ -3134,26 +3258,6 @@
     "total_views": 2036,
     "total_likes": 39,
     "total_comments": 3,
-    "sentiment": null,
-    "video_count": 1
-  },
-  {
-    "name": "er Set",
-    "category": "IP",
-    "videos": [
-      {
-        "video_id": "2PoOAGJqASQ",
-        "title": "PUBG MOBILE | Step into the Ring and claim the Splinterstar Boxer Set",
-        "published_at": "2025-07-26",
-        "view_count": 1802,
-        "like_count": 30,
-        "comment_count": 6,
-        "url": "https://www.youtube.com/watch?v=2PoOAGJqASQ"
-      }
-    ],
-    "total_views": 1802,
-    "total_likes": 30,
-    "total_comments": 6,
     "sentiment": null,
     "video_count": 1
   },

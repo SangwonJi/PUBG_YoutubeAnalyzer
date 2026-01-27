@@ -41,9 +41,44 @@ merge_map = {
 
 # Video ID overrides for misclassified videos
 video_id_override = {
+    # Peaky Blinders
     'ZMxaKxLyVDE': 'Peaky Blinders',  # Let's enjoy Peaky Blinders Style!
     'IlgtxzdEOTE': 'Peaky Blinders',  # 420 IP Peaky Blinders In-game Showcase
     'JSfpFgVpVog': 'Peaky Blinders',  # Peaky Blinders × WOW Map PV
+    
+    # BABYMONSTER
+    'GurTT4S84a0': 'BABYMONSTER',  # Join BABYMONSTER in Celebrating
+    'od5c6A_4hj0': 'BABYMONSTER',  # WOW-BABYMONSTER MapRecommendation
+    'dnKgM0QzgPk': 'BABYMONSTER',  # BABYMONSTER Drip Dance
+    'lNBqoistei8': 'BABYMONSTER',  # BABYMONSTER COLLAB IN 1 MINUTE
+    
+    # Dying Light
+    'MBAQcvgQhTE': 'Dying Light',  # Dying Light: The Beast-Themed WOW Map
+    'uzRMCFH5cW4': 'Dying Light',  # Dying Light The Beast Creative
+    'TMRypFxyPpw': 'Dying Light',  # Dying Light The Beast Dev Talk
+    
+    # Porsche
+    'Ka29yHhLBHs': 'Porsche',  # PUBG x PUBG MOBILE x Porsche Trailer
+    'y3VSTvbWack': 'Porsche',  # Chicko's Porsche
+    
+    # TRANSFORMERS (missing ones)
+    'C-oPrajCTnk': 'TRANSFORMERS',  # 3.9 Version Update Patch Note
+    '49ybY1Axq8o': 'TRANSFORMERS',  # Optimus Prime's Voice
+    'UfTCb8mxPkA': 'TRANSFORMERS',  # Cyber Clash: Decepticon
+    'U8hSWoDJ4DA': 'TRANSFORMERS',  # Epic Collaboration
+    'sbSXn8oBgxg': 'TRANSFORMERS',  # Cosmic Hoverboard
+    'IIF8_fMdP5g': 'TRANSFORMERS',  # Welcome to the Astro Den
+    '5cWdSFKjA64': 'TRANSFORMERS',  # V3.9 STRATEGY
+    'Mk0gQcw8vEo': 'TRANSFORMERS',  # Cyber Clash: Funny Faction
+    'xho0qJUXRko': 'TRANSFORMERS',  # Cyber Clash Prize
+    'JJAJgW7KeRs': 'TRANSFORMERS',  # Cyber Clash: Optimus vs Megatron
+    'T10NokrJ6N0': 'TRANSFORMERS',  # DEV TALK
+    '9BQJY--j79c': 'TRANSFORMERS',  # How To Summon
+    'zkje9VvRYYA': 'TRANSFORMERS',  # Skateboarding x Cosmic Hoverboard
+    'HwKAANw7v7s': 'TRANSFORMERS',  # V3.9 STRATEGY - THEMED AREAS
+    'RKTKpB9zfv8': 'TRANSFORMERS',  # Check Out What's New in Version 3.9
+    'yBbOE1faRnA': 'TRANSFORMERS',  # Man vs Machine song
+    '2PoOAGJqASQ': 'TRANSFORMERS',  # Step into the Ring
 }
 
 partners_data = {}
