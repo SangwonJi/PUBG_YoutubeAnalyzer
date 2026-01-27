@@ -53,6 +53,9 @@ def fetch_videos(
     if incremental:
         last_date = db.get_last_video_date()
         if last_date:
+            # Make timezone-naive for comparison
+            if last_date.tzinfo is not None:
+                last_date = last_date.replace(tzinfo=None)
             # Start from last fetched video (with some overlap for safety)
             cutoff = max(
                 datetime.now() - timedelta(days=days),

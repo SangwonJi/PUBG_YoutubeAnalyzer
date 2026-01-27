@@ -8,7 +8,8 @@ sys.path.insert(0, '.')
 from db.models import Database
 
 db = Database(Path('./data/pubg_collab.db'))
-videos = db.get_collab_videos()
+# Get ALL videos to include video_id_override targets
+videos = db.get_all_videos()
 
 # Load sentiment data
 sentiment_map = {}
@@ -42,6 +43,7 @@ merge_map = {
 video_id_override = {
     'ZMxaKxLyVDE': 'Peaky Blinders',  # Let's enjoy Peaky Blinders Style!
     'IlgtxzdEOTE': 'Peaky Blinders',  # 420 IP Peaky Blinders In-game Showcase
+    'JSfpFgVpVog': 'Peaky Blinders',  # Peaky Blinders × WOW Map PV
 }
 
 partners_data = {}

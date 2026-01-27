@@ -427,11 +427,20 @@
         "like_count": 746,
         "comment_count": 45,
         "url": "https://www.youtube.com/watch?v=IlgtxzdEOTE"
+      },
+      {
+        "video_id": "JSfpFgVpVog",
+        "title": "PUBG MOBILE | Peaky Blinders × WOW Map PV",
+        "published_at": "2026-01-26",
+        "view_count": 2986,
+        "like_count": 141,
+        "comment_count": 15,
+        "url": "https://www.youtube.com/watch?v=JSfpFgVpVog"
       }
     ],
-    "total_views": 15392768,
-    "total_likes": 21931,
-    "total_comments": 1141,
+    "total_views": 15395754,
+    "total_likes": 22072,
+    "total_comments": 1156,
     "sentiment": {
       "total_comments_analyzed": 138,
       "positive": 64,
@@ -443,7 +452,7 @@
       "avg_compound": 0.191,
       "overall_sentiment": "positive"
     },
-    "video_count": 3
+    "video_count": 4
   },
   {
     "name": "Porsche",
@@ -1639,6 +1648,26 @@
     "video_count": 1
   },
   {
+    "name": "GUINNESS WORLD RECORD",
+    "category": "IP",
+    "videos": [
+      {
+        "video_id": "GTPKrb19PBQ",
+        "title": "PUBG MOBILE | Chicko with GUINNESS WORLD RECORD",
+        "published_at": "2026-01-25",
+        "view_count": 484140,
+        "like_count": 638,
+        "comment_count": 25,
+        "url": "https://www.youtube.com/watch?v=GTPKrb19PBQ"
+      }
+    ],
+    "total_views": 484140,
+    "total_likes": 638,
+    "total_comments": 25,
+    "sentiment": null,
+    "video_count": 1
+  },
+  {
     "name": "-Suit Has Landed",
     "category": "IP",
     "videos": [
@@ -2380,26 +2409,6 @@
     "video_count": 1
   },
   {
-    "name": "GUINNESS WORLD RECORD",
-    "category": "IP",
-    "videos": [
-      {
-        "video_id": "GTPKrb19PBQ",
-        "title": "PUBG MOBILE | Chicko with GUINNESS WORLD RECORD",
-        "published_at": "2026-01-25",
-        "view_count": 15932,
-        "like_count": 494,
-        "comment_count": 13,
-        "url": "https://www.youtube.com/watch?v=GTPKrb19PBQ"
-      }
-    ],
-    "total_views": 15932,
-    "total_likes": 494,
-    "total_comments": 13,
-    "sentiment": null,
-    "video_count": 1
-  },
-  {
     "name": "the new Cosmic Hoverboard",
     "category": "IP",
     "videos": [
@@ -3065,6 +3074,26 @@
     "total_views": 2450,
     "total_likes": 71,
     "total_comments": 3,
+    "sentiment": null,
+    "video_count": 1
+  },
+  {
+    "name": "Empyrean Charm",
+    "category": "Movie",
+    "videos": [
+      {
+        "video_id": "QbZBQEqPFn0",
+        "title": "PUBG MOBILE | New Empyrean Series Sets featuring Empyrean Charm - QBZ Coming Soon",
+        "published_at": "2025-01-26",
+        "view_count": 2141,
+        "like_count": 147,
+        "comment_count": 5,
+        "url": "https://www.youtube.com/watch?v=QbZBQEqPFn0"
+      }
+    ],
+    "total_views": 2141,
+    "total_likes": 147,
+    "total_comments": 5,
     "sentiment": null,
     "video_count": 1
   },
