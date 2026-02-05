@@ -18,7 +18,6 @@
             background: #0f0f1a;
             color: #e2e8f0;
             min-height: 100vh;
-            zoom: 1.1;
         }
         
         .container {
@@ -49,6 +48,88 @@
             font-size: 1rem;
         }
         
+        /* Language Toggle */
+        .lang-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 4px;
+            background: rgba(255,255,255,0.05);
+            padding: 4px;
+            border-radius: 8px;
+        }
+        
+        .lang-btn {
+            padding: 6px 12px;
+            border: none;
+            background: transparent;
+            color: #64748b;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .lang-btn:hover {
+            color: #e2e8f0;
+        }
+        
+        .lang-btn.active {
+            background: rgba(99,102,241,0.2);
+            color: #818cf8;
+        }
+        
+        .container {
+            position: relative;
+        }
+        
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 30px;
+            background: rgba(255,255,255,0.02);
+            padding: 8px;
+            border-radius: 12px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tab-btn {
+            padding: 12px 32px;
+            border: none;
+            background: transparent;
+            color: #64748b;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .tab-btn:hover {
+            color: #e2e8f0;
+            background: rgba(255,255,255,0.05);
+        }
+        
+        .tab-btn.active {
+            background: linear-gradient(135deg, rgba(99,102,241,0.2) 0%, rgba(139,92,246,0.2) 100%);
+            color: #818cf8;
+            border: 1px solid rgba(99,102,241,0.3);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
         /* Stats Cards */
         .stats-grid {
             display: grid;
@@ -66,7 +147,7 @@
         }
         
         .stat-value {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
             background: linear-gradient(135deg, #818cf8, #c084fc);
             -webkit-background-clip: text;
@@ -78,6 +159,50 @@
             font-size: 0.875rem;
             margin-top: 4px;
         }
+        
+        /* Category Filter */
+        .category-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+            padding: 16px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 12px;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: transparent;
+            color: #94a3b8;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .filter-btn:hover {
+            border-color: rgba(99,102,241,0.3);
+            color: #e2e8f0;
+        }
+        
+        .filter-btn.active {
+            background: #6366f1;
+            border-color: #6366f1;
+            color: white;
+        }
+        
+        .filter-btn.cat-Artist.active { background: #8b5cf6; border-color: #8b5cf6; }
+        .filter-btn.cat-Brand.active { background: #3b82f6; border-color: #3b82f6; }
+        .filter-btn.cat-Anime.active { background: #ec4899; border-color: #ec4899; }
+        .filter-btn.cat-Movie.active { background: #f59e0b; border-color: #f59e0b; }
+        .filter-btn.cat-Game.active { background: #10b981; border-color: #10b981; }
+        .filter-btn.cat-IP.active { background: #6366f1; border-color: #6366f1; }
+        .filter-btn.cat-Sports.active { background: #ef4444; border-color: #ef4444; }
+        .filter-btn.cat-Character.active { background: #f97316; border-color: #f97316; }
+        .filter-btn.cat-Celebrity.active { background: #a855f7; border-color: #a855f7; }
         
         /* Main Layout */
         .main-content {
@@ -92,7 +217,7 @@
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 16px;
             overflow: hidden;
-            height: calc(100vh - 300px);
+            height: calc(100vh - 420px);
             display: flex;
             flex-direction: column;
         }
@@ -167,7 +292,6 @@
             color: #94a3b8;
         }
         
-        .partner-item.active .partner-rank,
         .partner-item:nth-child(1) .partner-rank { background: #f59e0b; color: #fff; }
         .partner-item:nth-child(2) .partner-rank { background: #94a3b8; color: #fff; }
         .partner-item:nth-child(3) .partner-rank { background: #cd7f32; color: #fff; }
@@ -195,6 +319,15 @@
             font-size: 0.8rem;
             font-weight: 600;
             color: #818cf8;
+        }
+        
+        .partner-category-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            margin-left: 8px;
         }
         
         /* Detail Panel */
@@ -238,12 +371,6 @@
         .cat-Character { background: #f97316; }
         .cat-Celebrity { background: #a855f7; }
         .cat-Other { background: #64748b; }
-        
-        /* Content Type Card hover */
-        .content-type-card:hover {
-            border-color: rgba(99,102,241,0.3) !important;
-            background: rgba(99,102,241,0.05) !important;
-        }
         
         .detail-stats {
             display: flex;
@@ -363,127 +490,116 @@
         .likes-color { color: #f472b6; }
         .comments-color { color: #34d399; }
         
-        /* Sentiment Analysis */
-        .sentiment-section {
-            margin-top: 20px;
-            padding-top: 16px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+        /* Non-Collab Content Section */
+        .content-groups {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
         }
         
-        .sentiment-title {
-            font-size: 0.8rem;
-            color: #64748b;
-            margin-bottom: 10px;
-        }
-        
-        .sentiment-bar-container {
-            width: 100%;
-        }
-        
-        .sentiment-bar {
-            display: flex;
-            height: 24px;
-            border-radius: 12px;
+        .content-group {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
             overflow: hidden;
-            background: rgba(255,255,255,0.05);
         }
         
-        .sentiment-positive {
-            background: linear-gradient(90deg, #10b981, #34d399);
-            transition: width 0.3s;
-        }
-        
-        .sentiment-neutral {
-            background: linear-gradient(90deg, #64748b, #94a3b8);
-            transition: width 0.3s;
-        }
-        
-        .sentiment-negative {
-            background: linear-gradient(90deg, #f43f5e, #fb7185);
-            transition: width 0.3s;
-        }
-        
-        .sentiment-labels {
+        .content-group-header {
+            padding: 16px 20px;
+            background: rgba(255,255,255,0.02);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
             display: flex;
             justify-content: space-between;
-            margin-top: 8px;
+            align-items: center;
         }
         
-        .sent-label {
-            font-size: 0.75rem;
+        .content-group-title {
             font-weight: 600;
+            font-size: 1rem;
         }
         
-        .sent-label.positive { color: #34d399; }
-        .sent-label.neutral { color: #94a3b8; }
-        .sent-label.negative { color: #fb7185; }
+        .content-group-stats {
+            font-size: 0.8rem;
+            color: #818cf8;
+        }
         
-        /* Others Section */
-        .others-section {
+        .content-type-list {
+            padding: 12px;
+        }
+        
+        .content-type-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 4px;
+        }
+        
+        .content-type-item:hover {
+            background: rgba(99,102,241,0.1);
+        }
+        
+        .content-type-item.active {
+            background: rgba(99,102,241,0.15);
+            border: 1px solid rgba(99,102,241,0.3);
+        }
+        
+        .content-type-name {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .content-type-meta {
+            text-align: right;
+        }
+        
+        .content-type-count {
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+        
+        .content-type-views {
+            font-size: 0.75rem;
+            color: #818cf8;
+        }
+        
+        /* Non-Collab Detail Panel */
+        .noncollab-detail {
+            margin-top: 30px;
             background: rgba(255,255,255,0.02);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 16px;
             padding: 24px;
-            margin-top: 30px;
+            display: none;
         }
         
-        .others-header {
+        .noncollab-detail.show {
+            display: block;
+        }
+        
+        .noncollab-detail-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
         
-        .others-title {
-            font-size: 1.1rem;
+        .noncollab-detail-title {
+            font-size: 1.3rem;
             font-weight: 600;
-            color: #94a3b8;
         }
         
-        .others-stats {
+        .noncollab-detail-stats {
             display: flex;
-            gap: 24px;
+            gap: 20px;
         }
         
-        .others-stat {
-            text-align: center;
-        }
-        
-        .others-stat-value {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #64748b;
-        }
-        
-        .others-stat-label {
-            font-size: 0.7rem;
-            color: #475569;
-        }
-        
-        .others-toggle {
-            background: rgba(99,102,241,0.1);
-            border: 1px solid rgba(99,102,241,0.3);
-            color: #818cf8;
-            padding: 8px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            transition: all 0.2s;
-        }
-        
-        .others-toggle:hover {
-            background: rgba(99,102,241,0.2);
-        }
-        
-        .others-videos {
-            display: none;
-            margin-top: 16px;
-            max-height: 400px;
+        .noncollab-videos-list {
+            max-height: 500px;
             overflow-y: auto;
-        }
-        
-        .others-videos.show {
-            display: block;
         }
         
         /* Charts */
@@ -573,6 +689,10 @@
             .charts-row {
                 grid-template-columns: 1fr;
             }
+            
+            .tab-nav {
+                flex-wrap: wrap;
+            }
         }
         
         /* Scrollbar */
@@ -596,148 +716,202 @@
 </head>
 <body>
     <div class="container">
+        <!-- Language Toggle -->
+        <div class="lang-toggle">
+            <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+            <button class="lang-btn active" onclick="setLanguage('ko')">한</button>
+        </div>
+        
         <header>
             <div class="logo">PUBG MOBILE YouTube Analysis</div>
-            <p class="subtitle">YouTube Channel Data Dashboard (2018 - 2026) | Verified Data</p>
+            <p class="subtitle" data-en="YouTube Channel Data Dashboard (2018 - 2026)" data-ko="유튜브 채널 데이터 대시보드 (2018 - 2026)">YouTube Channel Data Dashboard (2018 - 2026)</p>
         </header>
         
-        <section class="stats-grid" id="statsGrid">
-            <div class="stat-card">
-                <div class="stat-value" id="totalVideos">-</div>
-                <div class="stat-label">Total Videos</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="collabVideos">-</div>
-                <div class="stat-label">Collab Videos</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="totalPartners">-</div>
-                <div class="stat-label">Collab Partners</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="collabViews">-</div>
-                <div class="stat-label">Collab Views</div>
-            </div>
-        </section>
+        <!-- Tab Navigation -->
+        <nav class="tab-nav">
+            <button class="tab-btn active" onclick="switchTab('collab')" data-en="Collaborations" data-ko="콜라보레이션">Collaborations</button>
+            <button class="tab-btn" onclick="switchTab('noncollab')" data-en="Non-Collab Content" data-ko="일반 콘텐츠">Non-Collab Content</button>
+            <button class="tab-btn" onclick="switchTab('overview')" data-en="Overview" data-ko="전체 요약">Overview</button>
+        </nav>
         
-        <div class="main-content">
-            <aside class="sidebar">
-                <div class="sidebar-header">
-                    <h2 class="sidebar-title">Collab Partners</h2>
-                    <input type="text" class="search-box" id="searchInput" placeholder="Search partners...">
+        <!-- Collab Tab -->
+        <div class="tab-content active" id="collabTab">
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="collabVideos">-</div>
+                    <div class="stat-label" data-en="Collab Videos" data-ko="콜라보 영상">Collab Videos</div>
                 </div>
-                <div class="partners-list" id="partnersList">
-                    <!-- Partners loaded dynamically -->
+                <div class="stat-card">
+                    <div class="stat-value" id="totalPartners">-</div>
+                    <div class="stat-label" data-en="Partners" data-ko="파트너">Partners</div>
                 </div>
-            </aside>
+                <div class="stat-card">
+                    <div class="stat-value" id="collabViews">-</div>
+                    <div class="stat-label" data-en="Total Views" data-ko="총 조회수">Total Views</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="collabLikes">-</div>
+                    <div class="stat-label" data-en="Total Likes" data-ko="총 좋아요">Total Likes</div>
+                </div>
+            </section>
             
-            <main class="detail-panel">
-                <div class="empty-state" id="emptyState">
-                    <div class="empty-icon">👈</div>
-                    <p>Select a partner to view details</p>
-                </div>
+            <!-- Category Filter -->
+            <div class="category-filter" id="categoryFilter">
+                <button class="filter-btn active" onclick="filterCategory('all')">All</button>
+                <!-- Categories loaded dynamically -->
+            </div>
+            
+            <div class="main-content">
+                <aside class="sidebar">
+                    <div class="sidebar-header">
+                        <h2 class="sidebar-title" data-en="Collab Partners" data-ko="콜라보 파트너">Collab Partners</h2>
+                        <input type="text" class="search-box" id="searchInput" data-en-placeholder="Search partners..." data-ko-placeholder="파트너 검색..." placeholder="Search partners...">
+                    </div>
+                    <div class="partners-list" id="partnersList">
+                        <!-- Partners loaded dynamically -->
+                    </div>
+                </aside>
                 
-                <div id="detailContent" style="display: none;">
-                    <div class="detail-header">
-                        <span class="detail-category" id="detailCategory">-</span>
-                        <h1 class="detail-title" id="detailTitle">-</h1>
-                        <div class="detail-stats">
-                            <div class="detail-stat">
-                                <div class="detail-stat-value" id="detailVideos">-</div>
-                                <div class="detail-stat-label">Videos</div>
-                            </div>
-                            <div class="detail-stat">
-                                <div class="detail-stat-value" id="detailViews">-</div>
-                                <div class="detail-stat-label">Views</div>
-                            </div>
-                            <div class="detail-stat">
-                                <div class="detail-stat-value" id="detailLikes">-</div>
-                                <div class="detail-stat-label">Likes</div>
-                            </div>
-                            <div class="detail-stat">
-                                <div class="detail-stat-value" id="detailComments">-</div>
-                                <div class="detail-stat-label">Comments</div>
-                            </div>
-                            <div class="detail-stat">
-                                <div class="detail-stat-value" id="detailLikeRate">-</div>
-                                <div class="detail-stat-label">Like Rate</div>
+                <main class="detail-panel">
+                    <div class="empty-state" id="emptyState">
+                        <div class="empty-icon">👈</div>
+                        <p data-en="Select a partner to view details" data-ko="파트너를 선택하면 상세 정보를 볼 수 있습니다">Select a partner to view details</p>
+                    </div>
+                    
+                    <div id="detailContent" style="display: none;">
+                        <div class="detail-header">
+                            <span class="detail-category" id="detailCategory">-</span>
+                            <h1 class="detail-title" id="detailTitle">-</h1>
+                            <div class="detail-stats">
+                                <div class="detail-stat">
+                                    <div class="detail-stat-value" id="detailVideos">-</div>
+                                    <div class="detail-stat-label" data-en="Videos" data-ko="영상">Videos</div>
+                                </div>
+                                <div class="detail-stat">
+                                    <div class="detail-stat-value" id="detailViews">-</div>
+                                    <div class="detail-stat-label" data-en="Views" data-ko="조회수">Views</div>
+                                </div>
+                                <div class="detail-stat">
+                                    <div class="detail-stat-value" id="detailLikes">-</div>
+                                    <div class="detail-stat-label" data-en="Likes" data-ko="좋아요">Likes</div>
+                                </div>
+                                <div class="detail-stat">
+                                    <div class="detail-stat-value" id="detailComments">-</div>
+                                    <div class="detail-stat-label" data-en="Comments" data-ko="댓글">Comments</div>
+                                </div>
+                                <div class="detail-stat">
+                                    <div class="detail-stat-value" id="detailLikeRate">-</div>
+                                    <div class="detail-stat-label" data-en="Like Rate" data-ko="좋아요율">Like Rate</div>
+                                </div>
                             </div>
                         </div>
                         
-                        <!-- Sentiment Analysis -->
-                        <div class="sentiment-section" id="sentimentSection" style="display: none;">
-                            <div class="sentiment-title">Comment Sentiment</div>
-                            <div class="sentiment-bar-container">
-                                <div class="sentiment-bar">
-                                    <div class="sentiment-positive" id="sentimentPositive"></div>
-                                    <div class="sentiment-neutral" id="sentimentNeutral"></div>
-                                    <div class="sentiment-negative" id="sentimentNegative"></div>
-                                </div>
-                                <div class="sentiment-labels">
-                                    <span class="sent-label positive" id="sentLabelPos">+0%</span>
-                                    <span class="sent-label neutral" id="sentLabelNeu">0%</span>
-                                    <span class="sent-label negative" id="sentLabelNeg">-0%</span>
-                                </div>
+                        <div class="videos-container">
+                            <div class="videos-header">
+                                <span class="videos-title" data-en="Videos" data-ko="영상 목록">Videos</span>
+                            </div>
+                            <div id="videosList">
+                                <!-- Videos loaded dynamically -->
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="videos-container">
-                        <div class="videos-header">
-                            <span class="videos-title">Videos</span>
-                        </div>
-                        <div id="videosList">
-                            <!-- Videos loaded dynamically -->
-                        </div>
-                    </div>
-                </div>
-            </main>
+                </main>
+            </div>
         </div>
         
-        <section class="charts-row">
-            <div class="chart-card">
-                <h3 class="chart-title">Top 10 Collab Partners by Views</h3>
-                <canvas id="topPartnersChart"></canvas>
+        <!-- Non-Collab Tab -->
+        <div class="tab-content" id="noncollabTab">
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="noncollabVideos">-</div>
+                    <div class="stat-label" data-en="Non-Collab Videos" data-ko="일반 영상">Non-Collab Videos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="noncollabTypes">-</div>
+                    <div class="stat-label" data-en="Content Types" data-ko="콘텐츠 유형">Content Types</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="noncollabViews">-</div>
+                    <div class="stat-label" data-en="Total Views" data-ko="총 조회수">Total Views</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="noncollabLikes">-</div>
+                    <div class="stat-label" data-en="Total Likes" data-ko="총 좋아요">Total Likes</div>
+                </div>
+            </section>
+            
+            <div class="content-groups" id="contentGroups">
+                <!-- Content groups loaded dynamically -->
             </div>
-            <div class="chart-card">
-                <h3 class="chart-title">Content Type Distribution</h3>
-                <canvas id="contentTypeChart"></canvas>
+            
+            <div class="noncollab-detail" id="noncollabDetail">
+                <div class="noncollab-detail-header">
+                    <h2 class="noncollab-detail-title" id="noncollabDetailTitle">-</h2>
+                    <div class="noncollab-detail-stats">
+                        <div class="detail-stat">
+                            <div class="detail-stat-value" id="noncollabDetailVideos">-</div>
+                            <div class="detail-stat-label" data-en="Videos" data-ko="영상">Videos</div>
+                        </div>
+                        <div class="detail-stat">
+                            <div class="detail-stat-value" id="noncollabDetailViews">-</div>
+                            <div class="detail-stat-label" data-en="Views" data-ko="조회수">Views</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="noncollab-videos-list" id="noncollabVideosList">
+                    <!-- Videos loaded dynamically -->
+                </div>
             </div>
-        </section>
+        </div>
         
-        <!-- Non-Collab Content Section -->
-        <section class="others-section" id="othersSection" style="display: none;">
-            <div class="others-header">
-                <div>
-                    <h3 class="others-title">Non-Collab Content by Type</h3>
-                    <p style="font-size: 0.75rem; color: #475569; margin-top: 4px;">All videos categorized by content type</p>
+        <!-- Overview Tab -->
+        <div class="tab-content" id="overviewTab">
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalVideos">-</div>
+                    <div class="stat-label" data-en="Total Videos" data-ko="전체 영상">Total Videos</div>
                 </div>
-                <div class="others-stats">
-                    <div class="others-stat">
-                        <div class="others-stat-value" id="othersVideosCount">-</div>
-                        <div class="others-stat-label">Videos</div>
-                    </div>
-                    <div class="others-stat">
-                        <div class="others-stat-value" id="othersViewsCount">-</div>
-                        <div class="others-stat-label">Views</div>
-                    </div>
-                    <div class="others-stat">
-                        <div class="others-stat-value" id="othersLikesCount">-</div>
-                        <div class="others-stat-label">Likes</div>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="overviewCollabVideos">-</div>
+                    <div class="stat-label" data-en="Collab Videos" data-ko="콜라보 영상">Collab Videos</div>
                 </div>
-            </div>
-            <div id="contentTypesGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-top: 16px;">
-                <!-- Content types loaded dynamically -->
-            </div>
-            <div class="others-videos" id="othersVideosList" style="display: none; margin-top: 16px;">
-                <!-- Videos loaded dynamically -->
-            </div>
-        </section>
+                <div class="stat-card">
+                    <div class="stat-value" id="overviewNoncollabVideos">-</div>
+                    <div class="stat-label" data-en="Non-Collab Videos" data-ko="일반 영상">Non-Collab Videos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="overviewPartners">-</div>
+                    <div class="stat-label" data-en="Collab Partners" data-ko="콜라보 파트너">Collab Partners</div>
+                </div>
+            </section>
+            
+            <section class="charts-row">
+                <div class="chart-card">
+                    <h3 class="chart-title" data-en="Top 10 Collab Partners by Views" data-ko="조회수 기준 상위 10개 콜라보 파트너">Top 10 Collab Partners by Views</h3>
+                    <canvas id="topPartnersChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3 class="chart-title" data-en="Content Type Distribution" data-ko="콘텐츠 유형 분포">Content Type Distribution</h3>
+                    <canvas id="contentTypeChart"></canvas>
+                </div>
+            </section>
+            
+            <section class="charts-row">
+                <div class="chart-card">
+                    <h3 class="chart-title" data-en="Collab Category Distribution" data-ko="콜라보 카테고리 분포">Collab Category Distribution</h3>
+                    <canvas id="categoryChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3 class="chart-title" data-en="Collab vs Non-Collab" data-ko="콜라보 vs 일반 콘텐츠">Collab vs Non-Collab</h3>
+                    <canvas id="collabRatioChart"></canvas>
+                </div>
+            </section>
+        </div>
         
         <footer>
-            <p>Data from <a href="https://www.youtube.com/@PUBGMOBILE" target="_blank">PUBG MOBILE YouTube</a> | 
-            <a href="https://github.com/SangwonJi/PUBG_YoutubeAnalyzer" target="_blank">View on GitHub</a></p>
+            <p data-en="Data from" data-ko="데이터 출처:">Data from</p>
+            <p><a href="https://www.youtube.com/@PUBGMOBILE" target="_blank">PUBG MOBILE YouTube</a> | 
+            <a href="https://github.com/SangwonJi/PUBG_YoutubeAnalyzer" target="_blank" data-en="View on GitHub" data-ko="GitHub에서 보기">View on GitHub</a></p>
         </footer>
     </div>
     
@@ -745,6 +919,62 @@
         let partnersData = [];
         let othersData = null;
         let selectedPartner = null;
+        let currentCategory = 'all';
+        let chartsInitialized = false;
+        let currentLang = 'ko';
+        
+        // Content type groupings with translations
+        const CONTENT_GROUPS = {
+            'Esports': { types: ['Esports'], ko: '이스포츠' },
+            'Updates & Season': { types: ['Update', 'Season', 'Pass'], ko: '업데이트 & 시즌' },
+            'Content': { types: ['Shorts', 'Chicko', 'Gilt'], ko: '콘텐츠' },
+            'Features': { types: ['Mode', 'Map', 'Event', 'Draw', 'Skin'], ko: '게임 기능' },
+            'Promotion': { types: ['Promotional', 'Guide', 'Community'], ko: '프로모션' },
+            'Special': { types: ['WOW', 'PDP', 'Other'], ko: '스페셜' }
+        };
+        
+        // Translations
+        const TRANSLATIONS = {
+            'videos': { en: 'videos', ko: '영상' },
+            'Views': { en: 'Views', ko: '조회수' },
+            'Likes': { en: 'Likes', ko: '좋아요' },
+            'Comments': { en: 'Comments', ko: '댓글' },
+            'All': { en: 'All', ko: '전체' },
+            'Videos (Top 50)': { en: 'Videos (Top 50)', ko: '영상 (상위 50개)' }
+        };
+        
+        function setLanguage(lang) {
+            currentLang = lang;
+            
+            // Update button states
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if ((lang === 'en' && btn.textContent === 'EN') || 
+                    (lang === 'ko' && btn.textContent === '한')) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.textContent = el.getAttribute('data-' + lang);
+            });
+            
+            // Update placeholders
+            document.querySelectorAll('[data-en-placeholder]').forEach(el => {
+                el.placeholder = el.getAttribute('data-' + lang + '-placeholder');
+            });
+            
+            // Re-render dynamic content
+            renderContentGroups();
+            renderPartnersList(document.getElementById('searchInput').value);
+            
+            // Update category filter "All" button
+            const allBtn = document.querySelector('.category-filter .filter-btn');
+            if (allBtn) {
+                allBtn.textContent = lang === 'ko' ? '전체' : 'All';
+            }
+        }
         
         // Load data
         Promise.all([
@@ -760,89 +990,37 @@
             console.error('Failed to load data:', err);
         });
         
+        function switchTab(tab) {
+            // Update buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Update content
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(tab + 'Tab').classList.add('active');
+            
+            // Initialize charts when overview tab is shown
+            if (tab === 'overview' && !chartsInitialized) {
+                setTimeout(initCharts, 100);
+                chartsInitialized = true;
+            }
+        }
+        
         function initDashboard() {
-            updateStats();
+            updateCollabStats();
+            updateNoncollabStats();
+            updateOverviewStats();
+            renderCategoryFilter();
             renderPartnersList();
-            initCharts();
-            loadOthersSection();
+            renderContentGroups();
+            
+            // Apply default language (Korean)
+            setLanguage('ko');
             
             // Search functionality
             document.getElementById('searchInput').addEventListener('input', (e) => {
                 renderPartnersList(e.target.value);
             });
-        }
-        
-        let selectedContentType = null;
-        
-        function loadOthersSection() {
-            if (!othersData) return;
-            
-            document.getElementById('othersSection').style.display = 'block';
-            document.getElementById('othersVideosCount').textContent = othersData.video_count.toLocaleString();
-            document.getElementById('othersViewsCount').textContent = formatNumber(othersData.total_views);
-            document.getElementById('othersLikesCount').textContent = formatNumber(othersData.total_likes);
-            
-            // Render content type cards
-            const grid = document.getElementById('contentTypesGrid');
-            grid.innerHTML = othersData.content_types.map(ct => `
-                <div class="content-type-card ${selectedContentType === ct.name ? 'active' : ''}" 
-                     onclick="selectContentType('${ct.name}')"
-                     style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); 
-                            border-radius: 12px; padding: 16px; cursor: pointer; transition: all 0.2s;">
-                    <div style="font-weight: 600; font-size: 0.95rem; margin-bottom: 8px;">${ct.name}</div>
-                    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #64748b;">
-                        <span>${ct.video_count} videos</span>
-                        <span style="color: #818cf8;">${formatNumber(ct.total_views)}</span>
-                    </div>
-                </div>
-            `).join('');
-        }
-        
-        function selectContentType(name) {
-            selectedContentType = name;
-            const ct = othersData.content_types.find(c => c.name === name);
-            if (!ct) return;
-            
-            // Update card styles
-            document.querySelectorAll('.content-type-card').forEach(card => {
-                card.style.borderColor = card.textContent.includes(name) ? 
-                    'rgba(99,102,241,0.5)' : 'rgba(255,255,255,0.1)';
-                card.style.background = card.textContent.includes(name) ? 
-                    'rgba(99,102,241,0.1)' : 'rgba(255,255,255,0.03)';
-            });
-            
-            // Show videos for this content type
-            const container = document.getElementById('othersVideosList');
-            container.style.display = 'block';
-            container.innerHTML = `
-                <h4 style="margin-bottom: 12px; color: #94a3b8;">${name} Videos (Top 50)</h4>
-                ${ct.videos.map(video => `
-                    <div class="video-item">
-                        <div class="video-thumb">
-                            <img src="https://img.youtube.com/vi/${video.video_id}/mqdefault.jpg" 
-                                 alt="${video.title}" loading="lazy">
-                        </div>
-                        <div class="video-info">
-                            <div class="video-title">
-                                <a href="${video.url}" target="_blank">${video.title}</a>
-                            </div>
-                            <div class="video-date">${video.published_at}</div>
-                        </div>
-                        <div class="video-stat">
-                            <div class="video-stat-value views-color">${formatNumber(video.view_count)}</div>
-                            <div class="video-stat-label">Views</div>
-                        </div>
-                        <div class="video-stat">
-                            <div class="video-stat-value likes-color">${formatNumber(video.like_count)}</div>
-                            <div class="video-stat-label">Likes</div>
-                        </div>
-                        <div class="video-stat">
-                            <div class="video-stat-value comments-color">${formatNumber(video.comment_count)}</div>
-                            <div class="video-stat-label">Comments</div>
-                        </div>
-                    </div>
-                `).join('')}
-            `;
         }
         
         function formatNumber(num) {
@@ -852,32 +1030,92 @@
             return num.toString();
         }
         
-        function updateStats() {
-            const collabVideos = partnersData.reduce((sum, p) => sum + p.video_count, 0);
-            const collabViews = partnersData.reduce((sum, p) => sum + p.total_views, 0);
+        function updateCollabStats() {
+            const videos = partnersData.reduce((sum, p) => sum + p.video_count, 0);
+            const views = partnersData.reduce((sum, p) => sum + p.total_views, 0);
+            const likes = partnersData.reduce((sum, p) => sum + p.total_likes, 0);
             
-            // Total includes non-collab
-            const totalVideos = othersData ? collabVideos + othersData.video_count : collabVideos;
-            
-            document.getElementById('totalVideos').textContent = totalVideos.toLocaleString();
-            document.getElementById('collabVideos').textContent = collabVideos.toLocaleString();
+            document.getElementById('collabVideos').textContent = videos.toLocaleString();
             document.getElementById('totalPartners').textContent = partnersData.length;
-            document.getElementById('collabViews').textContent = formatNumber(collabViews);
+            document.getElementById('collabViews').textContent = formatNumber(views);
+            document.getElementById('collabLikes').textContent = formatNumber(likes);
+        }
+        
+        function updateNoncollabStats() {
+            if (!othersData) return;
+            
+            document.getElementById('noncollabVideos').textContent = othersData.video_count.toLocaleString();
+            document.getElementById('noncollabTypes').textContent = othersData.content_types.length;
+            document.getElementById('noncollabViews').textContent = formatNumber(othersData.total_views);
+            document.getElementById('noncollabLikes').textContent = formatNumber(othersData.total_likes);
+        }
+        
+        function updateOverviewStats() {
+            const collabVideos = partnersData.reduce((sum, p) => sum + p.video_count, 0);
+            const noncollabVideos = othersData ? othersData.video_count : 0;
+            
+            document.getElementById('totalVideos').textContent = (collabVideos + noncollabVideos).toLocaleString();
+            document.getElementById('overviewCollabVideos').textContent = collabVideos.toLocaleString();
+            document.getElementById('overviewNoncollabVideos').textContent = noncollabVideos.toLocaleString();
+            document.getElementById('overviewPartners').textContent = partnersData.length;
+        }
+        
+        function renderCategoryFilter() {
+            const categories = [...new Set(partnersData.map(p => p.category))].sort();
+            const filter = document.getElementById('categoryFilter');
+            
+            categories.forEach(cat => {
+                const count = partnersData.filter(p => p.category === cat).length;
+                const btn = document.createElement('button');
+                btn.className = `filter-btn cat-${cat}`;
+                btn.textContent = `${cat} (${count})`;
+                btn.onclick = () => filterCategory(cat);
+                filter.appendChild(btn);
+            });
+        }
+        
+        function filterCategory(category) {
+            currentCategory = category;
+            
+            // Update button styles
+            document.querySelectorAll('.category-filter .filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if ((category === 'all' && btn.textContent === 'All') || 
+                    btn.textContent.startsWith(category + ' ')) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            renderPartnersList(document.getElementById('searchInput').value);
         }
         
         function renderPartnersList(filter = '') {
             const list = document.getElementById('partnersList');
-            const filtered = partnersData.filter(p => 
-                p.name.toLowerCase().includes(filter.toLowerCase())
-            );
+            let filtered = partnersData;
+            const videosText = currentLang === 'ko' ? '영상' : 'videos';
+            
+            // Apply category filter
+            if (currentCategory !== 'all') {
+                filtered = filtered.filter(p => p.category === currentCategory);
+            }
+            
+            // Apply search filter
+            if (filter) {
+                filtered = filtered.filter(p => 
+                    p.name.toLowerCase().includes(filter.toLowerCase())
+                );
+            }
             
             list.innerHTML = filtered.map((partner, index) => `
                 <div class="partner-item ${selectedPartner === partner.name ? 'active' : ''}" 
                      onclick="selectPartner('${partner.name.replace(/'/g, "\\'")}')">
                     <div class="partner-rank">${index + 1}</div>
                     <div class="partner-info">
-                        <div class="partner-name">${partner.name}</div>
-                        <div class="partner-meta">${partner.category} · ${partner.video_count} videos</div>
+                        <div class="partner-name">
+                            ${partner.name}
+                            <span class="partner-category-badge cat-${partner.category}">${partner.category}</span>
+                        </div>
+                        <div class="partner-meta">${partner.video_count} ${videosText}</div>
                     </div>
                     <div class="partner-views">${formatNumber(partner.total_views)}</div>
                 </div>
@@ -908,27 +1146,15 @@
                 : '0%';
             document.getElementById('detailLikeRate').textContent = likeRate;
             
-            // Sentiment display
-            const sentSection = document.getElementById('sentimentSection');
-            if (partner.sentiment) {
-                sentSection.style.display = 'block';
-                const s = partner.sentiment;
-                document.getElementById('sentimentPositive').style.width = s.positive_ratio + '%';
-                document.getElementById('sentimentNeutral').style.width = s.neutral_ratio + '%';
-                document.getElementById('sentimentNegative').style.width = s.negative_ratio + '%';
-                document.getElementById('sentLabelPos').textContent = '+' + s.positive_ratio.toFixed(0) + '%';
-                document.getElementById('sentLabelNeu').textContent = s.neutral_ratio.toFixed(0) + '%';
-                document.getElementById('sentLabelNeg').textContent = '-' + s.negative_ratio.toFixed(0) + '%';
-            } else {
-                sentSection.style.display = 'none';
-            }
-            
             renderVideosList(partner.videos);
             renderPartnersList(document.getElementById('searchInput').value);
         }
         
         function renderVideosList(videos) {
             const list = document.getElementById('videosList');
+            const viewsText = currentLang === 'ko' ? '조회수' : 'Views';
+            const likesText = currentLang === 'ko' ? '좋아요' : 'Likes';
+            const commentsText = currentLang === 'ko' ? '댓글' : 'Comments';
             
             list.innerHTML = videos.map(video => `
                 <div class="video-item">
@@ -944,22 +1170,115 @@
                     </div>
                     <div class="video-stat">
                         <div class="video-stat-value views-color">${formatNumber(video.view_count)}</div>
-                        <div class="video-stat-label">Views</div>
+                        <div class="video-stat-label">${viewsText}</div>
                     </div>
                     <div class="video-stat">
                         <div class="video-stat-value likes-color">${formatNumber(video.like_count)}</div>
-                        <div class="video-stat-label">Likes</div>
+                        <div class="video-stat-label">${likesText}</div>
                     </div>
                     <div class="video-stat">
                         <div class="video-stat-value comments-color">${formatNumber(video.comment_count)}</div>
-                        <div class="video-stat-label">Comments</div>
+                        <div class="video-stat-label">${commentsText}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function renderContentGroups() {
+            if (!othersData) return;
+            
+            const container = document.getElementById('contentGroups');
+            let html = '';
+            const videosText = currentLang === 'ko' ? '영상' : 'videos';
+            
+            for (const [groupName, groupData] of Object.entries(CONTENT_GROUPS)) {
+                const groupTypes = othersData.content_types.filter(ct => groupData.types.includes(ct.name));
+                if (groupTypes.length === 0) continue;
+                
+                const groupViews = groupTypes.reduce((sum, ct) => sum + ct.total_views, 0);
+                const groupVideos = groupTypes.reduce((sum, ct) => sum + ct.video_count, 0);
+                const displayName = currentLang === 'ko' ? groupData.ko : groupName;
+                
+                html += `
+                    <div class="content-group">
+                        <div class="content-group-header">
+                            <span class="content-group-title">${displayName}</span>
+                            <span class="content-group-stats">${groupVideos} ${videosText} · ${formatNumber(groupViews)}</span>
+                        </div>
+                        <div class="content-type-list">
+                            ${groupTypes.map(ct => `
+                                <div class="content-type-item" onclick="selectContentType('${ct.name}')">
+                                    <span class="content-type-name">${ct.name}</span>
+                                    <div class="content-type-meta">
+                                        <div class="content-type-count">${ct.video_count} ${videosText}</div>
+                                        <div class="content-type-views">${formatNumber(ct.total_views)}</div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            container.innerHTML = html;
+        }
+        
+        function selectContentType(name) {
+            const ct = othersData.content_types.find(c => c.name === name);
+            if (!ct) return;
+            
+            const viewsText = currentLang === 'ko' ? '조회수' : 'Views';
+            const likesText = currentLang === 'ko' ? '좋아요' : 'Likes';
+            const commentsText = currentLang === 'ko' ? '댓글' : 'Comments';
+            
+            // Update active state
+            document.querySelectorAll('.content-type-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.querySelector('.content-type-name').textContent === name) {
+                    item.classList.add('active');
+                }
+            });
+            
+            // Show detail panel
+            const detail = document.getElementById('noncollabDetail');
+            detail.classList.add('show');
+            
+            document.getElementById('noncollabDetailTitle').textContent = name;
+            document.getElementById('noncollabDetailVideos').textContent = ct.video_count;
+            document.getElementById('noncollabDetailViews').textContent = formatNumber(ct.total_views);
+            
+            // Render videos
+            const list = document.getElementById('noncollabVideosList');
+            list.innerHTML = ct.videos.map(video => `
+                <div class="video-item">
+                    <div class="video-thumb">
+                        <img src="https://img.youtube.com/vi/${video.video_id}/mqdefault.jpg" 
+                             alt="${video.title}" loading="lazy">
+                    </div>
+                    <div class="video-info">
+                        <div class="video-title">
+                            <a href="${video.url}" target="_blank">${video.title}</a>
+                        </div>
+                        <div class="video-date">${video.published_at}</div>
+                    </div>
+                    <div class="video-stat">
+                        <div class="video-stat-value views-color">${formatNumber(video.view_count)}</div>
+                        <div class="video-stat-label">${viewsText}</div>
+                    </div>
+                    <div class="video-stat">
+                        <div class="video-stat-value likes-color">${formatNumber(video.like_count)}</div>
+                        <div class="video-stat-label">${likesText}</div>
+                    </div>
+                    <div class="video-stat">
+                        <div class="video-stat-value comments-color">${formatNumber(video.comment_count)}</div>
+                        <div class="video-stat-label">${commentsText}</div>
                     </div>
                 </div>
             `).join('');
         }
         
         function initCharts() {
-            // Top Partners Chart (excluding "Others")
+            // Top Partners Chart
             const top10 = partnersData.filter(p => p.name !== 'Others').slice(0, 10);
             new Chart(document.getElementById('topPartnersChart'), {
                 type: 'bar',
@@ -1008,7 +1327,7 @@
             
             // Content Type Distribution Chart
             if (othersData && othersData.content_types) {
-                const topTypes = othersData.content_types.slice(0, 10);
+                const topTypes = othersData.content_types.slice(0, 8);
                 new Chart(document.getElementById('contentTypeChart'), {
                     type: 'doughnut',
                     data: {
@@ -1017,7 +1336,7 @@
                             data: topTypes.map(ct => ct.video_count),
                             backgroundColor: [
                                 '#8b5cf6', '#6366f1', '#3b82f6', '#0ea5e9', '#14b8a6',
-                                '#10b981', '#84cc16', '#eab308', '#f59e0b', '#f97316'
+                                '#10b981', '#84cc16', '#eab308'
                             ],
                             borderWidth: 0
                         }]
@@ -1032,16 +1351,99 @@
                                     padding: 12,
                                     font: { size: 11 }
                                 }
-                            },
-                            tooltip: {
-                                callbacks: {
-                                    label: (ctx) => `${ctx.label}: ${ctx.raw} videos`
-                                }
                             }
                         }
                     }
                 });
             }
+            
+            // Category Distribution Chart
+            const categoryData = {};
+            partnersData.forEach(p => {
+                categoryData[p.category] = (categoryData[p.category] || 0) + p.video_count;
+            });
+            
+            new Chart(document.getElementById('categoryChart'), {
+                type: 'polarArea',
+                data: {
+                    labels: Object.keys(categoryData),
+                    datasets: [{
+                        data: Object.values(categoryData),
+                        backgroundColor: [
+                            'rgba(139, 92, 246, 0.7)',
+                            'rgba(59, 130, 246, 0.7)',
+                            'rgba(236, 72, 153, 0.7)',
+                            'rgba(245, 158, 11, 0.7)',
+                            'rgba(16, 185, 129, 0.7)',
+                            'rgba(99, 102, 241, 0.7)',
+                            'rgba(239, 68, 68, 0.7)',
+                            'rgba(249, 115, 22, 0.7)',
+                            'rgba(168, 85, 247, 0.7)'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                color: '#94a3b8',
+                                padding: 10,
+                                font: { size: 11 }
+                            }
+                        }
+                    },
+                    scales: {
+                        r: {
+                            ticks: { display: false },
+                            grid: { color: 'rgba(255,255,255,0.1)' }
+                        }
+                    }
+                }
+            });
+            
+            // Collab vs Non-Collab Ratio
+            const collabVideos = partnersData.reduce((sum, p) => sum + p.video_count, 0);
+            const noncollabVideos = othersData ? othersData.video_count : 0;
+            
+            new Chart(document.getElementById('collabRatioChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Collaborations', 'Non-Collab Content'],
+                    datasets: [{
+                        data: [collabVideos, noncollabVideos],
+                        backgroundColor: [
+                            'rgba(99, 102, 241, 0.8)',
+                            'rgba(100, 116, 139, 0.8)'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#94a3b8',
+                                padding: 20,
+                                font: { size: 12 }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: (ctx) => {
+                                    const total = collabVideos + noncollabVideos;
+                                    const pct = ((ctx.raw / total) * 100).toFixed(1);
+                                    return `${ctx.label}: ${ctx.raw} (${pct}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
         }
     </script>
 </body>
