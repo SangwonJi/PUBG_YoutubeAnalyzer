@@ -234,7 +234,16 @@
         .cat-Movie { background: #f59e0b; }
         .cat-Game { background: #10b981; }
         .cat-IP { background: #6366f1; }
+        .cat-Sports { background: #ef4444; }
+        .cat-Character { background: #f97316; }
+        .cat-Celebrity { background: #a855f7; }
         .cat-Other { background: #64748b; }
+        
+        /* Content Type Card hover */
+        .content-type-card:hover {
+            border-color: rgba(99,102,241,0.3) !important;
+            background: rgba(99,102,241,0.05) !important;
+        }
         
         .detail-stats {
             display: flex;
@@ -589,7 +598,7 @@
     <div class="container">
         <header>
             <div class="logo">PUBG MOBILE YouTube Analysis</div>
-            <p class="subtitle">YouTube Channel Data Dashboard (2025.01 - 2026.01)</p>
+            <p class="subtitle">YouTube Channel Data Dashboard (2018 - 2026) | Verified Data</p>
         </header>
         
         <section class="stats-grid" id="statsGrid">
@@ -598,16 +607,16 @@
                 <div class="stat-label">Total Videos</div>
             </div>
             <div class="stat-card">
+                <div class="stat-value" id="collabVideos">-</div>
+                <div class="stat-label">Collab Videos</div>
+            </div>
+            <div class="stat-card">
                 <div class="stat-value" id="totalPartners">-</div>
                 <div class="stat-label">Collab Partners</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value" id="totalViews">-</div>
-                <div class="stat-label">Total Views</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="totalLikes">-</div>
-                <div class="stat-label">Total Likes</div>
+                <div class="stat-value" id="collabViews">-</div>
+                <div class="stat-label">Collab Views</div>
             </div>
         </section>
         
@@ -685,38 +694,44 @@
             </main>
         </div>
         
-        <section class="charts-row" style="grid-template-columns: 1fr;">
+        <section class="charts-row">
             <div class="chart-card">
-                <h3 class="chart-title">Top 10 Partners by Views</h3>
+                <h3 class="chart-title">Top 10 Collab Partners by Views</h3>
                 <canvas id="topPartnersChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3 class="chart-title">Content Type Distribution</h3>
+                <canvas id="contentTypeChart"></canvas>
             </div>
         </section>
         
-        <!-- Others Section -->
+        <!-- Non-Collab Content Section -->
         <section class="others-section" id="othersSection" style="display: none;">
             <div class="others-header">
                 <div>
-                    <h3 class="others-title">Others (Unclassified Videos)</h3>
-                    <p style="font-size: 0.75rem; color: #475569; margin-top: 4px;">Videos not identified as collaborations</p>
+                    <h3 class="others-title">Non-Collab Content by Type</h3>
+                    <p style="font-size: 0.75rem; color: #475569; margin-top: 4px;">All videos categorized by content type</p>
                 </div>
                 <div class="others-stats">
                     <div class="others-stat">
-                        <div class="others-stat-value" id="othersVideos">-</div>
+                        <div class="others-stat-value" id="othersVideosCount">-</div>
                         <div class="others-stat-label">Videos</div>
                     </div>
                     <div class="others-stat">
-                        <div class="others-stat-value" id="othersViews">-</div>
+                        <div class="others-stat-value" id="othersViewsCount">-</div>
                         <div class="others-stat-label">Views</div>
                     </div>
                     <div class="others-stat">
-                        <div class="others-stat-value" id="othersLikes">-</div>
+                        <div class="others-stat-value" id="othersLikesCount">-</div>
                         <div class="others-stat-label">Likes</div>
                     </div>
                 </div>
-                <button class="others-toggle" onclick="toggleOthersVideos()">Show Videos</button>
             </div>
-            <div class="others-videos" id="othersVideos">
-                <!-- Others videos loaded dynamically -->
+            <div id="contentTypesGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-top: 16px;">
+                <!-- Content types loaded dynamically -->
+            </div>
+            <div class="others-videos" id="othersVideosList" style="display: none; margin-top: 16px;">
+                <!-- Videos loaded dynamically -->
             </div>
         </section>
         
@@ -757,56 +772,77 @@
             });
         }
         
+        let selectedContentType = null;
+        
         function loadOthersSection() {
             if (!othersData) return;
             
             document.getElementById('othersSection').style.display = 'block';
-            document.getElementById('othersVideos').textContent = othersData.video_count;
-            document.getElementById('othersViews').textContent = formatNumber(othersData.total_views);
-            document.getElementById('othersLikes').textContent = formatNumber(othersData.total_likes);
+            document.getElementById('othersVideosCount').textContent = othersData.video_count.toLocaleString();
+            document.getElementById('othersViewsCount').textContent = formatNumber(othersData.total_views);
+            document.getElementById('othersLikesCount').textContent = formatNumber(othersData.total_likes);
+            
+            // Render content type cards
+            const grid = document.getElementById('contentTypesGrid');
+            grid.innerHTML = othersData.content_types.map(ct => `
+                <div class="content-type-card ${selectedContentType === ct.name ? 'active' : ''}" 
+                     onclick="selectContentType('${ct.name}')"
+                     style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); 
+                            border-radius: 12px; padding: 16px; cursor: pointer; transition: all 0.2s;">
+                    <div style="font-weight: 600; font-size: 0.95rem; margin-bottom: 8px;">${ct.name}</div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #64748b;">
+                        <span>${ct.video_count} videos</span>
+                        <span style="color: #818cf8;">${formatNumber(ct.total_views)}</span>
+                    </div>
+                </div>
+            `).join('');
         }
         
-        function toggleOthersVideos() {
-            const container = document.getElementById('othersVideos');
-            const btn = document.querySelector('.others-toggle');
+        function selectContentType(name) {
+            selectedContentType = name;
+            const ct = othersData.content_types.find(c => c.name === name);
+            if (!ct) return;
             
-            if (container.classList.contains('show')) {
-                container.classList.remove('show');
-                btn.textContent = 'Show Videos';
-            } else {
-                container.classList.add('show');
-                btn.textContent = 'Hide Videos';
-                
-                // Render videos if not already rendered
-                if (!container.innerHTML.trim()) {
-                    container.innerHTML = othersData.videos.slice(0, 50).map(video => `
-                        <div class="video-item">
-                            <div class="video-thumb">
-                                <img src="https://img.youtube.com/vi/${video.video_id}/mqdefault.jpg" 
-                                     alt="${video.title}" loading="lazy">
-                            </div>
-                            <div class="video-info">
-                                <div class="video-title">
-                                    <a href="${video.url}" target="_blank">${video.title}</a>
-                                </div>
-                                <div class="video-date">${video.published_at}</div>
-                            </div>
-                            <div class="video-stat">
-                                <div class="video-stat-value views-color">${formatNumber(video.view_count)}</div>
-                                <div class="video-stat-label">Views</div>
-                            </div>
-                            <div class="video-stat">
-                                <div class="video-stat-value likes-color">${formatNumber(video.like_count)}</div>
-                                <div class="video-stat-label">Likes</div>
-                            </div>
-                            <div class="video-stat">
-                                <div class="video-stat-value comments-color">${formatNumber(video.comment_count)}</div>
-                                <div class="video-stat-label">Comments</div>
-                            </div>
+            // Update card styles
+            document.querySelectorAll('.content-type-card').forEach(card => {
+                card.style.borderColor = card.textContent.includes(name) ? 
+                    'rgba(99,102,241,0.5)' : 'rgba(255,255,255,0.1)';
+                card.style.background = card.textContent.includes(name) ? 
+                    'rgba(99,102,241,0.1)' : 'rgba(255,255,255,0.03)';
+            });
+            
+            // Show videos for this content type
+            const container = document.getElementById('othersVideosList');
+            container.style.display = 'block';
+            container.innerHTML = `
+                <h4 style="margin-bottom: 12px; color: #94a3b8;">${name} Videos (Top 50)</h4>
+                ${ct.videos.map(video => `
+                    <div class="video-item">
+                        <div class="video-thumb">
+                            <img src="https://img.youtube.com/vi/${video.video_id}/mqdefault.jpg" 
+                                 alt="${video.title}" loading="lazy">
                         </div>
-                    `).join('');
-                }
-            }
+                        <div class="video-info">
+                            <div class="video-title">
+                                <a href="${video.url}" target="_blank">${video.title}</a>
+                            </div>
+                            <div class="video-date">${video.published_at}</div>
+                        </div>
+                        <div class="video-stat">
+                            <div class="video-stat-value views-color">${formatNumber(video.view_count)}</div>
+                            <div class="video-stat-label">Views</div>
+                        </div>
+                        <div class="video-stat">
+                            <div class="video-stat-value likes-color">${formatNumber(video.like_count)}</div>
+                            <div class="video-stat-label">Likes</div>
+                        </div>
+                        <div class="video-stat">
+                            <div class="video-stat-value comments-color">${formatNumber(video.comment_count)}</div>
+                            <div class="video-stat-label">Comments</div>
+                        </div>
+                    </div>
+                `).join('')}
+            `;
         }
         
         function formatNumber(num) {
@@ -817,14 +853,16 @@
         }
         
         function updateStats() {
-            const totalVideos = partnersData.reduce((sum, p) => sum + p.video_count, 0);
-            const totalViews = partnersData.reduce((sum, p) => sum + p.total_views, 0);
-            const totalLikes = partnersData.reduce((sum, p) => sum + p.total_likes, 0);
+            const collabVideos = partnersData.reduce((sum, p) => sum + p.video_count, 0);
+            const collabViews = partnersData.reduce((sum, p) => sum + p.total_views, 0);
+            
+            // Total includes non-collab
+            const totalVideos = othersData ? collabVideos + othersData.video_count : collabVideos;
             
             document.getElementById('totalVideos').textContent = totalVideos.toLocaleString();
+            document.getElementById('collabVideos').textContent = collabVideos.toLocaleString();
             document.getElementById('totalPartners').textContent = partnersData.length;
-            document.getElementById('totalViews').textContent = formatNumber(totalViews);
-            document.getElementById('totalLikes').textContent = formatNumber(totalLikes);
+            document.getElementById('collabViews').textContent = formatNumber(collabViews);
         }
         
         function renderPartnersList(filter = '') {
@@ -967,6 +1005,43 @@
                     }
                 }
             });
+            
+            // Content Type Distribution Chart
+            if (othersData && othersData.content_types) {
+                const topTypes = othersData.content_types.slice(0, 10);
+                new Chart(document.getElementById('contentTypeChart'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: topTypes.map(ct => ct.name),
+                        datasets: [{
+                            data: topTypes.map(ct => ct.video_count),
+                            backgroundColor: [
+                                '#8b5cf6', '#6366f1', '#3b82f6', '#0ea5e9', '#14b8a6',
+                                '#10b981', '#84cc16', '#eab308', '#f59e0b', '#f97316'
+                            ],
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'right',
+                                labels: {
+                                    color: '#94a3b8',
+                                    padding: 12,
+                                    font: { size: 11 }
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: (ctx) => `${ctx.label}: ${ctx.raw} videos`
+                                }
+                            }
+                        }
+                    }
+                });
+            }
         }
     </script>
 </body>
