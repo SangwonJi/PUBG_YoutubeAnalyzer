@@ -1015,6 +1015,9 @@
             currentCategory = 'all';
             chartsInitialized = false;
             
+            // Clear UI immediately before loading new data
+            clearAllUI();
+            
             // Try channel-specific files first, fall back to legacy files
             Promise.all([
                 fetch(dataFile).then(res => {
@@ -1095,6 +1098,50 @@
             }
         }
         
+        function clearAllUI() {
+            // Clear stats
+            document.getElementById('collabVideos').textContent = '-';
+            document.getElementById('totalPartners').textContent = '-';
+            document.getElementById('collabViews').textContent = '-';
+            document.getElementById('collabLikes').textContent = '-';
+            document.getElementById('noncollabVideos').textContent = '-';
+            document.getElementById('noncollabTypes').textContent = '-';
+            document.getElementById('noncollabViews').textContent = '-';
+            document.getElementById('noncollabLikes').textContent = '-';
+            
+            // Clear partner list
+            document.getElementById('partnersList').innerHTML = '';
+            
+            // Clear partner detail
+            document.getElementById('partnerName').textContent = '-';
+            document.getElementById('partnerCategory').textContent = '-';
+            document.getElementById('partnerVideos').textContent = '-';
+            document.getElementById('partnerViews').textContent = '-';
+            document.getElementById('partnerLikes').textContent = '-';
+            document.getElementById('partnerComments').textContent = '-';
+            document.getElementById('partnerLikeRate').textContent = '-';
+            document.getElementById('partnerVideosList').innerHTML = '';
+            
+            // Clear content groups
+            document.getElementById('contentGroups').innerHTML = '';
+            
+            // Clear search
+            document.getElementById('searchInput').value = '';
+            
+            // Clear category filter
+            document.getElementById('categoryFilter').innerHTML = '<button class="filter-btn active" onclick="filterCategory(\'all\')">All</button>';
+            
+            // Destroy existing charts
+            const chartIds = ['partnersChart', 'contentTypesChart', 'categoryChart', 'collabRatioChart'];
+            chartIds.forEach(id => {
+                const canvas = document.getElementById(id);
+                if (canvas) {
+                    const chart = Chart.getChart(canvas);
+                    if (chart) chart.destroy();
+                }
+            });
+        }
+        
         function initDashboard() {
             updateCollabStats();
             updateNoncollabStats();
@@ -1103,11 +1150,14 @@
             renderPartnersList();
             renderContentGroups();
             
-            // Apply default language (Korean)
-            setLanguage('ko');
+            // Apply current language
+            setLanguage(currentLang);
             
-            // Search functionality
-            document.getElementById('searchInput').addEventListener('input', (e) => {
+            // Search functionality (remove old listener first)
+            const searchInput = document.getElementById('searchInput');
+            const newSearchInput = searchInput.cloneNode(true);
+            searchInput.parentNode.replaceChild(newSearchInput, searchInput);
+            newSearchInput.addEventListener('input', (e) => {
                 renderPartnersList(e.target.value);
             });
         }
