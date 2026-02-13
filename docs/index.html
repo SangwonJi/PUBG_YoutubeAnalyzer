@@ -1099,37 +1099,52 @@
         }
         
         function clearAllUI() {
-            // Clear stats
-            document.getElementById('collabVideos').textContent = '-';
-            document.getElementById('totalPartners').textContent = '-';
-            document.getElementById('collabViews').textContent = '-';
-            document.getElementById('collabLikes').textContent = '-';
-            document.getElementById('noncollabVideos').textContent = '-';
-            document.getElementById('noncollabTypes').textContent = '-';
-            document.getElementById('noncollabViews').textContent = '-';
-            document.getElementById('noncollabLikes').textContent = '-';
+            // Clear stats (with null checks)
+            const setTextSafe = (id, text) => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = text;
+            };
+            const setHtmlSafe = (id, html) => {
+                const el = document.getElementById(id);
+                if (el) el.innerHTML = html;
+            };
+            
+            setTextSafe('collabVideos', '-');
+            setTextSafe('totalPartners', '-');
+            setTextSafe('collabViews', '-');
+            setTextSafe('collabLikes', '-');
+            setTextSafe('noncollabVideos', '-');
+            setTextSafe('noncollabTypes', '-');
+            setTextSafe('noncollabViews', '-');
+            setTextSafe('noncollabLikes', '-');
             
             // Clear partner list
-            document.getElementById('partnersList').innerHTML = '';
+            setHtmlSafe('partnersList', '');
             
             // Clear partner detail
-            document.getElementById('partnerName').textContent = '-';
-            document.getElementById('partnerCategory').textContent = '-';
-            document.getElementById('partnerVideos').textContent = '-';
-            document.getElementById('partnerViews').textContent = '-';
-            document.getElementById('partnerLikes').textContent = '-';
-            document.getElementById('partnerComments').textContent = '-';
-            document.getElementById('partnerLikeRate').textContent = '-';
-            document.getElementById('partnerVideosList').innerHTML = '';
+            setTextSafe('detailTitle', '-');
+            setTextSafe('detailCategory', '-');
+            setTextSafe('detailVideos', '-');
+            setTextSafe('detailViews', '-');
+            setTextSafe('detailLikes', '-');
+            setTextSafe('detailComments', '-');
+            setTextSafe('detailLikeRate', '-');
+            
+            // Hide detail content
+            const detailContent = document.getElementById('detailContent');
+            if (detailContent) detailContent.style.display = 'none';
+            const placeholder = document.querySelector('.detail-placeholder');
+            if (placeholder) placeholder.style.display = 'flex';
             
             // Clear content groups
-            document.getElementById('contentGroups').innerHTML = '';
+            setHtmlSafe('contentGroups', '');
             
             // Clear search
-            document.getElementById('searchInput').value = '';
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) searchInput.value = '';
             
             // Clear category filter
-            document.getElementById('categoryFilter').innerHTML = '<button class="filter-btn active" onclick="filterCategory(\'all\')">All</button>';
+            setHtmlSafe('categoryFilter', '<button class="filter-btn active" onclick="filterCategory(\'all\')">All</button>');
             
             // Destroy existing charts
             const chartIds = ['partnersChart', 'contentTypesChart', 'categoryChart', 'collabRatioChart'];
