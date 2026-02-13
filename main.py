@@ -137,8 +137,11 @@ def fetch(ctx, days, fetch_all, channel, full, comments):
 @click.option("--gpt/--no-gpt", default=True, help="Use GPT for ambiguous cases")
 @click.option("--reclassify", is_flag=True, help="Reclassify all videos")
 @click.option("--threshold", default=0.5, help="Confidence threshold for GPT usage")
+@click.option("--channel", default=None, 
+              type=click.Choice(["pubgm", "freefire"]),
+              help="Filter by channel: pubgm or freefire")
 @click.pass_context
-def classify(ctx, gpt, reclassify, threshold):
+def classify(ctx, gpt, reclassify, threshold, channel):
     """Classify videos as collab or non-collab."""
     from pipeline.classify import classify_collabs, normalize_partners
     
@@ -153,6 +156,7 @@ def classify(ctx, gpt, reclassify, threshold):
     
     click.echo("Classifying videos...")
     click.echo(f"GPT: {'enabled' if gpt else 'disabled'}")
+    click.echo(f"Channel: {channel or 'all'}")
     click.echo(f"Mode: {'Reclassify all' if reclassify else 'Unclassified only'}")
     click.echo()
     
@@ -160,7 +164,8 @@ def classify(ctx, gpt, reclassify, threshold):
         db=db,
         use_gpt=gpt,
         gpt_threshold=threshold,
-        reclassify_all=reclassify
+        reclassify_all=reclassify,
+        source_channel=channel
     )
     
     click.echo()
