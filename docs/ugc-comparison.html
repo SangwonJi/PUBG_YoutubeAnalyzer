@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UGC Comparison: Craftland vs WOW</title>
+    <title>UGC 비교: Craftland vs WOW</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * {
@@ -268,8 +268,11 @@
 <body>
     <div class="container">
         <header>
-            <h1>🎮 UGC Platform Comparison</h1>
-            <p class="subtitle">Craftland (Free Fire) vs World of Wonder (PUBG MOBILE)</p>
+            <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
+                <button id="lang-toggle" onclick="toggleLanguage()" style="padding: 8px 16px; background: rgba(99, 102, 241, 0.2); border: 1px solid #6366f1; color: #a5b4fc; border-radius: 8px; cursor: pointer; font-size: 0.9rem;">한국어 / EN</button>
+            </div>
+            <h1 data-en="🎮 UGC Platform Comparison" data-ko="🎮 UGC 플랫폼 비교">🎮 UGC 플랫폼 비교</h1>
+            <p class="subtitle" data-en="Craftland (Free Fire) vs World of Wonder (PUBG MOBILE)" data-ko="Craftland (프리파이어) vs World of Wonder (배그모바일)">Craftland (프리파이어) vs World of Wonder (배그모바일)</p>
         </header>
         
         <!-- Comparison Cards -->
@@ -279,32 +282,32 @@
                     <div class="icon">🏗️</div>
                     <div>
                         <h2 id="craftland-name">Craftland</h2>
-                        <div class="game">Free Fire</div>
+                        <div class="game" data-en="Free Fire" data-ko="프리파이어">프리파이어</div>
                     </div>
                 </div>
                 <div class="stats-grid">
                     <div class="stat-item">
-                        <div class="stat-label">Videos</div>
+                        <div class="stat-label" data-en="Videos" data-ko="영상 수">영상 수</div>
                         <div class="stat-value" id="craftland-videos">-</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-label">Total Views</div>
+                        <div class="stat-label" data-en="Total Views" data-ko="총 조회수">총 조회수</div>
                         <div class="stat-value" id="craftland-views">-</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-label">Total Likes</div>
+                        <div class="stat-label" data-en="Total Likes" data-ko="총 좋아요">총 좋아요</div>
                         <div class="stat-value" id="craftland-likes">-</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-label">Avg Views/Video</div>
+                        <div class="stat-label" data-en="Avg Views/Video" data-ko="평균 조회수">평균 조회수</div>
                         <div class="stat-value" id="craftland-avg">-</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-label">Like Rate</div>
+                        <div class="stat-label" data-en="Like Rate" data-ko="좋아요율">좋아요율</div>
                         <div class="stat-value" id="craftland-likerate">-</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-label">Period</div>
+                        <div class="stat-label" data-en="Period" data-ko="기간">기간</div>
                         <div class="stat-value" id="craftland-period" style="font-size: 0.9rem;">-</div>
                     </div>
                 </div>
@@ -315,32 +318,32 @@
                     <div class="icon">🌍</div>
                     <div>
                         <h2 id="wow-name">World of Wonder</h2>
-                        <div class="game">PUBG MOBILE</div>
+                        <div class="game" data-en="PUBG MOBILE" data-ko="배그모바일">배그모바일</div>
                     </div>
                 </div>
                 <div class="stats-grid">
                     <div class="stat-item">
-                        <div class="stat-label">Videos</div>
+                        <div class="stat-label" data-en="Videos" data-ko="영상 수">영상 수</div>
                         <div class="stat-value" id="wow-videos">-</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-label">Total Views</div>
+                        <div class="stat-label" data-en="Total Views" data-ko="총 조회수">총 조회수</div>
                         <div class="stat-value" id="wow-views">-</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-label">Total Likes</div>
+                        <div class="stat-label" data-en="Total Likes" data-ko="총 좋아요">총 좋아요</div>
                         <div class="stat-value" id="wow-likes">-</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-label">Avg Views/Video</div>
+                        <div class="stat-label" data-en="Avg Views/Video" data-ko="평균 조회수">평균 조회수</div>
                         <div class="stat-value" id="wow-avg">-</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-label">Like Rate</div>
+                        <div class="stat-label" data-en="Like Rate" data-ko="좋아요율">좋아요율</div>
                         <div class="stat-value" id="wow-likerate">-</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-label">Period</div>
+                        <div class="stat-label" data-en="Period" data-ko="기간">기간</div>
                         <div class="stat-value" id="wow-period" style="font-size: 0.9rem;">-</div>
                     </div>
                 </div>
@@ -349,10 +352,10 @@
         
         <!-- Comparison Bars -->
         <div class="comparison-bar">
-            <h3>📊 Side-by-Side Comparison</h3>
+            <h3 data-en="📊 Side-by-Side Comparison" data-ko="📊 나란히 비교">📊 나란히 비교</h3>
             <div class="bar-item">
                 <div class="bar-label">
-                    <span>Total Views</span>
+                    <span data-en="Total Views" data-ko="총 조회수">총 조회수</span>
                     <span id="views-ratio"></span>
                 </div>
                 <div class="bar-track">
@@ -362,7 +365,7 @@
             </div>
             <div class="bar-item">
                 <div class="bar-label">
-                    <span>Video Count</span>
+                    <span data-en="Video Count" data-ko="영상 수">영상 수</span>
                     <span id="count-ratio"></span>
                 </div>
                 <div class="bar-track">
@@ -372,7 +375,7 @@
             </div>
             <div class="bar-item">
                 <div class="bar-label">
-                    <span>Engagement (Likes)</span>
+                    <span data-en="Engagement (Likes)" data-ko="참여도 (좋아요)">참여도 (좋아요)</span>
                     <span id="likes-ratio"></span>
                 </div>
                 <div class="bar-track">
@@ -384,7 +387,7 @@
         
         <!-- Monthly Chart -->
         <div class="chart-container">
-            <h3>📈 Monthly Views Trend</h3>
+            <h3 data-en="📈 Monthly Views Trend" data-ko="📈 월별 조회수 추이">📈 월별 조회수 추이</h3>
             <canvas id="monthlyChart"></canvas>
         </div>
         
@@ -392,24 +395,35 @@
         <div class="comparison-grid">
             <div class="card craftland">
                 <div class="video-list">
-                    <h3>🏆 Top Craftland Videos</h3>
+                    <h3 data-en="🏆 Top Craftland Videos" data-ko="🏆 Craftland 인기 영상">🏆 Craftland 인기 영상</h3>
                     <div id="craftland-videos-list"></div>
                 </div>
             </div>
             <div class="card wow">
                 <div class="video-list">
-                    <h3>🏆 Top WOW Videos</h3>
+                    <h3 data-en="🏆 Top WOW Videos" data-ko="🏆 WOW 인기 영상">🏆 WOW 인기 영상</h3>
                     <div id="wow-videos-list"></div>
                 </div>
             </div>
         </div>
         
         <footer>
-            <p>Data from YouTube API | <a href="index.html">← Back to Main Dashboard</a></p>
+            <p data-en="Data from YouTube API" data-ko="YouTube API 데이터">YouTube API 데이터</p>
+            <p><a href="index.html" data-en="← Back to Main Dashboard" data-ko="← 메인 대시보드로">← 메인 대시보드로</a></p>
         </footer>
     </div>
     
     <script>
+        let currentLang = 'ko';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'ko' ? 'en' : 'ko';
+            document.querySelectorAll('[data-en][data-ko]').forEach(el => {
+                el.textContent = el.getAttribute('data-' + currentLang);
+            });
+            document.getElementById('lang-toggle').textContent = currentLang === 'ko' ? '한국어 / EN' : 'EN / 한국어';
+        }
+        
         function formatNumber(num) {
             if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
             if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
