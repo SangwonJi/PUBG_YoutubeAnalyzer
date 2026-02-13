@@ -1153,6 +1153,18 @@
             const categories = [...new Set(partnersData.map(p => p.category))].sort();
             const filter = document.getElementById('categoryFilter');
             
+            // Clear existing dynamic buttons (keep only the "All" button)
+            const allBtn = filter.querySelector('.filter-btn.active') || filter.querySelector('.filter-btn');
+            filter.innerHTML = '';
+            
+            // Re-add "All" button
+            const newAllBtn = document.createElement('button');
+            newAllBtn.className = 'filter-btn active';
+            newAllBtn.textContent = 'All';
+            newAllBtn.onclick = () => filterCategory('all');
+            filter.appendChild(newAllBtn);
+            
+            // Add category buttons
             categories.forEach(cat => {
                 const count = partnersData.filter(p => p.category === cat).length;
                 const btn = document.createElement('button');
@@ -1161,6 +1173,9 @@
                 btn.onclick = () => filterCategory(cat);
                 filter.appendChild(btn);
             });
+            
+            // Reset current category
+            currentCategory = 'all';
         }
         
         function filterCategory(category) {
