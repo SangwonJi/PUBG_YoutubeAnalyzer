@@ -22,6 +22,7 @@ class Video(BaseModel):
     duration: Optional[str] = None
     channel_id: Optional[str] = None
     channel_name: Optional[str] = None
+    source_channel: str = "pubgm"  # 'pubgm' or 'freefire'
     view_count: int = 0
     like_count: int = 0
     comment_count: int = 0
@@ -59,6 +60,7 @@ class CollabAgg(BaseModel):
     partner_name: str
     category: Optional[str] = None
     region: Optional[str] = None
+    source_channel: str = "pubgm"  # 'pubgm' or 'freefire'
     date_range_start: date
     date_range_end: date
     video_count: int = 0
@@ -136,11 +138,11 @@ class Database:
             conn.execute("""
                 INSERT INTO videos (
                     video_id, title, description, published_at, duration,
-                    channel_id, channel_name, view_count, like_count, comment_count,
+                    channel_id, channel_name, source_channel, view_count, like_count, comment_count,
                     is_collab, collab_partner, collab_category, collab_region,
                     collab_summary, collab_confidence, classification_method,
                     last_fetched_at, created_at, updated_at
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ON CONFLICT(video_id) DO UPDATE SET
                     title = excluded.title,
                     description = excluded.description,
@@ -159,7 +161,7 @@ class Database:
             """, (
                 video.video_id, video.title, video.description,
                 video.published_at.isoformat(), video.duration,
-                video.channel_id, video.channel_name,
+                video.channel_id, video.channel_name, video.source_channel,
                 video.view_count, video.like_count, video.comment_count,
                 video.is_collab, video.collab_partner, video.collab_category,
                 video.collab_region, video.collab_summary, video.collab_confidence,
@@ -194,15 +196,23 @@ class Database:
             """, (start_date.isoformat(), end_date.isoformat())).fetchall()
             return [self._row_to_video(row) for row in rows]
     
-    def get_collab_videos(self, days: int = 365) -> List[Video]:
-        """Get collab videos from the last N days."""
+    def get_collab_videos(self, days: Optional[int] = 365) -> List[Video]:
+        """Get collab videos from the last N days (None = all)."""
         with self.get_connection() as conn:
-            rows = conn.execute("""
-                SELECT * FROM videos
-                WHERE is_collab = 1
-                AND published_at >= datetime('now', ? || ' days')
-                ORDER BY published_at DESC
-            """, (f"-{days}",)).fetchall()
+            if days is None:
+                # Fetch all collab videos
+                rows = conn.execute("""
+                    SELECT * FROM videos
+                    WHERE is_collab = 1
+                    ORDER BY published_at DESC
+                """).fetchall()
+            else:
+                rows = conn.execute("""
+                    SELECT * FROM videos
+                    WHERE is_collab = 1
+                    AND published_at >= datetime('now', ? || ' days')
+                    ORDER BY published_at DESC
+                """, (f"-{days}",)).fetchall()
             return [self._row_to_video(row) for row in rows]
     
     def get_unclassified_videos(self) -> List[Video]:
@@ -215,14 +225,46 @@ class Database:
             """).fetchall()
             return [self._row_to_video(row) for row in rows]
     
-    def get_all_videos(self, limit: Optional[int] = None) -> List[Video]:
-        """Get all videos."""
+    def get_all_videos(self, limit: Optional[int] = None, source_channel: Optional[str] = None) -> List[Video]:
+        """Get all videos, optionally filtered by source channel."""
         with self.get_connection() as conn:
-            query = "SELECT * FROM videos ORDER BY published_at DESC"
+            if source_channel:
+                query = "SELECT * FROM videos WHERE source_channel = ? ORDER BY published_at DESC"
+                params = [source_channel]
+            else:
+                query = "SELECT * FROM videos ORDER BY published_at DESC"
+                params = []
             if limit:
                 query += f" LIMIT {limit}"
-            rows = conn.execute(query).fetchall()
+            rows = conn.execute(query, params).fetchall()
             return [self._row_to_video(row) for row in rows]
+    
+    def get_collab_videos_by_channel(self, source_channel: str, days: Optional[int] = 365) -> List[Video]:
+        """Get collab videos for a specific channel."""
+        with self.get_connection() as conn:
+            if days is None:
+                rows = conn.execute("""
+                    SELECT * FROM videos
+                    WHERE is_collab = 1 AND source_channel = ?
+                    ORDER BY published_at DESC
+                """, (source_channel,)).fetchall()
+            else:
+                rows = conn.execute("""
+                    SELECT * FROM videos
+                    WHERE is_collab = 1 AND source_channel = ?
+                    AND published_at >= datetime('now', ? || ' days')
+                    ORDER BY published_at DESC
+                """, (source_channel, f"-{days}")).fetchall()
+            return [self._row_to_video(row) for row in rows]
+    
+    def get_video_count_by_channel(self, source_channel: str) -> int:
+        """Get video count for a specific channel."""
+        with self.get_connection() as conn:
+            row = conn.execute(
+                "SELECT COUNT(*) as count FROM videos WHERE source_channel = ?",
+                (source_channel,)
+            ).fetchone()
+            return row["count"]
     
     def _row_to_video(self, row: sqlite3.Row) -> Video:
         """Convert database row to Video model."""
@@ -299,13 +341,13 @@ class Database:
         with self.get_connection() as conn:
             conn.execute("""
                 INSERT INTO collab_agg (
-                    partner_name, category, region, date_range_start, date_range_end,
+                    partner_name, category, region, source_channel, date_range_start, date_range_end,
                     video_count, total_views, total_video_likes, total_comments,
                     total_comment_likes, comment_likes_partial, avg_views,
                     avg_video_likes, like_rate, comment_rate, top_videos_json,
                     created_at, updated_at
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                ON CONFLICT(partner_name, date_range_start, date_range_end) DO UPDATE SET
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(partner_name, source_channel, date_range_start, date_range_end) DO UPDATE SET
                     category = excluded.category,
                     region = excluded.region,
                     video_count = excluded.video_count,
@@ -321,7 +363,7 @@ class Database:
                     top_videos_json = excluded.top_videos_json,
                     updated_at = excluded.updated_at
             """, (
-                agg.partner_name, agg.category, agg.region,
+                agg.partner_name, agg.category, agg.region, agg.source_channel,
                 agg.date_range_start.isoformat(), agg.date_range_end.isoformat(),
                 agg.video_count, agg.total_views, agg.total_video_likes,
                 agg.total_comments, agg.total_comment_likes, agg.comment_likes_partial,

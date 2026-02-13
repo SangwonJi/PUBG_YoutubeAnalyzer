@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS videos (
     duration TEXT,  -- ISO 8601 duration format (e.g., PT5M30S)
     channel_id TEXT,
     channel_name TEXT,
+    source_channel TEXT DEFAULT 'pubgm',  -- 'pubgm' or 'freefire'
     
     -- Statistics (updated periodically)
     view_count INTEGER DEFAULT 0,
@@ -57,6 +58,7 @@ CREATE TABLE IF NOT EXISTS collab_agg (
     partner_name TEXT NOT NULL,
     category TEXT,
     region TEXT,
+    source_channel TEXT DEFAULT 'pubgm',  -- 'pubgm' or 'freefire'
     date_range_start DATE NOT NULL,
     date_range_end DATE NOT NULL,
     
@@ -81,7 +83,7 @@ CREATE TABLE IF NOT EXISTS collab_agg (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     
-    UNIQUE(partner_name, date_range_start, date_range_end)
+    UNIQUE(partner_name, source_channel, date_range_start, date_range_end)
 );
 
 -- Fetch progress table: tracks incremental fetching
@@ -111,7 +113,9 @@ CREATE TABLE IF NOT EXISTS gpt_cache (
 CREATE INDEX IF NOT EXISTS idx_videos_published_at ON videos(published_at);
 CREATE INDEX IF NOT EXISTS idx_videos_is_collab ON videos(is_collab);
 CREATE INDEX IF NOT EXISTS idx_videos_collab_partner ON videos(collab_partner);
+CREATE INDEX IF NOT EXISTS idx_videos_source_channel ON videos(source_channel);
 CREATE INDEX IF NOT EXISTS idx_comments_video_id ON comments(video_id);
 CREATE INDEX IF NOT EXISTS idx_comments_published_at ON comments(published_at);
 CREATE INDEX IF NOT EXISTS idx_collab_agg_partner ON collab_agg(partner_name);
+CREATE INDEX IF NOT EXISTS idx_collab_agg_source_channel ON collab_agg(source_channel);
 CREATE INDEX IF NOT EXISTS idx_fetch_progress_status ON fetch_progress(status);

@@ -42,15 +42,19 @@ def cli(ctx, db_path):
 
 @cli.command()
 @click.option("--days", default=365, help="Number of days to fetch (default: 365)")
-@click.option("--channel", default="@PUBGMOBILE", help="YouTube channel handle")
+@click.option("--all", "fetch_all", is_flag=True, help="Fetch ALL videos (ignore days limit)")
+@click.option("--channel", default="pubgm", 
+              type=click.Choice(["pubgm", "freefire", "all"]),
+              help="Channel to fetch: pubgm, freefire, or all")
 @click.option("--full", is_flag=True, help="Full fetch (ignore incremental)")
 @click.option("--comments/--no-comments", default=True, help="Also fetch comments")
 @click.pass_context
-def fetch(ctx, days, channel, full, comments):
+def fetch(ctx, days, fetch_all, channel, full, comments):
     """Fetch videos and comments from YouTube."""
     from pipeline.fetch import fetch_videos, fetch_comments
     
     db = ctx.obj["db"]
+    config = ctx.obj["config"]
     
     # Validate YouTube API key
     validation = validate_config()
@@ -58,40 +62,75 @@ def fetch(ctx, days, channel, full, comments):
         click.echo("Error: YOUTUBE_API_KEY not set in .env")
         sys.exit(1)
     
-    click.echo(f"Fetching videos from {channel} (last {days} days)...")
-    click.echo(f"Mode: {'Full fetch' if full else 'Incremental'}")
-    click.echo()
+    # Determine which channels to fetch
+    if channel == "all":
+        channels_to_fetch = config.youtube.channels
+    else:
+        ch = config.youtube.get_channel(channel)
+        if not ch:
+            click.echo(f"Error: Unknown channel '{channel}'")
+            sys.exit(1)
+        channels_to_fetch = [ch]
     
-    # Fetch videos
-    video_stats = fetch_videos(
-        db=db,
-        days=days,
-        channel_handle=channel,
-        incremental=not full
-    )
+    # If --all flag is set, fetch all videos
+    if fetch_all:
+        days = None
     
-    click.echo()
-    click.echo(f"Videos: {video_stats['videos_fetched']} fetched "
-               f"({video_stats['videos_new']} new, {video_stats['videos_updated']} updated)")
+    total_stats = {"videos_fetched": 0, "videos_new": 0, "videos_updated": 0, "errors": []}
     
-    if video_stats["errors"]:
-        click.echo(f"Errors: {len(video_stats['errors'])}")
-    
-    # Fetch comments
-    if comments:
-        click.echo()
-        click.echo("Fetching comments...")
+    for ch_config in channels_to_fetch:
+        click.echo("=" * 60)
+        click.echo(f"Channel: {ch_config.name} ({ch_config.handle})")
+        click.echo("=" * 60)
         
-        comment_stats = fetch_comments(
+        if fetch_all:
+            click.echo(f"Fetching ALL videos...")
+        else:
+            click.echo(f"Fetching videos (last {days} days)...")
+        click.echo(f"Mode: {'Full fetch' if full else 'Incremental'}")
+        click.echo()
+        
+        # Fetch videos
+        video_stats = fetch_videos(
             db=db,
-            max_comments_per_video=200
+            days=days,
+            channel_handle=ch_config.handle,
+            source_channel=ch_config.id,
+            incremental=not full
         )
         
-        click.echo(f"Comments: {comment_stats['comments_fetched']} fetched "
-                   f"from {comment_stats['videos_processed']} videos")
+        click.echo()
+        click.echo(f"Videos: {video_stats['videos_fetched']} fetched "
+                   f"({video_stats['videos_new']} new, {video_stats['videos_updated']} updated)")
+        
+        total_stats["videos_fetched"] += video_stats["videos_fetched"]
+        total_stats["videos_new"] += video_stats["videos_new"]
+        total_stats["videos_updated"] += video_stats["videos_updated"]
+        total_stats["errors"].extend(video_stats.get("errors", []))
+        
+        if video_stats.get("errors"):
+            click.echo(f"Errors: {len(video_stats['errors'])}")
+        
+        # Fetch comments
+        if comments:
+            click.echo()
+            click.echo("Fetching comments...")
+            
+            comment_stats = fetch_comments(
+                db=db,
+                max_comments_per_video=200,
+                source_channel=ch_config.id
+            )
+            
+            click.echo(f"Comments: {comment_stats['comments_fetched']} fetched "
+                       f"from {comment_stats['videos_processed']} videos")
+        
+        click.echo()
     
-    click.echo()
-    click.echo("Fetch complete!")
+    click.echo("=" * 60)
+    click.echo(f"Fetch complete! Total: {total_stats['videos_fetched']} videos "
+               f"({total_stats['videos_new']} new)")
+    click.echo("=" * 60)
 
 
 @cli.command()
@@ -142,14 +181,19 @@ def classify(ctx, gpt, reclassify, threshold):
 
 @cli.command()
 @click.option("--days", default=365, help="Number of days to aggregate")
+@click.option("--all", "fetch_all", is_flag=True, help="Aggregate ALL data (ignore days limit)")
 @click.pass_context
-def aggregate(ctx, days):
+def aggregate(ctx, days, fetch_all):
     """Aggregate collab metrics by partner."""
     from pipeline.aggregate import aggregate_collabs, get_partner_rankings
     
     db = ctx.obj["db"]
     
-    click.echo(f"Aggregating collab metrics (last {days} days)...")
+    if fetch_all:
+        days = None
+        click.echo("Aggregating ALL collab metrics...")
+    else:
+        click.echo(f"Aggregating collab metrics (last {days} days)...")
     click.echo()
     
     stats = aggregate_collabs(db=db, days=days)
@@ -177,11 +221,12 @@ def aggregate(ctx, days):
 @click.option("--out", "-o", default="./output/collab_report.csv", 
               help="Output file path")
 @click.option("--days", default=365, help="Number of days to include")
+@click.option("--all", "fetch_all", is_flag=True, help="Export ALL data (ignore days limit)")
 @click.option("--full", is_flag=True, help="Generate full report with all CSVs")
 @click.option("--sentiment", is_flag=True, help="Include sentiment analysis (requires GPT)")
 @click.option("--upload", is_flag=True, help="Upload to cloud storage")
 @click.pass_context
-def export(ctx, out, days, full, sentiment, upload):
+def export(ctx, out, days, fetch_all, full, sentiment, upload):
     """Export collab report to CSV."""
     from pipeline.export import (
         export_to_csv, export_report, upload_to_cloud
@@ -190,7 +235,11 @@ def export(ctx, out, days, full, sentiment, upload):
     db = ctx.obj["db"]
     config = ctx.obj["config"]
     
-    click.echo(f"Exporting collab report...")
+    if fetch_all:
+        days = None
+        click.echo("Exporting ALL collab data...")
+    else:
+        click.echo(f"Exporting collab report...")
     click.echo()
     
     if full:
@@ -240,11 +289,14 @@ def export(ctx, out, days, full, sentiment, upload):
 
 @cli.command()
 @click.option("--days", default=365, help="Number of days to process")
-@click.option("--channel", default="@PUBGMOBILE", help="YouTube channel handle")
+@click.option("--all", "fetch_all", is_flag=True, help="Fetch ALL videos (ignore days limit)")
+@click.option("--channel", default="pubgm",
+              type=click.Choice(["pubgm", "freefire", "all"]),
+              help="Channel: pubgm, freefire, or all")
 @click.option("--gpt/--no-gpt", default=True, help="Use GPT for classification")
 @click.option("--out", "-o", default="./output", help="Output directory")
 @click.pass_context
-def run(ctx, days, channel, gpt, out):
+def run(ctx, days, fetch_all, channel, gpt, out):
     """Run the full pipeline (fetch → classify → aggregate → export)."""
     from pipeline.fetch import fetch_videos, fetch_comments
     from pipeline.classify import classify_collabs, normalize_partners
@@ -252,6 +304,7 @@ def run(ctx, days, channel, gpt, out):
     from pipeline.export import export_report
     
     db = ctx.obj["db"]
+    config = ctx.obj["config"]
     
     # Validate API keys
     validation = validate_config()
@@ -259,50 +312,87 @@ def run(ctx, days, channel, gpt, out):
         click.echo("Error: YOUTUBE_API_KEY not set in .env")
         sys.exit(1)
     
+    # Determine which channels to process
+    if channel == "all":
+        channels_to_process = config.youtube.channels
+    else:
+        ch = config.youtube.get_channel(channel)
+        if not ch:
+            click.echo(f"Error: Unknown channel '{channel}'")
+            sys.exit(1)
+        channels_to_process = [ch]
+    
+    # If --all flag is set, fetch all videos
+    if fetch_all:
+        days = None
+    
     click.echo("=" * 60)
-    click.echo("PUBG MOBILE Collab Pipeline - Full Run")
+    click.echo("YouTube Collab Pipeline - Full Run")
     click.echo("=" * 60)
-    click.echo(f"Channel: {channel}")
-    click.echo(f"Period: Last {days} days")
+    channel_names = ", ".join([c.name for c in channels_to_process])
+    click.echo(f"Channels: {channel_names}")
+    click.echo(f"Period: {'ALL videos' if days is None else f'Last {days} days'}")
     click.echo(f"GPT: {'enabled' if gpt else 'disabled'}")
     click.echo("=" * 60)
     click.echo()
     
-    # Step 1: Fetch
-    click.echo("STEP 1: Fetching videos...")
-    click.echo("-" * 40)
-    video_stats = fetch_videos(db=db, days=days, channel_handle=channel)
-    click.echo(f"→ {video_stats['videos_fetched']} videos fetched")
+    total_videos = 0
+    total_collabs = 0
+    total_partners = 0
+    total_views = 0
+    
+    for ch_config in channels_to_process:
+        click.echo()
+        click.echo("#" * 60)
+        click.echo(f"# Processing: {ch_config.name}")
+        click.echo("#" * 60)
+        click.echo()
+        
+        # Step 1: Fetch
+        click.echo("STEP 1: Fetching videos...")
+        click.echo("-" * 40)
+        video_stats = fetch_videos(
+            db=db, 
+            days=days, 
+            channel_handle=ch_config.handle,
+            source_channel=ch_config.id
+        )
+        click.echo(f"→ {video_stats['videos_fetched']} videos fetched")
+        total_videos += video_stats['videos_fetched']
+        click.echo()
+        
+        click.echo("Fetching comments...")
+        comment_stats = fetch_comments(db=db, source_channel=ch_config.id)
+        click.echo(f"→ {comment_stats['comments_fetched']} comments fetched")
+        click.echo()
+        
+        # Step 2: Classify
+        click.echo("STEP 2: Classifying collabs...")
+        click.echo("-" * 40)
+        
+        if gpt and not validation["gpt_api"]:
+            click.echo("Warning: GPT_API_KEY not set. Using rule-based only.")
+            gpt = False
+        
+        classify_stats = classify_collabs(db=db, use_gpt=gpt, source_channel=ch_config.id)
+        click.echo(f"→ {classify_stats['collabs_found']} collabs found")
+        total_collabs += classify_stats['collabs_found']
+        
+        normalize_partners(db)
+        click.echo()
+        
+        # Step 3: Aggregate
+        click.echo("STEP 3: Aggregating metrics...")
+        click.echo("-" * 40)
+        agg_stats = aggregate_collabs(db=db, days=days, source_channel=ch_config.id)
+        click.echo(f"→ {agg_stats['partners_processed']} partners processed")
+        click.echo(f"→ {agg_stats['total_views']:,} total views")
+        total_partners += agg_stats['partners_processed']
+        total_views += agg_stats['total_views']
+        click.echo()
+    
+    # Step 4: Export (all channels)
     click.echo()
-    
-    click.echo("Fetching comments...")
-    comment_stats = fetch_comments(db=db)
-    click.echo(f"→ {comment_stats['comments_fetched']} comments fetched")
-    click.echo()
-    
-    # Step 2: Classify
-    click.echo("STEP 2: Classifying collabs...")
-    click.echo("-" * 40)
-    
-    if gpt and not validation["gpt_api"]:
-        click.echo("Warning: GPT_API_KEY not set. Using rule-based only.")
-        gpt = False
-    
-    classify_stats = classify_collabs(db=db, use_gpt=gpt)
-    click.echo(f"→ {classify_stats['collabs_found']} collabs found")
-    
-    normalize_partners(db)
-    click.echo()
-    
-    # Step 3: Aggregate
-    click.echo("STEP 3: Aggregating metrics...")
-    click.echo("-" * 40)
-    agg_stats = aggregate_collabs(db=db, days=days)
-    click.echo(f"→ {agg_stats['partners_processed']} partners processed")
-    click.echo(f"→ {agg_stats['total_views']:,} total views")
-    click.echo()
-    
-    # Step 4: Export
     click.echo("STEP 4: Exporting reports...")
     click.echo("-" * 40)
     output_dir = Path(out)
@@ -313,9 +403,10 @@ def run(ctx, days, channel, gpt, out):
     click.echo("=" * 60)
     click.echo("Pipeline Complete!")
     click.echo("=" * 60)
-    click.echo(f"Videos processed: {video_stats['videos_fetched']}")
-    click.echo(f"Collabs identified: {classify_stats['collabs_found']}")
-    click.echo(f"Partners analyzed: {agg_stats['partners_processed']}")
+    click.echo(f"Total videos processed: {total_videos}")
+    click.echo(f"Total collabs identified: {total_collabs}")
+    click.echo(f"Total partners analyzed: {total_partners}")
+    click.echo(f"Total collab views: {total_views:,}")
     click.echo(f"Output directory: {output_dir.absolute()}")
     click.echo()
 
@@ -327,7 +418,7 @@ def status(ctx):
     db = ctx.obj["db"]
     config = ctx.obj["config"]
     
-    click.echo("PUBG MOBILE Collab Pipeline Status")
+    click.echo("YouTube Collab Pipeline Status")
     click.echo("=" * 50)
     click.echo()
     
@@ -339,23 +430,35 @@ def status(ctx):
     click.echo(f"  Cloud API: {'[OK] Configured' if validation['cloud_api'] else '[X] Not set'}")
     click.echo()
     
+    # Configured channels
+    click.echo("Configured Channels:")
+    for ch in config.youtube.channels:
+        click.echo(f"  - {ch.name} ({ch.id}): {ch.handle}")
+    click.echo()
+    
     # Database
     click.echo(f"Database: {config.database.db_path}")
-    click.echo(f"  Videos: {db.get_video_count()}")
-    click.echo(f"  Comments: {db.get_comment_count()}")
+    click.echo(f"  Total Videos: {db.get_video_count()}")
+    click.echo(f"  Total Comments: {db.get_comment_count()}")
+    click.echo()
+    
+    # Per-channel stats
+    click.echo("Videos by Channel:")
+    for ch in config.youtube.channels:
+        count = db.get_video_count_by_channel(ch.id)
+        collab_count = len(db.get_collab_videos_by_channel(ch.id, days=None))
+        click.echo(f"  {ch.name}: {count} videos ({collab_count} collabs)")
+    click.echo()
     
     last_date = db.get_last_video_date()
     if last_date:
-        click.echo(f"  Latest video: {last_date.strftime('%Y-%m-%d')}")
+        click.echo(f"Latest video: {last_date.strftime('%Y-%m-%d')}")
     click.echo()
     
-    # Collab stats
-    collab_videos = db.get_collab_videos()
-    click.echo(f"Collabs identified: {len(collab_videos)}")
-    
+    # Total collab stats
     aggs = db.get_all_collab_aggs()
     if aggs:
-        click.echo(f"Partners tracked: {len(aggs)}")
+        click.echo(f"Total Partners tracked: {len(aggs)}")
         total_views = sum(a.total_views for a in aggs)
         click.echo(f"Total collab views: {total_views:,}")
     click.echo()

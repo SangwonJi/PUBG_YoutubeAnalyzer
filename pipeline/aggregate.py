@@ -5,7 +5,7 @@ Computes per-partner statistics and rankings.
 
 import json
 from datetime import datetime, date, timedelta
-from typing import Optional, Callable
+from typing import Optional, Callable, List
 from collections import defaultdict
 
 from db.models import Database, Video, CollabAgg
@@ -13,7 +13,8 @@ from db.models import Database, Video, CollabAgg
 
 def aggregate_collabs(
     db: Database,
-    days: int = 365,
+    days: Optional[int] = 365,
+    source_channel: Optional[str] = None,
     progress_callback: Optional[Callable[[str], None]] = None
 ) -> dict:
     """
@@ -21,7 +22,8 @@ def aggregate_collabs(
     
     Args:
         db: Database instance
-        days: Number of days to aggregate
+        days: Number of days to aggregate (None = all)
+        source_channel: Filter by source channel ('pubgm' or 'freefire')
         progress_callback: Progress callback
     
     Returns:
@@ -41,12 +43,18 @@ def aggregate_collabs(
     
     # Calculate date range
     end_date = date.today()
-    start_date = end_date - timedelta(days=days)
-    
-    log(f"Aggregating collab metrics from {start_date} to {end_date}...")
+    if days is None:
+        start_date = date(2000, 1, 1)  # Far past date for "all data"
+        log(f"Aggregating ALL collab metrics up to {end_date}...")
+    else:
+        start_date = end_date - timedelta(days=days)
+        log(f"Aggregating collab metrics from {start_date} to {end_date}...")
     
     # Get collab videos
-    videos = db.get_collab_videos(days=days)
+    if source_channel:
+        videos = db.get_collab_videos_by_channel(source_channel, days=days)
+    else:
+        videos = db.get_collab_videos(days=days)
     
     if not videos:
         log("No collab videos found in date range.")
@@ -71,7 +79,8 @@ def aggregate_collabs(
                 partner_name=partner,
                 videos=vids,
                 start_date=start_date,
-                end_date=end_date
+                end_date=end_date,
+                source_channel=source_channel or vids[0].source_channel
             )
             
             db.upsert_collab_agg(agg)
@@ -92,7 +101,8 @@ def _calculate_partner_metrics(
     partner_name: str,
     videos: list[Video],
     start_date: date,
-    end_date: date
+    end_date: date,
+    source_channel: str = "pubgm"
 ) -> CollabAgg:
     """
     Calculate aggregated metrics for a partner.
@@ -103,6 +113,7 @@ def _calculate_partner_metrics(
         videos: List of videos for this partner
         start_date: Start of date range
         end_date: End of date range
+        source_channel: Source channel identifier
     
     Returns:
         CollabAgg model with calculated metrics
@@ -154,6 +165,7 @@ def _calculate_partner_metrics(
         partner_name=partner_name,
         category=category,
         region=region,
+        source_channel=source_channel,
         date_range_start=start_date,
         date_range_end=end_date,
         video_count=video_count,

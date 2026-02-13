@@ -723,9 +723,15 @@
         </div>
         
         <header>
-            <div class="logo">PUBG MOBILE YouTube Analysis</div>
+            <div class="logo">YouTube Channel Analysis</div>
             <p class="subtitle" data-en="YouTube Channel Data Dashboard (2018 - 2026)" data-ko="유튜브 채널 데이터 대시보드 (2018 - 2026)">YouTube Channel Data Dashboard (2018 - 2026)</p>
         </header>
+        
+        <!-- Channel Selection -->
+        <nav class="channel-nav" style="display: flex; justify-content: center; gap: 12px; margin-bottom: 20px;">
+            <button class="channel-btn active" onclick="switchChannel('pubgm')" style="padding: 12px 28px; border: 2px solid #f5af19; background: linear-gradient(135deg, rgba(245,175,25,0.2), rgba(241,39,17,0.2)); color: #f5af19; font-size: 1rem; font-weight: 700; border-radius: 10px; cursor: pointer; transition: all 0.2s;">PUBG MOBILE</button>
+            <button class="channel-btn" onclick="switchChannel('freefire')" style="padding: 12px 28px; border: 2px solid #6366f1; background: transparent; color: #64748b; font-size: 1rem; font-weight: 700; border-radius: 10px; cursor: pointer; transition: all 0.2s;">Free Fire</button>
+        </nav>
         
         <!-- Tab Navigation -->
         <nav class="tab-nav">
@@ -910,8 +916,11 @@
         
         <footer>
             <p data-en="Data from" data-ko="데이터 출처:">Data from</p>
-            <p><a href="https://www.youtube.com/@PUBGMOBILE" target="_blank">PUBG MOBILE YouTube</a> | 
-            <a href="https://github.com/SangwonJi/PUBG_YoutubeAnalyzer" target="_blank" data-en="View on GitHub" data-ko="GitHub에서 보기">View on GitHub</a></p>
+            <p>
+                <a href="https://www.youtube.com/@PUBGMOBILE" target="_blank">PUBG MOBILE</a> |
+                <a href="https://www.youtube.com/@GarenaFreeFireGlobal" target="_blank">Free Fire</a> |
+                <a href="https://github.com/SangwonJi/PUBG_YoutubeAnalyzer" target="_blank" data-en="View on GitHub" data-ko="GitHub에서 보기">View on GitHub</a>
+            </p>
         </footer>
     </div>
     
@@ -922,6 +931,25 @@
         let currentCategory = 'all';
         let chartsInitialized = false;
         let currentLang = 'ko';
+        let currentChannel = 'pubgm';
+        
+        // Channel configurations
+        const CHANNELS = {
+            'pubgm': {
+                name: 'PUBG MOBILE',
+                dataFile: 'pubgm_data.json',
+                othersFile: 'pubgm_others.json',
+                fallbackDataFile: 'data.json',
+                fallbackOthersFile: 'others.json',
+                color: '#f5af19'
+            },
+            'freefire': {
+                name: 'Free Fire',
+                dataFile: 'freefire_data.json',
+                othersFile: 'freefire_others.json',
+                color: '#10b981'
+            }
+        };
         
         // Content type groupings with translations
         const CONTENT_GROUPS = {
@@ -976,19 +1004,80 @@
             }
         }
         
-        // Load data
-        Promise.all([
-            fetch('data.json').then(res => res.json()),
-            fetch('others.json').then(res => res.json()).catch(() => null)
-        ])
-        .then(([partners, others]) => {
-            partnersData = partners;
-            othersData = others;
-            initDashboard();
-        })
-        .catch(err => {
-            console.error('Failed to load data:', err);
-        });
+        // Load data for current channel
+        function loadChannelData(channelId) {
+            const channel = CHANNELS[channelId];
+            const dataFile = channel.dataFile;
+            const othersFile = channel.othersFile;
+            
+            // Reset state
+            selectedPartner = null;
+            currentCategory = 'all';
+            chartsInitialized = false;
+            
+            // Try channel-specific files first, fall back to legacy files
+            Promise.all([
+                fetch(dataFile).then(res => {
+                    if (!res.ok) throw new Error('Not found');
+                    return res.json();
+                }).catch(() => {
+                    // Fallback to legacy file for PUBGM
+                    if (channel.fallbackDataFile) {
+                        return fetch(channel.fallbackDataFile).then(res => res.json());
+                    }
+                    return [];
+                }),
+                fetch(othersFile).then(res => {
+                    if (!res.ok) throw new Error('Not found');
+                    return res.json();
+                }).catch(() => {
+                    if (channel.fallbackOthersFile) {
+                        return fetch(channel.fallbackOthersFile).then(res => res.json()).catch(() => null);
+                    }
+                    return null;
+                })
+            ])
+            .then(([partners, others]) => {
+                partnersData = partners || [];
+                othersData = others;
+                initDashboard();
+                
+                // Update header with channel name
+                document.querySelector('.logo').textContent = channel.name + ' YouTube Analysis';
+            })
+            .catch(err => {
+                console.error('Failed to load data:', err);
+                partnersData = [];
+                othersData = null;
+                initDashboard();
+            });
+        }
+        
+        function switchChannel(channelId) {
+            currentChannel = channelId;
+            
+            // Update button styles
+            document.querySelectorAll('.channel-btn').forEach(btn => {
+                const isActive = btn.textContent.includes(CHANNELS[channelId].name);
+                if (isActive) {
+                    btn.classList.add('active');
+                    btn.style.background = `linear-gradient(135deg, ${CHANNELS[channelId].color}33, ${CHANNELS[channelId].color}22)`;
+                    btn.style.borderColor = CHANNELS[channelId].color;
+                    btn.style.color = CHANNELS[channelId].color;
+                } else {
+                    btn.classList.remove('active');
+                    btn.style.background = 'transparent';
+                    btn.style.borderColor = '#6366f1';
+                    btn.style.color = '#64748b';
+                }
+            });
+            
+            // Load data for selected channel
+            loadChannelData(channelId);
+        }
+        
+        // Initial load
+        loadChannelData('pubgm');
         
         function switchTab(tab) {
             // Update buttons

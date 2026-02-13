@@ -13,14 +13,52 @@ from typing import Optional
 load_dotenv()
 
 
+class ChannelConfig(BaseModel):
+    """Single channel configuration."""
+    id: str  # Internal identifier (e.g., 'pubgm', 'freefire')
+    name: str  # Display name
+    handle: str  # YouTube handle (e.g., '@PUBGMOBILE')
+    url: str  # Full YouTube URL
+
+
 class YouTubeConfig(BaseModel):
     """YouTube API configuration."""
     api_key: str = Field(default_factory=lambda: os.getenv("YOUTUBE_API_KEY", ""))
-    channel_handle: str = "@PUBGMOBILE"
-    channel_url: str = "https://www.youtube.com/@PUBGMOBILE"
     max_results_per_page: int = 50
     comments_per_video: int = 200
     rate_limit_delay: float = 0.1  # seconds between API calls
+    
+    # Multiple channels support
+    channels: list[ChannelConfig] = [
+        ChannelConfig(
+            id="pubgm",
+            name="PUBG MOBILE",
+            handle="@PUBGMOBILE",
+            url="https://www.youtube.com/@PUBGMOBILE"
+        ),
+        ChannelConfig(
+            id="freefire",
+            name="Free Fire",
+            handle="@GarenaFreeFireGlobal",
+            url="https://www.youtube.com/@GarenaFreeFireGlobal"
+        )
+    ]
+    
+    # Legacy support (default to first channel)
+    @property
+    def channel_handle(self) -> str:
+        return self.channels[0].handle if self.channels else "@PUBGMOBILE"
+    
+    @property
+    def channel_url(self) -> str:
+        return self.channels[0].url if self.channels else "https://www.youtube.com/@PUBGMOBILE"
+    
+    def get_channel(self, channel_id: str) -> Optional[ChannelConfig]:
+        """Get channel config by ID."""
+        for ch in self.channels:
+            if ch.id == channel_id:
+                return ch
+        return None
 
 
 class GPTConfig(BaseModel):

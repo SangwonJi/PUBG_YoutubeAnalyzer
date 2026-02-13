@@ -4,7 +4,7 @@ Handles incremental updates and resumable fetching.
 """
 
 from datetime import datetime, timedelta
-from typing import Optional, Callable
+from typing import Optional, Callable, List
 from tqdm import tqdm
 
 from config import get_config
@@ -14,8 +14,9 @@ from clients.youtube_client import YouTubeClient
 
 def fetch_videos(
     db: Database,
-    days: int = 365,
+    days: Optional[int] = 365,
     channel_handle: str = "@PUBGMOBILE",
+    source_channel: str = "pubgm",
     incremental: bool = True,
     progress_callback: Optional[Callable[[str], None]] = None
 ) -> dict:
@@ -24,8 +25,9 @@ def fetch_videos(
     
     Args:
         db: Database instance
-        days: Number of days to look back
+        days: Number of days to look back (None = all videos)
         channel_handle: YouTube channel handle
+        source_channel: Source channel identifier ('pubgm' or 'freefire')
         incremental: If True, only fetch new videos since last fetch
         progress_callback: Optional callback for progress updates
     
@@ -47,10 +49,17 @@ def fetch_videos(
             progress_callback(msg)
         print(msg)
     
-    log(f"Fetching videos from {channel_handle} (last {days} days)...")
+    if days is None:
+        log(f"Fetching ALL videos from {channel_handle}...")
+    else:
+        log(f"Fetching videos from {channel_handle} (last {days} days)...")
     
     # Determine start date for incremental fetch
-    if incremental:
+    if days is None:
+        # Fetch all videos
+        cutoff = None
+        log("Full fetch mode: fetching ALL videos from channel")
+    elif incremental:
         last_date = db.get_last_video_date()
         if last_date:
             # Make timezone-naive for comparison
@@ -79,6 +88,9 @@ def fetch_videos(
             progress_callback=log
         ):
             for video in video_batch:
+                # Set source_channel for the video
+                video.source_channel = source_channel
+                
                 existing = db.get_video(video.video_id)
                 
                 if existing:
@@ -91,6 +103,7 @@ def fetch_videos(
                     video.collab_summary = existing.collab_summary
                     video.collab_confidence = existing.collab_confidence
                     video.classification_method = existing.classification_method
+                    video.source_channel = existing.source_channel  # Keep original source
                     stats["videos_updated"] += 1
                 else:
                     stats["videos_new"] += 1
@@ -115,6 +128,7 @@ def fetch_comments(
     max_comments_per_video: int = 200,
     only_collab: bool = False,
     video_ids: Optional[list[str]] = None,
+    source_channel: Optional[str] = None,
     progress_callback: Optional[Callable[[str], None]] = None
 ) -> dict:
     """
@@ -125,6 +139,7 @@ def fetch_comments(
         max_comments_per_video: Maximum comments to fetch per video
         only_collab: Only fetch comments for collab videos
         video_ids: Specific video IDs to fetch comments for
+        source_channel: Filter by source channel ('pubgm' or 'freefire')
         progress_callback: Optional callback for progress updates
     
     Returns:
@@ -147,11 +162,14 @@ def fetch_comments(
     if video_ids:
         target_video_ids = video_ids
     elif only_collab:
-        videos = db.get_collab_videos()
+        if source_channel:
+            videos = db.get_collab_videos_by_channel(source_channel, days=None)
+        else:
+            videos = db.get_collab_videos()
         target_video_ids = [v.video_id for v in videos]
         log(f"Fetching comments for {len(target_video_ids)} collab videos...")
     else:
-        videos = db.get_all_videos()
+        videos = db.get_all_videos(source_channel=source_channel)
         target_video_ids = [v.video_id for v in videos]
         log(f"Fetching comments for {len(target_video_ids)} videos...")
     

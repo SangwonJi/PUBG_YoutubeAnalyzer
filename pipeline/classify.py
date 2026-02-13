@@ -173,6 +173,7 @@ def classify_collabs(
     use_gpt: bool = True,
     gpt_threshold: float = 0.5,
     reclassify_all: bool = False,
+    source_channel: Optional[str] = None,
     progress_callback: Optional[Callable[[str], None]] = None
 ) -> dict:
     """
@@ -183,6 +184,7 @@ def classify_collabs(
         use_gpt: Whether to use GPT for ambiguous cases
         gpt_threshold: Confidence threshold below which to use GPT
         reclassify_all: Reclassify all videos, not just unclassified
+        source_channel: Filter by source channel ('pubgm' or 'freefire')
         progress_callback: Progress callback
     
     Returns:
@@ -206,10 +208,13 @@ def classify_collabs(
     
     # Get videos to classify
     if reclassify_all:
-        videos = db.get_all_videos()
+        videos = db.get_all_videos(source_channel=source_channel)
         log(f"Reclassifying all {len(videos)} videos...")
     else:
         videos = db.get_unclassified_videos()
+        # Filter by source_channel if specified
+        if source_channel:
+            videos = [v for v in videos if v.source_channel == source_channel]
         log(f"Classifying {len(videos)} unclassified videos...")
     
     if not videos:
