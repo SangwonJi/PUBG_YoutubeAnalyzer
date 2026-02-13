@@ -38,17 +38,13 @@ craftland_videos = get_videos('''
     ORDER BY published_at ASC
 ''')
 
-# WOW / World of Wonder (PUBGM)
+# WOW / World of Wonder (PUBGM) - Using content_type classification
 print("[2] Fetching WOW videos...")
 wow_videos = get_videos('''
     SELECT video_id, title, published_at, view_count, like_count, comment_count 
     FROM videos 
     WHERE source_channel='pubgm' 
-      AND (LOWER(title) LIKE '%world of wonder%' 
-           OR LOWER(title) LIKE '% wow %'
-           OR LOWER(title) LIKE '%#wow%'
-           OR LOWER(title) LIKE '%wow %'
-           OR LOWER(description) LIKE '%world of wonder%')
+      AND content_type = 'WOW'
     ORDER BY published_at ASC
 ''')
 
