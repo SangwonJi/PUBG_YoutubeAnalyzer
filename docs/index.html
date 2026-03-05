@@ -1069,7 +1069,8 @@
             
             // Update all translatable elements
             document.querySelectorAll('[data-en]').forEach(el => {
-                el.textContent = el.getAttribute('data-' + lang);
+                const val = el.getAttribute('data-' + lang);
+                if (val != null) el.textContent = val;
             });
             
             // Update placeholders
@@ -1293,11 +1294,11 @@
             setTextSafe('detailComments', '-');
             setTextSafe('detailLikeRate', '-');
             
-            // Hide partner detail content
+            // Hide partner detail, show empty state
             const detailContent = document.getElementById('detailContent');
             if (detailContent) detailContent.style.display = 'none';
-            const placeholder = document.querySelector('.detail-placeholder');
-            if (placeholder) placeholder.style.display = 'flex';
+            const emptyState = document.getElementById('emptyState');
+            if (emptyState) emptyState.style.display = 'flex';
             
             // Hide non-collab detail panel
             const noncollabDetail = document.getElementById('noncollabDetail');
@@ -1381,7 +1382,7 @@
             const isWeibo = CHANNELS[currentChannel]?.platform === 'weibo';
             
             document.getElementById('noncollabVideos').textContent = othersData.video_count.toLocaleString();
-            document.getElementById('noncollabTypes').textContent = othersData.content_types.length;
+            document.getElementById('noncollabTypes').textContent = (othersData.content_types || []).length;
             document.getElementById('noncollabViews').textContent = formatNumber(othersData.total_views);
             document.getElementById('noncollabLikes').textContent = formatNumber(othersData.total_likes);
 
@@ -1527,7 +1528,7 @@
                 detailLabels[4].textContent = currentLang === 'ko' ? '좋아요율' : 'Like Rate';
             }
             
-            renderVideosList(partner.videos);
+            renderVideosList(partner.videos || []);
             const si = document.getElementById('searchInput');
             renderPartnersList(si ? si.value : '');
         }
@@ -1594,7 +1595,7 @@
                             </div>
                             <div class="content-type-list">
                                 ${groupTypes.map(ct => `
-                                    <div class="content-type-item" onclick="selectContentType('${ct.name}')">
+                                    <div class="content-type-item" data-type="${ct.name}" onclick="selectContentType('${ct.name}')">
                                         <span class="content-type-name">${translateCategory(ct.name)}</span>
                                         <div class="content-type-meta">
                                             <div class="content-type-count">${ct.video_count} ${postsText}</div>
@@ -1609,7 +1610,7 @@
             } else {
                 // YouTube: group by CONTENT_GROUPS
                 for (const [groupName, groupData] of Object.entries(CONTENT_GROUPS)) {
-                    const groupTypes = othersData.content_types.filter(ct => groupData.types.includes(ct.name));
+                    const groupTypes = (othersData.content_types || []).filter(ct => groupData.types.includes(ct.name));
                     if (groupTypes.length === 0) continue;
                     
                     const groupViews = groupTypes.reduce((sum, ct) => sum + ct.total_views, 0);
@@ -1624,7 +1625,7 @@
                             </div>
                             <div class="content-type-list">
                                 ${groupTypes.map(ct => `
-                                    <div class="content-type-item" onclick="selectContentType('${ct.name}')">
+                                    <div class="content-type-item" data-type="${ct.name}" onclick="selectContentType('${ct.name}')">
                                         <span class="content-type-name">${ct.name}</span>
                                         <div class="content-type-meta">
                                             <div class="content-type-count">${ct.video_count} ${postsText}</div>
@@ -1642,7 +1643,7 @@
         }
         
         function selectContentType(name) {
-            const ct = othersData.content_types.find(c => c.name === name);
+            const ct = (othersData.content_types || []).find(c => c.name === name);
             if (!ct) return;
             
             const isWeibo = CHANNELS[currentChannel]?.platform === 'weibo';
@@ -1653,7 +1654,7 @@
             // Update active state
             document.querySelectorAll('.content-type-item').forEach(item => {
                 item.classList.remove('active');
-                if (item.querySelector('.content-type-name').textContent === name) {
+                if (item.dataset.type === name) {
                     item.classList.add('active');
                 }
             });
@@ -1668,7 +1669,7 @@
             
             // Render videos
             const list = document.getElementById('noncollabVideosList');
-            list.innerHTML = ct.videos.map(video => {
+            list.innerHTML = (ct.videos || []).map(video => {
                 const thumbHtml = isWeibo
                     ? `<div class="video-thumb" style="display:flex;align-items:center;justify-content:center;background:#1a1a2e;font-size:1.5rem;">📄</div>`
                     : `<div class="video-thumb"><img src="https://img.youtube.com/vi/${video.video_id}/mqdefault.jpg" alt="${video.title}" loading="lazy"></div>`;
@@ -2093,7 +2094,7 @@
                             ticks: {
                                 color: '#818cf8',
                                 font: { size: 11 },
-                                stepSize: Math.ceil(Math.max(...Object.values(yearlyData)) / 5)
+                                stepSize: years.length > 0 ? Math.max(1, Math.ceil(Math.max(...Object.values(yearlyData)) / 5)) : 1
                             },
                             title: {
                                 display: true,
