@@ -1120,8 +1120,9 @@
         // Load data for current channel
         function loadChannelData(channelId) {
             const channel = CHANNELS[channelId];
-            const dataFile = channel.dataFile;
-            const othersFile = channel.othersFile;
+            const cacheBust = '?v=' + Date.now();
+            const dataFile = channel.dataFile + cacheBust;
+            const othersFile = channel.othersFile + cacheBust;
             
             // Reset state
             selectedPartner = null;
@@ -1137,9 +1138,8 @@
                     if (!res.ok) throw new Error('Not found');
                     return res.json();
                 }).catch(() => {
-                    // Fallback to legacy file for PUBGM
                     if (channel.fallbackDataFile) {
-                        return fetch(channel.fallbackDataFile).then(res => res.json());
+                        return fetch(channel.fallbackDataFile + cacheBust).then(res => res.json());
                     }
                     return [];
                 }),
@@ -1148,7 +1148,7 @@
                     return res.json();
                 }).catch(() => {
                     if (channel.fallbackOthersFile) {
-                        return fetch(channel.fallbackOthersFile).then(res => res.json()).catch(() => null);
+                        return fetch(channel.fallbackOthersFile + cacheBust).then(res => res.json()).catch(() => null);
                     }
                     return null;
                 })
