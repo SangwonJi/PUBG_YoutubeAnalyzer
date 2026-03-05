@@ -776,7 +776,7 @@
             
             <!-- Category Filter -->
             <div class="category-filter" id="categoryFilter">
-                <button class="filter-btn active" onclick="filterCategory('all')">All</button>
+                <button class="filter-btn active" data-cat="all" onclick="filterCategory('all')">All</button>
                 <!-- Categories loaded dynamically -->
             </div>
             
@@ -1040,12 +1040,32 @@
             
             // Re-render dynamic content
             renderContentGroups();
-            renderPartnersList(document.getElementById('searchInput').value);
+            const searchInput = document.getElementById('searchInput');
+            renderPartnersList(searchInput ? searchInput.value : '');
+            
+            // Update platform-specific labels
+            if (partnersData.length > 0) {
+                updateCollabStats();
+                updateNoncollabStats();
+                updateOverviewStats();
+            }
             
             // Update category filter "All" button
-            const allBtn = document.querySelector('.category-filter .filter-btn');
-            if (allBtn) {
-                allBtn.textContent = lang === 'ko' ? '전체' : 'All';
+            document.querySelectorAll('.category-filter .filter-btn').forEach(btn => {
+                if (btn.dataset.cat === 'all') {
+                    btn.textContent = lang === 'ko' ? '전체' : 'All';
+                }
+            });
+            
+            // Re-init charts if overview is visible (labels need updating)
+            if (chartsInitialized) {
+                const overviewTab = document.getElementById('overviewTab');
+                if (overviewTab && overviewTab.classList.contains('active')) {
+                    clearCharts();
+                    chartsInitialized = false;
+                    setTimeout(initCharts, 50);
+                    chartsInitialized = true;
+                }
             }
         }
         
@@ -1139,22 +1159,38 @@
         
         function switchTab(tab) {
             // Update buttons
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('onclick')?.includes("'" + tab + "'")) {
+                    btn.classList.add('active');
+                }
+            });
             
             // Update content
             document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
             document.getElementById(tab + 'Tab').classList.add('active');
             
-            // Initialize charts when overview tab is shown
-            if (tab === 'overview' && !chartsInitialized) {
-                setTimeout(initCharts, 100);
-                chartsInitialized = true;
+            // Initialize charts whenever overview tab is shown
+            if (tab === 'overview') {
+                if (!chartsInitialized) {
+                    setTimeout(initCharts, 50);
+                    chartsInitialized = true;
+                }
             }
         }
         
+        function clearCharts() {
+            const chartIds = ['topPartnersChart', 'contentTypeChart', 'categoryChart', 'collabRatioChart', 'timelineChart'];
+            chartIds.forEach(id => {
+                const canvas = document.getElementById(id);
+                if (canvas) {
+                    const chart = Chart.getChart(canvas);
+                    if (chart) chart.destroy();
+                }
+            });
+        }
+        
         function clearAllUI() {
-            // Clear stats (with null checks)
             const setTextSafe = (id, text) => {
                 const el = document.getElementById(id);
                 if (el) el.textContent = text;
@@ -1164,14 +1200,23 @@
                 if (el) el.innerHTML = html;
             };
             
+            // Clear collab stats
             setTextSafe('collabVideos', '-');
             setTextSafe('totalPartners', '-');
             setTextSafe('collabViews', '-');
             setTextSafe('collabLikes', '-');
+            
+            // Clear non-collab stats
             setTextSafe('noncollabVideos', '-');
             setTextSafe('noncollabTypes', '-');
             setTextSafe('noncollabViews', '-');
             setTextSafe('noncollabLikes', '-');
+            
+            // Clear overview stats
+            setTextSafe('totalVideos', '-');
+            setTextSafe('overviewCollabVideos', '-');
+            setTextSafe('overviewNoncollabVideos', '-');
+            setTextSafe('overviewPartners', '-');
             
             // Clear partner list
             setHtmlSafe('partnersList', '');
@@ -1185,11 +1230,15 @@
             setTextSafe('detailComments', '-');
             setTextSafe('detailLikeRate', '-');
             
-            // Hide detail content
+            // Hide partner detail content
             const detailContent = document.getElementById('detailContent');
             if (detailContent) detailContent.style.display = 'none';
             const placeholder = document.querySelector('.detail-placeholder');
             if (placeholder) placeholder.style.display = 'flex';
+            
+            // Hide non-collab detail panel
+            const noncollabDetail = document.getElementById('noncollabDetail');
+            if (noncollabDetail) noncollabDetail.classList.remove('show');
             
             // Clear content groups
             setHtmlSafe('contentGroups', '');
@@ -1199,20 +1248,20 @@
             if (searchInput) searchInput.value = '';
             
             // Clear category filter
-            setHtmlSafe('categoryFilter', '<button class="filter-btn active" onclick="filterCategory(\'all\')">All</button>');
+            setHtmlSafe('categoryFilter', '<button class="filter-btn active" data-cat="all" onclick="filterCategory(\'all\')">' + (currentLang === 'ko' ? '전체' : 'All') + '</button>');
+            
+            // Clear ratio center text
+            setTextSafe('ratioPct', '-');
             
             // Destroy existing charts
-            const chartIds = ['topPartnersChart', 'contentTypeChart', 'categoryChart', 'collabRatioChart', 'timelineChart'];
-            chartIds.forEach(id => {
-                const canvas = document.getElementById(id);
-                if (canvas) {
-                    const chart = Chart.getChart(canvas);
-                    if (chart) chart.destroy();
-                }
-            });
+            clearCharts();
         }
         
         function initDashboard() {
+            // Apply language first (sets data-en/data-ko defaults)
+            setLanguage(currentLang);
+            
+            // Then apply platform-specific label overrides (Weibo vs YouTube)
             updateCollabStats();
             updateNoncollabStats();
             updateOverviewStats();
@@ -1220,8 +1269,14 @@
             renderPartnersList();
             renderContentGroups();
             
-            // Apply current language
-            setLanguage(currentLang);
+            // Initialize charts if overview tab is active
+            if (!chartsInitialized) {
+                const overviewTab = document.getElementById('overviewTab');
+                if (overviewTab && overviewTab.classList.contains('active')) {
+                    setTimeout(initCharts, 50);
+                    chartsInitialized = true;
+                }
+            }
             
             // Search functionality (remove old listener first)
             const searchInput = document.getElementById('searchInput');
@@ -1303,51 +1358,48 @@
         function renderCategoryFilter() {
             const categories = [...new Set(partnersData.map(p => p.category))].sort();
             const filter = document.getElementById('categoryFilter');
-            
-            // Clear existing dynamic buttons (keep only the "All" button)
-            const allBtn = filter.querySelector('.filter-btn.active') || filter.querySelector('.filter-btn');
             filter.innerHTML = '';
             
-            // Re-add "All" button
+            // "All" button
             const newAllBtn = document.createElement('button');
             newAllBtn.className = 'filter-btn active';
-            newAllBtn.textContent = 'All';
+            newAllBtn.dataset.cat = 'all';
+            newAllBtn.textContent = currentLang === 'ko' ? '전체' : 'All';
             newAllBtn.onclick = () => filterCategory('all');
             filter.appendChild(newAllBtn);
             
-            // Add category buttons
+            // Category buttons
             categories.forEach(cat => {
                 const count = partnersData.filter(p => p.category === cat).length;
                 const btn = document.createElement('button');
                 btn.className = `filter-btn cat-${cat}`;
+                btn.dataset.cat = cat;
                 btn.textContent = `${cat} (${count})`;
                 btn.onclick = () => filterCategory(cat);
                 filter.appendChild(btn);
             });
             
-            // Reset current category
             currentCategory = 'all';
         }
         
         function filterCategory(category) {
             currentCategory = category;
             
-            // Update button styles
             document.querySelectorAll('.category-filter .filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if ((category === 'all' && btn.textContent === 'All') || 
-                    btn.textContent.startsWith(category + ' ')) {
-                    btn.classList.add('active');
-                }
+                btn.classList.toggle('active', btn.dataset.cat === category);
             });
             
-            renderPartnersList(document.getElementById('searchInput').value);
+            const searchInput = document.getElementById('searchInput');
+            renderPartnersList(searchInput ? searchInput.value : '');
         }
         
         function renderPartnersList(filter = '') {
             const list = document.getElementById('partnersList');
             let filtered = partnersData;
-            const videosText = currentLang === 'ko' ? '영상' : 'videos';
+            const isWeibo = CHANNELS[currentChannel]?.platform === 'weibo';
+            const videosText = isWeibo
+                ? (currentLang === 'ko' ? '게시물' : 'posts')
+                : (currentLang === 'ko' ? '영상' : 'videos');
             
             // Apply category filter
             if (currentCategory !== 'all') {
@@ -1419,7 +1471,8 @@
             }
             
             renderVideosList(partner.videos);
-            renderPartnersList(document.getElementById('searchInput').value);
+            const si = document.getElementById('searchInput');
+            renderPartnersList(si ? si.value : '');
         }
         
         function renderVideosList(videos) {
@@ -1580,8 +1633,13 @@
         function initCharts() {
             const isWeibo = CHANNELS[currentChannel]?.platform === 'weibo';
             const channelColor = CHANNELS[currentChannel]?.color || '#818cf8';
-            const viewsLabel = isWeibo ? '点赞 (Attitudes)' : 'Views';
-            const unitLabel = isWeibo ? '게시물' : 'Videos';
+            const isKo = currentLang === 'ko';
+            const viewsLabel = isWeibo
+                ? (isKo ? '点赞' : 'Attitudes')
+                : (isKo ? '조회수' : 'Views');
+            const unitLabel = isWeibo
+                ? (isKo ? '게시물' : 'Posts')
+                : (isKo ? '영상' : 'Videos');
 
             // Shared tooltip styling
             const tooltipStyle = {
