@@ -1007,6 +1007,14 @@
             'Special': { types: ['WOW', 'PDP', 'Other'], ko: '스페셜' }
         };
         
+        const WEIBO_CONTENT_GROUPS = {
+            'Events & Updates': { types: ['Event', 'Update', 'Festive'], ko: '이벤트 & 업데이트' },
+            'Community': { types: ['Creative', 'Livestream', 'Giveaway'], ko: '커뮤니티' },
+            'Esports': { types: ['Esports'], ko: '이스포츠' },
+            'Operations': { types: ['Promotion', 'Announcement', 'Recruitment'], ko: '운영' },
+            'Other': { types: ['Other'], ko: '기타' }
+        };
+        
         // Translations
         const TRANSLATIONS = {
             'videos': { en: 'videos', ko: '영상' },
@@ -1569,25 +1577,35 @@
             const postsText = isWeibo ? (currentLang === 'ko' ? '게시물' : 'posts') : (currentLang === 'ko' ? '영상' : 'videos');
             
             if (isWeibo) {
-                // Weibo: render content categories
-                const types = othersData.content_types || [];
-                html += `<div class="content-group">
-                    <div class="content-group-header">
-                        <span class="content-group-title">${currentLang === 'ko' ? '콘텐츠 카테고리' : 'Content Categories'}</span>
-                        <span class="content-group-stats">${othersData.video_count} ${postsText}</span>
-                    </div>
-                    <div class="content-type-list">
-                        ${types.map(ct => `
-                            <div class="content-type-item" onclick="selectContentType('${ct.name}')">
-                                <span class="content-type-name">${translateCategory(ct.name)}</span>
-                                <div class="content-type-meta">
-                                    <div class="content-type-count">${ct.video_count} ${postsText}</div>
-                                    <div class="content-type-views">${formatNumber(ct.total_views)}</div>
-                                </div>
+                // Weibo: group by WEIBO_CONTENT_GROUPS
+                for (const [groupName, groupData] of Object.entries(WEIBO_CONTENT_GROUPS)) {
+                    const groupTypes = othersData.content_types.filter(ct => groupData.types.includes(ct.name));
+                    if (groupTypes.length === 0) continue;
+                    
+                    const groupViews = groupTypes.reduce((sum, ct) => sum + ct.total_views, 0);
+                    const groupPosts = groupTypes.reduce((sum, ct) => sum + ct.video_count, 0);
+                    const displayName = currentLang === 'ko' ? groupData.ko : groupName;
+                    
+                    html += `
+                        <div class="content-group">
+                            <div class="content-group-header">
+                                <span class="content-group-title">${displayName}</span>
+                                <span class="content-group-stats">${groupPosts} ${postsText} · ${formatNumber(groupViews)}</span>
                             </div>
-                        `).join('')}
-                    </div>
-                </div>`;
+                            <div class="content-type-list">
+                                ${groupTypes.map(ct => `
+                                    <div class="content-type-item" onclick="selectContentType('${ct.name}')">
+                                        <span class="content-type-name">${translateCategory(ct.name)}</span>
+                                        <div class="content-type-meta">
+                                            <div class="content-type-count">${ct.video_count} ${postsText}</div>
+                                            <div class="content-type-views">${formatNumber(ct.total_views)}</div>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
             } else {
                 // YouTube: group by CONTENT_GROUPS
                 for (const [groupName, groupData] of Object.entries(CONTENT_GROUPS)) {
