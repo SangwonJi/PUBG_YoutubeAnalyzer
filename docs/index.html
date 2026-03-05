@@ -724,13 +724,14 @@
         
         <header>
             <div class="logo">YouTube Channel Analysis</div>
-            <p class="subtitle" data-en="YouTube Channel Data Dashboard (2018 - 2026)" data-ko="유튜브 채널 데이터 대시보드 (2018 - 2026)">YouTube Channel Data Dashboard (2018 - 2026)</p>
+            <p class="subtitle" data-en="Social Media Collab Analysis Dashboard (2018 - 2026)" data-ko="소셜 미디어 콜라보 분석 대시보드 (2018 - 2026)">Social Media Collab Analysis Dashboard (2018 - 2026)</p>
         </header>
         
         <!-- Channel Selection -->
         <nav class="channel-nav" style="display: flex; justify-content: center; gap: 12px; margin-bottom: 20px;">
             <button class="channel-btn active" onclick="switchChannel('pubgm')" style="padding: 12px 28px; border: 2px solid #f5af19; background: linear-gradient(135deg, rgba(245,175,25,0.2), rgba(241,39,17,0.2)); color: #f5af19; font-size: 1rem; font-weight: 700; border-radius: 10px; cursor: pointer; transition: all 0.2s;">PUBG MOBILE</button>
             <button class="channel-btn" onclick="switchChannel('freefire')" style="padding: 12px 28px; border: 2px solid #6366f1; background: transparent; color: #64748b; font-size: 1rem; font-weight: 700; border-radius: 10px; cursor: pointer; transition: all 0.2s;">Free Fire</button>
+            <button class="channel-btn" onclick="switchChannel('weibo')" style="padding: 12px 28px; border: 2px solid #6366f1; background: transparent; color: #64748b; font-size: 1rem; font-weight: 700; border-radius: 10px; cursor: pointer; transition: all 0.2s;">和平精英 (Weibo)</button>
         </nav>
         
         <!-- Tab Navigation -->
@@ -919,6 +920,7 @@
             <p>
                 <a href="https://www.youtube.com/@PUBGMOBILE" target="_blank">PUBG MOBILE</a> |
                 <a href="https://www.youtube.com/@GarenaFreeFireGlobal" target="_blank">Free Fire</a> |
+                <a href="https://weibo.com/u/7095404909" target="_blank">和平精英 (Weibo)</a> |
                 <a href="https://github.com/SangwonJi/PUBG_YoutubeAnalyzer" target="_blank" data-en="View on GitHub" data-ko="GitHub에서 보기">View on GitHub</a>
             </p>
         </footer>
@@ -937,6 +939,7 @@
         const CHANNELS = {
             'pubgm': {
                 name: 'PUBG MOBILE',
+                platform: 'youtube',
                 dataFile: 'pubgm_data.json',
                 othersFile: 'pubgm_others.json',
                 fallbackDataFile: 'data.json',
@@ -945,9 +948,17 @@
             },
             'freefire': {
                 name: 'Free Fire',
+                platform: 'youtube',
                 dataFile: 'freefire_data.json',
                 othersFile: 'freefire_others.json',
                 color: '#10b981'
+            },
+            'weibo': {
+                name: '和平精英',
+                platform: 'weibo',
+                dataFile: 'weibo_data.json',
+                othersFile: null,
+                color: '#e6162d'
             }
         };
         
@@ -1046,7 +1057,8 @@
                 initDashboard();
                 
                 // Update header with channel name
-                document.querySelector('.logo').textContent = channel.name + ' YouTube Analysis';
+                const platformLabel = channel.platform === 'weibo' ? 'Weibo Analysis' : 'YouTube Analysis';
+                document.querySelector('.logo').textContent = channel.name + ' ' + platformLabel;
             })
             .catch(err => {
                 console.error('Failed to load data:', err);
@@ -1059,9 +1071,10 @@
         function switchChannel(channelId) {
             currentChannel = channelId;
             
-            // Update button styles
+            // Update button styles by matching onclick attribute
             document.querySelectorAll('.channel-btn').forEach(btn => {
-                const isActive = btn.textContent.includes(CHANNELS[channelId].name);
+                const btnChannelId = btn.getAttribute('onclick')?.match(/switchChannel\('(\w+)'\)/)?.[1];
+                const isActive = btnChannelId === channelId;
                 if (isActive) {
                     btn.classList.add('active');
                     btn.style.background = `linear-gradient(135deg, ${CHANNELS[channelId].color}33, ${CHANNELS[channelId].color}22)`;
@@ -1185,6 +1198,7 @@
         }
         
         function updateCollabStats() {
+            const isWeibo = CHANNELS[currentChannel]?.platform === 'weibo';
             const videos = partnersData.reduce((sum, p) => sum + p.video_count, 0);
             const views = partnersData.reduce((sum, p) => sum + p.total_views, 0);
             const likes = partnersData.reduce((sum, p) => sum + p.total_likes, 0);
@@ -1193,6 +1207,19 @@
             document.getElementById('totalPartners').textContent = partnersData.length;
             document.getElementById('collabViews').textContent = formatNumber(views);
             document.getElementById('collabLikes').textContent = formatNumber(likes);
+
+            const videosLabel = document.querySelector('#collabVideos').closest('.stat-card').querySelector('.stat-label');
+            const viewsLabel = document.querySelector('#collabViews').closest('.stat-card').querySelector('.stat-label');
+            const likesLabel = document.querySelector('#collabLikes').closest('.stat-card').querySelector('.stat-label');
+            if (isWeibo) {
+                videosLabel.textContent = currentLang === 'ko' ? '콜라보 게시물' : 'Collab Posts';
+                viewsLabel.textContent = currentLang === 'ko' ? '총 点赞' : 'Total Attitudes';
+                likesLabel.textContent = currentLang === 'ko' ? '총 转发' : 'Total Reposts';
+            } else {
+                videosLabel.textContent = currentLang === 'ko' ? '콜라보 영상' : 'Collab Videos';
+                viewsLabel.textContent = currentLang === 'ko' ? '총 조회수' : 'Total Views';
+                likesLabel.textContent = currentLang === 'ko' ? '총 좋아요' : 'Total Likes';
+            }
         }
         
         function updateNoncollabStats() {
@@ -1297,6 +1324,8 @@
             
             if (!partner) return;
             
+            const isWeibo = CHANNELS[currentChannel]?.platform === 'weibo';
+            
             document.getElementById('emptyState').style.display = 'none';
             document.getElementById('detailContent').style.display = 'flex';
             document.getElementById('detailContent').style.flexDirection = 'column';
@@ -1314,6 +1343,21 @@
                 ? ((partner.total_likes / partner.total_views) * 100).toFixed(2) + '%'
                 : '0%';
             document.getElementById('detailLikeRate').textContent = likeRate;
+
+            const detailLabels = document.querySelectorAll('#detailContent .detail-stat-label');
+            if (isWeibo && detailLabels.length >= 5) {
+                detailLabels[0].textContent = currentLang === 'ko' ? '게시물' : 'Posts';
+                detailLabels[1].textContent = currentLang === 'ko' ? '点赞' : 'Attitudes';
+                detailLabels[2].textContent = currentLang === 'ko' ? '转发' : 'Reposts';
+                detailLabels[3].textContent = currentLang === 'ko' ? '评论' : 'Comments';
+                detailLabels[4].textContent = currentLang === 'ko' ? '인게이지먼트' : 'Engagement';
+            } else if (detailLabels.length >= 5) {
+                detailLabels[0].textContent = currentLang === 'ko' ? '영상' : 'Videos';
+                detailLabels[1].textContent = currentLang === 'ko' ? '조회수' : 'Views';
+                detailLabels[2].textContent = currentLang === 'ko' ? '좋아요' : 'Likes';
+                detailLabels[3].textContent = currentLang === 'ko' ? '댓글' : 'Comments';
+                detailLabels[4].textContent = currentLang === 'ko' ? '좋아요율' : 'Like Rate';
+            }
             
             renderVideosList(partner.videos);
             renderPartnersList(document.getElementById('searchInput').value);
@@ -1321,16 +1365,18 @@
         
         function renderVideosList(videos) {
             const list = document.getElementById('videosList');
-            const viewsText = currentLang === 'ko' ? '조회수' : 'Views';
-            const likesText = currentLang === 'ko' ? '좋아요' : 'Likes';
+            const isWeibo = CHANNELS[currentChannel]?.platform === 'weibo';
+            const viewsText = isWeibo ? (currentLang === 'ko' ? '点赞' : 'Likes') : (currentLang === 'ko' ? '조회수' : 'Views');
+            const likesText = isWeibo ? (currentLang === 'ko' ? '转发' : 'Reposts') : (currentLang === 'ko' ? '좋아요' : 'Likes');
             const commentsText = currentLang === 'ko' ? '댓글' : 'Comments';
             
-            list.innerHTML = videos.map(video => `
+            list.innerHTML = videos.map(video => {
+                const thumbHtml = isWeibo
+                    ? `<div class="video-thumb" style="display:flex;align-items:center;justify-content:center;background:#1a1a2e;font-size:1.5rem;">${video.url && video.url.includes('video') ? '🎬' : '📝'}</div>`
+                    : `<div class="video-thumb"><img src="https://img.youtube.com/vi/${video.video_id}/mqdefault.jpg" alt="${video.title}" loading="lazy"></div>`;
+                return `
                 <div class="video-item">
-                    <div class="video-thumb">
-                        <img src="https://img.youtube.com/vi/${video.video_id}/mqdefault.jpg" 
-                             alt="${video.title}" loading="lazy">
-                    </div>
+                    ${thumbHtml}
                     <div class="video-info">
                         <div class="video-title">
                             <a href="${video.url}" target="_blank">${video.title}</a>
@@ -1350,7 +1396,7 @@
                         <div class="video-stat-label">${commentsText}</div>
                     </div>
                 </div>
-            `).join('');
+            `}).join('');
         }
         
         function renderContentGroups() {
