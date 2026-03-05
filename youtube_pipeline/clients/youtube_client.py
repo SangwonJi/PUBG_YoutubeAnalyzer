@@ -8,16 +8,37 @@ from datetime import datetime, timedelta
 from typing import Optional, List, Generator, Tuple
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+import json as _json
 from tenacity import (
     retry,
     stop_after_attempt,
     wait_exponential,
-    retry_if_exception_type
+    retry_if_exception
 )
 from tqdm import tqdm
 
 from config import get_config
 from db.models import Video, Comment
+
+
+_NON_RETRYABLE_403_REASONS = frozenset({
+    "commentsDisabled", "forbidden", "videoNotFound",
+})
+
+
+def _is_retryable_error(error: BaseException) -> bool:
+    """Retry on transient HTTP errors only. Skip permanent 403s like commentsDisabled."""
+    if not isinstance(error, HttpError):
+        return False
+    status = error.resp.status
+    if status == 403:
+        try:
+            body = _json.loads(error.content.decode("utf-8"))
+            reason = body["error"]["errors"][0].get("reason", "")
+        except Exception:
+            reason = ""
+        return reason not in _NON_RETRYABLE_403_REASONS
+    return status in (429, 500, 502, 503)
 
 
 class YouTubeClient:
@@ -38,7 +59,7 @@ class YouTubeClient:
         self._uploads_playlist_cache: dict[str, str] = {}
     
     @retry(
-        retry=retry_if_exception_type(HttpError),
+        retry=retry_if_exception(_is_retryable_error),
         wait=wait_exponential(multiplier=1, min=2, max=60),
         stop=stop_after_attempt(5)
     )
@@ -330,7 +351,7 @@ class YouTubeClient:
     def fetch_channel_videos(
         self,
         channel_handle: str = "@PUBGMOBILE",
-        days: int = 365,
+        days: Optional[int] = 365,
         progress_callback=None
     ) -> Generator[List[Video], None, None]:
         """
@@ -338,7 +359,7 @@ class YouTubeClient:
         
         Args:
             channel_handle: Channel handle (e.g., "@PUBGMOBILE")
-            days: Number of days to look back
+            days: Number of days to look back (None = all videos)
             progress_callback: Optional callback for progress updates
         
         Yields:
@@ -348,9 +369,12 @@ class YouTubeClient:
         channel_id = self.resolve_channel_handle(channel_handle)
         uploads_playlist_id = self.get_uploads_playlist_id(channel_id)
         
-        # Calculate date cutoff
-        published_after = datetime.now() - timedelta(days=days)
-        published_after = published_after.replace(tzinfo=None)
+        # Calculate date cutoff (None = fetch all)
+        if days is not None:
+            published_after = datetime.now() - timedelta(days=days)
+            published_after = published_after.replace(tzinfo=None)
+        else:
+            published_after = None
         
         # Get channel name
         request = self.youtube.channels().list(
@@ -403,7 +427,10 @@ class YouTubeClient:
         
         for video_id in iterator:
             all_comments = []
-            for comments, _ in self.get_comments_for_video(video_id, max_comments=max_comments):
-                all_comments.extend(comments)
+            try:
+                for comments, _ in self.get_comments_for_video(video_id, max_comments=max_comments):
+                    all_comments.extend(comments)
+            except (HttpError, Exception) as e:
+                pass
             
             yield video_id, all_comments

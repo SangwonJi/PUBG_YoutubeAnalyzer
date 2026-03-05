@@ -1,8 +1,11 @@
 # Environment variables (API keys)
 .env
+*/.env
 
 # Python
 __pycache__/
+*/__pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
 *.so
@@ -12,15 +15,20 @@ venv/
 ENV/
 
 # Database
-data/*.db
-data/*.sqlite
-data/*.sqlite3
 *.db
+*.sqlite
+*.sqlite3
 
 # Output files (generated reports) - keep CSV for sharing
 # output/*.csv
-output/*.json
-!output/.gitkeep
+**/output/*.json
+!**/output/.gitkeep
+
+# Data
+**/data/*.db
+**/data/*.sqlite
+**/data/*.sqlite3
+!**/data/.gitkeep
 
 # IDE
 .vscode/
@@ -34,6 +42,9 @@ Thumbs.db
 
 # Logs
 *.log
+*.txt
+!**/requirements.txt
+!**/top50_video_ids.txt
 
 # Jupyter
 .ipynb_checkpoints/
