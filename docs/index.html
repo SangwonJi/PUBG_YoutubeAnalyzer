@@ -1070,6 +1070,25 @@
                 updateOverviewStats();
             }
             
+            // Update header logo and subtitle
+            const channel = CHANNELS[currentChannel];
+            if (channel) {
+                let logoText;
+                if (channel.platform === 'weibo') {
+                    logoText = lang === 'ko' ? '화평정영 (和平精英) 웨이보 분석' : '和平精英 Weibo Analysis';
+                } else {
+                    logoText = channel.name + ' ' + (lang === 'ko' ? '유튜브 분석' : 'YouTube Analysis');
+                }
+                document.querySelector('.logo').textContent = logoText;
+                
+                const subtitleEl = document.querySelector('.subtitle');
+                if (subtitleEl && channel.dateRange) {
+                    subtitleEl.textContent = lang === 'ko'
+                        ? `소셜 미디어 콜라보 분석 대시보드 (${channel.dateRange})`
+                        : `Social Media Collab Analysis Dashboard (${channel.dateRange})`;
+                }
+            }
+            
             // Update category filter "All" button
             document.querySelectorAll('.category-filter .filter-btn').forEach(btn => {
                 if (btn.dataset.cat === 'all') {
@@ -1128,8 +1147,15 @@
                 initDashboard();
                 
                 // Update header with channel name
-                const platformLabel = channel.platform === 'weibo' ? 'Weibo Analysis' : 'YouTube Analysis';
-                document.querySelector('.logo').textContent = channel.name + ' ' + platformLabel;
+                let logoText;
+                if (channel.platform === 'weibo') {
+                    logoText = currentLang === 'ko'
+                        ? '화평정영 (和平精英) 웨이보 분석'
+                        : '和平精英 Weibo Analysis';
+                } else {
+                    logoText = channel.name + ' ' + (currentLang === 'ko' ? '유튜브 분석' : 'YouTube Analysis');
+                }
+                document.querySelector('.logo').textContent = logoText;
                 const subtitleEl = document.querySelector('.subtitle');
                 if (subtitleEl && channel.dateRange) {
                     subtitleEl.textContent = currentLang === 'ko'
