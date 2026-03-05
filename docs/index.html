@@ -1017,6 +1017,24 @@
             'Videos (Top 50)': { en: 'Videos (Top 50)', ko: '영상 (상위 50개)' }
         };
         
+        const CATEGORY_KO = {
+            'Artist': '아티스트',
+            'Brand': '브랜드',
+            'Anime': '애니메이션',
+            'Movie': '영화',
+            'Game': '게임',
+            'IP': 'IP',
+            'Sports': '스포츠',
+            'Character': '캐릭터',
+            'Celebrity': '셀럽',
+            'Other': '기타'
+        };
+        
+        function translateCategory(cat) {
+            if (currentLang === 'ko' && CATEGORY_KO[cat]) return CATEGORY_KO[cat];
+            return cat;
+        }
+        
         function setLanguage(lang) {
             currentLang = lang;
             
@@ -1039,7 +1057,8 @@
                 el.placeholder = el.getAttribute('data-' + lang + '-placeholder');
             });
             
-            // Re-render dynamic content
+            // Re-render dynamic content with translated categories
+            renderCategoryFilter(true);
             renderContentGroups();
             const searchInput = document.getElementById('searchInput');
             renderPartnersList(searchInput ? searchInput.value : '');
@@ -1302,8 +1321,8 @@
             const likesLabel = document.querySelector('#collabLikes').closest('.stat-card').querySelector('.stat-label');
             if (isWeibo) {
                 videosLabel.textContent = currentLang === 'ko' ? '콜라보 게시물' : 'Collab Posts';
-                viewsLabel.textContent = currentLang === 'ko' ? '총 点赞' : 'Total Attitudes';
-                likesLabel.textContent = currentLang === 'ko' ? '총 转发' : 'Total Reposts';
+                viewsLabel.textContent = currentLang === 'ko' ? '총 좋아요 (点赞)' : 'Total Attitudes (点赞)';
+                likesLabel.textContent = currentLang === 'ko' ? '총 공유 (转发)' : 'Total Reposts (转发)';
             } else {
                 videosLabel.textContent = currentLang === 'ko' ? '콜라보 영상' : 'Collab Videos';
                 viewsLabel.textContent = currentLang === 'ko' ? '총 조회수' : 'Total Views';
@@ -1323,8 +1342,8 @@
             const ncLabels = document.querySelectorAll('#noncollabTab .stat-label');
             if (ncLabels.length >= 4) {
                 ncLabels[0].textContent = isWeibo ? (currentLang === 'ko' ? '일반 게시물' : 'Non-Collab Posts') : (currentLang === 'ko' ? '일반 영상' : 'Non-Collab Videos');
-                ncLabels[2].textContent = isWeibo ? (currentLang === 'ko' ? '총 点赞' : 'Total Attitudes') : (currentLang === 'ko' ? '총 조회수' : 'Total Views');
-                ncLabels[3].textContent = isWeibo ? (currentLang === 'ko' ? '총 转发' : 'Total Reposts') : (currentLang === 'ko' ? '총 좋아요' : 'Total Likes');
+                ncLabels[2].textContent = isWeibo ? (currentLang === 'ko' ? '총 좋아요 (点赞)' : 'Total Attitudes (点赞)') : (currentLang === 'ko' ? '총 조회수' : 'Total Views');
+                ncLabels[3].textContent = isWeibo ? (currentLang === 'ko' ? '총 공유 (转发)' : 'Total Reposts (转发)') : (currentLang === 'ko' ? '총 좋아요' : 'Total Likes');
             }
         }
         
@@ -1347,14 +1366,14 @@
             }
         }
         
-        function renderCategoryFilter() {
+        function renderCategoryFilter(preserveSelection) {
             const categories = [...new Set(partnersData.map(p => p.category))].sort();
             const filter = document.getElementById('categoryFilter');
             filter.innerHTML = '';
             
             // "All" button
             const newAllBtn = document.createElement('button');
-            newAllBtn.className = 'filter-btn active';
+            newAllBtn.className = 'filter-btn' + (currentCategory === 'all' ? ' active' : '');
             newAllBtn.dataset.cat = 'all';
             newAllBtn.textContent = currentLang === 'ko' ? '전체' : 'All';
             newAllBtn.onclick = () => filterCategory('all');
@@ -1364,14 +1383,14 @@
             categories.forEach(cat => {
                 const count = partnersData.filter(p => p.category === cat).length;
                 const btn = document.createElement('button');
-                btn.className = `filter-btn cat-${cat}`;
+                btn.className = `filter-btn cat-${cat}` + (currentCategory === cat ? ' active' : '');
                 btn.dataset.cat = cat;
-                btn.textContent = `${cat} (${count})`;
+                btn.textContent = `${translateCategory(cat)} (${count})`;
                 btn.onclick = () => filterCategory(cat);
                 filter.appendChild(btn);
             });
             
-            currentCategory = 'all';
+            if (!preserveSelection) currentCategory = 'all';
         }
         
         function filterCategory(category) {
@@ -1412,7 +1431,7 @@
                     <div class="partner-info">
                         <div class="partner-name">
                             ${partner.name}
-                            <span class="partner-category-badge cat-${partner.category}">${partner.category}</span>
+                            <span class="partner-category-badge cat-${partner.category}">${translateCategory(partner.category)}</span>
                         </div>
                         <div class="partner-meta">${partner.video_count} ${videosText}</div>
                     </div>
@@ -1435,7 +1454,7 @@
             document.getElementById('detailContent').style.height = '100%';
             
             document.getElementById('detailTitle').textContent = partner.name;
-            document.getElementById('detailCategory').textContent = partner.category;
+            document.getElementById('detailCategory').textContent = translateCategory(partner.category);
             document.getElementById('detailCategory').className = 'detail-category cat-' + partner.category;
             document.getElementById('detailVideos').textContent = partner.video_count;
             document.getElementById('detailViews').textContent = formatNumber(partner.total_views);
@@ -1450,9 +1469,9 @@
             const detailLabels = document.querySelectorAll('#detailContent .detail-stat-label');
             if (isWeibo && detailLabels.length >= 5) {
                 detailLabels[0].textContent = currentLang === 'ko' ? '게시물' : 'Posts';
-                detailLabels[1].textContent = currentLang === 'ko' ? '点赞' : 'Attitudes';
-                detailLabels[2].textContent = currentLang === 'ko' ? '转发' : 'Reposts';
-                detailLabels[3].textContent = currentLang === 'ko' ? '评论' : 'Comments';
+                detailLabels[1].textContent = currentLang === 'ko' ? '좋아요 (点赞)' : 'Attitudes (点赞)';
+                detailLabels[2].textContent = currentLang === 'ko' ? '공유 (转发)' : 'Reposts (转发)';
+                detailLabels[3].textContent = currentLang === 'ko' ? '댓글 (评论)' : 'Comments (评论)';
                 detailLabels[4].textContent = currentLang === 'ko' ? '인게이지먼트' : 'Engagement';
             } else if (detailLabels.length >= 5) {
                 detailLabels[0].textContent = currentLang === 'ko' ? '영상' : 'Videos';
@@ -1470,9 +1489,9 @@
         function renderVideosList(videos) {
             const list = document.getElementById('videosList');
             const isWeibo = CHANNELS[currentChannel]?.platform === 'weibo';
-            const viewsText = isWeibo ? (currentLang === 'ko' ? '点赞' : 'Likes') : (currentLang === 'ko' ? '조회수' : 'Views');
-            const likesText = isWeibo ? (currentLang === 'ko' ? '转发' : 'Reposts') : (currentLang === 'ko' ? '좋아요' : 'Likes');
-            const commentsText = currentLang === 'ko' ? '댓글' : 'Comments';
+            const viewsText = isWeibo ? (currentLang === 'ko' ? '좋아요 (点赞)' : 'Attitudes') : (currentLang === 'ko' ? '조회수' : 'Views');
+            const likesText = isWeibo ? (currentLang === 'ko' ? '공유 (转发)' : 'Reposts') : (currentLang === 'ko' ? '좋아요' : 'Likes');
+            const commentsText = isWeibo ? (currentLang === 'ko' ? '댓글 (评论)' : 'Comments') : (currentLang === 'ko' ? '댓글' : 'Comments');
             
             list.innerHTML = videos.map(video => {
                 const thumbHtml = isWeibo
@@ -1571,9 +1590,9 @@
             if (!ct) return;
             
             const isWeibo = CHANNELS[currentChannel]?.platform === 'weibo';
-            const viewsText = isWeibo ? (currentLang === 'ko' ? '点赞' : 'Attitudes') : (currentLang === 'ko' ? '조회수' : 'Views');
-            const likesText = isWeibo ? (currentLang === 'ko' ? '转发' : 'Reposts') : (currentLang === 'ko' ? '좋아요' : 'Likes');
-            const commentsText = currentLang === 'ko' ? '댓글' : 'Comments';
+            const viewsText = isWeibo ? (currentLang === 'ko' ? '좋아요 (点赞)' : 'Attitudes') : (currentLang === 'ko' ? '조회수' : 'Views');
+            const likesText = isWeibo ? (currentLang === 'ko' ? '공유 (转发)' : 'Reposts') : (currentLang === 'ko' ? '좋아요' : 'Likes');
+            const commentsText = isWeibo ? (currentLang === 'ko' ? '댓글 (评论)' : 'Comments') : (currentLang === 'ko' ? '댓글' : 'Comments');
             
             // Update active state
             document.querySelectorAll('.content-type-item').forEach(item => {
@@ -1627,7 +1646,7 @@
             const channelColor = CHANNELS[currentChannel]?.color || '#818cf8';
             const isKo = currentLang === 'ko';
             const viewsLabel = isWeibo
-                ? (isKo ? '点赞' : 'Attitudes')
+                ? (isKo ? '좋아요 (点赞)' : 'Attitudes (点赞)')
                 : (isKo ? '조회수' : 'Views');
             const unitLabel = isWeibo
                 ? (isKo ? '게시물' : 'Posts')
@@ -1666,8 +1685,8 @@
             const top10 = partnersData.filter(p => p.name !== 'Others').slice(0, 10);
             const titleEl = document.getElementById('topPartnersTitle');
             if (titleEl) titleEl.textContent = currentLang === 'ko'
-                ? (isWeibo ? '점赞 기준 상위 10개 콜라보 파트너' : '조회수 기준 상위 10개 콜라보 파트너')
-                : ('Top 10 Collab Partners by ' + (isWeibo ? 'Attitudes' : 'Views'));
+                ? (isWeibo ? '좋아요(点赞) 기준 상위 10개 콜라보 파트너' : '조회수 기준 상위 10개 콜라보 파트너')
+                : ('Top 10 Collab Partners by ' + (isWeibo ? 'Attitudes (点赞)' : 'Views'));
 
             const topCtx = document.getElementById('topPartnersChart').getContext('2d');
             const barGradients = top10.map((_, i) => {
@@ -1833,7 +1852,7 @@
             new Chart(document.getElementById('categoryChart'), {
                 type: 'bar',
                 data: {
-                    labels: catEntries.map(e => e[0]),
+                    labels: catEntries.map(e => translateCategory(e[0])),
                     datasets: [{
                         data: catEntries.map(e => e[1]),
                         backgroundColor: catColors.slice(0, catEntries.length),
