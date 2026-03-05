@@ -965,6 +965,7 @@
         let chartsInitialized = false;
         let currentLang = 'ko';
         let currentChannel = 'pubgm';
+        let currentTab = 'collab';
         
         // Channel configurations
         const CHANNELS = {
@@ -1058,14 +1059,11 @@
             });
             
             // Re-init charts if overview is visible (labels need updating)
-            if (chartsInitialized) {
-                const overviewTab = document.getElementById('overviewTab');
-                if (overviewTab && overviewTab.classList.contains('active')) {
-                    clearCharts();
-                    chartsInitialized = false;
-                    setTimeout(initCharts, 50);
-                    chartsInitialized = true;
-                }
+            if (chartsInitialized && currentTab === 'overview') {
+                clearCharts();
+                chartsInitialized = false;
+                setTimeout(initCharts, 50);
+                chartsInitialized = true;
             }
         }
         
@@ -1158,6 +1156,8 @@
         loadChannelData('pubgm');
         
         function switchTab(tab) {
+            currentTab = tab;
+            
             // Update buttons
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.classList.remove('active');
@@ -1171,11 +1171,9 @@
             document.getElementById(tab + 'Tab').classList.add('active');
             
             // Initialize charts whenever overview tab is shown
-            if (tab === 'overview') {
-                if (!chartsInitialized) {
-                    setTimeout(initCharts, 50);
-                    chartsInitialized = true;
-                }
+            if (tab === 'overview' && !chartsInitialized) {
+                setTimeout(initCharts, 50);
+                chartsInitialized = true;
             }
         }
         
@@ -1269,14 +1267,8 @@
             renderPartnersList();
             renderContentGroups();
             
-            // Initialize charts if overview tab is active
-            if (!chartsInitialized) {
-                const overviewTab = document.getElementById('overviewTab');
-                if (overviewTab && overviewTab.classList.contains('active')) {
-                    setTimeout(initCharts, 50);
-                    chartsInitialized = true;
-                }
-            }
+            // Re-activate the current tab to force full re-render with new data
+            switchTab(currentTab);
             
             // Search functionality (remove old listener first)
             const searchInput = document.getElementById('searchInput');
