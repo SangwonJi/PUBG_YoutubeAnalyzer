@@ -611,10 +611,17 @@
         }
         
         .chart-card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
             padding: 24px;
+            backdrop-filter: blur(10px);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .chart-card:hover {
+            border-color: rgba(129, 140, 248, 0.2);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
         }
         
         .chart-title {
@@ -622,6 +629,7 @@
             font-weight: 600;
             margin-bottom: 16px;
             color: #94a3b8;
+            letter-spacing: -0.01em;
         }
         
         /* Empty State */
@@ -668,6 +676,10 @@
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .charts-row {
+                grid-template-columns: 1fr 1fr !important;
+            }
         }
         
         @media (max-width: 768px) {
@@ -687,7 +699,7 @@
             }
             
             .charts-row {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
             }
             
             .tab-nav {
@@ -892,25 +904,44 @@
                 </div>
             </section>
             
-            <section class="charts-row">
-                <div class="chart-card">
-                    <h3 class="chart-title" data-en="Top 10 Collab Partners by Views" data-ko="조회수 기준 상위 10개 콜라보 파트너">Top 10 Collab Partners by Views</h3>
-                    <canvas id="topPartnersChart"></canvas>
-                </div>
-                <div class="chart-card">
-                    <h3 class="chart-title" data-en="Content Type Distribution" data-ko="콘텐츠 유형 분포">Content Type Distribution</h3>
-                    <canvas id="contentTypeChart"></canvas>
+            <!-- Full-width top partners chart -->
+            <section style="margin-top: 30px;">
+                <div class="chart-card" style="padding: 28px 32px;">
+                    <h3 class="chart-title" id="topPartnersTitle" style="font-size: 1.1rem; margin-bottom: 20px;">Top 10 Collab Partners</h3>
+                    <div style="height: 400px;">
+                        <canvas id="topPartnersChart"></canvas>
+                    </div>
                 </div>
             </section>
             
-            <section class="charts-row">
+            <section class="charts-row" style="grid-template-columns: 1fr 1fr 1fr; margin-top: 24px;">
+                <div class="chart-card" style="position: relative;">
+                    <h3 class="chart-title" id="collabRatioTitle">Collab vs Non-Collab</h3>
+                    <div style="position: relative; display: flex; align-items: center; justify-content: center;">
+                        <canvas id="collabRatioChart"></canvas>
+                        <div id="ratioCenter" style="position: absolute; text-align: center; pointer-events: none;">
+                            <div style="font-size: 2rem; font-weight: 700; background: linear-gradient(135deg, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" id="ratioPct">-</div>
+                            <div style="font-size: 0.75rem; color: #64748b;" id="ratioLabel">Collab Rate</div>
+                        </div>
+                    </div>
+                </div>
                 <div class="chart-card">
-                    <h3 class="chart-title" data-en="Collab Category Distribution" data-ko="콜라보 카테고리 분포">Collab Category Distribution</h3>
+                    <h3 class="chart-title" id="categoryTitle">Collab Categories</h3>
                     <canvas id="categoryChart"></canvas>
                 </div>
                 <div class="chart-card">
-                    <h3 class="chart-title" data-en="Collab vs Non-Collab" data-ko="콜라보 vs 일반 콘텐츠">Collab vs Non-Collab</h3>
-                    <canvas id="collabRatioChart"></canvas>
+                    <h3 class="chart-title" id="contentTypeTitle">Content Types</h3>
+                    <canvas id="contentTypeChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Timeline chart -->
+            <section style="margin-top: 24px;">
+                <div class="chart-card" style="padding: 28px 32px;">
+                    <h3 class="chart-title" id="timelineTitle" style="font-size: 1.1rem; margin-bottom: 20px;">Collab Activity Timeline</h3>
+                    <div style="height: 280px;">
+                        <canvas id="timelineChart"></canvas>
+                    </div>
                 </div>
             </section>
         </div>
@@ -1171,7 +1202,7 @@
             setHtmlSafe('categoryFilter', '<button class="filter-btn active" onclick="filterCategory(\'all\')">All</button>');
             
             // Destroy existing charts
-            const chartIds = ['partnersChart', 'contentTypesChart', 'categoryChart', 'collabRatioChart'];
+            const chartIds = ['topPartnersChart', 'contentTypeChart', 'categoryChart', 'collabRatioChart', 'timelineChart'];
             chartIds.forEach(id => {
                 const canvas = document.getElementById(id);
                 if (canvas) {
@@ -1547,170 +1578,425 @@
         }
         
         function initCharts() {
-            // Top Partners Chart
+            const isWeibo = CHANNELS[currentChannel]?.platform === 'weibo';
+            const channelColor = CHANNELS[currentChannel]?.color || '#818cf8';
+            const viewsLabel = isWeibo ? '点赞 (Attitudes)' : 'Views';
+            const unitLabel = isWeibo ? '게시물' : 'Videos';
+
+            // Shared tooltip styling
+            const tooltipStyle = {
+                backgroundColor: 'rgba(15, 23, 42, 0.95)',
+                titleColor: '#e2e8f0',
+                bodyColor: '#94a3b8',
+                borderColor: 'rgba(255,255,255,0.1)',
+                borderWidth: 1,
+                cornerRadius: 12,
+                padding: 14,
+                titleFont: { size: 13, weight: '600' },
+                bodyFont: { size: 12 },
+                displayColors: true,
+                boxPadding: 6
+            };
+
+            // Gradient palette
+            const gradientColors = [
+                { start: '#818cf8', end: '#6366f1' },
+                { start: '#a78bfa', end: '#8b5cf6' },
+                { start: '#c084fc', end: '#a855f7' },
+                { start: '#e879f9', end: '#d946ef' },
+                { start: '#f0abfc', end: '#e879f9' },
+                { start: '#67e8f9', end: '#22d3ee' },
+                { start: '#5eead4', end: '#14b8a6' },
+                { start: '#86efac', end: '#22c55e' },
+                { start: '#fcd34d', end: '#f59e0b' },
+                { start: '#fca5a5', end: '#ef4444' }
+            ];
+
+            // --- Top 10 Partners (Horizontal Bar) ---
             const top10 = partnersData.filter(p => p.name !== 'Others').slice(0, 10);
-            new Chart(document.getElementById('topPartnersChart'), {
+            const titleEl = document.getElementById('topPartnersTitle');
+            if (titleEl) titleEl.textContent = currentLang === 'ko'
+                ? (isWeibo ? '점赞 기준 상위 10개 콜라보 파트너' : '조회수 기준 상위 10개 콜라보 파트너')
+                : ('Top 10 Collab Partners by ' + (isWeibo ? 'Attitudes' : 'Views'));
+
+            const topCtx = document.getElementById('topPartnersChart').getContext('2d');
+            const barGradients = top10.map((_, i) => {
+                const g = topCtx.createLinearGradient(0, 0, topCtx.canvas.width, 0);
+                const c = gradientColors[i % gradientColors.length];
+                g.addColorStop(0, c.start);
+                g.addColorStop(1, c.end);
+                return g;
+            });
+
+            const maxVal = Math.max(...top10.map(p => p.total_views));
+            const divisor = maxVal >= 1e9 ? 1e9 : maxVal >= 1e6 ? 1e6 : maxVal >= 1e3 ? 1e3 : 1;
+            const suffix = divisor === 1e9 ? 'B' : divisor === 1e6 ? 'M' : divisor === 1e3 ? 'K' : '';
+
+            new Chart(topCtx, {
                 type: 'bar',
                 data: {
-                    labels: top10.map(p => p.name),
+                    labels: top10.map(p => p.name.length > 22 ? p.name.slice(0, 20) + '…' : p.name),
                     datasets: [{
-                        label: 'Views',
-                        data: top10.map(p => p.total_views / 1000000),
-                        backgroundColor: [
-                            '#8b5cf6', '#6366f1', '#3b82f6', '#0ea5e9', '#14b8a6',
-                            '#10b981', '#84cc16', '#eab308', '#f59e0b', '#f97316'
-                        ],
-                        borderRadius: 6
+                        label: viewsLabel,
+                        data: top10.map(p => p.total_views / divisor),
+                        backgroundColor: barGradients,
+                        borderRadius: 8,
+                        borderSkipped: false,
+                        barPercentage: 0.7,
+                        categoryPercentage: 0.8
                     }]
                 },
                 options: {
+                    indexAxis: 'y',
                     responsive: true,
+                    maintainAspectRatio: false,
+                    layout: { padding: { right: 20 } },
                     plugins: {
                         legend: { display: false },
                         tooltip: {
+                            ...tooltipStyle,
                             callbacks: {
-                                label: (ctx) => ctx.raw.toFixed(1) + 'M views'
+                                title: (items) => top10[items[0].dataIndex].name,
+                                label: (ctx) => {
+                                    const p = top10[ctx.dataIndex];
+                                    const val = isWeibo ? p.total_views : p.total_views;
+                                    return ` ${viewsLabel}: ${formatNumber(val)}`;
+                                },
+                                afterLabel: (ctx) => {
+                                    const p = top10[ctx.dataIndex];
+                                    const vc = p.video_count || p.post_count || 0;
+                                    return ` ${unitLabel}: ${vc}`;
+                                }
                             }
                         }
                     },
                     scales: {
-                        y: {
-                            beginAtZero: true,
-                            grid: { color: 'rgba(255,255,255,0.05)' },
-                            ticks: { 
-                                color: '#64748b',
-                                callback: (v) => v + 'M'
-                            }
-                        },
                         x: {
-                            grid: { display: false },
-                            ticks: { 
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255,255,255,0.04)', drawBorder: false },
+                            ticks: {
                                 color: '#64748b',
-                                maxRotation: 45,
-                                minRotation: 45
-                            }
+                                font: { size: 11 },
+                                callback: (v) => v + suffix
+                            },
+                            border: { display: false }
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: {
+                                color: '#cbd5e1',
+                                font: { size: 12, weight: '500' },
+                                padding: 8
+                            },
+                            border: { display: false }
                         }
+                    },
+                    animation: {
+                        duration: 1200,
+                        easing: 'easeOutQuart'
                     }
                 }
             });
             
-            // Content Type Distribution Chart
+            // --- Collab vs Non-Collab (Doughnut with center text) ---
+            const collabVideos = partnersData.reduce((sum, p) => sum + (p.video_count || 0), 0);
+            const noncollabVideos = othersData ? othersData.video_count : 0;
+            const totalAll = collabVideos + noncollabVideos;
+            const collabPct = totalAll > 0 ? ((collabVideos / totalAll) * 100).toFixed(1) : 0;
+
+            document.getElementById('ratioPct').textContent = collabPct + '%';
+            document.getElementById('ratioLabel').textContent = currentLang === 'ko' ? '콜라보 비율' : 'Collab Rate';
+
+            const ratioTitleEl = document.getElementById('collabRatioTitle');
+            if (ratioTitleEl) ratioTitleEl.textContent = currentLang === 'ko' ? '콜라보 vs 일반' : 'Collab vs Non-Collab';
+
+            new Chart(document.getElementById('collabRatioChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        currentLang === 'ko' ? '콜라보' : 'Collab',
+                        currentLang === 'ko' ? '일반' : 'Non-Collab'
+                    ],
+                    datasets: [{
+                        data: [collabVideos, noncollabVideos],
+                        backgroundColor: [
+                            'rgba(129, 140, 248, 0.85)',
+                            'rgba(71, 85, 105, 0.5)'
+                        ],
+                        hoverBackgroundColor: [
+                            'rgba(129, 140, 248, 1)',
+                            'rgba(71, 85, 105, 0.7)'
+                        ],
+                        borderWidth: 0,
+                        spacing: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    cutout: '72%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#94a3b8',
+                                padding: 16,
+                                font: { size: 12 },
+                                usePointStyle: true,
+                                pointStyle: 'circle'
+                            }
+                        },
+                        tooltip: {
+                            ...tooltipStyle,
+                            callbacks: {
+                                label: (ctx) => {
+                                    const pct = ((ctx.raw / totalAll) * 100).toFixed(1);
+                                    return ` ${ctx.label}: ${ctx.raw.toLocaleString()} ${unitLabel} (${pct}%)`;
+                                }
+                            }
+                        }
+                    },
+                    animation: {
+                        animateRotate: true,
+                        duration: 1000,
+                        easing: 'easeOutCubic'
+                    }
+                }
+            });
+
+            // --- Category Distribution (Horizontal Bar) ---
+            const categoryData = {};
+            partnersData.forEach(p => {
+                categoryData[p.category] = (categoryData[p.category] || 0) + (p.video_count || 0);
+            });
+            const catEntries = Object.entries(categoryData).sort((a, b) => b[1] - a[1]);
+            const catColors = [
+                'rgba(139, 92, 246, 0.8)', 'rgba(99, 102, 241, 0.8)',
+                'rgba(59, 130, 246, 0.8)', 'rgba(14, 165, 233, 0.8)',
+                'rgba(20, 184, 166, 0.8)', 'rgba(16, 185, 129, 0.8)',
+                'rgba(234, 179, 8, 0.8)', 'rgba(245, 158, 11, 0.8)',
+                'rgba(236, 72, 153, 0.8)', 'rgba(239, 68, 68, 0.8)'
+            ];
+
+            const catTitleEl = document.getElementById('categoryTitle');
+            if (catTitleEl) catTitleEl.textContent = currentLang === 'ko' ? '콜라보 카테고리' : 'Collab Categories';
+
+            new Chart(document.getElementById('categoryChart'), {
+                type: 'bar',
+                data: {
+                    labels: catEntries.map(e => e[0]),
+                    datasets: [{
+                        data: catEntries.map(e => e[1]),
+                        backgroundColor: catColors.slice(0, catEntries.length),
+                        borderRadius: 6,
+                        borderSkipped: false,
+                        barPercentage: 0.65
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            ...tooltipStyle,
+                            callbacks: {
+                                label: (ctx) => ` ${ctx.raw} ${unitLabel}`
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255,255,255,0.04)', drawBorder: false },
+                            ticks: { color: '#64748b', font: { size: 11 } },
+                            border: { display: false }
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: { color: '#cbd5e1', font: { size: 11, weight: '500' }, padding: 4 },
+                            border: { display: false }
+                        }
+                    },
+                    animation: { duration: 1000, easing: 'easeOutQuart' }
+                }
+            });
+
+            // --- Content Type Distribution (Doughnut) ---
+            const ctTitleEl = document.getElementById('contentTypeTitle');
+            if (ctTitleEl) ctTitleEl.textContent = currentLang === 'ko' ? '콘텐츠 유형' : 'Content Types';
+
             if (othersData && othersData.content_types) {
                 const topTypes = othersData.content_types.slice(0, 8);
+                const ctColors = [
+                    '#818cf8', '#a78bfa', '#c084fc', '#f472b6',
+                    '#22d3ee', '#34d399', '#fbbf24', '#fb923c'
+                ];
                 new Chart(document.getElementById('contentTypeChart'), {
                     type: 'doughnut',
                     data: {
                         labels: topTypes.map(ct => ct.name),
                         datasets: [{
                             data: topTypes.map(ct => ct.video_count),
-                            backgroundColor: [
-                                '#8b5cf6', '#6366f1', '#3b82f6', '#0ea5e9', '#14b8a6',
-                                '#10b981', '#84cc16', '#eab308'
-                            ],
-                            borderWidth: 0
+                            backgroundColor: ctColors.slice(0, topTypes.length),
+                            hoverBackgroundColor: ctColors.slice(0, topTypes.length).map(c => c + 'dd'),
+                            borderWidth: 0,
+                            spacing: 2
                         }]
                     },
                     options: {
                         responsive: true,
+                        cutout: '55%',
                         plugins: {
                             legend: {
                                 position: 'right',
                                 labels: {
                                     color: '#94a3b8',
-                                    padding: 12,
-                                    font: { size: 11 }
+                                    padding: 10,
+                                    font: { size: 11 },
+                                    usePointStyle: true,
+                                    pointStyle: 'circle'
+                                }
+                            },
+                            tooltip: {
+                                ...tooltipStyle,
+                                callbacks: {
+                                    label: (ctx) => {
+                                        const total = topTypes.reduce((s, t) => s + t.video_count, 0);
+                                        const pct = ((ctx.raw / total) * 100).toFixed(1);
+                                        return ` ${ctx.label}: ${ctx.raw} (${pct}%)`;
+                                    }
                                 }
                             }
-                        }
+                        },
+                        animation: { animateRotate: true, duration: 1000, easing: 'easeOutCubic' }
                     }
                 });
             }
-            
-            // Category Distribution Chart
-            const categoryData = {};
+
+            // --- Timeline Chart (Collab activity by year) ---
+            const timelineTitleEl = document.getElementById('timelineTitle');
+            if (timelineTitleEl) timelineTitleEl.textContent = currentLang === 'ko' ? '연도별 콜라보 활동' : 'Collab Activity by Year';
+
+            const yearlyData = {};
+            const yearlyViews = {};
             partnersData.forEach(p => {
-                categoryData[p.category] = (categoryData[p.category] || 0) + p.video_count;
+                if (!p.videos) return;
+                p.videos.forEach(v => {
+                    const yr = v.published_at ? v.published_at.substring(0, 4) : null;
+                    if (!yr) return;
+                    yearlyData[yr] = (yearlyData[yr] || 0) + 1;
+                    yearlyViews[yr] = (yearlyViews[yr] || 0) + (v.view_count || 0);
+                });
             });
-            
-            new Chart(document.getElementById('categoryChart'), {
-                type: 'polarArea',
+            const years = Object.keys(yearlyData).sort();
+            const timelineCtx = document.getElementById('timelineChart').getContext('2d');
+            const areaGrad = timelineCtx.createLinearGradient(0, 0, 0, 280);
+            areaGrad.addColorStop(0, 'rgba(129, 140, 248, 0.35)');
+            areaGrad.addColorStop(1, 'rgba(129, 140, 248, 0.02)');
+
+            new Chart(timelineCtx, {
+                type: 'line',
                 data: {
-                    labels: Object.keys(categoryData),
-                    datasets: [{
-                        data: Object.values(categoryData),
-                        backgroundColor: [
-                            'rgba(139, 92, 246, 0.7)',
-                            'rgba(59, 130, 246, 0.7)',
-                            'rgba(236, 72, 153, 0.7)',
-                            'rgba(245, 158, 11, 0.7)',
-                            'rgba(16, 185, 129, 0.7)',
-                            'rgba(99, 102, 241, 0.7)',
-                            'rgba(239, 68, 68, 0.7)',
-                            'rgba(249, 115, 22, 0.7)',
-                            'rgba(168, 85, 247, 0.7)'
-                        ],
-                        borderWidth: 0
-                    }]
+                    labels: years,
+                    datasets: [
+                        {
+                            label: currentLang === 'ko' ? '콜라보 수' : 'Collabs',
+                            data: years.map(y => yearlyData[y]),
+                            borderColor: '#818cf8',
+                            backgroundColor: areaGrad,
+                            fill: true,
+                            tension: 0.4,
+                            pointBackgroundColor: '#818cf8',
+                            pointBorderColor: '#0f172a',
+                            pointBorderWidth: 2,
+                            pointRadius: 5,
+                            pointHoverRadius: 8,
+                            borderWidth: 3,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: viewsLabel,
+                            data: years.map(y => yearlyViews[y] / divisor),
+                            borderColor: '#f472b6',
+                            backgroundColor: 'transparent',
+                            borderDash: [6, 4],
+                            tension: 0.4,
+                            pointBackgroundColor: '#f472b6',
+                            pointBorderColor: '#0f172a',
+                            pointBorderWidth: 2,
+                            pointRadius: 4,
+                            pointHoverRadius: 7,
+                            borderWidth: 2,
+                            yAxisID: 'y1'
+                        }
+                    ]
                 },
                 options: {
                     responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
                     plugins: {
                         legend: {
-                            position: 'right',
                             labels: {
                                 color: '#94a3b8',
-                                padding: 10,
-                                font: { size: 11 }
+                                font: { size: 12 },
+                                usePointStyle: true,
+                                pointStyle: 'circle',
+                                padding: 20
+                            }
+                        },
+                        tooltip: {
+                            ...tooltipStyle,
+                            callbacks: {
+                                afterBody: (items) => {
+                                    const yr = items[0].label;
+                                    return `총 ${viewsLabel}: ${formatNumber(yearlyViews[yr])}`;
+                                }
                             }
                         }
                     },
                     scales: {
-                        r: {
-                            ticks: { display: false },
-                            grid: { color: 'rgba(255,255,255,0.1)' }
-                        }
-                    }
-                }
-            });
-            
-            // Collab vs Non-Collab Ratio
-            const collabVideos = partnersData.reduce((sum, p) => sum + p.video_count, 0);
-            const noncollabVideos = othersData ? othersData.video_count : 0;
-            
-            new Chart(document.getElementById('collabRatioChart'), {
-                type: 'doughnut',
-                data: {
-                    labels: ['Collaborations', 'Non-Collab Content'],
-                    datasets: [{
-                        data: [collabVideos, noncollabVideos],
-                        backgroundColor: [
-                            'rgba(99, 102, 241, 0.8)',
-                            'rgba(100, 116, 139, 0.8)'
-                        ],
-                        borderWidth: 0
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                color: '#94a3b8',
-                                padding: 20,
-                                font: { size: 12 }
-                            }
+                        x: {
+                            grid: { color: 'rgba(255,255,255,0.04)', drawBorder: false },
+                            ticks: { color: '#94a3b8', font: { size: 12 } },
+                            border: { display: false }
                         },
-                        tooltip: {
-                            callbacks: {
-                                label: (ctx) => {
-                                    const total = collabVideos + noncollabVideos;
-                                    const pct = ((ctx.raw / total) * 100).toFixed(1);
-                                    return `${ctx.label}: ${ctx.raw} (${pct}%)`;
-                                }
-                            }
+                        y: {
+                            position: 'left',
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255,255,255,0.04)', drawBorder: false },
+                            ticks: {
+                                color: '#818cf8',
+                                font: { size: 11 },
+                                stepSize: Math.ceil(Math.max(...Object.values(yearlyData)) / 5)
+                            },
+                            title: {
+                                display: true,
+                                text: currentLang === 'ko' ? '콜라보 수' : 'Collabs',
+                                color: '#818cf8',
+                                font: { size: 12 }
+                            },
+                            border: { display: false }
+                        },
+                        y1: {
+                            position: 'right',
+                            beginAtZero: true,
+                            grid: { display: false },
+                            ticks: {
+                                color: '#f472b6',
+                                font: { size: 11 },
+                                callback: (v) => v + suffix
+                            },
+                            title: {
+                                display: true,
+                                text: viewsLabel,
+                                color: '#f472b6',
+                                font: { size: 12 }
+                            },
+                            border: { display: false }
                         }
-                    }
+                    },
+                    animation: { duration: 1500, easing: 'easeOutQuart' }
                 }
             });
         }
