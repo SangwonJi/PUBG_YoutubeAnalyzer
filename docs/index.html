@@ -732,25 +732,26 @@
         <div class="lang-toggle">
             <button class="lang-btn" onclick="setLanguage('en')">EN</button>
             <button class="lang-btn active" onclick="setLanguage('ko')">한</button>
+            <button class="lang-btn" onclick="setLanguage('zh')">中</button>
         </div>
         
         <header>
             <div class="logo">YouTube Channel Analysis</div>
-            <p class="subtitle" data-en="Social Media Collab Analysis Dashboard (2018 - 2026)" data-ko="소셜 미디어 콜라보 분석 대시보드 (2018 - 2026)">Social Media Collab Analysis Dashboard (2018 - 2026)</p>
+            <p class="subtitle" data-en="Social Media Collab Analysis Dashboard (2018 - 2026)" data-ko="소셜 미디어 콜라보 분석 대시보드 (2018 - 2026)" data-zh="社交媒体合作分析面板 (2018 - 2026)">Social Media Collab Analysis Dashboard (2018 - 2026)</p>
         </header>
         
         <!-- Channel Selection -->
         <nav class="channel-nav" style="display: flex; justify-content: center; gap: 12px; margin-bottom: 20px;">
-            <button class="channel-btn active" onclick="switchChannel('pubgm')" data-en="PUBG MOBILE YouTube" data-ko="PUBG MOBILE 유튜브" style="padding: 12px 28px; border: 2px solid #f5af19; background: linear-gradient(135deg, rgba(245,175,25,0.2), rgba(241,39,17,0.2)); color: #f5af19; font-size: 1rem; font-weight: 700; border-radius: 10px; cursor: pointer; transition: all 0.2s;">PUBG MOBILE 유튜브</button>
-            <button class="channel-btn" onclick="switchChannel('freefire')" data-en="Free Fire YouTube" data-ko="Free Fire 유튜브" style="padding: 12px 28px; border: 2px solid #6366f1; background: transparent; color: #64748b; font-size: 1rem; font-weight: 700; border-radius: 10px; cursor: pointer; transition: all 0.2s;">Free Fire 유튜브</button>
-            <button class="channel-btn" onclick="switchChannel('weibo')" data-en="和平精英 Weibo" data-ko="화평정영 (和平精英) 웨이보" style="padding: 12px 28px; border: 2px solid #6366f1; background: transparent; color: #64748b; font-size: 1rem; font-weight: 700; border-radius: 10px; cursor: pointer; transition: all 0.2s;">화평정영 (和平精英) 웨이보</button>
+            <button class="channel-btn active" onclick="switchChannel('pubgm')" data-en="PUBG MOBILE YouTube" data-ko="PUBG MOBILE 유튜브" data-zh="PUBG MOBILE YouTube" style="padding: 12px 28px; border: 2px solid #f5af19; background: linear-gradient(135deg, rgba(245,175,25,0.2), rgba(241,39,17,0.2)); color: #f5af19; font-size: 1rem; font-weight: 700; border-radius: 10px; cursor: pointer; transition: all 0.2s;">PUBG MOBILE 유튜브</button>
+            <button class="channel-btn" onclick="switchChannel('freefire')" data-en="Free Fire YouTube" data-ko="Free Fire 유튜브" data-zh="Free Fire YouTube" style="padding: 12px 28px; border: 2px solid #6366f1; background: transparent; color: #64748b; font-size: 1rem; font-weight: 700; border-radius: 10px; cursor: pointer; transition: all 0.2s;">Free Fire 유튜브</button>
+            <button class="channel-btn" onclick="switchChannel('weibo')" data-en="和平精英 Weibo" data-ko="화평정영 (和平精英) 웨이보" data-zh="和平精英 微博" style="padding: 12px 28px; border: 2px solid #6366f1; background: transparent; color: #64748b; font-size: 1rem; font-weight: 700; border-radius: 10px; cursor: pointer; transition: all 0.2s;">화평정영 (和平精英) 웨이보</button>
         </nav>
         
         <!-- Tab Navigation -->
         <nav class="tab-nav">
-            <button class="tab-btn active" onclick="switchTab('collab')" data-en="Collaborations" data-ko="콜라보레이션">Collaborations</button>
-            <button class="tab-btn" onclick="switchTab('noncollab')" data-en="Non-Collab Content" data-ko="일반 콘텐츠">Non-Collab Content</button>
-            <button class="tab-btn" onclick="switchTab('overview')" data-en="Overview" data-ko="전체 요약">Overview</button>
+            <button class="tab-btn active" onclick="switchTab('collab')" data-en="Collaborations" data-ko="콜라보레이션" data-zh="合作内容">Collaborations</button>
+            <button class="tab-btn" onclick="switchTab('noncollab')" data-en="Non-Collab Content" data-ko="일반 콘텐츠" data-zh="非合作内容">Non-Collab Content</button>
+            <button class="tab-btn" onclick="switchTab('overview')" data-en="Overview" data-ko="전체 요약" data-zh="总览">Overview</button>
         </nav>
         
         <!-- Collab Tab -->
@@ -758,19 +759,19 @@
             <section class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-value" id="collabVideos">-</div>
-                    <div class="stat-label" data-en="Collab Videos" data-ko="콜라보 영상">Collab Videos</div>
+                    <div class="stat-label" data-en="Collab Videos" data-ko="콜라보 영상" data-zh="合作视频">Collab Videos</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value" id="totalPartners">-</div>
-                    <div class="stat-label" data-en="Partners" data-ko="파트너">Partners</div>
+                    <div class="stat-label" data-en="Partners" data-ko="파트너" data-zh="合作伙伴">Partners</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value" id="collabViews">-</div>
-                    <div class="stat-label" data-en="Total Views" data-ko="총 조회수">Total Views</div>
+                    <div class="stat-label" data-en="Total Views" data-ko="총 조회수" data-zh="总浏览量">Total Views</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value" id="collabLikes">-</div>
-                    <div class="stat-label" data-en="Total Likes" data-ko="총 좋아요">Total Likes</div>
+                    <div class="stat-label" data-en="Total Likes" data-ko="총 좋아요" data-zh="总点赞">Total Likes</div>
                 </div>
             </section>
             
@@ -783,8 +784,8 @@
             <div class="main-content">
                 <aside class="sidebar">
                     <div class="sidebar-header">
-                        <h2 class="sidebar-title" data-en="Collab Partners" data-ko="콜라보 파트너">Collab Partners</h2>
-                        <input type="text" class="search-box" id="searchInput" data-en-placeholder="Search partners..." data-ko-placeholder="파트너 검색..." placeholder="Search partners...">
+                        <h2 class="sidebar-title" data-en="Collab Partners" data-ko="콜라보 파트너" data-zh="合作伙伴">Collab Partners</h2>
+                        <input type="text" class="search-box" id="searchInput" data-en-placeholder="Search partners..." data-ko-placeholder="파트너 검색..." data-zh-placeholder="搜索合作伙伴..." placeholder="Search partners...">
                     </div>
                     <div class="partners-list" id="partnersList">
                         <!-- Partners loaded dynamically -->
@@ -794,7 +795,7 @@
                 <main class="detail-panel">
                     <div class="empty-state" id="emptyState">
                         <div class="empty-icon">👈</div>
-                        <p data-en="Select a partner to view details" data-ko="파트너를 선택하면 상세 정보를 볼 수 있습니다">Select a partner to view details</p>
+                        <p data-en="Select a partner to view details" data-ko="파트너를 선택하면 상세 정보를 볼 수 있습니다" data-zh="选择合作伙伴查看详情">Select a partner to view details</p>
                     </div>
                     
                     <div id="detailContent" style="display: none;">
@@ -804,30 +805,30 @@
                             <div class="detail-stats">
                                 <div class="detail-stat">
                                     <div class="detail-stat-value" id="detailVideos">-</div>
-                                    <div class="detail-stat-label" data-en="Videos" data-ko="영상">Videos</div>
+                                    <div class="detail-stat-label" data-en="Videos" data-ko="영상" data-zh="视频">Videos</div>
                                 </div>
                                 <div class="detail-stat">
                                     <div class="detail-stat-value" id="detailViews">-</div>
-                                    <div class="detail-stat-label" data-en="Views" data-ko="조회수">Views</div>
+                                    <div class="detail-stat-label" data-en="Views" data-ko="조회수" data-zh="浏览量">Views</div>
                                 </div>
                                 <div class="detail-stat">
                                     <div class="detail-stat-value" id="detailLikes">-</div>
-                                    <div class="detail-stat-label" data-en="Likes" data-ko="좋아요">Likes</div>
+                                    <div class="detail-stat-label" data-en="Likes" data-ko="좋아요" data-zh="点赞">Likes</div>
                                 </div>
                                 <div class="detail-stat">
                                     <div class="detail-stat-value" id="detailComments">-</div>
-                                    <div class="detail-stat-label" data-en="Comments" data-ko="댓글">Comments</div>
+                                    <div class="detail-stat-label" data-en="Comments" data-ko="댓글" data-zh="评论">Comments</div>
                                 </div>
                                 <div class="detail-stat">
                                     <div class="detail-stat-value" id="detailLikeRate">-</div>
-                                    <div class="detail-stat-label" data-en="Like Rate" data-ko="좋아요율">Like Rate</div>
+                                    <div class="detail-stat-label" data-en="Like Rate" data-ko="좋아요율" data-zh="点赞率">Like Rate</div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="videos-container">
                             <div class="videos-header">
-                                <span class="videos-title" data-en="Videos" data-ko="영상 목록">Videos</span>
+                                <span class="videos-title" data-en="Videos" data-ko="영상 목록" data-zh="视频列表">Videos</span>
                             </div>
                             <div id="videosList">
                                 <!-- Videos loaded dynamically -->
@@ -843,19 +844,19 @@
             <section class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-value" id="noncollabVideos">-</div>
-                    <div class="stat-label" data-en="Non-Collab Videos" data-ko="일반 영상">Non-Collab Videos</div>
+                    <div class="stat-label" data-en="Non-Collab Videos" data-ko="일반 영상" data-zh="非合作视频">Non-Collab Videos</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value" id="noncollabTypes">-</div>
-                    <div class="stat-label" data-en="Content Types" data-ko="콘텐츠 유형">Content Types</div>
+                    <div class="stat-label" data-en="Content Types" data-ko="콘텐츠 유형" data-zh="内容类型">Content Types</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value" id="noncollabViews">-</div>
-                    <div class="stat-label" data-en="Total Views" data-ko="총 조회수">Total Views</div>
+                    <div class="stat-label" data-en="Total Views" data-ko="총 조회수" data-zh="总浏览量">Total Views</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value" id="noncollabLikes">-</div>
-                    <div class="stat-label" data-en="Total Likes" data-ko="총 좋아요">Total Likes</div>
+                    <div class="stat-label" data-en="Total Likes" data-ko="총 좋아요" data-zh="总点赞">Total Likes</div>
                 </div>
             </section>
             
@@ -869,11 +870,11 @@
                     <div class="noncollab-detail-stats">
                         <div class="detail-stat">
                             <div class="detail-stat-value" id="noncollabDetailVideos">-</div>
-                            <div class="detail-stat-label" data-en="Videos" data-ko="영상">Videos</div>
+                            <div class="detail-stat-label" data-en="Videos" data-ko="영상" data-zh="视频">Videos</div>
                         </div>
                         <div class="detail-stat">
                             <div class="detail-stat-value" id="noncollabDetailViews">-</div>
-                            <div class="detail-stat-label" data-en="Views" data-ko="조회수">Views</div>
+                            <div class="detail-stat-label" data-en="Views" data-ko="조회수" data-zh="浏览量">Views</div>
                         </div>
                     </div>
                 </div>
@@ -888,19 +889,19 @@
             <section class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-value" id="totalVideos">-</div>
-                    <div class="stat-label" data-en="Total Videos" data-ko="전체 영상">Total Videos</div>
+                    <div class="stat-label" data-en="Total Videos" data-ko="전체 영상" data-zh="全部视频">Total Videos</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value" id="overviewCollabVideos">-</div>
-                    <div class="stat-label" data-en="Collab Videos" data-ko="콜라보 영상">Collab Videos</div>
+                    <div class="stat-label" data-en="Collab Videos" data-ko="콜라보 영상" data-zh="合作视频">Collab Videos</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value" id="overviewNoncollabVideos">-</div>
-                    <div class="stat-label" data-en="Non-Collab Videos" data-ko="일반 영상">Non-Collab Videos</div>
+                    <div class="stat-label" data-en="Non-Collab Videos" data-ko="일반 영상" data-zh="非合作视频">Non-Collab Videos</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value" id="overviewPartners">-</div>
-                    <div class="stat-label" data-en="Collab Partners" data-ko="콜라보 파트너">Collab Partners</div>
+                    <div class="stat-label" data-en="Collab Partners" data-ko="콜라보 파트너" data-zh="合作伙伴">Collab Partners</div>
                 </div>
             </section>
             
@@ -938,7 +939,17 @@
             <!-- Timeline chart -->
             <section style="margin-top: 24px;">
                 <div class="chart-card" style="padding: 28px 32px;">
-                    <h3 class="chart-title" id="timelineTitle" style="font-size: 1.1rem; margin-bottom: 20px;">Collab Activity Timeline</h3>
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+                        <h3 class="chart-title" id="timelineTitle" style="font-size: 1.1rem; margin-bottom: 0;">Collab Activity Timeline</h3>
+                        <div class="timeline-toggle" style="display: flex; gap: 4px; background: rgba(255,255,255,0.06); border-radius: 8px; padding: 3px;">
+                            <button class="timeline-btn active" onclick="switchTimelineMode('yearly')" data-mode="yearly" style="padding: 5px 14px; border: none; border-radius: 6px; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; background: #6366f1; color: #fff;">
+                                <span data-en="Yearly" data-ko="연도별" data-zh="按年">연도별</span>
+                            </button>
+                            <button class="timeline-btn" onclick="switchTimelineMode('monthly')" data-mode="monthly" style="padding: 5px 14px; border: none; border-radius: 6px; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; background: transparent; color: #94a3b8;">
+                                <span data-en="Monthly" data-ko="월별" data-zh="按月">월별</span>
+                            </button>
+                        </div>
+                    </div>
                     <div style="height: 280px;">
                         <canvas id="timelineChart"></canvas>
                     </div>
@@ -947,12 +958,12 @@
         </div>
         
         <footer>
-            <p data-en="Data from" data-ko="데이터 출처:">Data from</p>
+            <p data-en="Data from" data-ko="데이터 출처:" data-zh="数据来源：">Data from</p>
             <p>
                 <a href="https://www.youtube.com/@PUBGMOBILE" target="_blank">PUBG MOBILE</a> |
                 <a href="https://www.youtube.com/@GarenaFreeFireGlobal" target="_blank">Free Fire</a> |
                 <a href="https://weibo.com/u/7095404909" target="_blank">和平精英 (Weibo)</a> |
-                <a href="https://github.com/SangwonJi/PUBG_YoutubeAnalyzer" target="_blank" data-en="View on GitHub" data-ko="GitHub에서 보기">View on GitHub</a>
+                <a href="https://github.com/SangwonJi/PUBG_YoutubeAnalyzer" target="_blank" data-en="View on GitHub" data-ko="GitHub에서 보기" data-zh="在GitHub上查看">View on GitHub</a>
             </p>
         </footer>
     </div>
@@ -964,6 +975,7 @@
         let currentCategory = 'all';
         let chartsInitialized = false;
         let currentLang = 'ko';
+        let loadRequestId = 0;
         let currentChannel = 'pubgm';
         let currentTab = 'collab';
         
@@ -993,65 +1005,55 @@
                 dataFile: 'weibo_data.json',
                 othersFile: 'weibo_others.json',
                 color: '#e6162d',
-                dateRange: '2022 - 2026'
+                dateRange: '2019 - 2026'
             }
         };
         
         // Content type groupings with translations
         const CONTENT_GROUPS = {
-            'Esports': { types: ['Esports'], ko: '이스포츠' },
-            'Updates & Season': { types: ['Update', 'Season', 'Pass'], ko: '업데이트 & 시즌' },
-            'Content': { types: ['Shorts', 'Chicko', 'Gilt'], ko: '콘텐츠' },
-            'Features': { types: ['Mode', 'Map', 'Event', 'Draw', 'Skin'], ko: '게임 기능' },
-            'Promotion': { types: ['Promotional', 'Guide', 'Community'], ko: '프로모션' },
-            'Special': { types: ['WOW', 'PDP', 'Other'], ko: '스페셜' }
+            'Esports': { types: ['Esports'], ko: '이스포츠', zh: '电竞' },
+            'Updates & Season': { types: ['Update', 'Season', 'Pass'], ko: '업데이트 & 시즌', zh: '更新 & 赛季' },
+            'Content': { types: ['Shorts', 'Chicko', 'Gilt'], ko: '콘텐츠', zh: '内容' },
+            'Features': { types: ['Mode', 'Map', 'Event', 'Draw', 'Skin'], ko: '게임 기능', zh: '游戏功能' },
+            'Promotion': { types: ['Promotional', 'Guide', 'Community'], ko: '프로모션', zh: '推广' },
+            'Special': { types: ['WOW', 'PDP', 'Other'], ko: '스페셜', zh: '特别' }
         };
         
         const WEIBO_CONTENT_GROUPS = {
-            'Events & Updates': { types: ['Event', 'Update', 'Festive'], ko: '이벤트 & 업데이트' },
-            'Community': { types: ['Creative', 'Livestream', 'Giveaway'], ko: '커뮤니티' },
-            'Esports': { types: ['Esports'], ko: '이스포츠' },
-            'Operations': { types: ['Promotion', 'Announcement', 'Recruitment'], ko: '운영' },
-            'Other': { types: ['Other'], ko: '기타' }
-        };
-        
-        // Translations
-        const TRANSLATIONS = {
-            'videos': { en: 'videos', ko: '영상' },
-            'Views': { en: 'Views', ko: '조회수' },
-            'Likes': { en: 'Likes', ko: '좋아요' },
-            'Comments': { en: 'Comments', ko: '댓글' },
-            'All': { en: 'All', ko: '전체' },
-            'Videos (Top 50)': { en: 'Videos (Top 50)', ko: '영상 (상위 50개)' }
+            'Events & Updates': { types: ['Event', 'Update', 'Festive'], ko: '이벤트 & 업데이트', zh: '活动 & 更新' },
+            'Community': { types: ['Creative', 'Livestream', 'Giveaway'], ko: '커뮤니티', zh: '社区' },
+            'Esports': { types: ['Esports'], ko: '이스포츠', zh: '电竞' },
+            'Operations': { types: ['Promotion', 'Announcement', 'Recruitment'], ko: '운영', zh: '运营' },
+            'Other': { types: ['Other'], ko: '기타', zh: '其他' }
         };
         
         const CATEGORY_KO = {
-            // Collab categories
-            'Artist': '아티스트',
-            'Brand': '브랜드',
-            'Anime': '애니메이션',
-            'Movie': '영화',
-            'Game': '게임',
-            'IP': 'IP',
-            'Sports': '스포츠',
-            'Character': '캐릭터',
-            'Celebrity': '셀럽',
-            'Other': '기타',
-            // Non-collab categories (Weibo)
-            'Event': '인게임 이벤트',
-            'Creative': '창작/UGC',
-            'Giveaway': '복리/추첨',
-            'Esports': '이스포츠',
-            'Announcement': '공지',
-            'Update': '버전 업데이트',
-            'Promotion': '스킨/상점',
-            'Festive': '명절/시즌',
-            'Livestream': '라이브',
-            'Recruitment': '모집'
+            'Artist': '아티스트', 'Brand': '브랜드', 'Anime': '애니메이션', 'Movie': '영화',
+            'Game': '게임', 'IP': 'IP', 'Sports': '스포츠', 'Character': '캐릭터',
+            'Celebrity': '셀럽', 'Other': '기타',
+            'Event': '인게임 이벤트', 'Creative': '창작/UGC', 'Giveaway': '복리/추첨',
+            'Esports': '이스포츠', 'Announcement': '공지', 'Update': '버전 업데이트',
+            'Promotion': '스킨/상점', 'Festive': '명절/시즌', 'Livestream': '라이브', 'Recruitment': '모집'
+        };
+
+        const CATEGORY_ZH = {
+            'Artist': '艺人', 'Brand': '品牌', 'Anime': '动漫', 'Movie': '电影',
+            'Game': '游戏', 'IP': 'IP', 'Sports': '体育', 'Character': '角色',
+            'Celebrity': '名人', 'Other': '其他',
+            'Event': '游戏活动', 'Creative': '创作/UGC', 'Giveaway': '福利/抽奖',
+            'Esports': '电竞', 'Announcement': '公告', 'Update': '版本更新',
+            'Promotion': '皮肤/商城', 'Festive': '节日/赛季', 'Livestream': '直播', 'Recruitment': '招募'
         };
         
+        function t(en, ko, zh) {
+            if (currentLang === 'ko') return ko;
+            if (currentLang === 'zh') return zh || en;
+            return en;
+        }
+
         function translateCategory(cat) {
-            if (currentLang === 'ko' && CATEGORY_KO[cat]) return CATEGORY_KO[cat];
+            if (currentLang === 'zh') return CATEGORY_ZH[cat] || cat;
+            if (currentLang === 'ko') return CATEGORY_KO[cat] || cat;
             return cat;
         }
         
@@ -1059,12 +1061,9 @@
             currentLang = lang;
             
             // Update button states
+            const langMap = { en: 'EN', ko: '한', zh: '中' };
             document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if ((lang === 'en' && btn.textContent === 'EN') || 
-                    (lang === 'ko' && btn.textContent === '한')) {
-                    btn.classList.add('active');
-                }
+                btn.classList.toggle('active', btn.textContent.trim() === langMap[lang]);
             });
             
             // Update all translatable elements
@@ -1075,7 +1074,8 @@
             
             // Update placeholders
             document.querySelectorAll('[data-en-placeholder]').forEach(el => {
-                el.placeholder = el.getAttribute('data-' + lang + '-placeholder');
+                const val = el.getAttribute('data-' + lang + '-placeholder');
+                if (val != null) el.placeholder = val;
             });
             
             // Re-render dynamic content with translated categories
@@ -1096,24 +1096,27 @@
             if (channel) {
                 let logoText;
                 if (channel.platform === 'weibo') {
-                    logoText = lang === 'ko' ? '화평정영 (和平精英) 웨이보 분석' : '和平精英 Weibo Analysis';
+                    logoText = t('和平精英 Weibo Analysis', '화평정영 (和平精英) 웨이보 분석', '和平精英 微博分析');
                 } else {
-                    logoText = channel.name + ' ' + (lang === 'ko' ? '유튜브 분석' : 'YouTube Analysis');
+                    const suffix = t('YouTube Analysis', '유튜브 분석', 'YouTube 分析');
+                    logoText = channel.name + ' ' + suffix;
                 }
                 document.querySelector('.logo').textContent = logoText;
                 
                 const subtitleEl = document.querySelector('.subtitle');
                 if (subtitleEl && channel.dateRange) {
-                    subtitleEl.textContent = lang === 'ko'
-                        ? `소셜 미디어 콜라보 분석 대시보드 (${channel.dateRange})`
-                        : `Social Media Collab Analysis Dashboard (${channel.dateRange})`;
+                    subtitleEl.textContent = t(
+                        `Social Media Collab Analysis Dashboard (${channel.dateRange})`,
+                        `소셜 미디어 콜라보 분석 대시보드 (${channel.dateRange})`,
+                        `社交媒体合作分析面板 (${channel.dateRange})`
+                    );
                 }
             }
             
             // Update category filter "All" button
             document.querySelectorAll('.category-filter .filter-btn').forEach(btn => {
                 if (btn.dataset.cat === 'all') {
-                    btn.textContent = lang === 'ko' ? '전체' : 'All';
+                    btn.textContent = t('All', '전체', '全部');
                 }
             });
             
@@ -1132,6 +1135,9 @@
             const cacheBust = '?v=' + Date.now();
             const dataFile = channel.dataFile + cacheBust;
             const othersFile = channel.othersFile + cacheBust;
+            
+            // Race condition guard
+            const thisRequestId = ++loadRequestId;
             
             // Reset state
             selectedPartner = null;
@@ -1163,6 +1169,7 @@
                 })
             ])
             .then(([partners, others]) => {
+                if (thisRequestId !== loadRequestId) return;
                 partnersData = partners || [];
                 othersData = others;
                 initDashboard();
@@ -1170,20 +1177,22 @@
                 // Update header with channel name
                 let logoText;
                 if (channel.platform === 'weibo') {
-                    logoText = currentLang === 'ko'
-                        ? '화평정영 (和平精英) 웨이보 분석'
-                        : '和平精英 Weibo Analysis';
+                    logoText = t('和平精英 Weibo Analysis', '화평정영 (和平精英) 웨이보 분석', '和平精英 微博分析');
                 } else {
-                    logoText = channel.name + ' ' + (currentLang === 'ko' ? '유튜브 분석' : 'YouTube Analysis');
+                    const suffix = t('YouTube Analysis', '유튜브 분석', 'YouTube 分析');
+                    logoText = channel.name + ' ' + suffix;
                 }
                 document.querySelector('.logo').textContent = logoText;
                 const subtitleEl = document.querySelector('.subtitle');
                 if (subtitleEl && channel.dateRange) {
-                    subtitleEl.textContent = currentLang === 'ko'
-                        ? `소셜 미디어 콜라보 분석 대시보드 (${channel.dateRange})`
-                        : `Social Media Collab Analysis Dashboard (${channel.dateRange})`;
+                    subtitleEl.textContent = t(
+                        `Social Media Collab Analysis Dashboard (${channel.dateRange})`,
+                        `소셜 미디어 콜라보 분석 대시보드 (${channel.dateRange})`,
+                        `社交媒体合作分析面板 (${channel.dateRange})`
+                    );
                     subtitleEl.setAttribute('data-en', `Social Media Collab Analysis Dashboard (${channel.dateRange})`);
                     subtitleEl.setAttribute('data-ko', `소셜 미디어 콜라보 분석 대시보드 (${channel.dateRange})`);
+                    subtitleEl.setAttribute('data-zh', `社交媒体合作分析面板 (${channel.dateRange})`);
                 }
             })
             .catch(err => {
@@ -1252,6 +1261,13 @@
                     if (chart) chart.destroy();
                 }
             });
+            window._timelineMode = 'yearly';
+            document.querySelectorAll('.timeline-btn').forEach(btn => {
+                const isYearly = btn.dataset.mode === 'yearly';
+                btn.classList.toggle('active', isYearly);
+                btn.style.background = isYearly ? '#6366f1' : 'transparent';
+                btn.style.color = isYearly ? '#fff' : '#94a3b8';
+            });
         }
         
         function clearAllUI() {
@@ -1312,7 +1328,7 @@
             if (searchInput) searchInput.value = '';
             
             // Clear category filter
-            setHtmlSafe('categoryFilter', '<button class="filter-btn active" data-cat="all" onclick="filterCategory(\'all\')">' + (currentLang === 'ko' ? '전체' : 'All') + '</button>');
+            setHtmlSafe('categoryFilter', '<button class="filter-btn active" data-cat="all" onclick="filterCategory(\'all\')">' + t('All', '전체', '全部') + '</button>');
             
             // Clear ratio center text
             setTextSafe('ratioPct', '-');
@@ -1346,6 +1362,7 @@
         }
         
         function formatNumber(num) {
+            if (num == null || isNaN(num)) return '0';
             if (num >= 1000000000) return (num / 1000000000).toFixed(1) + 'B';
             if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
             if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
@@ -1354,9 +1371,9 @@
         
         function updateCollabStats() {
             const isWeibo = CHANNELS[currentChannel]?.platform === 'weibo';
-            const videos = partnersData.reduce((sum, p) => sum + p.video_count, 0);
-            const views = partnersData.reduce((sum, p) => sum + p.total_views, 0);
-            const likes = partnersData.reduce((sum, p) => sum + p.total_likes, 0);
+            const videos = partnersData.reduce((sum, p) => sum + (p.video_count || 0), 0);
+            const views = partnersData.reduce((sum, p) => sum + (p.total_views || 0), 0);
+            const likes = partnersData.reduce((sum, p) => sum + (p.total_likes || 0), 0);
             
             document.getElementById('collabVideos').textContent = videos.toLocaleString();
             document.getElementById('totalPartners').textContent = partnersData.length;
@@ -1367,13 +1384,13 @@
             const viewsLabel = document.querySelector('#collabViews').closest('.stat-card').querySelector('.stat-label');
             const likesLabel = document.querySelector('#collabLikes').closest('.stat-card').querySelector('.stat-label');
             if (isWeibo) {
-                videosLabel.textContent = currentLang === 'ko' ? '콜라보 게시물' : 'Collab Posts';
-                viewsLabel.textContent = currentLang === 'ko' ? '총 좋아요 (点赞)' : 'Total Attitudes (点赞)';
-                likesLabel.textContent = currentLang === 'ko' ? '총 공유 (转发)' : 'Total Reposts (转发)';
+                videosLabel.textContent = t('Collab Posts', '콜라보 게시물', '合作帖子');
+                viewsLabel.textContent = t('Total Attitudes (点赞)', '총 좋아요 (点赞)', '总点赞');
+                likesLabel.textContent = t('Total Reposts (转发)', '총 공유 (转发)', '总转发');
             } else {
-                videosLabel.textContent = currentLang === 'ko' ? '콜라보 영상' : 'Collab Videos';
-                viewsLabel.textContent = currentLang === 'ko' ? '총 조회수' : 'Total Views';
-                likesLabel.textContent = currentLang === 'ko' ? '총 좋아요' : 'Total Likes';
+                videosLabel.textContent = t('Collab Videos', '콜라보 영상', '合作视频');
+                viewsLabel.textContent = t('Total Views', '총 조회수', '总浏览量');
+                likesLabel.textContent = t('Total Likes', '총 좋아요', '总点赞');
             }
         }
         
@@ -1381,16 +1398,16 @@
             if (!othersData) return;
             const isWeibo = CHANNELS[currentChannel]?.platform === 'weibo';
             
-            document.getElementById('noncollabVideos').textContent = othersData.video_count.toLocaleString();
+            document.getElementById('noncollabVideos').textContent = (othersData.video_count || 0).toLocaleString();
             document.getElementById('noncollabTypes').textContent = (othersData.content_types || []).length;
-            document.getElementById('noncollabViews').textContent = formatNumber(othersData.total_views);
-            document.getElementById('noncollabLikes').textContent = formatNumber(othersData.total_likes);
+            document.getElementById('noncollabViews').textContent = formatNumber(othersData.total_views || 0);
+            document.getElementById('noncollabLikes').textContent = formatNumber(othersData.total_likes || 0);
 
             const ncLabels = document.querySelectorAll('#noncollabTab .stat-label');
             if (ncLabels.length >= 4) {
-                ncLabels[0].textContent = isWeibo ? (currentLang === 'ko' ? '일반 게시물' : 'Non-Collab Posts') : (currentLang === 'ko' ? '일반 영상' : 'Non-Collab Videos');
-                ncLabels[2].textContent = isWeibo ? (currentLang === 'ko' ? '총 좋아요 (点赞)' : 'Total Attitudes (点赞)') : (currentLang === 'ko' ? '총 조회수' : 'Total Views');
-                ncLabels[3].textContent = isWeibo ? (currentLang === 'ko' ? '총 공유 (转发)' : 'Total Reposts (转发)') : (currentLang === 'ko' ? '총 좋아요' : 'Total Likes');
+                ncLabels[0].textContent = isWeibo ? t('Non-Collab Posts', '일반 게시물', '非合作帖子') : t('Non-Collab Videos', '일반 영상', '非合作视频');
+                ncLabels[2].textContent = isWeibo ? t('Total Attitudes (点赞)', '총 좋아요 (点赞)', '总点赞') : t('Total Views', '총 조회수', '总浏览量');
+                ncLabels[3].textContent = isWeibo ? t('Total Reposts (转发)', '총 공유 (转发)', '总转发') : t('Total Likes', '총 좋아요', '总点赞');
             }
         }
         
@@ -1406,10 +1423,10 @@
 
             const ovLabels = document.querySelectorAll('#overviewTab .stat-label');
             if (ovLabels.length >= 4) {
-                const unit = isWeibo ? (currentLang === 'ko' ? '게시물' : 'Posts') : (currentLang === 'ko' ? '영상' : 'Videos');
-                ovLabels[0].textContent = currentLang === 'ko' ? `전체 ${unit}` : `Total ${unit}`;
-                ovLabels[1].textContent = currentLang === 'ko' ? `콜라보 ${unit}` : `Collab ${unit}`;
-                ovLabels[2].textContent = currentLang === 'ko' ? `일반 ${unit}` : `Non-Collab ${unit}`;
+                const unit = isWeibo ? t('Posts', '게시물', '帖子') : t('Videos', '영상', '视频');
+                ovLabels[0].textContent = t(`Total ${unit}`, `전체 ${unit}`, `全部${unit}`);
+                ovLabels[1].textContent = t(`Collab ${unit}`, `콜라보 ${unit}`, `合作${unit}`);
+                ovLabels[2].textContent = t(`Non-Collab ${unit}`, `일반 ${unit}`, `非合作${unit}`);
             }
         }
         
@@ -1422,7 +1439,7 @@
             const newAllBtn = document.createElement('button');
             newAllBtn.className = 'filter-btn' + (currentCategory === 'all' ? ' active' : '');
             newAllBtn.dataset.cat = 'all';
-            newAllBtn.textContent = currentLang === 'ko' ? '전체' : 'All';
+            newAllBtn.textContent = t('All', '전체', '全部');
             newAllBtn.onclick = () => filterCategory('all');
             filter.appendChild(newAllBtn);
             
@@ -1456,8 +1473,8 @@
             let filtered = partnersData;
             const isWeibo = CHANNELS[currentChannel]?.platform === 'weibo';
             const videosText = isWeibo
-                ? (currentLang === 'ko' ? '게시물' : 'posts')
-                : (currentLang === 'ko' ? '영상' : 'videos');
+                ? t('posts', '게시물', '帖子')
+                : t('videos', '영상', '视频');
             
             // Apply category filter
             if (currentCategory !== 'all') {
@@ -1515,17 +1532,17 @@
 
             const detailLabels = document.querySelectorAll('#detailContent .detail-stat-label');
             if (isWeibo && detailLabels.length >= 5) {
-                detailLabels[0].textContent = currentLang === 'ko' ? '게시물' : 'Posts';
-                detailLabels[1].textContent = currentLang === 'ko' ? '좋아요 (点赞)' : 'Attitudes (点赞)';
-                detailLabels[2].textContent = currentLang === 'ko' ? '공유 (转发)' : 'Reposts (转发)';
-                detailLabels[3].textContent = currentLang === 'ko' ? '댓글 (评论)' : 'Comments (评论)';
-                detailLabels[4].textContent = currentLang === 'ko' ? '인게이지먼트' : 'Engagement';
+                detailLabels[0].textContent = t('Posts', '게시물', '帖子');
+                detailLabels[1].textContent = t('Attitudes (点赞)', '좋아요 (点赞)', '点赞');
+                detailLabels[2].textContent = t('Reposts (转发)', '공유 (转发)', '转发');
+                detailLabels[3].textContent = t('Comments (评论)', '댓글 (评论)', '评论');
+                detailLabels[4].textContent = t('Engagement', '인게이지먼트', '互动率');
             } else if (detailLabels.length >= 5) {
-                detailLabels[0].textContent = currentLang === 'ko' ? '영상' : 'Videos';
-                detailLabels[1].textContent = currentLang === 'ko' ? '조회수' : 'Views';
-                detailLabels[2].textContent = currentLang === 'ko' ? '좋아요' : 'Likes';
-                detailLabels[3].textContent = currentLang === 'ko' ? '댓글' : 'Comments';
-                detailLabels[4].textContent = currentLang === 'ko' ? '좋아요율' : 'Like Rate';
+                detailLabels[0].textContent = t('Videos', '영상', '视频');
+                detailLabels[1].textContent = t('Views', '조회수', '浏览量');
+                detailLabels[2].textContent = t('Likes', '좋아요', '点赞');
+                detailLabels[3].textContent = t('Comments', '댓글', '评论');
+                detailLabels[4].textContent = t('Like Rate', '좋아요율', '点赞率');
             }
             
             renderVideosList(partner.videos || []);
@@ -1536,9 +1553,9 @@
         function renderVideosList(videos) {
             const list = document.getElementById('videosList');
             const isWeibo = CHANNELS[currentChannel]?.platform === 'weibo';
-            const viewsText = isWeibo ? (currentLang === 'ko' ? '좋아요 (点赞)' : 'Attitudes') : (currentLang === 'ko' ? '조회수' : 'Views');
-            const likesText = isWeibo ? (currentLang === 'ko' ? '공유 (转发)' : 'Reposts') : (currentLang === 'ko' ? '좋아요' : 'Likes');
-            const commentsText = isWeibo ? (currentLang === 'ko' ? '댓글 (评论)' : 'Comments') : (currentLang === 'ko' ? '댓글' : 'Comments');
+            const viewsText = isWeibo ? t('Attitudes', '좋아요 (点赞)', '点赞') : t('Views', '조회수', '浏览量');
+            const likesText = isWeibo ? t('Reposts', '공유 (转发)', '转发') : t('Likes', '좋아요', '点赞');
+            const commentsText = isWeibo ? t('Comments', '댓글 (评论)', '评论') : t('Comments', '댓글', '评论');
             
             list.innerHTML = videos.map(video => {
                 const thumbHtml = isWeibo
@@ -1575,17 +1592,17 @@
             const container = document.getElementById('contentGroups');
             let html = '';
             const isWeibo = CHANNELS[currentChannel]?.platform === 'weibo';
-            const postsText = isWeibo ? (currentLang === 'ko' ? '게시물' : 'posts') : (currentLang === 'ko' ? '영상' : 'videos');
+            const postsText = isWeibo ? t('posts', '게시물', '帖子') : t('videos', '영상', '视频');
             
             if (isWeibo) {
                 // Weibo: group by WEIBO_CONTENT_GROUPS
                 for (const [groupName, groupData] of Object.entries(WEIBO_CONTENT_GROUPS)) {
-                    const groupTypes = othersData.content_types.filter(ct => groupData.types.includes(ct.name));
+                    const groupTypes = (othersData.content_types || []).filter(ct => groupData.types.includes(ct.name));
                     if (groupTypes.length === 0) continue;
                     
                     const groupViews = groupTypes.reduce((sum, ct) => sum + ct.total_views, 0);
                     const groupPosts = groupTypes.reduce((sum, ct) => sum + ct.video_count, 0);
-                    const displayName = currentLang === 'ko' ? groupData.ko : groupName;
+                    const displayName = t(groupName, groupData.ko, groupData.zh);
                     
                     html += `
                         <div class="content-group">
@@ -1615,7 +1632,7 @@
                     
                     const groupViews = groupTypes.reduce((sum, ct) => sum + ct.total_views, 0);
                     const groupVideos = groupTypes.reduce((sum, ct) => sum + ct.video_count, 0);
-                    const displayName = currentLang === 'ko' ? groupData.ko : groupName;
+                    const displayName = t(groupName, groupData.ko, groupData.zh);
                     
                     html += `
                         <div class="content-group">
@@ -1647,9 +1664,9 @@
             if (!ct) return;
             
             const isWeibo = CHANNELS[currentChannel]?.platform === 'weibo';
-            const viewsText = isWeibo ? (currentLang === 'ko' ? '좋아요 (点赞)' : 'Attitudes') : (currentLang === 'ko' ? '조회수' : 'Views');
-            const likesText = isWeibo ? (currentLang === 'ko' ? '공유 (转发)' : 'Reposts') : (currentLang === 'ko' ? '좋아요' : 'Likes');
-            const commentsText = isWeibo ? (currentLang === 'ko' ? '댓글 (评论)' : 'Comments') : (currentLang === 'ko' ? '댓글' : 'Comments');
+            const viewsText = isWeibo ? t('Attitudes', '좋아요 (点赞)', '点赞') : t('Views', '조회수', '浏览量');
+            const likesText = isWeibo ? t('Reposts', '공유 (转发)', '转发') : t('Likes', '좋아요', '点赞');
+            const commentsText = isWeibo ? t('Comments', '댓글 (评论)', '评论') : t('Comments', '댓글', '评论');
             
             // Update active state
             document.querySelectorAll('.content-type-item').forEach(item => {
@@ -1701,13 +1718,12 @@
         function initCharts() {
             const isWeibo = CHANNELS[currentChannel]?.platform === 'weibo';
             const channelColor = CHANNELS[currentChannel]?.color || '#818cf8';
-            const isKo = currentLang === 'ko';
             const viewsLabel = isWeibo
-                ? (isKo ? '좋아요 (点赞)' : 'Attitudes (点赞)')
-                : (isKo ? '조회수' : 'Views');
+                ? t('Attitudes (点赞)', '좋아요 (点赞)', '点赞')
+                : t('Views', '조회수', '浏览量');
             const unitLabel = isWeibo
-                ? (isKo ? '게시물' : 'Posts')
-                : (isKo ? '영상' : 'Videos');
+                ? t('Posts', '게시물', '帖子')
+                : t('Videos', '영상', '视频');
 
             // Shared tooltip styling
             const tooltipStyle = {
@@ -1741,9 +1757,10 @@
             // --- Top 10 Partners (Horizontal Bar) ---
             const top10 = partnersData.filter(p => p.name !== 'Others').slice(0, 10);
             const titleEl = document.getElementById('topPartnersTitle');
-            if (titleEl) titleEl.textContent = currentLang === 'ko'
-                ? (isWeibo ? '좋아요(点赞) 기준 상위 10개 콜라보 파트너' : '조회수 기준 상위 10개 콜라보 파트너')
-                : ('Top 10 Collab Partners by ' + (isWeibo ? 'Attitudes (点赞)' : 'Views'));
+            if (titleEl) titleEl.textContent = isWeibo
+                ? t('Top 10 Collab Partners by Attitudes (点赞)', '좋아요(点赞) 기준 상위 10개 콜라보 파트너', '点赞数前10合作伙伴')
+                : t('Top 10 Collab Partners by Views', '조회수 기준 상위 10개 콜라보 파트너', '浏览量前10合作伙伴');
+            if (top10.length === 0) { chartsInitialized = true; return; }
 
             const topCtx = document.getElementById('topPartnersChart').getContext('2d');
             const barGradients = top10.map((_, i) => {
@@ -1831,17 +1848,17 @@
             const collabPct = totalAll > 0 ? ((collabVideos / totalAll) * 100).toFixed(1) : 0;
 
             document.getElementById('ratioPct').textContent = collabPct + '%';
-            document.getElementById('ratioLabel').textContent = currentLang === 'ko' ? '콜라보 비율' : 'Collab Rate';
+            document.getElementById('ratioLabel').textContent = t('Collab Rate', '콜라보 비율', '合作比例');
 
             const ratioTitleEl = document.getElementById('collabRatioTitle');
-            if (ratioTitleEl) ratioTitleEl.textContent = currentLang === 'ko' ? '콜라보 vs 일반' : 'Collab vs Non-Collab';
+            if (ratioTitleEl) ratioTitleEl.textContent = t('Collab vs Non-Collab', '콜라보 vs 일반', '合作 vs 非合作');
 
             new Chart(document.getElementById('collabRatioChart'), {
                 type: 'doughnut',
                 data: {
                     labels: [
-                        currentLang === 'ko' ? '콜라보' : 'Collab',
-                        currentLang === 'ko' ? '일반' : 'Non-Collab'
+                        t('Collab', '콜라보', '合作'),
+                        t('Non-Collab', '일반', '非合作')
                     ],
                     datasets: [{
                         data: [collabVideos, noncollabVideos],
@@ -1904,7 +1921,7 @@
             ];
 
             const catTitleEl = document.getElementById('categoryTitle');
-            if (catTitleEl) catTitleEl.textContent = currentLang === 'ko' ? '콜라보 카테고리' : 'Collab Categories';
+            if (catTitleEl) catTitleEl.textContent = t('Collab Categories', '콜라보 카테고리', '合作类别');
 
             new Chart(document.getElementById('categoryChart'), {
                 type: 'bar',
@@ -1949,7 +1966,7 @@
 
             // --- Content Type Distribution (Doughnut) ---
             const ctTitleEl = document.getElementById('contentTypeTitle');
-            if (ctTitleEl) ctTitleEl.textContent = currentLang === 'ko' ? '콘텐츠 유형' : 'Content Types';
+            if (ctTitleEl) ctTitleEl.textContent = t('Content Types', '콘텐츠 유형', '内容类型');
 
             if (othersData && othersData.content_types) {
                 const topTypes = othersData.content_types.slice(0, 8);
@@ -1999,59 +2016,110 @@
                 });
             }
 
-            // --- Timeline Chart (Collab activity by year) ---
-            const timelineTitleEl = document.getElementById('timelineTitle');
-            if (timelineTitleEl) timelineTitleEl.textContent = currentLang === 'ko' ? '연도별 콜라보 활동' : 'Collab Activity by Year';
-
-            const yearlyData = {};
-            const yearlyViews = {};
+            // --- Timeline Chart (Collab activity) ---
+            // Pre-compute both yearly and monthly data, store globally for mode switching
+            window._timelineYearly = { data: {}, views: {} };
+            window._timelineMonthly = { data: {}, views: {} };
             partnersData.forEach(p => {
                 if (!p.videos) return;
                 p.videos.forEach(v => {
-                    const yr = v.published_at ? v.published_at.substring(0, 4) : null;
+                    const date = v.published_at || '';
+                    const yr = date.substring(0, 4);
+                    const mo = date.substring(0, 7); // YYYY-MM
                     if (!yr) return;
-                    yearlyData[yr] = (yearlyData[yr] || 0) + 1;
-                    yearlyViews[yr] = (yearlyViews[yr] || 0) + (v.view_count || 0);
+                    window._timelineYearly.data[yr] = (window._timelineYearly.data[yr] || 0) + 1;
+                    window._timelineYearly.views[yr] = (window._timelineYearly.views[yr] || 0) + (v.view_count || 0);
+                    if (mo.length === 7) {
+                        window._timelineMonthly.data[mo] = (window._timelineMonthly.data[mo] || 0) + 1;
+                        window._timelineMonthly.views[mo] = (window._timelineMonthly.views[mo] || 0) + (v.view_count || 0);
+                    }
                 });
             });
-            const years = Object.keys(yearlyData).sort();
-            const timelineCtx = document.getElementById('timelineChart').getContext('2d');
-            const areaGrad = timelineCtx.createLinearGradient(0, 0, 0, 280);
+            window._timelineViewsLabel = viewsLabel;
+            window._timelineDivisor = divisor;
+            window._timelineSuffix = suffix;
+            window._timelineTooltipStyle = tooltipStyle;
+
+            if (!window._timelineMode) window._timelineMode = 'yearly';
+            renderTimelineChart(window._timelineMode);
+        }
+
+        function switchTimelineMode(mode) {
+            window._timelineMode = mode;
+            document.querySelectorAll('.timeline-btn').forEach(btn => {
+                const isActive = btn.dataset.mode === mode;
+                btn.classList.toggle('active', isActive);
+                btn.style.background = isActive ? '#6366f1' : 'transparent';
+                btn.style.color = isActive ? '#fff' : '#94a3b8';
+            });
+            renderTimelineChart(mode);
+        }
+
+        function renderTimelineChart(mode) {
+            const isMonthly = mode === 'monthly';
+            const source = isMonthly ? window._timelineMonthly : window._timelineYearly;
+            const countData = source.data;
+            const viewsData = source.views;
+            const viewsLabel = window._timelineViewsLabel || '';
+            const divisor = window._timelineDivisor || 1;
+            const suffix = window._timelineSuffix || '';
+            const tooltipStyle = window._timelineTooltipStyle || {};
+
+            const timelineTitleEl = document.getElementById('timelineTitle');
+            if (timelineTitleEl) {
+                if (isMonthly) {
+                    timelineTitleEl.textContent = t('Collab Activity by Month', '월별 콜라보 활동', '按月合作活动');
+                } else {
+                    timelineTitleEl.textContent = t('Collab Activity by Year', '연도별 콜라보 활동', '按年合作活动');
+                }
+            }
+
+            // Destroy existing chart
+            const canvas = document.getElementById('timelineChart');
+            if (!canvas) return;
+            const existing = Chart.getChart(canvas);
+            if (existing) existing.destroy();
+
+            const labels = Object.keys(countData).sort();
+            const ctx = canvas.getContext('2d');
+            const areaGrad = ctx.createLinearGradient(0, 0, 0, 280);
             areaGrad.addColorStop(0, 'rgba(129, 140, 248, 0.35)');
             areaGrad.addColorStop(1, 'rgba(129, 140, 248, 0.02)');
 
-            new Chart(timelineCtx, {
+            const maxCount = labels.length > 0 ? Math.max(...labels.map(k => countData[k])) : 1;
+
+            new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: years,
+                    labels: labels,
                     datasets: [
                         {
-                            label: currentLang === 'ko' ? '콜라보 수' : 'Collabs',
-                            data: years.map(y => yearlyData[y]),
+                            label: t('Collabs', '콜라보 수', '合作数'),
+                            data: labels.map(k => countData[k]),
                             borderColor: '#818cf8',
                             backgroundColor: areaGrad,
                             fill: true,
-                            tension: 0.4,
+                            tension: isMonthly ? 0.3 : 0.4,
                             pointBackgroundColor: '#818cf8',
                             pointBorderColor: '#0f172a',
-                            pointBorderWidth: 2,
-                            pointRadius: 5,
-                            pointHoverRadius: 8,
-                            borderWidth: 3,
+                            pointBorderWidth: isMonthly ? 1 : 2,
+                            pointRadius: isMonthly ? 2 : 5,
+                            pointHoverRadius: isMonthly ? 5 : 8,
+                            borderWidth: isMonthly ? 2 : 3,
                             yAxisID: 'y'
                         },
                         {
                             label: viewsLabel,
-                            data: years.map(y => yearlyViews[y] / divisor),
+                            data: labels.map(k => viewsData[k] / divisor),
                             borderColor: '#f472b6',
                             backgroundColor: 'transparent',
                             borderDash: [6, 4],
-                            tension: 0.4,
+                            tension: isMonthly ? 0.3 : 0.4,
                             pointBackgroundColor: '#f472b6',
                             pointBorderColor: '#0f172a',
-                            pointBorderWidth: 2,
-                            pointRadius: 4,
-                            pointHoverRadius: 7,
+                            pointBorderWidth: isMonthly ? 1 : 2,
+                            pointRadius: isMonthly ? 1.5 : 4,
+                            pointHoverRadius: isMonthly ? 4 : 7,
                             borderWidth: 2,
                             yAxisID: 'y1'
                         }
@@ -2075,8 +2143,8 @@
                             ...tooltipStyle,
                             callbacks: {
                                 afterBody: (items) => {
-                                    const yr = items[0].label;
-                                    return `총 ${viewsLabel}: ${formatNumber(yearlyViews[yr])}`;
+                                    const key = items[0].label;
+                                    return `${t('Total', '총', '总')} ${viewsLabel}: ${formatNumber(viewsData[key] || 0)}`;
                                 }
                             }
                         }
@@ -2084,7 +2152,13 @@
                     scales: {
                         x: {
                             grid: { color: 'rgba(255,255,255,0.04)', drawBorder: false },
-                            ticks: { color: '#94a3b8', font: { size: 12 } },
+                            ticks: {
+                                color: '#94a3b8',
+                                font: { size: isMonthly ? 10 : 12 },
+                                maxRotation: isMonthly ? 45 : 0,
+                                autoSkip: true,
+                                maxTicksLimit: isMonthly ? 24 : undefined
+                            },
                             border: { display: false }
                         },
                         y: {
@@ -2094,11 +2168,11 @@
                             ticks: {
                                 color: '#818cf8',
                                 font: { size: 11 },
-                                stepSize: years.length > 0 ? Math.max(1, Math.ceil(Math.max(...Object.values(yearlyData)) / 5)) : 1
+                                stepSize: Math.max(1, Math.ceil(maxCount / 5))
                             },
                             title: {
                                 display: true,
-                                text: currentLang === 'ko' ? '콜라보 수' : 'Collabs',
+                                text: t('Collabs', '콜라보 수', '合作数'),
                                 color: '#818cf8',
                                 font: { size: 12 }
                             },
