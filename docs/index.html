@@ -1559,7 +1559,9 @@
             
             list.innerHTML = videos.map(video => {
                 const thumbHtml = isWeibo
-                    ? `<div class="video-thumb" style="display:flex;align-items:center;justify-content:center;background:#1a1a2e;font-size:1.5rem;">${video.url && video.url.includes('video') ? '🎬' : '📝'}</div>`
+                    ? (video.thumbnail
+                        ? `<div class="video-thumb"><img src="${video.thumbnail}" alt="" loading="lazy" style="object-fit:cover;width:100%;height:100%;border-radius:6px;"></div>`
+                        : `<div class="video-thumb" style="display:flex;align-items:center;justify-content:center;background:#1a1a2e;font-size:1.5rem;">${video.url && video.url.includes('video') ? '🎬' : '📝'}</div>`)
                     : `<div class="video-thumb"><img src="https://img.youtube.com/vi/${video.video_id}/mqdefault.jpg" alt="${video.title}" loading="lazy"></div>`;
                 return `
                 <div class="video-item">
@@ -1688,7 +1690,9 @@
             const list = document.getElementById('noncollabVideosList');
             list.innerHTML = (ct.videos || []).map(video => {
                 const thumbHtml = isWeibo
-                    ? `<div class="video-thumb" style="display:flex;align-items:center;justify-content:center;background:#1a1a2e;font-size:1.5rem;">📄</div>`
+                    ? (video.thumbnail
+                        ? `<div class="video-thumb"><img src="${video.thumbnail}" alt="" loading="lazy" style="object-fit:cover;width:100%;height:100%;border-radius:6px;"></div>`
+                        : `<div class="video-thumb" style="display:flex;align-items:center;justify-content:center;background:#1a1a2e;font-size:1.5rem;">📄</div>`)
                     : `<div class="video-thumb"><img src="https://img.youtube.com/vi/${video.video_id}/mqdefault.jpg" alt="${video.title}" loading="lazy"></div>`;
                 return `
                 <div class="video-item">
