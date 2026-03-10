@@ -89,6 +89,27 @@
             margin-bottom: 28px;
         }
 
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+        }
+
+        .header-logo-img {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+            border: 2px solid var(--border);
+            flex-shrink: 0;
+        }
+
+        .header-text {
+            text-align: left;
+        }
+
         .logo {
             font-size: 2.4rem;
             font-weight: 800;
@@ -626,8 +647,13 @@
         </div>
         
         <header>
-            <div class="logo">YouTube Channel Analysis</div>
-            <p class="subtitle" data-en="Social Media Collab Analysis Dashboard (2018 - 2026)" data-ko="소셜 미디어 콜라보 분석 대시보드 (2018 - 2026)" data-zh="社交媒体合作分析面板 (2018 - 2026)">Social Media Collab Analysis Dashboard (2018 - 2026)</p>
+            <div class="header-inner">
+                <img src="channels4_profile.jpg" alt="PUBG MOBILE" class="header-logo-img">
+                <div class="header-text">
+                    <div class="logo">YouTube Channel Analysis</div>
+                    <p class="subtitle" data-en="Social Media Collab Analysis Dashboard (2018 - 2026)" data-ko="소셜 미디어 콜라보 분석 대시보드 (2018 - 2026)" data-zh="社交媒体合作分析面板 (2018 - 2026)">Social Media Collab Analysis Dashboard (2018 - 2026)</p>
+                </div>
+            </div>
         </header>
         
         <!-- Channel Selection -->
@@ -896,7 +922,7 @@
                 name: 'PUBG MOBILE',
                 color: '#f5af19',
                 platforms: {
-                    youtube: { dataFile: 'data.json', othersFile: 'others.json', dateRange: '2018 - 2026' },
+                    youtube: { dataFile: 'data.json', othersFile: 'others.json', fallbackDataFile: 'pubgm_data.json', dateRange: '2018 - 2026' },
                     instagram: { dataFile: 'ig_data.json', othersFile: 'ig_others.json', dateRange: '2024 - 2026' },
                     weibo: { dataFile: 'weibo_data.json', othersFile: 'weibo_others.json', dateRange: '2019 - 2026' },
                 }
@@ -915,14 +941,18 @@
         function getChannel() {
             const game = GAMES[currentGame];
             const plat = game.platforms[currentPlatform];
-            return { name: game.name, platform: currentPlatform, dataFile: plat.dataFile, othersFile: plat.othersFile, color: game.color, dateRange: plat.dateRange };
+            return {
+                name: game.name,
+                platform: currentPlatform,
+                dataFile: plat.dataFile,
+                othersFile: plat.othersFile,
+                fallbackDataFile: plat.fallbackDataFile,
+                color: game.color,
+                dateRange: plat.dateRange,
+            };
         }
-
-        function platLabel(ytText, igText, wbText) {
-            if (currentPlatform === 'weibo') return wbText;
-            if (currentPlatform === 'instagram') return igText;
-            return ytText;
-        }
+        // Legacy compat
+        const CHANNELS = new Proxy({}, { get: () => getChannel() });
         
         // Content type groupings with translations
         const CONTENT_GROUPS = {
@@ -1012,12 +1042,11 @@
             // Update header logo and subtitle
             const channel = getChannel();
             const platIcon = currentPlatform === 'weibo' ? ICON_WEIBO
-                : currentPlatform === 'instagram' ? PLATFORM_ICONS.instagram.replace('width="16"','width="22"').replace('height="16"','height="22"')
-                : ICON_YOUTUBE;
+                           : currentPlatform === 'instagram' ? PLATFORM_ICONS.instagram.replace('width="16"','width="22"').replace('height="16"','height="22"')
+                           : ICON_YOUTUBE;
             let gameName = GAMES[currentGame].name;
             if (currentPlatform === 'weibo') gameName = t('和平精英', '화평정영 (和平精英)', '和平精英');
             document.querySelector('.logo').innerHTML = gameName + ' ' + platIcon;
-            renderPlatformNav();
 
             const subtitleEl = document.querySelector('.subtitle');
             if (subtitleEl && channel.dateRange) {
@@ -1027,6 +1056,7 @@
                     `社交媒体合作分析面板 (${channel.dateRange})`
                 );
             }
+            renderPlatformNav();
             
             // Update category filter "All" button
             document.querySelectorAll('.category-filter .filter-btn').forEach(btn => {
@@ -1044,29 +1074,28 @@
             }
         }
         
-        // Load data for current channel
-        function loadChannelData() {
+        function loadChannelData(_ignored) {
             const channel = getChannel();
             const cacheBust = '?v=' + Date.now();
             const dataFile = channel.dataFile + cacheBust;
             const othersFile = channel.othersFile + cacheBust;
-            
-            // Race condition guard
             const thisRequestId = ++loadRequestId;
-            
-            // Reset state
+
             selectedPartner = null;
             currentCategory = 'all';
             chartsInitialized = false;
-            
-            // Clear UI immediately before loading new data
             clearAllUI();
-            
+
             Promise.all([
                 fetch(dataFile).then(res => {
                     if (!res.ok) throw new Error('Not found');
                     return res.json();
-                }).catch(() => []),
+                }).catch(() => {
+                    if (channel.fallbackDataFile) {
+                        return fetch(channel.fallbackDataFile + cacheBust).then(r => r.json());
+                    }
+                    return [];
+                }),
                 fetch(othersFile).then(res => {
                     if (!res.ok) throw new Error('Not found');
                     return res.json();
@@ -1077,14 +1106,15 @@
                 partnersData = partners || [];
                 othersData = others;
                 initDashboard();
-                
+
                 const game = GAMES[currentGame];
                 const platIcon = currentPlatform === 'weibo' ? ICON_WEIBO
-                    : currentPlatform === 'instagram' ? PLATFORM_ICONS.instagram.replace('width="16"','width="22"').replace('height="16"','height="22"')
-                    : ICON_YOUTUBE;
+                               : currentPlatform === 'instagram' ? PLATFORM_ICONS.instagram.replace('width="16"','width="22"').replace('height="16"','height="22"')
+                               : ICON_YOUTUBE;
                 let gameName = game.name;
                 if (currentPlatform === 'weibo') gameName = t('和平精英', '화평정영 (和平精英)', '和平精英');
                 document.querySelector('.logo').innerHTML = gameName + ' ' + platIcon;
+
                 const subtitleEl = document.querySelector('.subtitle');
                 if (subtitleEl && channel.dateRange) {
                     subtitleEl.textContent = t(
@@ -1106,10 +1136,11 @@
         }
         
         const PLATFORM_ICONS = {
-            youtube: ICON_YOUTUBE.replace('width="22"','width="16"').replace('height="22"','height="16"'),
+            youtube: ICON_YOUTUBE.replace('width="22"','width="16"').replace('height="22"','height="16"').replace('margin-left:4px;',''),
             instagram: '<svg viewBox="0 0 24 24" width="16" height="16"><defs><linearGradient id="igG" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#feda75"/><stop offset="25%" stop-color="#fa7e1e"/><stop offset="50%" stop-color="#d62976"/><stop offset="75%" stop-color="#962fbf"/><stop offset="100%" stop-color="#4f5bd5"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" fill="url(#igG)"/><circle cx="12" cy="12" r="5" fill="none" stroke="#fff" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="#fff"/></svg>',
-            weibo: ICON_WEIBO.replace('width="22"','width="16"').replace('height="22"','height="16"'),
+            weibo: ICON_WEIBO.replace('width="22"','width="16"').replace('height="22"','height="16"').replace('margin-left:4px;',''),
         };
+
         const PLATFORM_NAMES = {
             youtube: { en: 'YouTube', ko: 'YouTube', zh: 'YouTube' },
             instagram: { en: 'Instagram', ko: 'Instagram', zh: 'Instagram' },
@@ -1132,7 +1163,8 @@
             const game = GAMES[currentGame];
             document.querySelectorAll('#platformNav .channel-btn').forEach(btn => {
                 const pk = btn.dataset.platform;
-                if (pk === currentPlatform) {
+                const isActive = pk === currentPlatform;
+                if (isActive) {
                     btn.classList.add('active');
                     btn.style.borderColor = game.color;
                     btn.style.color = game.color;
@@ -1149,8 +1181,9 @@
         function updateGameBtnStyles() {
             const game = GAMES[currentGame];
             document.querySelectorAll('#gameNav .channel-btn').forEach(btn => {
-                const gk = btn.getAttribute('onclick')?.match(/switchGame\\('(\\w+)'\\)/)?.[1];
-                if (gk === currentGame) {
+                const gk = btn.getAttribute('onclick')?.match(/switchGame\('(\w+)'\)/)?.[1];
+                const isActive = gk === currentGame;
+                if (isActive) {
                     btn.classList.add('active');
                     btn.style.borderColor = game.color;
                     btn.style.color = game.color;
@@ -1168,22 +1201,24 @@
             currentGame = gameId;
             const game = GAMES[gameId];
             const platKeys = Object.keys(game.platforms);
-            if (!platKeys.includes(currentPlatform)) currentPlatform = platKeys[0];
+            if (!platKeys.includes(currentPlatform)) {
+                currentPlatform = platKeys[0];
+            }
             updateGameBtnStyles();
             renderPlatformNav();
-            loadChannelData();
+            loadChannelData(currentGame + '_' + currentPlatform);
         }
 
         function switchPlatform(platId) {
             currentPlatform = platId;
             updatePlatformBtnStyles();
-            loadChannelData();
+            loadChannelData(currentGame + '_' + currentPlatform);
         }
 
         // Initial render
         updateGameBtnStyles();
         renderPlatformNav();
-        loadChannelData();
+        loadChannelData('pubgm_youtube');
         
         function switchTab(tab) {
             currentTab = tab;
@@ -1324,6 +1359,12 @@
             return num.toString();
         }
         
+        function platLabel(ytText, igText, wbText) {
+            if (currentPlatform === 'weibo') return wbText;
+            if (currentPlatform === 'instagram') return igText;
+            return ytText;
+        }
+
         function updateCollabStats() {
             const videos = partnersData.reduce((sum, p) => sum + (p.video_count || 0), 0);
             const views = partnersData.reduce((sum, p) => sum + (p.total_views || 0), 0);
@@ -1353,6 +1394,7 @@
         
         function updateNoncollabStats() {
             if (!othersData) return;
+            
             document.getElementById('noncollabVideos').textContent = (othersData.video_count || 0).toLocaleString();
             document.getElementById('noncollabTypes').textContent = (othersData.content_types || []).length;
             document.getElementById('noncollabViews').textContent = formatNumber(othersData.total_views || 0);
@@ -1360,9 +1402,18 @@
 
             const ncLabels = document.querySelectorAll('#noncollabTab .stat-label');
             if (ncLabels.length >= 4) {
-                ncLabels[0].textContent = platLabel(t('Non-Collab Videos', '일반 영상', '非合作视频'), t('Non-Collab Posts', '일반 게시물', '非合作帖子'), t('Non-Collab Posts', '일반 게시물', '非合作帖子'));
-                ncLabels[2].textContent = platLabel(t('Total Views', '총 조회수', '总浏览量'), t('Total Likes', '총 좋아요', '总点赞'), t('Total Attitudes (点赞)', '총 좋아요 (点赞)', '总点赞'));
-                ncLabels[3].textContent = platLabel(t('Total Likes', '총 좋아요', '总点赞'), t('Total Comments', '총 댓글', '总评论'), t('Total Reposts (转发)', '총 공유 (转发)', '总转发'));
+                ncLabels[0].textContent = platLabel(
+                    t('Non-Collab Videos', '일반 영상', '非合作视频'),
+                    t('Non-Collab Posts', '일반 게시물', '非合作帖子'),
+                    t('Non-Collab Posts', '일반 게시물', '非合作帖子'));
+                ncLabels[2].textContent = platLabel(
+                    t('Total Views', '총 조회수', '总浏览量'),
+                    t('Total Likes', '총 좋아요', '总点赞'),
+                    t('Total Attitudes (点赞)', '총 좋아요 (点赞)', '总点赞'));
+                ncLabels[3].textContent = platLabel(
+                    t('Total Likes', '총 좋아요', '总点赞'),
+                    t('Total Comments', '총 댓글', '总评论'),
+                    t('Total Reposts (转发)', '총 공유 (转发)', '总转发'));
             }
         }
         
@@ -1377,7 +1428,7 @@
 
             const ovLabels = document.querySelectorAll('#overviewTab .stat-label');
             if (ovLabels.length >= 4) {
-                const unit = (currentPlatform !== 'youtube') ? t('Posts', '게시물', '帖子') : t('Videos', '영상', '视频');
+                const unit = (currentPlatform === 'youtube') ? t('Videos', '영상', '视频') : t('Posts', '게시물', '帖子');
                 ovLabels[0].textContent = t(`Total ${unit}`, `전체 ${unit}`, `全部${unit}`);
                 ovLabels[1].textContent = t(`Collab ${unit}`, `콜라보 ${unit}`, `合作${unit}`);
                 ovLabels[2].textContent = t(`Non-Collab ${unit}`, `일반 ${unit}`, `非合作${unit}`);
@@ -1425,9 +1476,9 @@
         function renderPartnersList(filter = '') {
             const list = document.getElementById('partnersList');
             let filtered = partnersData;
-            const videosText = (currentPlatform !== 'youtube')
-                ? t('posts', '게시물', '帖子')
-                : t('videos', '영상', '视频');
+            const videosText = (currentPlatform === 'youtube')
+                ? t('videos', '영상', '视频')
+                : t('posts', '게시물', '帖子');
             
             // Apply category filter
             if (currentCategory !== 'all') {
@@ -1511,22 +1562,18 @@
         
         function renderVideosList(videos) {
             const list = document.getElementById('videosList');
-            const viewsText = platLabel(t('Views', '조회수', '浏览量'), t('Likes', '좋아요', '点赞'), t('Attitudes', '좋아요 (点赞)', '点赞'));
-            const likesText = platLabel(t('Likes', '좋아요', '点赞'), t('Comments', '댓글', '评论'), t('Reposts', '공유 (转发)', '转发'));
-            const commentsText = platLabel(t('Comments', '댓글', '评论'), t('Comments', '댓글', '评论'), t('Comments', '댓글 (评论)', '评论'));
+            const isWeibo = currentPlatform === 'weibo';
+            const viewsText = isWeibo ? t('Attitudes', '좋아요 (点赞)', '点赞') : t('Views', '조회수', '浏览量');
+            const likesText = isWeibo ? t('Reposts', '공유 (转发)', '转发') : t('Likes', '좋아요', '点赞');
+            const commentsText = isWeibo ? t('Comments', '댓글 (评论)', '评论') : t('Comments', '댓글', '评论');
             
             list.innerHTML = videos.map(video => {
-                let thumbHtml;
-                if (currentPlatform === 'weibo') {
-                    const weiboFallback = video.url && video.url.includes('video') ? '🎬' : '📝';
-                    thumbHtml = video.thumbnail
+                const weiboFallback = video.url && video.url.includes('video') ? '🎬' : '📝';
+                const thumbHtml = isWeibo
+                    ? (video.thumbnail
                         ? `<div class="video-thumb"><img src="${video.thumbnail}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#1a1a2e;font-size:1.5rem;\\'>${weiboFallback}</div>'" style="object-fit:cover;width:100%;height:100%;border-radius:6px;"></div>`
-                        : `<div class="video-thumb" style="display:flex;align-items:center;justify-content:center;background:#1a1a2e;font-size:1.5rem;">${weiboFallback}</div>`;
-                } else if (currentPlatform === 'instagram') {
-                    thumbHtml = `<div class="video-thumb" style="display:flex;align-items:center;justify-content:center;background:var(--surface-alt,#1a1a2e);font-size:1.5rem;">📸</div>`;
-                } else {
-                    thumbHtml = `<div class="video-thumb"><img src="https://img.youtube.com/vi/${video.video_id}/mqdefault.jpg" alt="${video.title}" loading="lazy"></div>`;
-                }
+                        : `<div class="video-thumb" style="display:flex;align-items:center;justify-content:center;background:#1a1a2e;font-size:1.5rem;">${weiboFallback}</div>`)
+                    : `<div class="video-thumb"><img src="https://img.youtube.com/vi/${video.video_id}/mqdefault.jpg" alt="${video.title}" loading="lazy"></div>`;
                 return `
                 <div class="video-item">
                     ${thumbHtml}
@@ -1557,10 +1604,10 @@
             
             const container = document.getElementById('contentGroups');
             let html = '';
-            const isNotYT = currentPlatform !== 'youtube';
-            const postsText = isNotYT ? t('posts', '게시물', '帖子') : t('videos', '영상', '视频');
+            const isWeibo = currentPlatform === 'weibo';
+            const postsText = isWeibo ? t('posts', '게시물', '帖子') : t('videos', '영상', '视频');
             
-            if (isNotYT) {
+            if (isWeibo) {
                 // Weibo: group by WEIBO_CONTENT_GROUPS
                 for (const [groupName, groupData] of Object.entries(WEIBO_CONTENT_GROUPS)) {
                     const groupTypes = (othersData.content_types || []).filter(ct => groupData.types.includes(ct.name));
@@ -1629,9 +1676,10 @@
             const ct = (othersData.content_types || []).find(c => c.name === name);
             if (!ct) return;
             
-            const viewsText = platLabel(t('Views', '조회수', '浏览量'), t('Likes', '좋아요', '点赞'), t('Attitudes', '좋아요 (点赞)', '点赞'));
-            const likesText = platLabel(t('Likes', '좋아요', '点赞'), t('Comments', '댓글', '评论'), t('Reposts', '공유 (转发)', '转发'));
-            const commentsText = platLabel(t('Comments', '댓글', '评论'), t('Comments', '댓글', '评论'), t('Comments', '댓글 (评论)', '评论'));
+            const isWeibo = currentPlatform === 'weibo';
+            const viewsText = isWeibo ? t('Attitudes', '좋아요 (点赞)', '点赞') : t('Views', '조회수', '浏览量');
+            const likesText = isWeibo ? t('Reposts', '공유 (转发)', '转发') : t('Likes', '좋아요', '点赞');
+            const commentsText = isWeibo ? t('Comments', '댓글 (评论)', '评论') : t('Comments', '댓글', '评论');
             
             // Update active state
             document.querySelectorAll('.content-type-item').forEach(item => {
@@ -1688,9 +1736,14 @@
         }
         
         function initCharts() {
+            const isWeibo = currentPlatform === 'weibo';
             const channelColor = GAMES[currentGame]?.color || '#818cf8';
-            const viewsLabel = platLabel(t('Views', '조회수', '浏览量'), t('Likes', '좋아요', '点赞'), t('Attitudes (点赞)', '좋아요 (点赞)', '点赞'));
-            const unitLabel = (currentPlatform === 'youtube') ? t('Videos', '영상', '视频') : t('Posts', '게시물', '帖子');
+            const viewsLabel = isWeibo
+                ? t('Attitudes (点赞)', '좋아요 (点赞)', '点赞')
+                : t('Views', '조회수', '浏览量');
+            const unitLabel = isWeibo
+                ? t('Posts', '게시물', '帖子')
+                : t('Videos', '영상', '视频');
 
             // Shared tooltip styling
             const isLight = currentTheme === 'light';
@@ -1728,10 +1781,9 @@
             // --- Top 10 Partners (Horizontal Bar) ---
             const top10 = partnersData.filter(p => p.name !== 'Others').slice(0, 10);
             const titleEl = document.getElementById('topPartnersTitle');
-            if (titleEl) titleEl.textContent = platLabel(
-                    t('Top 10 Collab Partners by Views', '조회수 기준 상위 10개 콜라보 파트너', '浏览量前10合作伙伴'),
-                    t('Top 10 Collab Partners by Likes', '좋아요 기준 상위 10개 콜라보 파트너', '点赞数前10合作伙伴'),
-                    t('Top 10 Collab Partners by Attitudes (点赞)', '좋아요(点赞) 기준 상위 10개 콜라보 파트너', '点赞数前10合作伙伴'));
+            if (titleEl) titleEl.textContent = isWeibo
+                ? t('Top 10 Collab Partners by Attitudes (点赞)', '좋아요(点赞) 기준 상위 10개 콜라보 파트너', '点赞数前10合作伙伴')
+                : t('Top 10 Collab Partners by Views', '조회수 기준 상위 10개 콜라보 파트너', '浏览量前10合作伙伴');
             if (top10.length === 0) { chartsInitialized = true; return; }
 
             const topCtx = document.getElementById('topPartnersChart').getContext('2d');
@@ -1774,7 +1826,7 @@
                                 title: (items) => top10[items[0].dataIndex].name,
                                 label: (ctx) => {
                                     const p = top10[ctx.dataIndex];
-                                    const val = p.total_views;
+                                    const val = isWeibo ? p.total_views : p.total_views;
                                     return ` ${viewsLabel}: ${formatNumber(val)}`;
                                 },
                                 afterLabel: (ctx) => {
