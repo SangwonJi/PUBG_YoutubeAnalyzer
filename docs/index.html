@@ -940,6 +940,10 @@
                 color: '#f5af19',
                 platforms: {
                     youtube: { dataFile: 'data.json', othersFile: 'others.json', fallbackDataFile: 'pubgm_data.json', dateRange: '2018 - 2026' },
+                    yt_mena: { dataFile: 'yt_mena_data.json', othersFile: 'yt_mena_others.json', dateRange: '2019 - 2026' },
+                    yt_turkey: { dataFile: 'yt_turkey_data.json', othersFile: 'yt_turkey_others.json', dateRange: '2019 - 2026' },
+                    yt_indonesia: { dataFile: 'yt_indonesia_data.json', othersFile: 'yt_indonesia_others.json', dateRange: '2025 - 2026' },
+                    yt_latam: { dataFile: 'yt_latam_data.json', othersFile: 'yt_latam_others.json', dateRange: '2025 - 2026' },
                     instagram: { dataFile: 'ig_data.json', othersFile: 'ig_others.json', dateRange: '2024 - 2026' },
                     weibo: { dataFile: 'weibo_data.json', othersFile: 'weibo_others.json', dateRange: '2019 - 2026' },
                 }
@@ -986,6 +990,15 @@
             'Community': { types: ['Creative', 'Livestream', 'Giveaway'], ko: '커뮤니티', zh: '社区' },
             'Esports': { types: ['Esports'], ko: '이스포츠', zh: '电竞' },
             'Operations': { types: ['Promotion', 'Announcement', 'Recruitment'], ko: '운영', zh: '运营' },
+            'Other': { types: ['Other'], ko: '기타', zh: '其他' }
+        };
+
+        const YT_REGIONAL_CONTENT_GROUPS = {
+            'Updates & Events': { types: ['Update', 'Event', 'Festive', 'Announcement'], ko: '업데이트 & 이벤트', zh: '更新 & 活动' },
+            'Esports': { types: ['Esports'], ko: '이스포츠', zh: '电竞' },
+            'Content': { types: ['Shorts', 'Creative', 'Livestream'], ko: '콘텐츠', zh: '内容' },
+            'Community & Tutorial': { types: ['Community', 'Tutorial'], ko: '커뮤니티 & 튜토리얼', zh: '社区 & 教程' },
+            'Promotion': { types: ['Promotion'], ko: '프로모션', zh: '推广' },
             'Other': { types: ['Other'], ko: '기타', zh: '其他' }
         };
         
@@ -1063,7 +1076,9 @@
                            : ICON_YOUTUBE;
             let gameName = GAMES[currentGame].name;
             if (currentPlatform === 'weibo') gameName = t('和平精英', '화평정영 (和平精英)', '和平精英');
-            document.querySelector('.logo').innerHTML = gameName + ' ' + platIcon;
+            const regionSuffix = PLATFORM_NAMES[currentPlatform] ? ' — ' + (PLATFORM_NAMES[currentPlatform][currentLang] || PLATFORM_NAMES[currentPlatform].en) : '';
+            const showSuffix = (currentPlatform !== 'youtube' && currentPlatform !== 'weibo' && currentPlatform !== 'instagram') ? regionSuffix : '';
+            document.querySelector('.logo').innerHTML = gameName + ' ' + platIcon + showSuffix;
 
             const subtitleEl = document.querySelector('.subtitle');
             if (subtitleEl && channel.dateRange) {
@@ -1130,7 +1145,9 @@
                                : ICON_YOUTUBE;
                 let gameName = game.name;
                 if (currentPlatform === 'weibo') gameName = t('和平精英', '화평정영 (和平精英)', '和平精英');
-                document.querySelector('.logo').innerHTML = gameName + ' ' + platIcon;
+                const regionSuffix2 = PLATFORM_NAMES[currentPlatform] ? ' — ' + (PLATFORM_NAMES[currentPlatform][currentLang] || PLATFORM_NAMES[currentPlatform].en) : '';
+                const showSuffix2 = (currentPlatform !== 'youtube' && currentPlatform !== 'weibo' && currentPlatform !== 'instagram') ? regionSuffix2 : '';
+                document.querySelector('.logo').innerHTML = gameName + ' ' + platIcon + showSuffix2;
 
                 const subtitleEl = document.querySelector('.subtitle');
                 if (subtitleEl && channel.dateRange) {
@@ -1152,17 +1169,30 @@
             });
         }
         
+        const _ytIconSmall = ICON_YOUTUBE.replace('width="22"','width="16"').replace('height="22"','height="16"').replace('margin-left:4px;','');
         const PLATFORM_ICONS = {
-            youtube: ICON_YOUTUBE.replace('width="22"','width="16"').replace('height="22"','height="16"').replace('margin-left:4px;',''),
+            youtube: _ytIconSmall,
+            yt_mena: _ytIconSmall,
+            yt_turkey: _ytIconSmall,
+            yt_indonesia: _ytIconSmall,
+            yt_latam: _ytIconSmall,
             instagram: '<svg viewBox="0 0 24 24" width="16" height="16"><defs><linearGradient id="igG" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#feda75"/><stop offset="25%" stop-color="#fa7e1e"/><stop offset="50%" stop-color="#d62976"/><stop offset="75%" stop-color="#962fbf"/><stop offset="100%" stop-color="#4f5bd5"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" fill="url(#igG)"/><circle cx="12" cy="12" r="5" fill="none" stroke="#fff" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="#fff"/></svg>',
             weibo: ICON_WEIBO.replace('width="22"','width="16"').replace('height="22"','height="16"').replace('margin-left:4px;',''),
         };
 
         const PLATFORM_NAMES = {
-            youtube: { en: 'YouTube', ko: 'YouTube', zh: 'YouTube' },
+            youtube: { en: 'YouTube (Global)', ko: 'YouTube (글로벌)', zh: 'YouTube (全球)' },
+            yt_mena: { en: 'YT MENA', ko: 'YT MENA', zh: 'YT 中东' },
+            yt_turkey: { en: 'YT Turkey', ko: 'YT 터키', zh: 'YT 土耳其' },
+            yt_indonesia: { en: 'YT Indonesia', ko: 'YT 인도네시아', zh: 'YT 印尼' },
+            yt_latam: { en: 'YT LATAM', ko: 'YT 남미', zh: 'YT 拉美' },
             instagram: { en: 'Instagram', ko: 'Instagram', zh: 'Instagram' },
             weibo: { en: 'Weibo', ko: '웨이보', zh: '微博' },
         };
+
+        function isYouTubePlatform() {
+            return currentPlatform === 'youtube' || currentPlatform.startsWith('yt_');
+        }
 
         function renderPlatformNav() {
             const game = GAMES[currentGame];
@@ -1445,7 +1475,7 @@
 
             const ovLabels = document.querySelectorAll('#overviewTab .stat-label');
             if (ovLabels.length >= 4) {
-                const unit = (currentPlatform === 'youtube') ? t('Videos', '영상', '视频') : t('Posts', '게시물', '帖子');
+                const unit = isYouTubePlatform() ? t('Videos', '영상', '视频') : t('Posts', '게시물', '帖子');
                 ovLabels[0].textContent = t(`Total ${unit}`, `전체 ${unit}`, `全部${unit}`);
                 ovLabels[1].textContent = t(`Collab ${unit}`, `콜라보 ${unit}`, `合作${unit}`);
                 ovLabels[2].textContent = t(`Non-Collab ${unit}`, `일반 ${unit}`, `非合作${unit}`);
@@ -1493,7 +1523,7 @@
         function renderPartnersList(filter = '') {
             const list = document.getElementById('partnersList');
             let filtered = partnersData;
-            const videosText = (currentPlatform === 'youtube')
+            const videosText = isYouTubePlatform()
                 ? t('videos', '영상', '视频')
                 : t('posts', '게시물', '帖子');
             
@@ -1586,11 +1616,14 @@
             
             list.innerHTML = videos.map(video => {
                 const weiboFallback = video.url && video.url.includes('video') ? '🎬' : '📝';
+                const ytThumb = video.thumbnail || `https://img.youtube.com/vi/${video.video_id}/mqdefault.jpg`;
                 const thumbHtml = isWeibo
                     ? (video.thumbnail
                         ? `<div class="video-thumb"><img src="${video.thumbnail}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#1a1a2e;font-size:1.5rem;\\'>${weiboFallback}</div>'" style="object-fit:cover;width:100%;height:100%;border-radius:6px;"></div>`
                         : `<div class="video-thumb" style="display:flex;align-items:center;justify-content:center;background:#1a1a2e;font-size:1.5rem;">${weiboFallback}</div>`)
-                    : `<div class="video-thumb"><img src="https://img.youtube.com/vi/${video.video_id}/mqdefault.jpg" alt="${video.title}" loading="lazy"></div>`;
+                    : currentPlatform === 'instagram'
+                        ? `<div class="video-thumb" style="display:flex;align-items:center;justify-content:center;background:#1a1a2e;font-size:1.5rem;">📸</div>`
+                        : `<div class="video-thumb"><img src="${ytThumb}" alt="${video.title}" loading="lazy"></div>`;
                 return `
                 <div class="video-item">
                     ${thumbHtml}
@@ -1622,11 +1655,13 @@
             const container = document.getElementById('contentGroups');
             let html = '';
             const isWeibo = currentPlatform === 'weibo';
-            const postsText = isWeibo ? t('posts', '게시물', '帖子') : t('videos', '영상', '视频');
+            const postsText = (isWeibo || currentPlatform === 'instagram') ? t('posts', '게시물', '帖子') : t('videos', '영상', '视频');
             
-            if (isWeibo) {
-                // Weibo: group by WEIBO_CONTENT_GROUPS
-                for (const [groupName, groupData] of Object.entries(WEIBO_CONTENT_GROUPS)) {
+            const contentGroupsMap = isWeibo ? WEIBO_CONTENT_GROUPS
+                                   : (currentPlatform.startsWith('yt_') ? YT_REGIONAL_CONTENT_GROUPS : CONTENT_GROUPS);
+
+            if (isWeibo || currentPlatform.startsWith('yt_')) {
+                for (const [groupName, groupData] of Object.entries(contentGroupsMap)) {
                     const groupTypes = (othersData.content_types || []).filter(ct => groupData.types.includes(ct.name));
                     if (groupTypes.length === 0) continue;
                     
@@ -1725,7 +1760,8 @@
                 } else if (currentPlatform === 'instagram') {
                     thumbHtml = `<div class="video-thumb" style="display:flex;align-items:center;justify-content:center;background:var(--surface-alt,#1a1a2e);font-size:1.5rem;">📸</div>`;
                 } else {
-                    thumbHtml = `<div class="video-thumb"><img src="https://img.youtube.com/vi/${video.video_id}/mqdefault.jpg" alt="${video.title}" loading="lazy"></div>`;
+                    const ncYtThumb = video.thumbnail || `https://img.youtube.com/vi/${video.video_id}/mqdefault.jpg`;
+                    thumbHtml = `<div class="video-thumb"><img src="${ncYtThumb}" alt="${video.title}" loading="lazy"></div>`;
                 }
                 return `
                 <div class="video-item">
