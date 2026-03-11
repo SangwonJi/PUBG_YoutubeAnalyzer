@@ -1657,7 +1657,9 @@
                     ? (video.thumbnail
                         ? `<div class="video-thumb"><img src="${video.thumbnail}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#1a1a2e;font-size:1.5rem;\\'>${weiboFallback}</div>'" style="object-fit:cover;width:100%;height:100%;border-radius:6px;"></div>`
                         : `<div class="video-thumb" style="display:flex;align-items:center;justify-content:center;background:#1a1a2e;font-size:1.5rem;">${weiboFallback}</div>`)
-                    : currentPlatform === 'instagram'
+                    : (currentPlatform === 'instagram' && video.thumbnail)
+                        ? `<div class="video-thumb"><img src="${video.thumbnail}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#1a1a2e;font-size:1.5rem;\\'>📸</div>'" style="object-fit:cover;width:100%;height:100%;border-radius:6px;"></div>`
+                        : currentPlatform === 'instagram'
                         ? `<div class="video-thumb" style="display:flex;align-items:center;justify-content:center;background:#1a1a2e;font-size:1.5rem;">📸</div>`
                         : `<div class="video-thumb"><img src="${ytThumb}" alt="${video.title}" loading="lazy"></div>`;
                 return `
@@ -1794,7 +1796,9 @@
                         ? `<div class="video-thumb"><img src="${video.thumbnail}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#1a1a2e;font-size:1.5rem;\\'>📄</div>'" style="object-fit:cover;width:100%;height:100%;border-radius:6px;"></div>`
                         : `<div class="video-thumb" style="display:flex;align-items:center;justify-content:center;background:#1a1a2e;font-size:1.5rem;">📄</div>`;
                 } else if (currentPlatform === 'instagram') {
-                    thumbHtml = `<div class="video-thumb" style="display:flex;align-items:center;justify-content:center;background:var(--surface-alt,#1a1a2e);font-size:1.5rem;">📸</div>`;
+                    thumbHtml = video.thumbnail
+                        ? `<div class="video-thumb"><img src="${video.thumbnail}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:var(--thumb-bg,#1a1a2e);font-size:1.5rem;\\'>📸</div>'" style="object-fit:cover;width:100%;height:100%;border-radius:6px;"></div>`
+                        : `<div class="video-thumb" style="display:flex;align-items:center;justify-content:center;background:var(--thumb-bg,#1a1a2e);font-size:1.5rem;">📸</div>`;
                 } else {
                     const ncYtThumb = video.thumbnail || `https://img.youtube.com/vi/${video.video_id}/mqdefault.jpg`;
                     thumbHtml = `<div class="video-thumb"><img src="${ncYtThumb}" alt="${video.title}" loading="lazy"></div>`;
