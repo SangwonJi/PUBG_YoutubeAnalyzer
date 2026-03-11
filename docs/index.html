@@ -665,7 +665,7 @@
         
         <header>
             <div class="header-inner">
-                <img src="channels4_profile.jpg" alt="PUBG MOBILE" class="header-logo-img">
+                <img id="headerLogoImg" src="channels4_profile.jpg" alt="PUBG MOBILE" class="header-logo-img">
                 <div class="header-text">
                     <div class="logo">YouTube Channel Analysis</div>
                     <p class="subtitle" data-en="Social Media Collab Analysis Dashboard (2018 - 2026)" data-ko="소셜 미디어 콜라보 분석 대시보드 (2018 - 2026)" data-zh="社交媒体合作分析面板 (2018 - 2026)">Social Media Collab Analysis Dashboard (2018 - 2026)</p>
@@ -938,12 +938,13 @@
             pubgm: {
                 name: 'PUBG MOBILE',
                 color: '#f5af19',
+                headerImage: 'channels4_profile.jpg',
                 platforms: {
                     youtube: { dataFile: 'data.json', othersFile: 'others.json', fallbackDataFile: 'pubgm_data.json', dateRange: '2018 - 2026' },
                     yt_mena: { dataFile: 'yt_mena_data.json', othersFile: 'yt_mena_others.json', dateRange: '2019 - 2026' },
                     yt_turkey: { dataFile: 'yt_turkey_data.json', othersFile: 'yt_turkey_others.json', dateRange: '2019 - 2026' },
-                    yt_indonesia: { dataFile: 'yt_indonesia_data.json', othersFile: 'yt_indonesia_others.json', dateRange: '2025 - 2026' },
-                    yt_latam: { dataFile: 'yt_latam_data.json', othersFile: 'yt_latam_others.json', dateRange: '2025 - 2026' },
+                    yt_indonesia: { dataFile: 'yt_indonesia_data.json', othersFile: 'yt_indonesia_others.json', dateRange: '2018 - 2026' },
+                    yt_latam: { dataFile: 'yt_latam_data.json', othersFile: 'yt_latam_others.json', dateRange: '2020 - 2026' },
                     instagram: { dataFile: 'ig_data.json', othersFile: 'ig_others.json', dateRange: '2024 - 2026' },
                     weibo: { dataFile: 'weibo_data.json', othersFile: 'weibo_others.json', dateRange: '2019 - 2026' },
                 }
@@ -951,6 +952,7 @@
             freefire: {
                 name: 'Free Fire',
                 color: '#10b981',
+                headerImage: 'channels45_profile.jpg',
                 platforms: {
                     youtube: { dataFile: 'freefire_data.json', othersFile: 'freefire_others.json', dateRange: '2018 - 2026' },
                 }
@@ -1251,6 +1253,8 @@
             if (!platKeys.includes(currentPlatform)) {
                 currentPlatform = platKeys[0];
             }
+            const headerImg = document.getElementById('headerLogoImg');
+            if (headerImg && game.headerImage) headerImg.src = game.headerImage;
             updateGameBtnStyles();
             renderPlatformNav();
             loadChannelData(currentGame + '_' + currentPlatform);
