@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
-    <title>PUBG MOBILE YouTube Analysis Dashboard</title>
+    <title>PUBG MOBILE Collab Analysis Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -84,9 +84,9 @@
         /* ===== Header ===== */
         header {
             text-align: center;
-            padding: 44px 0 24px;
+            padding: 40px 0 20px;
             border-bottom: 1px solid var(--border);
-            margin-bottom: 28px;
+            margin-bottom: 20px;
         }
 
         .header-inner {
@@ -111,21 +111,23 @@
         }
 
         .logo {
-            font-size: 2.4rem;
+            font-size: 2.2rem;
             font-weight: 800;
             background: var(--logo-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             letter-spacing: -0.02em;
+            line-height: 1.2;
         }
 
         .subtitle {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            font-weight: 400;
-            letter-spacing: 0.01em;
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            opacity: 0.85;
         }
 
         /* ===== Top Controls (Lang + Theme) ===== */
@@ -188,9 +190,11 @@
         .channel-nav {
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 10px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             padding-bottom: 4px;
+            flex-wrap: wrap;
         }
 
         .channel-btn {
@@ -205,10 +209,15 @@
             transition: all 0.25s;
             display: inline-flex;
             align-items: center;
-            gap: 7px;
+            gap: 6px;
             box-shadow: var(--shadow-sm);
             position: relative;
             opacity: 0.7;
+        }
+        .channel-btn.plat-btn {
+            padding: 7px 16px;
+            font-size: 0.82rem;
+            border-radius: 10px;
         }
         .channel-btn:hover {
             color: var(--text-primary);
@@ -235,6 +244,14 @@
             height: 3px;
             border-radius: 2px;
             background: currentColor;
+        }
+
+        .nav-divider {
+            width: 1px;
+            height: 24px;
+            background: var(--border);
+            margin: 0 4px;
+            opacity: 0.6;
         }
 
         /* ===== Tab Navigation ===== */
@@ -667,20 +684,19 @@
             <div class="header-inner">
                 <img id="headerLogoImg" src="channels4_profile.jpg" alt="PUBG MOBILE" class="header-logo-img">
                 <div class="header-text">
-                    <div class="logo">YouTube Channel Analysis</div>
-                    <p class="subtitle" data-en="Social Media Collab Analysis Dashboard (2018 - 2026)" data-ko="소셜 미디어 콜라보 분석 대시보드 (2018 - 2026)" data-zh="社交媒体合作分析面板 (2018 - 2026)">Social Media Collab Analysis Dashboard (2018 - 2026)</p>
+                    <div class="logo">PUBG MOBILE</div>
+                    <p class="subtitle">YouTube 글로벌 · 콜라보 분석 대시보드 (2018 - 2026)</p>
                 </div>
             </div>
         </header>
         
         <!-- Channel Selection -->
         <!-- Game Selection (Tier 1) -->
-        <nav class="channel-nav" id="gameNav">
+        <nav class="channel-nav" id="gameNav" style="margin-bottom:10px;">
             <button class="channel-btn active" onclick="switchGame('pubgm')">PUBG MOBILE</button>
             <button class="channel-btn" onclick="switchGame('freefire')">Free Fire</button>
         </nav>
-        <!-- Platform Selection (Tier 2) -->
-        <nav class="channel-nav" id="platformNav" style="gap:8px; margin-bottom:24px;"></nav>
+        <nav class="channel-nav" id="platformNav" style="margin-bottom:22px;"></nav>
         
         <!-- Tab Navigation -->
         <nav class="tab-nav">
@@ -1073,21 +1089,18 @@
             
             // Update header logo and subtitle
             const channel = getChannel();
-            const platIcon = currentPlatform === 'weibo' ? ICON_WEIBO
-                           : currentPlatform === 'instagram' ? PLATFORM_ICONS.instagram.replace('width="16"','width="22"').replace('height="16"','height="22"')
-                           : ICON_YOUTUBE;
             let gameName = GAMES[currentGame].name;
             if (currentPlatform === 'weibo') gameName = t('和平精英', '화평정영 (和平精英)', '和平精英');
-            const regionSuffix = PLATFORM_NAMES[currentPlatform] ? ' — ' + (PLATFORM_NAMES[currentPlatform][currentLang] || PLATFORM_NAMES[currentPlatform].en) : '';
-            const showSuffix = (currentPlatform !== 'youtube' && currentPlatform !== 'weibo' && currentPlatform !== 'instagram') ? regionSuffix : '';
-            document.querySelector('.logo').innerHTML = gameName + ' ' + platIcon + showSuffix;
+            document.querySelector('.logo').textContent = gameName;
 
             const subtitleEl = document.querySelector('.subtitle');
             if (subtitleEl && channel.dateRange) {
-                subtitleEl.textContent = t(
-                    `Social Media Collab Analysis Dashboard (${channel.dateRange})`,
-                    `소셜 미디어 콜라보 분석 대시보드 (${channel.dateRange})`,
-                    `社交媒体合作分析面板 (${channel.dateRange})`
+                const pn = PLATFORM_NAMES[currentPlatform] || {};
+                const platName = pn[currentLang] || pn.en || '';
+                subtitleEl.textContent = platName + ' · ' + t(
+                    `Collab Analysis Dashboard (${channel.dateRange})`,
+                    `콜라보 분석 대시보드 (${channel.dateRange})`,
+                    `合作分析面板 (${channel.dateRange})`
                 );
             }
             renderPlatformNav();
@@ -1142,21 +1155,18 @@
                 initDashboard();
 
                 const game = GAMES[currentGame];
-                const platIcon = currentPlatform === 'weibo' ? ICON_WEIBO
-                               : currentPlatform === 'instagram' ? PLATFORM_ICONS.instagram.replace('width="16"','width="22"').replace('height="16"','height="22"')
-                               : ICON_YOUTUBE;
                 let gameName = game.name;
                 if (currentPlatform === 'weibo') gameName = t('和平精英', '화평정영 (和平精英)', '和平精英');
-                const regionSuffix2 = PLATFORM_NAMES[currentPlatform] ? ' — ' + (PLATFORM_NAMES[currentPlatform][currentLang] || PLATFORM_NAMES[currentPlatform].en) : '';
-                const showSuffix2 = (currentPlatform !== 'youtube' && currentPlatform !== 'weibo' && currentPlatform !== 'instagram') ? regionSuffix2 : '';
-                document.querySelector('.logo').innerHTML = gameName + ' ' + platIcon + showSuffix2;
+                document.querySelector('.logo').textContent = gameName;
 
                 const subtitleEl = document.querySelector('.subtitle');
                 if (subtitleEl && channel.dateRange) {
-                    subtitleEl.textContent = t(
-                        `Social Media Collab Analysis Dashboard (${channel.dateRange})`,
-                        `소셜 미디어 콜라보 분석 대시보드 (${channel.dateRange})`,
-                        `社交媒体合作分析面板 (${channel.dateRange})`
+                    const pn = PLATFORM_NAMES[currentPlatform] || {};
+                    const platName = pn[currentLang] || pn.en || '';
+                    subtitleEl.textContent = platName + ' · ' + t(
+                        `Collab Analysis Dashboard (${channel.dateRange})`,
+                        `콜라보 분석 대시보드 (${channel.dateRange})`,
+                        `合作分析面板 (${channel.dateRange})`
                     );
                     subtitleEl.setAttribute('data-en', `Social Media Collab Analysis Dashboard (${channel.dateRange})`);
                     subtitleEl.setAttribute('data-ko', `소셜 미디어 콜라보 분석 대시보드 (${channel.dateRange})`);
@@ -1183,11 +1193,21 @@
         };
 
         const PLATFORM_NAMES = {
-            youtube: { en: 'YouTube (Global)', ko: 'YouTube (글로벌)', zh: 'YouTube (全球)' },
-            yt_mena: { en: 'YT MENA', ko: 'YT MENA', zh: 'YT 中东' },
-            yt_turkey: { en: 'YT Turkey', ko: 'YT 터키', zh: 'YT 土耳其' },
-            yt_indonesia: { en: 'YT Indonesia', ko: 'YT 인도네시아', zh: 'YT 印尼' },
-            yt_latam: { en: 'YT LATAM', ko: 'YT 남미', zh: 'YT 拉美' },
+            youtube: { en: 'YouTube Global', ko: 'YouTube 글로벌', zh: 'YouTube 全球' },
+            yt_mena: { en: 'YouTube MENA', ko: 'YouTube MENA', zh: 'YouTube 中东' },
+            yt_turkey: { en: 'YouTube Türkiye', ko: 'YouTube 터키', zh: 'YouTube 土耳其' },
+            yt_indonesia: { en: 'YouTube Indonesia', ko: 'YouTube 인도네시아', zh: 'YouTube 印尼' },
+            yt_latam: { en: 'YouTube LATAM', ko: 'YouTube 남미', zh: 'YouTube 拉美' },
+            instagram: { en: 'Instagram', ko: 'Instagram', zh: 'Instagram' },
+            weibo: { en: 'Weibo 和平精英', ko: '웨이보 화평정영', zh: '微博 和平精英' },
+        };
+
+        const PLATFORM_SHORT = {
+            youtube: { en: 'Global', ko: '글로벌', zh: '全球' },
+            yt_mena: { en: 'MENA', ko: 'MENA', zh: '中东' },
+            yt_turkey: { en: 'Türkiye', ko: '터키', zh: '土耳其' },
+            yt_indonesia: { en: 'Indonesia', ko: '인도네시아', zh: '印尼' },
+            yt_latam: { en: 'LATAM', ko: '남미', zh: '拉美' },
             instagram: { en: 'Instagram', ko: 'Instagram', zh: 'Instagram' },
             weibo: { en: 'Weibo', ko: '웨이보', zh: '微博' },
         };
@@ -1200,11 +1220,25 @@
             const game = GAMES[currentGame];
             const nav = document.getElementById('platformNav');
             const platKeys = Object.keys(game.platforms);
-            nav.innerHTML = platKeys.map(pk => {
+
+            const ytKeys = platKeys.filter(k => k === 'youtube' || k.startsWith('yt_'));
+            const otherKeys = platKeys.filter(k => k !== 'youtube' && !k.startsWith('yt_'));
+            const ordered = [...ytKeys, ...otherKeys];
+
+            let html = '';
+            let prevIsYt = null;
+            for (const pk of ordered) {
+                const isYt = pk === 'youtube' || pk.startsWith('yt_');
+                if (prevIsYt === true && !isYt) {
+                    html += '<span class="nav-divider"></span>';
+                }
+                prevIsYt = isYt;
                 const active = pk === currentPlatform ? ' active' : '';
-                const name = PLATFORM_NAMES[pk][currentLang] || pk;
-                return `<button class="channel-btn${active}" onclick="switchPlatform('${pk}')" data-platform="${pk}" style="padding:8px 18px;font-size:0.85rem;">${PLATFORM_ICONS[pk] || ''} <span style="margin-left:4px">${name}</span></button>`;
-            }).join('');
+                const short = PLATFORM_SHORT[pk] || {};
+                const name = short[currentLang] || short.en || pk;
+                html += `<button class="channel-btn plat-btn${active}" onclick="switchPlatform('${pk}')" data-platform="${pk}">${PLATFORM_ICONS[pk] || ''} <span>${name}</span></button>`;
+            }
+            nav.innerHTML = html;
             updatePlatformBtnStyles();
         }
 
@@ -1255,6 +1289,7 @@
             }
             const headerImg = document.getElementById('headerLogoImg');
             if (headerImg && game.headerImage) headerImg.src = game.headerImage;
+            document.title = game.name + ' Collab Analysis Dashboard';
             updateGameBtnStyles();
             renderPlatformNav();
             loadChannelData(currentGame + '_' + currentPlatform);
