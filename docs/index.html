@@ -980,36 +980,40 @@
 
             <!-- Partner detail comparison -->
             <section style="margin-top: 24px;">
-                <div class="chart-card" style="padding: 24px 28px;">
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
-                        <h3 class="chart-title" style="margin-bottom:0;" data-en="Partner Performance by Platform" data-ko="파트너별 플랫폼 성과 비교" data-zh="合作伙伴各平台表现">파트너별 플랫폼 성과 비교</h3>
-                        <select id="comparePartnerSelect" style="padding:6px 14px;border-radius:8px;border:1px solid var(--border);background:var(--card-bg);color:var(--text-primary);font-size:0.85rem;min-width:200px;cursor:pointer;">
+                <div class="chart-card" style="padding: 28px 32px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+                        <h3 class="chart-title" style="margin-bottom:0;font-size:1.1rem;" data-en="Partner Performance by Platform" data-ko="파트너별 플랫폼 성과 비교" data-zh="合作伙伴各平台表现">파트너별 플랫폼 성과 비교</h3>
+                        <select id="comparePartnerSelect" style="padding:8px 16px;border-radius:8px;border:1px solid var(--border);background:var(--card-bg);color:var(--text-primary);font-size:0.9rem;min-width:240px;cursor:pointer;">
                             <option value="">—</option>
                         </select>
                     </div>
-                    <div id="partnerCompareCharts" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-                        <div style="height:280px;"><canvas id="partnerViewsChart"></canvas></div>
-                        <div style="height:280px;"><canvas id="partnerVideosChart"></canvas></div>
+                    <div id="partnerCompareCharts" style="display:none;">
+                        <div id="partnerSummaryCards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:20px;"></div>
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+                            <div style="height:300px;"><canvas id="partnerViewsChart"></canvas></div>
+                            <div style="height:300px;"><canvas id="partnerVideosChart"></canvas></div>
+                        </div>
                     </div>
-                    <div id="partnerCompareEmpty" style="text-align:center;padding:40px 0;color:var(--text-muted);">
-                        <span data-en="Select a partner above to compare performance across platforms" data-ko="상단에서 파트너를 선택하면 플랫폼별 성과를 비교합니다" data-zh="选择合作伙伴以比较各平台表现">상단에서 파트너를 선택하면 플랫폼별 성과를 비교합니다</span>
+                    <div id="partnerCompareEmpty" style="text-align:center;padding:48px 0;color:var(--text-muted);">
+                        <div style="font-size:2rem;margin-bottom:8px;opacity:0.4;">📊</div>
+                        <span data-en="Select a partner to compare across platforms" data-ko="파트너를 선택하면 플랫폼별 성과를 비교합니다" data-zh="选择合作伙伴以比较各平台表现">파트너를 선택하면 플랫폼별 성과를 비교합니다</span>
                     </div>
                 </div>
             </section>
 
             <!-- Shared partners quantitative table -->
             <section style="margin-top: 24px;">
-                <div class="chart-card" style="padding: 24px 28px;">
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
-                        <h3 class="chart-title" style="margin-bottom:0;" data-en="Shared Partners – Quantitative Comparison" data-ko="공통 파트너 정량 비교" data-zh="共同合作伙伴定量对比">공통 파트너 정량 비교</h3>
+                <div class="chart-card" style="padding: 28px 32px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+                        <h3 class="chart-title" style="margin-bottom:0;font-size:1.1rem;" data-en="Shared Partners – Quantitative Comparison" data-ko="공통 파트너 정량 비교" data-zh="共同合作伙伴定量对比">공통 파트너 정량 비교</h3>
                         <div style="display:flex;gap:4px;background:rgba(255,255,255,0.06);border-radius:8px;padding:3px;">
-                            <button class="compare-metric-btn active" onclick="switchCompareMetric('views')" data-metric="views" style="padding:5px 14px;border:none;border-radius:6px;font-size:0.8rem;cursor:pointer;transition:all 0.2s;background:#6366f1;color:#fff;">
+                            <button class="compare-metric-btn active" onclick="switchCompareMetric('views')" data-metric="views" style="padding:6px 16px;border:none;border-radius:6px;font-size:0.85rem;cursor:pointer;transition:all 0.2s;background:#6366f1;color:#fff;">
                                 <span data-en="Views" data-ko="조회수" data-zh="浏览量">조회수</span>
                             </button>
-                            <button class="compare-metric-btn" onclick="switchCompareMetric('videos')" data-metric="videos" style="padding:5px 14px;border:none;border-radius:6px;font-size:0.8rem;cursor:pointer;transition:all 0.2s;background:transparent;color:#94a3b8;">
+                            <button class="compare-metric-btn" onclick="switchCompareMetric('videos')" data-metric="videos" style="padding:6px 16px;border:none;border-radius:6px;font-size:0.85rem;cursor:pointer;transition:all 0.2s;background:transparent;color:#94a3b8;">
                                 <span data-en="Videos" data-ko="영상 수" data-zh="视频数">영상 수</span>
                             </button>
-                            <button class="compare-metric-btn" onclick="switchCompareMetric('avgviews')" data-metric="avgviews" style="padding:5px 14px;border:none;border-radius:6px;font-size:0.8rem;cursor:pointer;transition:all 0.2s;background:transparent;color:#94a3b8;">
+                            <button class="compare-metric-btn" onclick="switchCompareMetric('avgviews')" data-metric="avgviews" style="padding:6px 16px;border:none;border-radius:6px;font-size:0.85rem;cursor:pointer;transition:all 0.2s;background:transparent;color:#94a3b8;">
                                 <span data-en="Avg Views" data-ko="평균 조회수" data-zh="平均浏览量">평균 조회수</span>
                             </button>
                         </div>
@@ -2478,8 +2482,6 @@
                 return;
             }
 
-            const metricLabel = metric === 'views' ? t('Views','조회수','浏览量') : metric === 'videos' ? t('Videos','영상 수','视频数') : t('Avg Views','평균 조회수','平均浏览量');
-
             const getPartnerMetric = (pk, name) => {
                 const p = (allData[pk].partners || []).find(x => x.name === name);
                 if (!p) return null;
@@ -2494,34 +2496,55 @@
                 return totalB - totalA;
             });
 
-            const top = sortedShared.slice(0, 50);
-            let tbl = `<table style="width:100%;border-collapse:collapse;font-size:0.82rem;">`;
-            tbl += `<thead><tr style="border-bottom:2px solid var(--border);">`;
-            tbl += `<th style="text-align:left;padding:10px 12px;color:var(--text-secondary);white-space:nowrap;">${t('Partner','파트너','合作伙伴')}</th>`;
-            tbl += `<th style="text-align:center;padding:10px 6px;color:var(--text-secondary);white-space:nowrap;font-size:0.75rem;">${t('Plat','플랫폼','平台')}</th>`;
-            allKeys.forEach((pk, i) => {
-                tbl += `<th style="text-align:right;padding:10px 8px;color:${CHAN_COLORS[i % CHAN_COLORS.length]};font-size:0.75rem;white-space:nowrap;">${shortName(pk)}<br><span style="font-weight:400;opacity:0.7;">${metricLabel}</span></th>`;
+            // Find max value for data bar scaling
+            let globalMax = 0;
+            sortedShared.slice(0, 50).forEach(([name]) => {
+                allKeys.forEach(pk => {
+                    const v = getPartnerMetric(pk, name);
+                    if (v !== null && v > globalMax) globalMax = v;
+                });
             });
-            tbl += `<th style="text-align:right;padding:10px 12px;color:var(--text-secondary);white-space:nowrap;font-size:0.75rem;">${t('Total','합계','总计')}</th>`;
+
+            const top = sortedShared.slice(0, 50);
+            const zebraEven = 'rgba(255,255,255,0.02)';
+            const zebraOdd = 'transparent';
+
+            let tbl = `<table style="width:100%;border-collapse:separate;border-spacing:0;font-size:0.88rem;">`;
+            tbl += `<thead><tr>`;
+            tbl += `<th style="text-align:left;padding:12px 14px;color:var(--text-primary);font-size:0.85rem;border-bottom:2px solid var(--border);position:sticky;left:0;background:var(--card-bg);z-index:2;min-width:140px;">#</th>`;
+            tbl += `<th style="text-align:left;padding:12px 14px;color:var(--text-primary);font-size:0.85rem;border-bottom:2px solid var(--border);position:sticky;left:0;background:var(--card-bg);z-index:2;min-width:140px;">${t('Partner','파트너','合作伙伴')}</th>`;
+            allKeys.forEach((pk, i) => {
+                tbl += `<th style="text-align:right;padding:12px 10px;border-bottom:2px solid var(--border);white-space:nowrap;min-width:100px;"><span style="color:${CHAN_COLORS[i % CHAN_COLORS.length]};font-weight:600;font-size:0.85rem;">${shortName(pk)}</span></th>`;
+            });
+            tbl += `<th style="text-align:right;padding:12px 14px;color:var(--text-primary);font-size:0.85rem;border-bottom:2px solid var(--border);min-width:90px;">${t('Total','합계','总计')}</th>`;
             tbl += `</tr></thead><tbody>`;
 
-            top.forEach(([name, cnt]) => {
-                const isClickable = shared.length > 0;
-                tbl += `<tr style="border-bottom:1px solid var(--border);cursor:pointer;transition:background 0.15s;" onmouseenter="this.style.background='rgba(99,102,241,0.08)'" onmouseleave="this.style.background=''" onclick="selectComparePartner('${name.replace(/'/g, "\\'")}')">`;
-                tbl += `<td style="padding:8px 12px;font-weight:600;color:var(--text-primary);white-space:nowrap;">${name}</td>`;
-                tbl += `<td style="text-align:center;padding:8px 6px;"><span style="background:var(--accent-bg);color:var(--accent-light);padding:2px 8px;border-radius:10px;font-size:0.75rem;font-weight:600;">${cnt}/${allKeys.length}</span></td>`;
+            top.forEach(([name, cnt], idx) => {
+                const bg = idx % 2 === 0 ? zebraEven : zebraOdd;
+                tbl += `<tr style="background:${bg};cursor:pointer;transition:background 0.15s;" onmouseenter="this.style.background='rgba(99,102,241,0.1)'" onmouseleave="this.style.background='${bg}'" onclick="selectComparePartner('${name.replace(/'/g, "\\'")}')">`;
+                tbl += `<td style="padding:10px 14px;color:var(--text-muted);font-size:0.8rem;font-variant-numeric:tabular-nums;">${idx + 1}</td>`;
+                tbl += `<td style="padding:10px 14px;font-weight:600;color:var(--text-primary);white-space:nowrap;">`;
+                tbl += `${name} <span style="color:var(--accent-light);font-size:0.75rem;font-weight:400;opacity:0.7;margin-left:4px;">${cnt}/${allKeys.length}</span>`;
+                tbl += `</td>`;
                 let total = 0;
                 allKeys.forEach((pk, i) => {
                     const val = getPartnerMetric(pk, name);
                     const color = CHAN_COLORS[i % CHAN_COLORS.length];
                     if (val !== null) {
                         total += val;
-                        tbl += `<td style="text-align:right;padding:8px;color:${color};font-variant-numeric:tabular-nums;">${formatNumber(val)}</td>`;
+                        const barPct = globalMax > 0 ? Math.max(2, (val / globalMax) * 100) : 0;
+                        tbl += `<td style="text-align:right;padding:10px 10px;">`;
+                        tbl += `<div style="display:flex;align-items:center;justify-content:flex-end;gap:8px;">`;
+                        tbl += `<div style="flex:1;max-width:70px;height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;">`;
+                        tbl += `<div style="width:${barPct}%;height:100%;background:${color};border-radius:3px;"></div>`;
+                        tbl += `</div>`;
+                        tbl += `<span style="color:${color};font-weight:500;font-variant-numeric:tabular-nums;min-width:55px;text-align:right;">${formatNumber(val)}</span>`;
+                        tbl += `</div></td>`;
                     } else {
-                        tbl += `<td style="text-align:right;padding:8px;color:var(--text-muted);">—</td>`;
+                        tbl += `<td style="text-align:right;padding:10px 10px;color:var(--text-muted);opacity:0.4;">—</td>`;
                     }
                 });
-                tbl += `<td style="text-align:right;padding:8px 12px;font-weight:700;color:var(--text-primary);font-variant-numeric:tabular-nums;">${formatNumber(total)}</td>`;
+                tbl += `<td style="text-align:right;padding:10px 14px;font-weight:700;color:var(--text-primary);font-variant-numeric:tabular-nums;">${formatNumber(total)}</td>`;
                 tbl += `</tr>`;
             });
             tbl += `</tbody></table>`;
@@ -2539,12 +2562,13 @@
             const { allKeys, allData, CHAN_COLORS, shortName } = _compareCtx;
             const chartsDiv = document.getElementById('partnerCompareCharts');
             const emptyDiv = document.getElementById('partnerCompareEmpty');
+            const cardsDiv = document.getElementById('partnerSummaryCards');
             if (!name || !allKeys) {
                 if (chartsDiv) chartsDiv.style.display = 'none';
                 if (emptyDiv) emptyDiv.style.display = '';
                 return;
             }
-            if (chartsDiv) chartsDiv.style.display = 'grid';
+            if (chartsDiv) chartsDiv.style.display = '';
             if (emptyDiv) emptyDiv.style.display = 'none';
 
             _partnerCharts.forEach(c => c.destroy());
@@ -2552,7 +2576,7 @@
 
             const chartGrid = getComputedStyle(document.documentElement).getPropertyValue('--chart-grid').trim() || 'rgba(255,255,255,0.04)';
             const txtMuted = getComputedStyle(document.documentElement).getPropertyValue('--text-muted').trim() || '#64748b';
-            const fmtK = v => v >= 1e6 ? (v/1e6).toFixed(1) + 'M' : v >= 1e3 ? (v/1e3).toFixed(1) + 'K' : v;
+            const fmtK = v => v >= 1e6 ? (v/1e6).toFixed(1) + 'M' : v >= 1e3 ? (v/1e3).toFixed(1) + 'K' : String(v);
 
             const perPlat = allKeys.map(pk => {
                 const p = (allData[pk].partners || []).find(x => x.name === name);
@@ -2561,10 +2585,39 @@
                     views: p ? (p.total_views || 0) : 0,
                     videos: p ? (p.video_count || 0) : 0,
                     avg: p && p.video_count > 0 ? Math.round((p.total_views || 0) / p.video_count) : 0,
+                    category: p ? (p.category || '') : '',
                     exists: !!p
                 };
             });
 
+            const totalViews = perPlat.reduce((s, p) => s + p.views, 0);
+            const totalVideos = perPlat.reduce((s, p) => s + p.videos, 0);
+            const platCount = perPlat.filter(p => p.exists).length;
+            const bestPlat = perPlat.reduce((best, p) => p.views > best.views ? p : best, perPlat[0]);
+            const cat = perPlat.find(p => p.category)?.category || '—';
+
+            if (cardsDiv) {
+                cardsDiv.innerHTML = `
+                    <div style="background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(99,102,241,0.05));border:1px solid rgba(99,102,241,0.2);border-radius:12px;padding:14px 18px;">
+                        <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:4px;">${t('Total Views','총 조회수','总浏览量')}</div>
+                        <div style="font-size:1.3rem;font-weight:700;color:var(--text-primary);">${fmtK(totalViews)}</div>
+                    </div>
+                    <div style="background:linear-gradient(135deg,rgba(244,114,182,0.15),rgba(244,114,182,0.05));border:1px solid rgba(244,114,182,0.2);border-radius:12px;padding:14px 18px;">
+                        <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:4px;">${t('Total Videos','총 영상 수','总视频数')}</div>
+                        <div style="font-size:1.3rem;font-weight:700;color:var(--text-primary);">${totalVideos}</div>
+                    </div>
+                    <div style="background:linear-gradient(135deg,rgba(16,185,129,0.15),rgba(16,185,129,0.05));border:1px solid rgba(16,185,129,0.2);border-radius:12px;padding:14px 18px;">
+                        <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:4px;">${t('Platforms','플랫폼','平台')}</div>
+                        <div style="font-size:1.3rem;font-weight:700;color:var(--text-primary);">${platCount} / ${allKeys.length}</div>
+                    </div>
+                    <div style="background:linear-gradient(135deg,rgba(251,191,36,0.15),rgba(251,191,36,0.05));border:1px solid rgba(251,191,36,0.2);border-radius:12px;padding:14px 18px;">
+                        <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:4px;">${t('Best Platform','최고 성과 플랫폼','最佳平台')}</div>
+                        <div style="font-size:1.3rem;font-weight:700;color:var(--text-primary);">${shortName(bestPlat.pk)}</div>
+                    </div>
+                `;
+            }
+
+            // Left chart: Views per platform (horizontal bar for better label space)
             const ctx1 = document.getElementById('partnerViewsChart')?.getContext('2d');
             if (ctx1) {
                 _partnerCharts.push(new Chart(ctx1, {
@@ -2572,27 +2625,29 @@
                     data: {
                         labels: allKeys.map(shortName),
                         datasets: [{
-                            label: t('Total Views/Engagement','총 조회수/인게이지먼트','总浏览量/互动量'),
                             data: perPlat.map(p => p.views),
-                            backgroundColor: allKeys.map((_, i) => perPlat[i].exists ? CHAN_COLORS[i % CHAN_COLORS.length] + 'cc' : 'rgba(100,116,139,0.2)'),
-                            borderRadius: 6,
+                            backgroundColor: allKeys.map((_, i) => perPlat[i].exists ? CHAN_COLORS[i % CHAN_COLORS.length] + 'cc' : 'rgba(100,116,139,0.15)'),
+                            borderRadius: 8,
+                            borderSkipped: false,
                         }]
                     },
                     options: {
+                        indexAxis: 'y',
                         responsive: true, maintainAspectRatio: false,
                         plugins: {
                             legend: { display: false },
-                            title: { display: true, text: `${name} — ${t('Views','조회수','浏览量')}`, color: 'var(--text-primary)', font: { size: 13, weight: '600' }, padding: { bottom: 12 } },
-                            tooltip: { callbacks: { label: (c) => fmtK(c.raw) } }
+                            title: { display: true, text: t('Views / Engagement by Platform','플랫폼별 조회수 / 인게이지먼트','各平台浏览量/互动量'), color: txtMuted, font: { size: 12, weight: '500' }, padding: { bottom: 16 } },
+                            tooltip: { callbacks: { label: (c) => `${fmtK(c.raw)} ${t('views','조회수','浏览量')}` } }
                         },
                         scales: {
-                            x: { grid: { display: false }, ticks: { color: txtMuted, font: { size: 10 } } },
-                            y: { grid: { color: chartGrid }, ticks: { color: txtMuted, callback: v => fmtK(v) }, border: { display: false } }
+                            y: { grid: { display: false }, ticks: { color: (ctx) => CHAN_COLORS[ctx.index % CHAN_COLORS.length], font: { size: 12, weight: '600' } } },
+                            x: { grid: { color: chartGrid }, ticks: { color: txtMuted, callback: v => fmtK(v) }, border: { display: false } }
                         }
                     }
                 }));
             }
 
+            // Right chart: Videos + Avg views (grouped bar, horizontal)
             const ctx2 = document.getElementById('partnerVideosChart')?.getContext('2d');
             if (ctx2) {
                 _partnerCharts.push(new Chart(ctx2, {
@@ -2602,27 +2657,30 @@
                         datasets: [{
                             label: t('Videos','영상 수','视频数'),
                             data: perPlat.map(p => p.videos),
-                            backgroundColor: allKeys.map((_, i) => perPlat[i].exists ? CHAN_COLORS[i % CHAN_COLORS.length] + '99' : 'rgba(100,116,139,0.2)'),
-                            borderRadius: 6,
+                            backgroundColor: 'rgba(99,102,241,0.7)',
+                            borderRadius: 8,
+                            borderSkipped: false,
+                            yAxisID: 'y',
                         }, {
-                            label: t('Avg Views per Video','영상당 평균 조회수','平均每视频浏览量'),
+                            label: t('Avg Views','영상당 평균','平均浏览量'),
                             data: perPlat.map(p => p.avg),
-                            backgroundColor: allKeys.map((_, i) => perPlat[i].exists ? CHAN_COLORS[i % CHAN_COLORS.length] + '44' : 'rgba(100,116,139,0.1)'),
-                            borderRadius: 6,
+                            backgroundColor: 'rgba(244,114,182,0.6)',
+                            borderRadius: 8,
+                            borderSkipped: false,
                             yAxisID: 'y1',
                         }]
                     },
                     options: {
                         responsive: true, maintainAspectRatio: false,
                         plugins: {
-                            legend: { position: 'top', labels: { color: txtMuted, boxWidth: 10, padding: 12, font: { size: 10 } } },
-                            title: { display: true, text: `${name} — ${t('Videos & Avg','영상 수 & 평균','视频数与平均')}`, color: 'var(--text-primary)', font: { size: 13, weight: '600' }, padding: { bottom: 12 } },
-                            tooltip: { callbacks: { label: (c) => c.dataset.yAxisID === 'y1' ? fmtK(c.raw) + ` ${t('avg','평균','平均')}` : c.raw + ` ${t('videos','영상','视频')}` } }
+                            legend: { position: 'top', labels: { color: txtMuted, boxWidth: 10, padding: 16, font: { size: 11 } } },
+                            title: { display: true, text: t('Videos & Avg per Video','영상 수 & 영상당 평균','视频数与每视频平均'), color: txtMuted, font: { size: 12, weight: '500' }, padding: { bottom: 16 } },
+                            tooltip: { callbacks: { label: (c) => c.datasetIndex === 1 ? fmtK(c.raw) + ` ${t('avg','평균','平均')}` : c.raw + ` ${t('videos','영상','视频')}` } }
                         },
                         scales: {
-                            x: { grid: { display: false }, ticks: { color: txtMuted, font: { size: 10 } } },
-                            y: { position: 'left', grid: { color: chartGrid }, ticks: { color: txtMuted, stepSize: 1 }, border: { display: false }, title: { display: true, text: t('Videos','영상','视频'), color: txtMuted, font: { size: 10 } } },
-                            y1: { position: 'right', grid: { display: false }, ticks: { color: txtMuted, callback: v => fmtK(v) }, border: { display: false }, title: { display: true, text: t('Avg Views','평균 조회수','平均浏览量'), color: txtMuted, font: { size: 10 } } }
+                            x: { grid: { display: false }, ticks: { color: txtMuted, font: { size: 11 } } },
+                            y: { position: 'left', grid: { color: chartGrid }, ticks: { color: '#818cf8', stepSize: 1, font: { size: 11 } }, border: { display: false }, title: { display: true, text: t('Videos','영상','视频'), color: '#818cf8', font: { size: 11 } } },
+                            y1: { position: 'right', grid: { display: false }, ticks: { color: '#f472b6', callback: v => fmtK(v), font: { size: 11 } }, border: { display: false }, title: { display: true, text: t('Avg','평균','平均'), color: '#f472b6', font: { size: 11 } } }
                         }
                     }
                 }));
