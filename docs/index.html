@@ -1086,6 +1086,12 @@
                     yt_turkey: { dataFile: 'yt_turkey_data.json', othersFile: 'yt_turkey_others.json', dateRange: '2019 - 2026' },
                     yt_indonesia: { dataFile: 'yt_indonesia_data.json', othersFile: 'yt_indonesia_others.json', dateRange: '2018 - 2026' },
                     yt_latam: { dataFile: 'yt_latam_data.json', othersFile: 'yt_latam_others.json', dateRange: '2020 - 2026' },
+                    yt_cis: { dataFile: 'yt_cis_data.json', othersFile: 'yt_cis_others.json', dateRange: '2018 - 2026' },
+                    yt_india: { dataFile: 'yt_india_data.json', othersFile: 'yt_india_others.json', dateRange: '2021 - 2026' },
+                    yt_malaysia: { dataFile: 'yt_malaysia_data.json', othersFile: 'yt_malaysia_others.json', dateRange: '2019 - 2026' },
+                    yt_pakistan: { dataFile: 'yt_pakistan_data.json', othersFile: 'yt_pakistan_others.json', dateRange: '2020 - 2026' },
+                    yt_taiwan: { dataFile: 'yt_taiwan_data.json', othersFile: 'yt_taiwan_others.json', dateRange: '2019 - 2026' },
+                    yt_thailand: { dataFile: 'yt_thailand_data.json', othersFile: 'yt_thailand_others.json', dateRange: '2019 - 2026' },
                     instagram: { dataFile: 'ig_data.json', othersFile: 'ig_others.json', dateRange: '2024 - 2026' },
                     weibo: { dataFile: 'weibo_data.json', othersFile: 'weibo_others.json', dateRange: '2019 - 2026' },
                 }
@@ -1311,10 +1317,9 @@
         const _ytIconSmall = ICON_YOUTUBE.replace('width="22"','width="16"').replace('height="22"','height="16"').replace('margin-left:4px;','');
         const PLATFORM_ICONS = {
             youtube: _ytIconSmall,
-            yt_mena: _ytIconSmall,
-            yt_turkey: _ytIconSmall,
-            yt_indonesia: _ytIconSmall,
-            yt_latam: _ytIconSmall,
+            yt_mena: _ytIconSmall, yt_turkey: _ytIconSmall, yt_indonesia: _ytIconSmall, yt_latam: _ytIconSmall,
+            yt_cis: _ytIconSmall, yt_india: _ytIconSmall, yt_malaysia: _ytIconSmall,
+            yt_pakistan: _ytIconSmall, yt_taiwan: _ytIconSmall, yt_thailand: _ytIconSmall,
             instagram: '<svg viewBox="0 0 24 24" width="16" height="16"><defs><linearGradient id="igG" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#feda75"/><stop offset="25%" stop-color="#fa7e1e"/><stop offset="50%" stop-color="#d62976"/><stop offset="75%" stop-color="#962fbf"/><stop offset="100%" stop-color="#4f5bd5"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" fill="url(#igG)"/><circle cx="12" cy="12" r="5" fill="none" stroke="#fff" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="#fff"/></svg>',
             weibo: ICON_WEIBO.replace('width="22"','width="16"').replace('height="22"','height="16"').replace('margin-left:4px;',''),
         };
@@ -1325,6 +1330,12 @@
             yt_turkey: { en: 'YouTube Türkiye', ko: 'YouTube 터키', zh: 'YouTube 土耳其' },
             yt_indonesia: { en: 'YouTube Indonesia', ko: 'YouTube 인도네시아', zh: 'YouTube 印尼' },
             yt_latam: { en: 'YouTube LATAM', ko: 'YouTube 남미', zh: 'YouTube 拉美' },
+            yt_cis: { en: 'YouTube CIS', ko: 'YouTube CIS', zh: 'YouTube 独联体' },
+            yt_india: { en: 'YouTube India', ko: 'YouTube 인도', zh: 'YouTube 印度' },
+            yt_malaysia: { en: 'YouTube Malaysia', ko: 'YouTube 말레이시아', zh: 'YouTube 马来西亚' },
+            yt_pakistan: { en: 'YouTube Pakistan', ko: 'YouTube 파키스탄', zh: 'YouTube 巴基斯坦' },
+            yt_taiwan: { en: 'YouTube Taiwan', ko: 'YouTube 대만', zh: 'YouTube 台湾' },
+            yt_thailand: { en: 'YouTube Thailand', ko: 'YouTube 태국', zh: 'YouTube 泰国' },
             instagram: { en: 'Instagram', ko: 'Instagram', zh: 'Instagram' },
             weibo: { en: 'Weibo 和平精英', ko: '웨이보 화평정영', zh: '微博 和平精英' },
         };
@@ -1335,6 +1346,12 @@
             yt_turkey: { en: 'Türkiye', ko: '터키', zh: '土耳其' },
             yt_indonesia: { en: 'Indonesia', ko: '인도네시아', zh: '印尼' },
             yt_latam: { en: 'LATAM', ko: '남미', zh: '拉美' },
+            yt_cis: { en: 'CIS', ko: 'CIS', zh: '独联体' },
+            yt_india: { en: 'India', ko: '인도', zh: '印度' },
+            yt_malaysia: { en: 'Malaysia', ko: '말레이시아', zh: '马来西亚' },
+            yt_pakistan: { en: 'Pakistan', ko: '파키스탄', zh: '巴基斯坦' },
+            yt_taiwan: { en: 'Taiwan', ko: '대만', zh: '台湾' },
+            yt_thailand: { en: 'Thailand', ko: '태국', zh: '泰国' },
             instagram: { en: 'Instagram', ko: 'Instagram', zh: 'Instagram' },
             weibo: { en: 'Weibo', ko: '웨이보', zh: '微博' },
         };
@@ -2711,7 +2728,7 @@
             const allKeys = Object.keys(game.platforms);
             if (allKeys.length < 2) return;
 
-            const CHAN_COLORS = ['#f5af19','#3b82f6','#ef4444','#10b981','#a855f7','#f472b6','#22d3ee'];
+            const CHAN_COLORS = ['#f5af19','#3b82f6','#ef4444','#10b981','#a855f7','#f472b6','#22d3ee','#fb923c','#6366f1','#14b8a6','#e879f9','#84cc16','#f43f5e'];
 
             const allData = {};
             await Promise.all(allKeys.map(async (pk) => {
