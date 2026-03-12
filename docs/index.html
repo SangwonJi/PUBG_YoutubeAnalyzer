@@ -6,6 +6,7 @@
     <meta name="referrer" content="no-referrer">
     <title>PUBG MOBILE Collab Analysis Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* ===== Theme Variables ===== */
@@ -646,7 +647,7 @@
         }
         .chart-title {
             font-size: 0.95rem; font-weight: 700; margin-bottom: 14px;
-            color: var(--text-secondary); letter-spacing: -0.01em;
+            color: var(--text-primary); letter-spacing: -0.01em;
         }
 
         /* ===== Empty State ===== */
@@ -693,6 +694,10 @@
         .tab-nav, .channel-btn, .filter-btn, .video-item, .noncollab-detail,
         .search-box, .lang-toggle, .theme-toggle, header, footer {
             transition: background 0.35s ease, border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
+        }
+        #comparePartnerSelect option {
+            background: var(--card-bg);
+            color: var(--text-primary);
         }
     </style>
 </head>
@@ -970,14 +975,6 @@
                 </div>
             </section>
 
-            <!-- Category comparison -->
-            <section style="margin-top: 24px;">
-                <div class="chart-card" style="padding: 24px 28px;">
-                    <h3 class="chart-title" data-en="Category Distribution by Platform" data-ko="플랫폼별 카테고리 분포" data-zh="各平台类别分布">플랫폼별 카테고리 분포</h3>
-                    <div style="height: 360px;"><canvas id="compareCategoryChart"></canvas></div>
-                </div>
-            </section>
-
             <!-- Partner detail comparison -->
             <section style="margin-top: 24px;">
                 <div class="chart-card" style="padding: 28px 32px;">
@@ -1035,6 +1032,7 @@
     </div>
     
     <script>
+        Chart.defaults.plugins.datalabels = { display: false };
         let partnersData = [];
         let othersData = null;
         let selectedPartner = null;
@@ -2575,7 +2573,7 @@
             _partnerCharts = [];
 
             const chartGrid = getComputedStyle(document.documentElement).getPropertyValue('--chart-grid').trim() || 'rgba(255,255,255,0.04)';
-            const txtMuted = getComputedStyle(document.documentElement).getPropertyValue('--text-muted').trim() || '#64748b';
+            const txtSec2 = getComputedStyle(document.documentElement).getPropertyValue('--text-secondary').trim() || '#94a3b8';
             const fmtK = v => v >= 1e6 ? (v/1e6).toFixed(1) + 'M' : v >= 1e3 ? (v/1e3).toFixed(1) + 'K' : String(v);
 
             const perPlat = allKeys.map(pk => {
@@ -2594,30 +2592,28 @@
             const totalVideos = perPlat.reduce((s, p) => s + p.videos, 0);
             const platCount = perPlat.filter(p => p.exists).length;
             const bestPlat = perPlat.reduce((best, p) => p.views > best.views ? p : best, perPlat[0]);
-            const cat = perPlat.find(p => p.category)?.category || '—';
 
             if (cardsDiv) {
                 cardsDiv.innerHTML = `
                     <div style="background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(99,102,241,0.05));border:1px solid rgba(99,102,241,0.2);border-radius:12px;padding:14px 18px;">
-                        <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:4px;">${t('Total Views','총 조회수','总浏览量')}</div>
+                        <div style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:4px;">${t('Total Views','총 조회수','总浏览量')}</div>
                         <div style="font-size:1.3rem;font-weight:700;color:var(--text-primary);">${fmtK(totalViews)}</div>
                     </div>
                     <div style="background:linear-gradient(135deg,rgba(244,114,182,0.15),rgba(244,114,182,0.05));border:1px solid rgba(244,114,182,0.2);border-radius:12px;padding:14px 18px;">
-                        <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:4px;">${t('Total Videos','총 영상 수','总视频数')}</div>
+                        <div style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:4px;">${t('Total Videos','총 영상 수','总视频数')}</div>
                         <div style="font-size:1.3rem;font-weight:700;color:var(--text-primary);">${totalVideos}</div>
                     </div>
                     <div style="background:linear-gradient(135deg,rgba(16,185,129,0.15),rgba(16,185,129,0.05));border:1px solid rgba(16,185,129,0.2);border-radius:12px;padding:14px 18px;">
-                        <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:4px;">${t('Platforms','플랫폼','平台')}</div>
+                        <div style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:4px;">${t('Platforms','플랫폼','平台')}</div>
                         <div style="font-size:1.3rem;font-weight:700;color:var(--text-primary);">${platCount} / ${allKeys.length}</div>
                     </div>
                     <div style="background:linear-gradient(135deg,rgba(251,191,36,0.15),rgba(251,191,36,0.05));border:1px solid rgba(251,191,36,0.2);border-radius:12px;padding:14px 18px;">
-                        <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:4px;">${t('Best Platform','최고 성과 플랫폼','最佳平台')}</div>
+                        <div style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:4px;">${t('Best Platform','최고 성과 플랫폼','最佳平台')}</div>
                         <div style="font-size:1.3rem;font-weight:700;color:var(--text-primary);">${shortName(bestPlat.pk)}</div>
                     </div>
                 `;
             }
 
-            // Left chart: Views per platform (horizontal bar for better label space)
             const ctx1 = document.getElementById('partnerViewsChart')?.getContext('2d');
             if (ctx1) {
                 _partnerCharts.push(new Chart(ctx1, {
@@ -2636,18 +2632,24 @@
                         responsive: true, maintainAspectRatio: false,
                         plugins: {
                             legend: { display: false },
-                            title: { display: true, text: t('Views / Engagement by Platform','플랫폼별 조회수 / 인게이지먼트','各平台浏览量/互动量'), color: txtMuted, font: { size: 12, weight: '500' }, padding: { bottom: 16 } },
-                            tooltip: { callbacks: { label: (c) => `${fmtK(c.raw)} ${t('views','조회수','浏览量')}` } }
+                            title: { display: true, text: t('Views / Engagement','플랫폼별 조회수','各平台浏览量'), color: txtSec2, font: { size: 13, weight: '600' }, padding: { bottom: 16 } },
+                            tooltip: { callbacks: { label: (c) => `${fmtK(c.raw)} ${t('views','조회수','浏览量')}` } },
+                            datalabels: {
+                                display: true,
+                                anchor: 'end', align: 'right', offset: 4,
+                                font: { size: 11, weight: '700' },
+                                color: (ctx) => CHAN_COLORS[ctx.dataIndex % CHAN_COLORS.length],
+                                formatter: (v) => v > 0 ? fmtK(v) : '',
+                            }
                         },
                         scales: {
                             y: { grid: { display: false }, ticks: { color: (ctx) => CHAN_COLORS[ctx.index % CHAN_COLORS.length], font: { size: 12, weight: '600' } } },
-                            x: { grid: { color: chartGrid }, ticks: { color: txtMuted, callback: v => fmtK(v) }, border: { display: false } }
+                            x: { grid: { color: chartGrid }, ticks: { color: txtSec2, callback: v => fmtK(v) }, border: { display: false } }
                         }
                     }
                 }));
             }
 
-            // Right chart: Videos + Avg views (grouped bar, horizontal)
             const ctx2 = document.getElementById('partnerVideosChart')?.getContext('2d');
             if (ctx2) {
                 _partnerCharts.push(new Chart(ctx2, {
@@ -2657,14 +2659,14 @@
                         datasets: [{
                             label: t('Videos','영상 수','视频数'),
                             data: perPlat.map(p => p.videos),
-                            backgroundColor: 'rgba(99,102,241,0.7)',
+                            backgroundColor: 'rgba(129,140,248,0.75)',
                             borderRadius: 8,
                             borderSkipped: false,
                             yAxisID: 'y',
                         }, {
                             label: t('Avg Views','영상당 평균','平均浏览量'),
                             data: perPlat.map(p => p.avg),
-                            backgroundColor: 'rgba(244,114,182,0.6)',
+                            backgroundColor: 'rgba(244,114,182,0.65)',
                             borderRadius: 8,
                             borderSkipped: false,
                             yAxisID: 'y1',
@@ -2673,14 +2675,21 @@
                     options: {
                         responsive: true, maintainAspectRatio: false,
                         plugins: {
-                            legend: { position: 'top', labels: { color: txtMuted, boxWidth: 10, padding: 16, font: { size: 11 } } },
-                            title: { display: true, text: t('Videos & Avg per Video','영상 수 & 영상당 평균','视频数与每视频平均'), color: txtMuted, font: { size: 12, weight: '500' }, padding: { bottom: 16 } },
-                            tooltip: { callbacks: { label: (c) => c.datasetIndex === 1 ? fmtK(c.raw) + ` ${t('avg','평균','平均')}` : c.raw + ` ${t('videos','영상','视频')}` } }
+                            legend: { position: 'top', labels: { color: txtSec2, boxWidth: 10, padding: 16, font: { size: 12 } } },
+                            title: { display: true, text: t('Videos & Avg per Video','영상 수 & 영상당 평균','视频数与平均'), color: txtSec2, font: { size: 13, weight: '600' }, padding: { bottom: 16 } },
+                            tooltip: { callbacks: { label: (c) => c.datasetIndex === 1 ? fmtK(c.raw) + ` ${t('avg','평균','平均')}` : c.raw + ` ${t('videos','영상','视频')}` } },
+                            datalabels: {
+                                display: true,
+                                anchor: 'end', align: 'top', offset: 2,
+                                font: { size: 10, weight: '600' },
+                                color: (ctx) => ctx.datasetIndex === 0 ? '#a5b4fc' : '#f9a8d4',
+                                formatter: (v, ctx) => v > 0 ? (ctx.datasetIndex === 1 ? fmtK(v) : v) : '',
+                            }
                         },
                         scales: {
-                            x: { grid: { display: false }, ticks: { color: txtMuted, font: { size: 11 } } },
-                            y: { position: 'left', grid: { color: chartGrid }, ticks: { color: '#818cf8', stepSize: 1, font: { size: 11 } }, border: { display: false }, title: { display: true, text: t('Videos','영상','视频'), color: '#818cf8', font: { size: 11 } } },
-                            y1: { position: 'right', grid: { display: false }, ticks: { color: '#f472b6', callback: v => fmtK(v), font: { size: 11 } }, border: { display: false }, title: { display: true, text: t('Avg','평균','平均'), color: '#f472b6', font: { size: 11 } } }
+                            x: { grid: { display: false }, ticks: { color: txtSec2, font: { size: 11 } } },
+                            y: { position: 'left', grid: { color: chartGrid }, ticks: { color: '#a5b4fc', stepSize: 1, font: { size: 11 } }, border: { display: false }, title: { display: true, text: t('Videos','영상','视频'), color: '#a5b4fc', font: { size: 12 } } },
+                            y1: { position: 'right', grid: { display: false }, ticks: { color: '#f9a8d4', callback: v => fmtK(v), font: { size: 11 } }, border: { display: false }, title: { display: true, text: t('Avg','평균','平均'), color: '#f9a8d4', font: { size: 12 } } }
                         }
                     }
                 }));
@@ -2740,7 +2749,8 @@
             compareCharts = [];
 
             const chartGrid = getComputedStyle(document.documentElement).getPropertyValue('--chart-grid').trim() || 'rgba(255,255,255,0.04)';
-            const txtMuted = getComputedStyle(document.documentElement).getPropertyValue('--text-muted').trim() || '#64748b';
+            const txtSec = getComputedStyle(document.documentElement).getPropertyValue('--text-secondary').trim() || '#94a3b8';
+            const fmtKC = v => v >= 1e9 ? (v/1e9).toFixed(1) + 'B' : v >= 1e6 ? (v/1e6).toFixed(1) + 'M' : v >= 1e3 ? (v/1e3).toFixed(1) + 'K' : String(v);
 
             const ctx1 = document.getElementById('compareVideosChart')?.getContext('2d');
             if (ctx1) {
@@ -2763,10 +2773,19 @@
                     options: {
                         indexAxis: 'y',
                         responsive: true, maintainAspectRatio: false,
-                        plugins: { legend: { position: 'top', labels: { color: txtMuted, boxWidth: 12, padding: 16, font: { size: 11 } } } },
+                        plugins: {
+                            legend: { position: 'top', labels: { color: txtSec, boxWidth: 12, padding: 16, font: { size: 12 } } },
+                            datalabels: {
+                                display: true,
+                                anchor: 'end', align: 'right', offset: 4,
+                                font: { size: 11, weight: '600' },
+                                color: (ctx) => ctx.dataset.backgroundColor[ctx.dataIndex].replace(/[0-9a-f]{2}$/i, 'ff'),
+                                formatter: (v) => v > 0 ? fmtKC(v) : '',
+                            }
+                        },
                         scales: {
-                            y: { grid: { display: false }, ticks: { color: txtMuted, font: { weight: '600' } } },
-                            x: { grid: { color: chartGrid }, ticks: { color: txtMuted }, border: { display: false } }
+                            y: { grid: { display: false }, ticks: { color: txtSec, font: { size: 12, weight: '600' } } },
+                            x: { grid: { color: chartGrid }, ticks: { color: txtSec, font: { size: 11 } }, border: { display: false } }
                         }
                     }
                 }));
@@ -2790,53 +2809,22 @@
                         responsive: true, maintainAspectRatio: false,
                         plugins: {
                             legend: { display: false },
-                            tooltip: { callbacks: { label: (ctx) => { const v = ctx.raw; return v >= 1e9 ? (v/1e9).toFixed(1) + 'B' : v >= 1e6 ? (v/1e6).toFixed(1) + 'M' : v >= 1e3 ? (v/1e3).toFixed(1) + 'K' : v; } } }
+                            tooltip: { callbacks: { label: (ctx) => fmtKC(ctx.raw) } },
+                            datalabels: {
+                                display: true,
+                                anchor: 'end', align: 'right', offset: 4,
+                                font: { size: 12, weight: '700' },
+                                color: (ctx) => CHAN_COLORS[ctx.dataIndex % CHAN_COLORS.length],
+                                formatter: (v) => v > 0 ? fmtKC(v) : '',
+                            }
                         },
                         scales: {
-                            y: { grid: { display: false }, ticks: { color: txtMuted, font: { weight: '600' } } },
+                            y: { grid: { display: false }, ticks: { color: txtSec, font: { size: 12, weight: '600' } } },
                             x: {
                                 grid: { color: chartGrid },
-                                ticks: { color: txtMuted, callback: v => v >= 1e9 ? (v/1e9).toFixed(0) + 'B' : v >= 1e6 ? (v/1e6).toFixed(0) + 'M' : v >= 1e3 ? (v/1e3).toFixed(0) + 'K' : v },
+                                ticks: { color: txtSec, font: { size: 11 }, callback: v => fmtKC(v) },
                                 border: { display: false }
                             }
-                        }
-                    }
-                }));
-            }
-
-            const catSet = new Set();
-            allKeys.forEach(pk => {
-                (allData[pk].partners || []).forEach(p => { if (p.category) catSet.add(p.category); });
-            });
-            const categories = [...catSet].sort();
-            const CAT_COLORS = {
-                'Artist':'#8b5cf6','Brand':'#3b82f6','Anime':'#ec4899','Movie':'#f59e0b',
-                'Game':'#10b981','IP':'#6366f1','Sports':'#ef4444','Character':'#f97316',
-                'Celebrity':'#a855f7','Creator':'#14b8a6','Entertainment':'#f472b6',
-                'Esports':'#22d3ee','Event':'#fb923c','Designer':'#c084fc','Other':'#64748b'
-            };
-
-            const ctx3 = document.getElementById('compareCategoryChart')?.getContext('2d');
-            if (ctx3) {
-                const datasets = categories.map(cat => ({
-                    label: translateCategory(cat),
-                    data: allKeys.map(pk => {
-                        return (allData[pk].partners || []).filter(p => p.category === cat).length;
-                    }),
-                    backgroundColor: CAT_COLORS[cat] || '#64748b',
-                    borderRadius: 3,
-                }));
-                compareCharts.push(new Chart(ctx3, {
-                    type: 'bar',
-                    data: { labels: allKeys.map(shortName), datasets },
-                    options: {
-                        responsive: true, maintainAspectRatio: false,
-                        plugins: {
-                            legend: { position: 'bottom', labels: { color: txtMuted, boxWidth: 12, padding: 12, font: { size: 11 } } }
-                        },
-                        scales: {
-                            x: { stacked: true, grid: { display: false }, ticks: { color: txtMuted } },
-                            y: { stacked: true, grid: { color: chartGrid }, ticks: { color: txtMuted }, border: { display: false } }
                         }
                     }
                 }));
