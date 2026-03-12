@@ -731,6 +731,7 @@
             <button class="tab-btn active" onclick="switchTab('collab')" data-en="Collaborations" data-ko="콜라보레이션" data-zh="合作内容">Collaborations</button>
             <button class="tab-btn" onclick="switchTab('noncollab')" data-en="Non-Collab Content" data-ko="일반 콘텐츠" data-zh="非合作内容">Non-Collab Content</button>
             <button class="tab-btn" onclick="switchTab('overview')" data-en="Overview" data-ko="전체 요약" data-zh="总览">Overview</button>
+            <button class="tab-btn" onclick="switchTab('compare')" data-en="Cross-Channel" data-ko="채널 비교" data-zh="跨频道对比" id="compareTabBtn" style="display:none;">채널 비교</button>
         </nav>
         
         <!-- Collab Tab -->
@@ -936,6 +937,56 @@
             </section>
         </div>
         
+        <!-- Cross-Channel Comparison Tab -->
+        <div class="tab-content" id="compareTab">
+            <section class="stats-grid" id="compareStats">
+                <div class="stat-card">
+                    <div class="stat-value" id="compareChannels">-</div>
+                    <div class="stat-label" data-en="Platforms" data-ko="플랫폼" data-zh="平台数">플랫폼</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="compareShared">-</div>
+                    <div class="stat-label" data-en="Shared Partners" data-ko="공통 파트너" data-zh="共同合作伙伴">공통 파트너</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="compareTotalVideos">-</div>
+                    <div class="stat-label" data-en="Total Collab Videos" data-ko="전체 콜라보 영상" data-zh="合作视频总数">전체 콜라보 영상</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="compareTotalPartners">-</div>
+                    <div class="stat-label" data-en="Total Unique Partners" data-ko="전체 파트너 수" data-zh="合作伙伴总数">전체 파트너 수</div>
+                </div>
+            </section>
+
+            <!-- Charts Row -->
+            <section class="charts-row" style="grid-template-columns: 1fr 1fr; margin-top: 24px;">
+                <div class="chart-card" style="padding: 24px 28px;">
+                    <h3 class="chart-title" data-en="Partners & Videos per Platform" data-ko="플랫폼별 파트너 & 영상 수" data-zh="各平台合作伙伴与视频数">플랫폼별 파트너 & 영상 수</h3>
+                    <div style="height: 300px;"><canvas id="compareVideosChart"></canvas></div>
+                </div>
+                <div class="chart-card" style="padding: 24px 28px;">
+                    <h3 class="chart-title" data-en="Total Engagement per Platform" data-ko="플랫폼별 총 인게이지먼트" data-zh="各平台总互动量">플랫폼별 총 인게이지먼트</h3>
+                    <div style="height: 300px;"><canvas id="compareViewsChart"></canvas></div>
+                </div>
+            </section>
+
+            <!-- Category comparison -->
+            <section style="margin-top: 24px;">
+                <div class="chart-card" style="padding: 24px 28px;">
+                    <h3 class="chart-title" data-en="Category Distribution by Platform" data-ko="플랫폼별 카테고리 분포" data-zh="各平台类别分布">플랫폼별 카테고리 분포</h3>
+                    <div style="height: 360px;"><canvas id="compareCategoryChart"></canvas></div>
+                </div>
+            </section>
+
+            <!-- Shared partners table -->
+            <section style="margin-top: 24px;">
+                <div class="chart-card" style="padding: 24px 28px;">
+                    <h3 class="chart-title" data-en="Shared Partners Across Platforms" data-ko="플랫폼 간 공통 파트너" data-zh="跨平台共同合作伙伴">플랫폼 간 공통 파트너</h3>
+                    <div id="sharedPartnersTable" style="overflow-x: auto;"></div>
+                </div>
+            </section>
+        </div>
+
         <footer>
             <p data-en="Data from" data-ko="데이터 출처:" data-zh="数据来源：">Data from</p>
             <p>
@@ -957,6 +1008,8 @@
         let currentTheme = localStorage.getItem('theme') || 'dark';
         let loadRequestId = 0;
         let currentTab = 'collab';
+        let compareChartsInitialized = false;
+        let compareCharts = [];
 
         function applyTheme(theme) {
             currentTheme = theme;
@@ -1270,6 +1323,11 @@
             }
             nav.innerHTML = html;
             updatePlatformBtnStyles();
+
+            const compareBtn = document.getElementById('compareTabBtn');
+            if (compareBtn) {
+                compareBtn.style.display = platKeys.length >= 2 ? '' : 'none';
+            }
         }
 
         function updatePlatformBtnStyles() {
@@ -1320,8 +1378,12 @@
             const headerImg = document.getElementById('headerLogoImg');
             if (headerImg && game.headerImage) headerImg.src = game.headerImage;
             document.title = game.name + ' Collab Analysis Dashboard';
+            compareChartsInitialized = false;
             updateGameBtnStyles();
             renderPlatformNav();
+            if (currentTab === 'compare') {
+                setTimeout(initCompareTab, 50);
+            }
             loadChannelData(currentGame + '_' + currentPlatform);
         }
 
@@ -1355,6 +1417,9 @@
             if (tab === 'overview' && !chartsInitialized) {
                 setTimeout(initCharts, 50);
                 chartsInitialized = true;
+            }
+            if (tab === 'compare' && !compareChartsInitialized) {
+                setTimeout(initCompareTab, 50);
             }
         }
         
@@ -2353,6 +2418,194 @@
                     animation: { duration: 1500, easing: 'easeOutQuart' }
                 }
             });
+        }
+        async function initCompareTab() {
+            const game = GAMES[currentGame];
+            const allKeys = Object.keys(game.platforms);
+            if (allKeys.length < 2) return;
+
+            const CHAN_COLORS = ['#f5af19','#3b82f6','#ef4444','#10b981','#a855f7','#f472b6','#22d3ee'];
+
+            const allData = {};
+            await Promise.all(allKeys.map(async (pk) => {
+                const plat = game.platforms[pk];
+                try {
+                    const [d, o] = await Promise.all([
+                        fetch(plat.dataFile + '?v=' + Date.now()).then(r => r.json()).catch(() => []),
+                        fetch(plat.othersFile + '?v=' + Date.now()).then(r => r.json()).catch(() => null),
+                    ]);
+                    allData[pk] = { partners: d, others: o };
+                } catch { allData[pk] = { partners: [], others: null }; }
+            }));
+
+            const shortName = (pk) => {
+                const s = PLATFORM_SHORT[pk] || {};
+                return s[currentLang] || s.en || pk;
+            };
+
+            const allPartnerNames = new Set();
+            const perChannel = {};
+            allKeys.forEach(pk => {
+                const p = allData[pk].partners || [];
+                const names = p.map(x => x.name);
+                names.forEach(n => allPartnerNames.add(n));
+                const collabVids = p.reduce((s, x) => s + (x.video_count || 0), 0);
+                const collabViews = p.reduce((s, x) => s + (x.total_views || 0), 0);
+                perChannel[pk] = { names: new Set(names), collabVids, collabViews, partnerCount: names.length, partners: p };
+            });
+
+            const nameCounts = {};
+            allKeys.forEach(pk => {
+                perChannel[pk].names.forEach(n => { nameCounts[n] = (nameCounts[n] || 0) + 1; });
+            });
+            const shared = Object.entries(nameCounts).filter(([, c]) => c >= 2).sort((a, b) => b[1] - a[1]);
+
+            const setVal = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+            setVal('compareChannels', allKeys.length);
+            setVal('compareShared', shared.length);
+            setVal('compareTotalVideos', formatNumber(allKeys.reduce((s, pk) => s + perChannel[pk].collabVids, 0)));
+            setVal('compareTotalPartners', allPartnerNames.size);
+
+            compareCharts.forEach(c => c.destroy());
+            compareCharts = [];
+
+            const chartGrid = getComputedStyle(document.documentElement).getPropertyValue('--chart-grid').trim() || 'rgba(255,255,255,0.04)';
+            const txtMuted = getComputedStyle(document.documentElement).getPropertyValue('--text-muted').trim() || '#64748b';
+
+            // Collab Partners per Platform (horizontal bar)
+            const ctx1 = document.getElementById('compareVideosChart')?.getContext('2d');
+            if (ctx1) {
+                compareCharts.push(new Chart(ctx1, {
+                    type: 'bar',
+                    data: {
+                        labels: allKeys.map(shortName),
+                        datasets: [{
+                            label: t('Collab Partners', '콜라보 파트너', '合作伙伴'),
+                            data: allKeys.map(pk => perChannel[pk].partnerCount),
+                            backgroundColor: allKeys.map((_, i) => CHAN_COLORS[i % CHAN_COLORS.length] + 'cc'),
+                            borderRadius: 6,
+                        }, {
+                            label: t('Collab Videos', '콜라보 영상', '合作视频'),
+                            data: allKeys.map(pk => perChannel[pk].collabVids),
+                            backgroundColor: allKeys.map((_, i) => CHAN_COLORS[i % CHAN_COLORS.length] + '66'),
+                            borderRadius: 6,
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true, maintainAspectRatio: false,
+                        plugins: { legend: { position: 'top', labels: { color: txtMuted, boxWidth: 12, padding: 16, font: { size: 11 } } } },
+                        scales: {
+                            y: { grid: { display: false }, ticks: { color: txtMuted, font: { weight: '600' } } },
+                            x: { grid: { color: chartGrid }, ticks: { color: txtMuted }, border: { display: false } }
+                        }
+                    }
+                }));
+            }
+
+            // Engagement per Platform (horizontal bar)
+            const ctx2 = document.getElementById('compareViewsChart')?.getContext('2d');
+            if (ctx2) {
+                compareCharts.push(new Chart(ctx2, {
+                    type: 'bar',
+                    data: {
+                        labels: allKeys.map(shortName),
+                        datasets: [{
+                            label: t('Total Engagement', '총 인게이지먼트', '总互动量'),
+                            data: allKeys.map(pk => perChannel[pk].collabViews),
+                            backgroundColor: allKeys.map((_, i) => CHAN_COLORS[i % CHAN_COLORS.length] + 'cc'),
+                            borderRadius: 6,
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true, maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: { callbacks: { label: (ctx) => { const v = ctx.raw; return v >= 1e9 ? (v/1e9).toFixed(1) + 'B' : v >= 1e6 ? (v/1e6).toFixed(1) + 'M' : v >= 1e3 ? (v/1e3).toFixed(1) + 'K' : v; } } }
+                        },
+                        scales: {
+                            y: { grid: { display: false }, ticks: { color: txtMuted, font: { weight: '600' } } },
+                            x: {
+                                grid: { color: chartGrid },
+                                ticks: { color: txtMuted, callback: v => v >= 1e9 ? (v/1e9).toFixed(0) + 'B' : v >= 1e6 ? (v/1e6).toFixed(0) + 'M' : v >= 1e3 ? (v/1e3).toFixed(0) + 'K' : v },
+                                border: { display: false }
+                            }
+                        }
+                    }
+                }));
+            }
+
+            // Category Distribution by Platform (stacked bar)
+            const catSet = new Set();
+            allKeys.forEach(pk => {
+                (allData[pk].partners || []).forEach(p => { if (p.category) catSet.add(p.category); });
+            });
+            const categories = [...catSet].sort();
+            const CAT_COLORS = {
+                'Artist':'#8b5cf6','Brand':'#3b82f6','Anime':'#ec4899','Movie':'#f59e0b',
+                'Game':'#10b981','IP':'#6366f1','Sports':'#ef4444','Character':'#f97316',
+                'Celebrity':'#a855f7','Creator':'#14b8a6','Entertainment':'#f472b6',
+                'Esports':'#22d3ee','Event':'#fb923c','Designer':'#c084fc','Other':'#64748b'
+            };
+
+            const ctx3 = document.getElementById('compareCategoryChart')?.getContext('2d');
+            if (ctx3) {
+                const datasets = categories.map(cat => ({
+                    label: translateCategory(cat),
+                    data: allKeys.map(pk => {
+                        return (allData[pk].partners || []).filter(p => p.category === cat).length;
+                    }),
+                    backgroundColor: CAT_COLORS[cat] || '#64748b',
+                    borderRadius: 3,
+                }));
+                compareCharts.push(new Chart(ctx3, {
+                    type: 'bar',
+                    data: { labels: allKeys.map(shortName), datasets },
+                    options: {
+                        responsive: true, maintainAspectRatio: false,
+                        plugins: {
+                            legend: { position: 'bottom', labels: { color: txtMuted, boxWidth: 12, padding: 12, font: { size: 11 } } }
+                        },
+                        scales: {
+                            x: { stacked: true, grid: { display: false }, ticks: { color: txtMuted } },
+                            y: { stacked: true, grid: { color: chartGrid }, ticks: { color: txtMuted }, border: { display: false } }
+                        }
+                    }
+                }));
+            }
+
+            // Shared partners table
+            const tableEl = document.getElementById('sharedPartnersTable');
+            if (tableEl && shared.length > 0) {
+                const topShared = shared.slice(0, 30);
+                let tbl = `<table style="width:100%;border-collapse:collapse;font-size:0.85rem;">`;
+                tbl += `<thead><tr style="border-bottom:2px solid var(--border);">`;
+                tbl += `<th style="text-align:left;padding:10px 12px;color:var(--text-secondary);">${t('Partner','파트너','合作伙伴')}</th>`;
+                tbl += `<th style="text-align:center;padding:10px 8px;color:var(--text-secondary);">${t('Platforms','플랫폼 수','平台数')}</th>`;
+                allKeys.forEach((pk, i) => {
+                    tbl += `<th style="text-align:center;padding:10px 8px;color:${CHAN_COLORS[i % CHAN_COLORS.length]};font-size:0.8rem;">${shortName(pk)}</th>`;
+                });
+                tbl += `</tr></thead><tbody>`;
+
+                topShared.forEach(([name, cnt]) => {
+                    tbl += `<tr style="border-bottom:1px solid var(--border);">`;
+                    tbl += `<td style="padding:8px 12px;font-weight:600;color:var(--text-primary);">${name}</td>`;
+                    tbl += `<td style="text-align:center;padding:8px;"><span style="background:var(--accent-bg);color:var(--accent-light);padding:2px 8px;border-radius:10px;font-size:0.78rem;font-weight:600;">${cnt}/${allKeys.length}</span></td>`;
+                    allKeys.forEach((pk, i) => {
+                        const found = perChannel[pk].names.has(name);
+                        const color = CHAN_COLORS[i % CHAN_COLORS.length];
+                        tbl += `<td style="text-align:center;padding:8px;color:${found ? color : 'var(--text-muted)'};">${found ? '✓' : '—'}</td>`;
+                    });
+                    tbl += `</tr>`;
+                });
+                tbl += `</tbody></table>`;
+                tableEl.innerHTML = tbl;
+            } else if (tableEl) {
+                tableEl.innerHTML = `<p style="color:var(--text-muted);text-align:center;padding:24px;">${t('No shared partners found','공통 파트너가 없습니다','暂无共同合作伙伴')}</p>`;
+            }
+
+            compareChartsInitialized = true;
         }
     </script>
 </body>
