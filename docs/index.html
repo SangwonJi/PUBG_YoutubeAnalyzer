@@ -7,59 +7,60 @@
     <title>PUBG MOBILE Collab Analysis Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         /* ===== Theme Variables ===== */
         :root {
-            --bg-primary: #0b0b14;
-            --bg-secondary: rgba(255,255,255,0.025);
-            --bg-tertiary: rgba(255,255,255,0.05);
-            --bg-card: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
-            --bg-card-hover: rgba(255,255,255,0.06);
-            --border: rgba(255,255,255,0.08);
-            --border-accent: rgba(99,102,241,0.25);
-            --text-primary: #e2e8f0;
+            --bg-primary: #09090f;
+            --bg-secondary: rgba(255,255,255,0.02);
+            --bg-tertiary: rgba(255,255,255,0.04);
+            --bg-card: rgba(255,255,255,0.03);
+            --bg-card-hover: rgba(255,255,255,0.055);
+            --border: rgba(255,255,255,0.06);
+            --border-accent: rgba(99,102,241,0.3);
+            --text-primary: #f1f5f9;
             --text-secondary: #94a3b8;
-            --text-muted: #64748b;
+            --text-muted: #525c6e;
             --accent: #6366f1;
             --accent-light: #818cf8;
-            --accent-bg: rgba(99,102,241,0.12);
+            --accent-bg: rgba(99,102,241,0.1);
             --accent-gradient: linear-gradient(135deg, #818cf8, #c084fc);
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
-            --shadow-md: 0 4px 16px rgba(0,0,0,0.3);
-            --shadow-lg: 0 8px 32px rgba(0,0,0,0.4);
-            --card-radius: 16px;
-            --thumb-bg: #1a1a2e;
-            --scrollbar-track: rgba(255,255,255,0.02);
-            --scrollbar-thumb: rgba(255,255,255,0.1);
-            --chart-grid: rgba(255,255,255,0.04);
-            --tooltip-bg: rgba(15,23,42,0.95);
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.3);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.4);
+            --card-radius: 14px;
+            --thumb-bg: #111118;
+            --scrollbar-track: transparent;
+            --scrollbar-thumb: rgba(255,255,255,0.08);
+            --chart-grid: rgba(255,255,255,0.035);
+            --tooltip-bg: rgba(10,10,18,0.96);
             --logo-gradient: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
+            --game-color: #f5af19;
         }
 
         [data-theme="light"] {
-            --bg-primary: #f0f2f5;
+            --bg-primary: #f7f8fa;
             --bg-secondary: #ffffff;
-            --bg-tertiary: #f8f9fb;
-            --bg-card: linear-gradient(145deg, #ffffff, #f8f9fb);
-            --bg-card-hover: #f1f5f9;
-            --border: #e2e8f0;
-            --border-accent: rgba(99,102,241,0.3);
-            --text-primary: #1e293b;
+            --bg-tertiary: #f1f3f8;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f4f6fa;
+            --border: #e5e7ee;
+            --border-accent: rgba(99,102,241,0.25);
+            --text-primary: #111827;
             --text-secondary: #475569;
             --text-muted: #94a3b8;
             --accent: #6366f1;
             --accent-light: #4f46e5;
-            --accent-bg: rgba(99,102,241,0.08);
+            --accent-bg: rgba(99,102,241,0.06);
             --accent-gradient: linear-gradient(135deg, #6366f1, #8b5cf6);
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
-            --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
-            --shadow-lg: 0 8px 32px rgba(0,0,0,0.1);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.04);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
             --thumb-bg: #e2e8f0;
-            --scrollbar-track: #f1f5f9;
-            --scrollbar-thumb: #cbd5e1;
-            --chart-grid: rgba(0,0,0,0.06);
-            --tooltip-bg: rgba(255,255,255,0.95);
+            --scrollbar-track: transparent;
+            --scrollbar-thumb: #d1d5db;
+            --chart-grid: rgba(0,0,0,0.05);
+            --tooltip-bg: rgba(255,255,255,0.97);
             --logo-gradient: linear-gradient(135deg, #e65100 0%, #f44336 100%);
         }
 
@@ -70,75 +71,190 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
-            min-height: 100vh;
+            height: 100vh;
             line-height: 1.6;
             transition: background 0.35s ease, color 0.35s ease;
+            overflow: hidden;
+            font-variant-numeric: tabular-nums;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ===== Shell Layout ===== */
+        .shell {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .nav-sidebar {
+            width: 252px;
+            flex-shrink: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: var(--bg-primary);
+            border-right: 1px solid var(--border);
+            overflow-y: auto;
+            overflow-x: hidden;
+            transition: background 0.35s ease, border-color 0.35s ease;
+        }
+        [data-theme="light"] .nav-sidebar { background: #fff; border-right-color: #e8eaf0; }
+        [data-theme="light"] .stat-card { box-shadow: 0 1px 6px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04); }
+        [data-theme="light"] .sidebar { box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+        [data-theme="light"] .detail-panel { box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+        [data-theme="light"] .chart-card { box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+        [data-theme="light"] .content-group { box-shadow: 0 1px 6px rgba(0,0,0,0.06); border-color: #e8eaf2; }
+        [data-theme="light"] .stat-card::before { opacity: 0.7; }
+        [data-theme="light"] .partner-item:nth-child(1) { border-left-color: rgba(251,191,36,0.5); }
+        [data-theme="light"] .partner-item:nth-child(2) { border-left-color: rgba(148,163,184,0.4); }
+        [data-theme="light"] .partner-item:nth-child(3) { border-left-color: rgba(217,119,6,0.4); }
+        [data-theme="light"] .stat-icon { filter: saturate(1.2); }
+        .nav-sidebar::-webkit-scrollbar { width: 3px; }
+        .nav-sidebar::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
+
+        .nav-sidebar-section {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-sidebar-section:last-child { border-bottom: none; }
+        .nav-sidebar-footer {
+            margin-top: auto; padding: 14px 16px; border-top: 1px solid var(--border);
+            opacity: 0.4; font-size: 0.65rem;
+        }
+        .sidebar-footer-text { font-weight: 600; letter-spacing: 0.03em; }
+        .sidebar-footer-sub { margin-top: 2px; color: var(--text-muted); }
+
+        .nav-sidebar-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            padding: 4px 6px 8px;
+            opacity: 0.7;
+        }
+
+        .main-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            min-width: 0;
+        }
+
+        .header-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 28px;
+            height: 54px;
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+            background: rgba(9,9,15,0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: background 0.35s ease, border-color 0.35s ease;
+            z-index: 10;
+        }
+        [data-theme="light"] .header-bar { background: rgba(255,255,255,0.88); }
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+        .header-bar-left { display: flex; align-items: center; gap: 0; flex-shrink: 0; }
+        .header-divider { width: 1px; height: 20px; background: var(--border); margin: 0 16px; flex-shrink: 0; }
+        .breadcrumb-sep { opacity: 0.35; font-size: 0.7rem; }
+        .breadcrumb-current { color: var(--text-primary); font-weight: 700; letter-spacing: -0.01em; font-size: 0.82rem; }
+        .header-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .main-scroll {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px 28px;
         }
 
         .container {
             max-width: 1600px;
             margin: 0 auto;
-            padding: 20px 28px;
             position: relative;
         }
 
-        /* ===== Header ===== */
-        header {
-            text-align: center;
-            padding: 36px 0 20px;
+        /* ===== Sidebar Header ===== */
+        .sidebar-brand {
+            padding: 18px 16px 14px;
             border-bottom: 1px solid var(--border);
-            margin-bottom: 16px;
         }
+        .sidebar-brand .header-logo-img {
+            width: 36px; height: 36px; border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .sidebar-brand .logo {
+            font-weight: 800; letter-spacing: -0.03em; font-size: 0.95rem;
+        }
+        .sidebar-brand:hover .header-logo-img { transform: scale(1.05); }
+        .header-logo-img { transition: transform 0.3s cubic-bezier(.4,0,.2,1); }
 
         .header-inner {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 16px;
+            gap: 10px;
         }
 
         .header-logo-img {
-            width: 56px;
-            height: 56px;
-            border-radius: 14px;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
             object-fit: cover;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.2);
-            border: 2px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            border: 1.5px solid var(--border);
             flex-shrink: 0;
         }
 
         .header-text {
             text-align: left;
+            min-width: 0;
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1rem;
             font-weight: 800;
             background: var(--logo-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 2px;
+            margin-bottom: 0;
             letter-spacing: -0.03em;
             line-height: 1.2;
+            white-space: nowrap;
         }
 
         .subtitle {
-            color: var(--text-secondary);
-            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-size: 0.68rem;
             font-weight: 500;
             letter-spacing: 0.01em;
-            opacity: 0.8;
+            opacity: 0.7;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
-        /* ===== Top Controls (Lang + Theme) ===== */
+        /* ===== Sidebar Controls (Lang + Theme) ===== */
         .top-controls {
-            position: absolute;
-            top: 20px;
-            right: 20px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            padding: 10px 12px;
+            border-top: 1px solid var(--border);
+            margin-top: auto;
         }
 
         .lang-toggle {
@@ -187,143 +303,138 @@
             border-color: var(--border-accent);
         }
 
-        /* ===== Game Nav ===== */
+        /* ===== Game Nav (Sidebar) ===== */
         .channel-nav {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 3px;
         }
 
         .channel-btn {
-            padding: 10px 28px;
-            border: 1.5px solid var(--border);
-            background: var(--bg-secondary);
-            color: var(--text-muted);
-            font-size: 0.92rem;
-            font-weight: 600;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.25s;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            box-shadow: var(--shadow-sm);
-            position: relative;
-            opacity: 0.7;
-        }
-        .channel-btn:hover {
-            color: var(--text-primary);
-            border-color: var(--border-accent);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-1px);
-            opacity: 1;
-        }
-        .channel-btn.active {
-            border-color: #f5af19;
-            background: linear-gradient(135deg, rgba(245,175,25,0.12), rgba(241,39,17,0.08));
-            color: #f5af19;
-            box-shadow: 0 0 20px rgba(245,175,25,0.15);
-            opacity: 1;
-            font-weight: 700;
-        }
-
-        /* ===== Platform Nav (Redesigned) ===== */
-        .platform-nav-row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 6px;
-            margin-bottom: 22px;
-            flex-wrap: wrap;
-        }
-        .plat-type-btn {
-            padding: 8px 20px;
-            border: 1.5px solid var(--border);
-            background: var(--bg-secondary);
-            color: var(--text-muted);
-            font-size: 0.84rem;
-            font-weight: 600;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            opacity: 0.75;
-        }
-        .plat-type-btn:hover { opacity: 1; color: var(--text-primary); border-color: var(--border-accent); }
-        .plat-type-btn.active {
-            opacity: 1; font-weight: 700;
-        }
-        .plat-region-selector {
-            display: inline-flex;
-            align-items: center;
-            gap: 0;
-            margin-left: 2px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 3px;
-            overflow: hidden;
-        }
-        .plat-region-btn {
-            padding: 5px 12px;
-            border: none;
-            background: transparent;
-            color: var(--text-muted);
-            font-size: 0.78rem;
-            font-weight: 600;
-            border-radius: 7px;
-            cursor: pointer;
-            transition: all 0.15s;
-            white-space: nowrap;
-        }
-        .plat-region-btn:hover { color: var(--text-primary); background: rgba(255,255,255,0.04); }
-        .plat-region-btn.active {
-            background: var(--accent-bg);
-            color: var(--accent-light);
-        }
-
-        .nav-divider {
-            width: 1px;
-            height: 24px;
-            background: var(--border);
-            margin: 0 4px;
-            opacity: 0.6;
-        }
-
-        /* ===== Tab Navigation ===== */
-        .tab-nav {
-            display: flex;
-            justify-content: center;
-            gap: 4px;
-            margin-bottom: 32px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            padding: 5px;
-            border-radius: 14px;
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .tab-btn {
-            padding: 9px 22px;
+            padding: 8px 12px;
             border: 1px solid transparent;
             background: transparent;
             color: var(--text-muted);
-            font-size: 0.84rem;
+            font-size: 0.82rem;
             font-weight: 600;
-            border-radius: 10px;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.2s;
-            display: inline-flex;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            text-align: left;
+            position: relative;
+        }
+        .channel-btn:hover {
+            color: var(--text-primary);
+            background: var(--bg-tertiary);
+            transform: translateX(2px);
+        }
+        .channel-btn.active {
+            background: linear-gradient(135deg, rgba(245,175,25,0.1), rgba(241,39,17,0.06));
+            color: #f5af19;
+            font-weight: 700;
+        }
+        .channel-btn.active::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 50%; transform: translateY(-50%);
+            width: 3px; height: 16px;
+            background: linear-gradient(180deg, #f5af19, #f12711);
+            border-radius: 0 2px 2px 0;
+        }
+
+        /* ===== Platform Nav (Sidebar) ===== */
+        .platform-nav-row {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .plat-type-btn {
+            padding: 7px 12px;
+            border: 1px solid transparent;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            width: 100%;
+        }
+        .plat-type-btn:hover { color: var(--text-primary); background: var(--bg-tertiary); }
+        .plat-type-btn.active {
+            font-weight: 700;
+        }
+        .plat-region-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            margin-left: 0;
+            margin-top: 2px;
+            background: transparent;
+            border: none;
+            padding: 0 0 0 16px;
+        }
+        .plat-region-btn {
+            padding: 5px 10px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
             align-items: center;
             gap: 5px;
+            transition: all 0.15s;
+            white-space: nowrap;
+            text-align: left;
+        }
+        .plat-region-btn:hover { color: var(--text-primary); background: var(--bg-tertiary); }
+        .plat-region-btn.active {
+            background: var(--accent-bg);
+            color: var(--accent-light);
+            font-weight: 600;
+        }
+
+        .region-flag { font-size: 0.8rem; line-height: 1; }
+        .nav-divider { display: none; }
+
+        /* ===== Tab Navigation (Sidebar) ===== */
+        .tab-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            background: none;
+            border: none;
+            padding: 0;
+            border-radius: 0;
+            width: 100%;
+            box-shadow: none;
+        }
+
+        .tab-btn {
+            padding: 7px 12px;
+            border: 1px solid transparent;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            width: 100%;
+            text-align: left;
         }
 
         .tab-btn:hover {
@@ -337,9 +448,7 @@
             border-color: var(--border-accent);
         }
 
-        .tab-divider {
-            width: 1px; height: 20px; background: var(--border); margin: 0 2px; align-self: center; opacity: 0.5;
-        }
+        .tab-divider { display: none; }
 
         .tab-content { display: none; }
         .tab-content.active { display: block; }
@@ -356,55 +465,96 @@
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--card-radius);
-            padding: 22px 20px;
-            text-align: center;
+            padding: 18px 22px 18px;
+            text-align: left;
             box-shadow: var(--shadow-sm);
-            transition: all 0.25s;
+            transition: all 0.3s cubic-bezier(.4,0,.2,1);
+            position: relative;
+            overflow: hidden;
         }
-        .stat-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
+        .stat-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2.5px; border-radius: 0 0 2px 2px;
+            background: linear-gradient(90deg, var(--game-color, #f5af19), #ff6b35);
+            opacity: 0.5; transition: opacity 0.3s;
         }
+        .stat-card:nth-child(2)::before { background: linear-gradient(90deg, #818cf8, #c084fc); }
+        .stat-card:nth-child(3)::before { background: linear-gradient(90deg, #60a5fa, #38bdf8); }
+        .stat-card:nth-child(4)::before { background: linear-gradient(90deg, #f472b6, #c084fc); }
+        .stat-card:hover { border-color: var(--border-accent); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .stat-card:hover::before { opacity: 1; }
+        .stat-card::after {
+            content: ''; position: absolute; top: 0; right: 0; width: 120px; height: 120px;
+            border-radius: 50%; pointer-events: none;
+            opacity: 0; transition: opacity 0.4s;
+        }
+        .stat-card:nth-child(1)::after { background: radial-gradient(circle, rgba(245,158,11,0.06), transparent 70%); }
+        .stat-card:nth-child(2)::after { background: radial-gradient(circle, rgba(99,102,241,0.06), transparent 70%); }
+        .stat-card:nth-child(3)::after { background: radial-gradient(circle, rgba(56,189,248,0.06), transparent 70%); }
+        .stat-card:nth-child(4)::after { background: radial-gradient(circle, rgba(244,114,182,0.06), transparent 70%); }
+        .stat-card:hover::after { opacity: 1; }
+
+        .stat-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+        .stat-icon {
+            width: 34px; height: 34px; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: 700; color: #fff;
+            position: relative; overflow: hidden;
+        }
+        .stat-icon::before {
+            content: ''; position: absolute; inset: 0; border-radius: 10px; opacity: 0.15;
+        }
+        .stat-card:nth-child(1) .stat-icon { background: linear-gradient(135deg, #f59e0b, #f97316); }
+        .stat-card:nth-child(2) .stat-icon { background: linear-gradient(135deg, #818cf8, #6366f1); }
+        .stat-card:nth-child(3) .stat-icon { background: linear-gradient(135deg, #38bdf8, #3b82f6); }
+        .stat-card:nth-child(4) .stat-icon { background: linear-gradient(135deg, #f472b6, #ec4899); }
+        .stat-icon svg { width: 16px; height: 16px; fill: currentColor; }
 
         .stat-value {
-            font-size: 2rem;
+            font-size: 2.4rem;
             font-weight: 800;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            letter-spacing: -0.045em;
+            line-height: 1;
         }
 
         .stat-label {
-            color: var(--text-secondary);
-            font-size: 0.82rem;
-            margin-top: 4px;
-            font-weight: 500;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            margin-top: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.75;
         }
 
         /* ===== Category Filter ===== */
         .category-filter {
             display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
+            flex-wrap: nowrap;
+            gap: 6px;
             margin-bottom: 20px;
-            padding: 14px 16px;
+            padding: 10px 14px;
             background: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-radius: 14px;
+            border-radius: 12px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
         }
+        .category-filter::-webkit-scrollbar { display: none; }
 
         .filter-btn {
-            padding: 7px 16px;
+            padding: 6px 14px;
             border: 1px solid var(--border);
             background: transparent;
             color: var(--text-primary);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 500;
-            border-radius: 20px;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.2s;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .filter-btn:hover {
@@ -469,29 +619,36 @@
             gap: 24px;
         }
 
-        /* ===== Sidebar ===== */
+        /* ===== Sidebar (Partner List) ===== */
         .sidebar {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--card-radius);
             overflow: hidden;
-            height: calc(100vh - 420px);
+            height: calc(100vh - 200px);
             display: flex;
             flex-direction: column;
             box-shadow: var(--shadow-sm);
         }
 
         .sidebar-header {
-            padding: 18px 20px;
+            padding: 14px 16px;
             border-bottom: 1px solid var(--border);
-            background: var(--bg-tertiary);
+            background: transparent;
         }
 
         .sidebar-title {
-            font-size: 1rem;
+            font-size: 0.88rem;
             font-weight: 700;
             margin-bottom: 12px;
             letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .sidebar-title::before {
+            content: ''; width: 3px; height: 14px; border-radius: 2px;
+            background: var(--accent-gradient); flex-shrink: 0;
         }
 
         .search-box {
@@ -513,17 +670,23 @@
         .partner-item {
             display: flex;
             align-items: center;
-            padding: 12px 14px;
+            padding: 10px 14px;
             border-radius: 10px;
             cursor: pointer;
-            transition: all 0.15s;
-            margin-bottom: 2px;
+            transition: all 0.2s cubic-bezier(.4,0,.2,1);
+            margin-bottom: 1px;
             border: 1px solid transparent;
+            position: relative;
         }
-        .partner-item:hover { background: var(--accent-bg); }
+        .partner-item:hover { background: var(--bg-tertiary); transform: translateX(2px); }
         .partner-item.active {
             background: var(--accent-bg);
             border-color: var(--border-accent);
+        }
+        .partner-item.active::after {
+            content: ''; position: absolute; left: -1px; top: 50%; transform: translateY(-50%);
+            width: 3px; height: 50%; border-radius: 0 2px 2px 0;
+            background: var(--accent); opacity: 0.8;
         }
 
         .partner-rank {
@@ -536,9 +699,12 @@
             color: var(--text-secondary);
             flex-shrink: 0;
         }
-        .partner-item:nth-child(1) .partner-rank { background: linear-gradient(135deg,#fbbf24,#f59e0b); color:#fff; }
-        .partner-item:nth-child(2) .partner-rank { background: linear-gradient(135deg,#94a3b8,#64748b); color:#fff; }
-        .partner-item:nth-child(3) .partner-rank { background: linear-gradient(135deg,#d97706,#b45309); color:#fff; }
+        .partner-item:nth-child(1) .partner-rank { background: linear-gradient(135deg,#fbbf24,#f59e0b); color:#fff; box-shadow: 0 2px 8px rgba(251,191,36,0.3); }
+        .partner-item:nth-child(2) .partner-rank { background: linear-gradient(135deg,#c0c8d4,#64748b); color:#fff; box-shadow: 0 2px 8px rgba(148,163,184,0.25); }
+        .partner-item:nth-child(3) .partner-rank { background: linear-gradient(135deg,#d97706,#b45309); color:#fff; box-shadow: 0 2px 8px rgba(217,119,6,0.25); }
+        .partner-item:nth-child(1) { border-left: 2px solid rgba(251,191,36,0.3); }
+        .partner-item:nth-child(2) { border-left: 2px solid rgba(148,163,184,0.2); }
+        .partner-item:nth-child(3) { border-left: 2px solid rgba(217,119,6,0.2); }
 
         .partner-info { flex: 1; min-width: 0; }
         .partner-name {
@@ -563,15 +729,27 @@
         }
 
         .detail-header {
-            padding: 22px 24px;
+            padding: 26px 28px;
             border-bottom: 1px solid var(--border);
             background: var(--bg-tertiary);
+            position: relative;
+            overflow: hidden;
+        }
+        .detail-header::before {
+            content: ''; position: absolute; top: 0; right: 0; width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(99,102,241,0.06), transparent 70%);
+            pointer-events: none;
+        }
+        .detail-header::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent 5%, var(--accent), transparent 95%); opacity: 0.25;
         }
 
-        .detail-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
+        .detail-title { font-size: 1.6rem; font-weight: 800; margin-bottom: 4px; letter-spacing: -0.03em; line-height: 1.15; }
         .detail-category {
             display: inline-block; padding: 4px 14px; border-radius: 20px;
-            font-size: 0.75rem; font-weight: 600; margin-bottom: 16px; color: #fff;
+            font-size: 0.72rem; font-weight: 600; margin-bottom: 14px; color: #fff;
+            letter-spacing: 0.02em;
         }
         .cat-Artist { background: #8b5cf6; } .cat-Brand { background: #3b82f6; }
         .cat-Anime { background: #ec4899; } .cat-Movie { background: #f59e0b; }
@@ -579,10 +757,15 @@
         .cat-Sports { background: #ef4444; } .cat-Character { background: #f97316; }
         .cat-Celebrity { background: #a855f7; } .cat-Other { background: #64748b; }
 
-        .detail-stats { display: flex; gap: 28px; }
-        .detail-stat { text-align: center; }
-        .detail-stat-value { font-size: 1.2rem; font-weight: 700; color: var(--accent-light); }
-        .detail-stat-label { font-size: 0.73rem; color: var(--text-muted); margin-top: 2px; }
+        .detail-stats { display: flex; gap: 12px; flex-wrap: wrap; }
+        .detail-stat {
+            text-align: center; padding: 10px 14px; border-radius: 10px;
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+            min-width: 70px; flex: 1;
+        }
+        [data-theme="light"] .detail-stat { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.06); }
+        .detail-stat-value { font-size: 1.15rem; font-weight: 800; color: var(--text-primary); letter-spacing: -0.02em; }
+        .detail-stat-label { font-size: 0.65rem; color: var(--text-muted); margin-top: 3px; text-transform: uppercase; letter-spacing: 0.03em; }
 
         /* ===== Videos List ===== */
         .videos-container { flex: 1; overflow-y: auto; padding: 14px 16px; }
@@ -646,15 +829,25 @@
             box-shadow: var(--shadow-sm);
             transition: all 0.25s;
         }
-        .content-group:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+        .content-group:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
         .content-group-header {
             padding: 14px 18px;
             background: var(--bg-tertiary);
             border-bottom: 1px solid var(--border);
             display: flex; justify-content: space-between; align-items: center;
+            position: relative; overflow: hidden;
         }
+        .content-group-header::before {
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+            background: var(--accent-gradient); opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .content-group:hover .content-group-header::before { opacity: 1; }
         .content-group-title { font-weight: 700; font-size: 0.95rem; }
-        .content-group-stats { font-size: 0.8rem; color: var(--accent-light); font-weight: 600; }
+        .content-group-stats {
+            font-size: 0.75rem; color: var(--accent-light); font-weight: 600;
+            padding: 3px 10px; background: var(--accent-bg); border-radius: 6px;
+        }
         .content-type-list { padding: 8px 10px; }
         .content-type-item {
             display: flex; justify-content: space-between; align-items: center;
@@ -694,26 +887,62 @@
         .chart-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 18px;
+            border-radius: var(--card-radius);
             padding: 22px;
             box-shadow: var(--shadow-sm);
-            transition: all 0.25s;
+            transition: all 0.3s cubic-bezier(.4,0,.2,1);
+            position: relative;
+            overflow: hidden;
         }
-        .chart-card:hover {
-            border-color: var(--border-accent);
-            box-shadow: var(--shadow-md);
+        .chart-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, var(--accent), #c084fc, #f472b6);
+            opacity: 0; transition: opacity 0.3s;
         }
+        .chart-card:hover { border-color: var(--border-accent); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+        .chart-card:hover::before { opacity: 0.6; }
         .chart-title {
-            font-size: 0.95rem; font-weight: 700; margin-bottom: 14px;
+            font-size: 0.88rem; font-weight: 700; margin-bottom: 16px;
             color: var(--text-primary); letter-spacing: -0.01em;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .chart-title::before {
+            content: ''; width: 3px; height: 14px; border-radius: 2px;
+            background: var(--accent-gradient); flex-shrink: 0;
         }
 
         /* ===== Empty State ===== */
         .empty-state {
             display: flex; flex-direction: column; align-items: center;
             justify-content: center; height: 100%; color: var(--text-muted);
+            position: relative; overflow: hidden;
         }
-        .empty-icon { font-size: 3rem; margin-bottom: 16px; opacity: 0.6; }
+        .empty-state::before {
+            content: ''; position: absolute; width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(99,102,241,0.04), transparent 70%);
+            border-radius: 50%; pointer-events: none;
+        }
+        .empty-state-ring {
+            width: 80px; height: 80px; border-radius: 50%;
+            border: 2px dashed var(--border);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px; position: relative;
+            animation: emptyPulse 3s ease-in-out infinite;
+        }
+        .empty-state-ring::after {
+            content: ''; position: absolute; inset: -8px; border-radius: 50%;
+            border: 1px solid rgba(99,102,241,0.08);
+        }
+        @keyframes emptyPulse {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.08); }
+        }
+        .empty-icon { font-size: 1.8rem; opacity: 0.6; }
+        .empty-state p { font-size: 0.88rem; opacity: 0.7; margin-top: 4px; }
+        .empty-state-hint {
+            font-size: 0.72rem; opacity: 0.4; margin-top: 8px;
+            display: flex; align-items: center; gap: 4px;
+        }
 
         /* ===== Footer ===== */
         footer {
@@ -726,23 +955,35 @@
 
         /* ===== Responsive ===== */
         @media (max-width: 1200px) {
+            .nav-sidebar { width: 220px; }
             .main-content { grid-template-columns: 1fr; }
             .sidebar { height: auto; max-height: 400px; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .charts-row { grid-template-columns: 1fr 1fr !important; }
-            .plat-region-selector { flex-wrap: wrap; }
+            .main-scroll { padding: 20px; }
+        }
+        @media (max-width: 900px) {
+            .shell { flex-direction: column; }
+            .nav-sidebar {
+                width: 100%; height: auto; max-height: none;
+                flex-direction: row; flex-wrap: wrap;
+                border-right: none; border-bottom: 1px solid var(--border);
+                overflow-y: visible; overflow-x: auto;
+            }
+            .nav-sidebar-section { border-bottom: none; padding: 6px 8px; }
+            .channel-nav, .platform-nav-row, .tab-nav { flex-direction: row; flex-wrap: wrap; }
+            .sidebar-brand { padding: 10px 14px; }
+            .top-controls { margin-top: 0; border-top: none; padding: 6px 8px; }
+            .plat-region-selector { flex-direction: row; padding-left: 0; }
+            .channel-btn.active::before { display: none; }
+            .main-area { height: auto; flex: 1; }
+            .main-scroll { padding: 16px; }
         }
         @media (max-width: 768px) {
-            .container { padding: 12px 16px; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .video-item { grid-template-columns: 1fr; gap: 10px; }
             .video-thumb { width: 100%; height: auto; aspect-ratio: 16/9; }
             .charts-row { grid-template-columns: 1fr !important; }
-            .tab-nav { flex-wrap: wrap; width: auto; }
-            .channel-nav { flex-wrap: wrap; }
-            .platform-nav-row { flex-wrap: wrap; }
-            .plat-region-selector { flex-wrap: wrap; width: 100%; justify-content: center; }
-            .top-controls { position: static; justify-content: flex-end; margin-bottom: 8px; }
             .search-bar-wrap { max-width: 100%; }
         }
 
@@ -813,7 +1054,7 @@
             background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 12px;
             overflow: hidden; transition: transform 0.15s, box-shadow 0.15s;
         }
-        .search-video-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .search-video-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--border-accent); }
         .search-video-thumb {
             width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;
             background: var(--thumb-bg);
@@ -835,68 +1076,233 @@
             display: flex; align-items: center; gap: 8px; padding-bottom: 8px;
             border-bottom: 2px solid var(--border);
         }
+
+        /* ===== Header Tabs ===== */
+        .header-tabs { display: flex; align-items: center; gap: 2px; height: 100%; }
+        .header-tab {
+            padding: 0 20px; height: 100%; border: none; background: transparent;
+            color: var(--text-muted); font-size: 0.92rem; font-weight: 500;
+            cursor: pointer; transition: all 0.2s; position: relative;
+            font-family: inherit; white-space: nowrap; letter-spacing: -0.01em;
+        }
+        .header-tab:hover { color: var(--text-primary); background: rgba(255,255,255,0.03); }
+        [data-theme="light"] .header-tab:hover { background: rgba(0,0,0,0.03); }
+        .header-tab.active { color: var(--text-primary); font-weight: 700; }
+        .header-tab.active::after {
+            content: ''; position: absolute; bottom: 0; left: 10px; right: 10px;
+            height: 2.5px; border-radius: 2px 2px 0 0;
+            background: var(--accent-gradient);
+            animation: tabSlide 0.25s cubic-bezier(.4,0,.2,1);
+        }
+        @keyframes tabSlide { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+        /* ===== Header Search & Separator ===== */
+        .header-search-btn {
+            width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--border);
+            background: transparent; color: var(--text-muted); cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s;
+        }
+        .header-search-btn:hover { color: var(--text-primary); border-color: var(--border-accent); background: var(--accent-bg); }
+        .header-sep { width: 1px; height: 20px; background: var(--border); margin: 0 4px; }
+
+        /* ===== Premium Enhancements ===== */
+        .sidebar-brand { padding: 14px 14px 12px; }
+        .logo { font-size: 0.95rem; }
+        .subtitle { font-size: 0.62rem; opacity: 0.6; }
+        .nav-sidebar-section { padding: 10px 14px; }
+        .stats-grid { gap: 12px; margin-bottom: 20px; }
+        .search-box { font-size: 0.82rem; padding: 9px 13px; border-radius: 8px; }
+        .top-controls { display: none; }
+
+        .tab-content.active { animation: fadeUp 0.3s cubic-bezier(.4,0,.2,1); }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes sideIndicator { from { height: 0; opacity: 0; } to { height: 16px; opacity: 1; } }
+        .channel-btn.active::before { animation: sideIndicator 0.25s ease; }
+
+        .partner-bar-wrap { height: 3px; background: var(--bg-tertiary); border-radius: 2px; margin-top: 6px; overflow: hidden; }
+        .partner-bar-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, #818cf8, #c084fc); opacity: 0.7; transition: width 0.6s cubic-bezier(.4,0,.2,1); }
+        [data-theme="light"] .partner-bar-fill { opacity: 0.85; }
+
+        .main-scroll { position: relative; }
+        .main-scroll::before {
+            content: ''; position: fixed; top: 0; left: 252px; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 80% 10%, rgba(99,102,241,0.03), transparent),
+                radial-gradient(ellipse 50% 60% at 20% 80%, rgba(192,132,252,0.025), transparent),
+                radial-gradient(ellipse 40% 40% at 50% 50%, rgba(245,175,25,0.008), transparent);
+            pointer-events: none; z-index: 0;
+        }
+        [data-theme="light"] .main-scroll::before { opacity: 0.4; }
+
+        ::selection { background: rgba(99,102,241,0.25); color: var(--text-primary); }
+        button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+        /* ===== Skeleton Loading ===== */
+        .skeleton { position: relative; overflow: hidden; background: var(--bg-tertiary); border-radius: 6px; }
+        .skeleton::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+        [data-theme="light"] .skeleton::after {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+        }
+        @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+
+        /* ===== Staggered Card Entrance ===== */
+        .stats-grid .stat-card { animation: cardIn 0.4s cubic-bezier(.4,0,.2,1) both; }
+        .stats-grid .stat-card:nth-child(1) { animation-delay: 0s; }
+        .stats-grid .stat-card:nth-child(2) { animation-delay: 0.05s; }
+        .stats-grid .stat-card:nth-child(3) { animation-delay: 0.1s; }
+        .stats-grid .stat-card:nth-child(4) { animation-delay: 0.15s; }
+        @keyframes cardIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== Active Sidebar Glow ===== */
+        .plat-type-btn.active { position: relative; }
+        .plat-type-btn.active::after {
+            content: ''; position: absolute; inset: -2px; border-radius: 10px;
+            background: radial-gradient(ellipse at center, rgba(99,102,241,0.06), transparent 70%);
+            pointer-events: none; z-index: -1;
+        }
+
+        /* ===== Partner Item Entrance ===== */
+        .partner-item { animation: partnerSlide 0.3s cubic-bezier(.4,0,.2,1) both; }
+        @keyframes partnerSlide { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: translateX(0); } }
+
+        /* ===== Tooltip Hover Card ===== */
+        .stat-card { position: relative; }
+        .stat-card:hover .stat-label { opacity: 1; }
+
+        /* ===== Smooth scroll ===== */
+        .main-scroll { scroll-behavior: smooth; }
+
+        .video-stat-value { font-weight: 800; letter-spacing: -0.01em; }
+        .video-item { transition: all 0.2s cubic-bezier(.4,0,.2,1); }
+        .video-item:hover { transform: translateY(-1px); }
+        .video-thumb { position: relative; overflow: hidden; }
+        .video-thumb::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.25));
+            opacity: 0; transition: opacity 0.25s;
+        }
+        .video-item:hover .video-thumb::after { opacity: 1; }
+
+        .header-bar-right { gap: 6px; }
+        .header-bar-right .lang-toggle { padding: 2px; border-radius: 8px; }
+        .header-bar-right .lang-btn { padding: 4px 10px; font-size: 0.72rem; border-radius: 6px; }
+        .header-bar-right .theme-toggle { width: 32px; height: 32px; border-radius: 8px; font-size: 0.9rem; }
+        .sidebar-header { padding: 14px 16px; background: transparent; }
+        .sidebar-title { font-size: 0.95rem; margin-bottom: 10px; }
+
+        .filter-btn { transition: all 0.2s cubic-bezier(.4,0,.2,1); }
+        .filter-btn:active { transform: scale(0.96); }
+        .channel-btn:active { transform: scale(0.97); }
+        .header-tab:active { transform: scale(0.97); }
+        .partner-item:active { transform: scale(0.99); }
+        .header-search-btn:active { transform: scale(0.92); }
+        .theme-toggle:active { transform: scale(0.88); }
+
+        @media (max-width: 900px) {
+            .main-scroll::before { left: 0; }
+            .header-tabs { overflow-x: auto; }
+            .header-tab { padding: 0 12px; font-size: 0.82rem; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Top Controls: Language + Theme -->
-        <div class="top-controls">
-            <div class="lang-toggle">
-                <button class="lang-btn" onclick="setLanguage('en')">EN</button>
-                <button class="lang-btn active" onclick="setLanguage('ko')">한</button>
-                <button class="lang-btn" onclick="setLanguage('zh')">中</button>
-            </div>
-            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">🌙</button>
-        </div>
-        
-        <header>
+    <div class="shell">
+    <!-- ===== LEFT NAV SIDEBAR ===== -->
+    <aside class="nav-sidebar">
+        <div class="sidebar-brand">
             <div class="header-inner">
                 <img id="headerLogoImg" src="channels4_profile.jpg" alt="PUBG MOBILE" class="header-logo-img">
                 <div class="header-text">
-                    <div class="logo">PUBG MOBILE</div>
-                    <p class="subtitle">YouTube 글로벌 · 콜라보 분석 대시보드 (2018 - 2026)</p>
+                    <div class="logo" id="sidebarLogo">PUBG MOBILE</div>
+                    <p class="subtitle" id="sidebarSubtitle">YouTube 글로벌 · 콜라보 분석 대시보드 (2018 - 2026)</p>
                 </div>
             </div>
-        </header>
-        
-        <!-- Channel Selection -->
-        <!-- Game Selection (Tier 1) -->
-        <nav class="channel-nav" id="gameNav" style="margin-bottom:10px;">
-            <button class="channel-btn active" onclick="switchGame('pubgm')">PUBG MOBILE</button>
-            <button class="channel-btn" onclick="switchGame('freefire')">Free Fire</button>
-            <span class="nav-divider"></span>
-            <button class="channel-btn" onclick="switchToSearch()" id="globalSearchBtn" style="opacity:0.8;">
-                <svg viewBox="0 0 20 20" width="15" height="15" fill="currentColor" style="opacity:0.7;"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
-                <span data-en="Search" data-ko="검색" data-zh="搜索">검색</span>
-            </button>
-        </nav>
-        <div class="platform-nav-row" id="platformNav"></div>
-        
-        <!-- Tab Navigation -->
-        <nav class="tab-nav">
-            <button class="tab-btn active" onclick="switchTab('collab')" data-en="Collaborations" data-ko="콜라보레이션" data-zh="合作内容">Collaborations</button>
-            <button class="tab-btn" onclick="switchTab('noncollab')" data-en="Non-Collab Content" data-ko="일반 콘텐츠" data-zh="非合作内容">Non-Collab Content</button>
-            <button class="tab-btn" onclick="switchTab('overview')" data-en="Overview" data-ko="전체 요약" data-zh="总览">Overview</button>
-            <span class="tab-divider"></span>
-            <button class="tab-btn" onclick="switchTab('compare')" data-en="Compare" data-ko="비교" data-zh="对比" id="compareTabBtn" style="display:none;">비교</button>
-        </nav>
+        </div>
+
+        <!-- Game Selection -->
+        <div class="nav-sidebar-section">
+            <div class="nav-sidebar-label" data-en="GAME" data-ko="게임" data-zh="游戏">게임</div>
+            <nav class="channel-nav" id="gameNav">
+                <button class="channel-btn active" onclick="switchGame('pubgm')">PUBG MOBILE</button>
+                <button class="channel-btn" onclick="switchGame('freefire')">Free Fire</button>
+            </nav>
+        </div>
+
+        <!-- Platform Selection -->
+        <div class="nav-sidebar-section">
+            <div class="nav-sidebar-label" data-en="PLATFORM" data-ko="플랫폼" data-zh="平台">플랫폼</div>
+            <div class="platform-nav-row" id="platformNav"></div>
+        </div>
+
+        <div class="nav-sidebar-footer">
+            <div class="sidebar-footer-text">Analytics Dashboard v2.0</div>
+            <div class="sidebar-footer-sub">2018 – 2026 · All Platforms</div>
+        </div>
+    </aside>
+
+    <!-- ===== MAIN AREA ===== -->
+    <div class="main-area">
+        <div class="header-bar">
+            <div class="header-bar-left">
+                <div class="breadcrumb" id="breadcrumb">
+                    <span data-en="Analytics" data-ko="분석" data-zh="분석">분석</span>
+                    <span class="breadcrumb-sep">›</span>
+                    <span id="bcGame">PUBG MOBILE</span>
+                    <span class="breadcrumb-sep">›</span>
+                    <span class="breadcrumb-current" id="bcPlatform">YouTube Global</span>
+                </div>
+                <div class="header-divider"></div>
+            </div>
+            <nav class="header-tabs">
+                <button class="header-tab active" onclick="switchTab('collab')" data-en="Collabs" data-ko="콜라보" data-zh="合作">콜라보</button>
+                <button class="header-tab" onclick="switchTab('noncollab')" data-en="Content" data-ko="일반 콘텐츠" data-zh="内容">일반 콘텐츠</button>
+                <button class="header-tab" onclick="switchTab('overview')" data-en="Overview" data-ko="오버뷰" data-zh="概览">오버뷰</button>
+                <button class="header-tab" onclick="switchTab('compare')" data-en="Compare" data-ko="비교" data-zh="比较" id="compareTabBtn" style="display:none;">비교</button>
+            </nav>
+            <div class="header-bar-right">
+                <button class="header-search-btn" onclick="switchTab('search')" title="Search">
+                    <svg viewBox="0 0 20 20" width="15" height="15" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+                </button>
+                <div class="header-sep"></div>
+                <div class="lang-toggle">
+                    <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+                    <button class="lang-btn active" onclick="setLanguage('ko')">한</button>
+                    <button class="lang-btn" onclick="setLanguage('zh')">中</button>
+                </div>
+                <button class="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">🌙</button>
+            </div>
+        </div>
+        <div class="main-scroll">
+        <div class="container">
         
         <!-- Collab Tab -->
         <div class="tab-content active" id="collabTab">
             <section class="stats-grid">
                 <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
                     <div class="stat-value" id="collabVideos">-</div>
                     <div class="stat-label" data-en="Collab Videos" data-ko="콜라보 영상" data-zh="合作视频">Collab Videos</div>
                 </div>
                 <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></span></div>
                     <div class="stat-value" id="totalPartners">-</div>
                     <div class="stat-label" data-en="Partners" data-ko="파트너" data-zh="合作伙伴">Partners</div>
                 </div>
                 <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-icon"><svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></span></div>
                     <div class="stat-value" id="collabViews">-</div>
                     <div class="stat-label" data-en="Total Views" data-ko="총 조회수" data-zh="总浏览量">Total Views</div>
                 </div>
                 <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></span></div>
                     <div class="stat-value" id="collabLikes">-</div>
                     <div class="stat-label" data-en="Total Likes" data-ko="총 좋아요" data-zh="总点赞">Total Likes</div>
                 </div>
@@ -921,8 +1327,11 @@
                 
                 <main class="detail-panel">
                     <div class="empty-state" id="emptyState">
-                        <div class="empty-icon">👈</div>
+                        <div class="empty-state-ring">
+                            <svg class="empty-icon-svg" viewBox="0 0 24 24" width="28" height="28"><path fill="var(--text-muted)" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                        </div>
                         <p data-en="Select a partner to view details" data-ko="파트너를 선택하면 상세 정보를 볼 수 있습니다" data-zh="选择合作伙伴查看详情">Select a partner to view details</p>
+                        <span class="empty-state-hint" data-en="← Click from the list" data-ko="← 왼쪽 목록에서 클릭하세요" data-zh="← 从左侧列表中选择">← Click from the list</span>
                     </div>
                     
                     <div id="detailContent" style="display: none;">
@@ -970,18 +1379,22 @@
         <div class="tab-content" id="noncollabTab">
             <section class="stats-grid">
                 <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-icon"><svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg></span></div>
                     <div class="stat-value" id="noncollabVideos">-</div>
                     <div class="stat-label" data-en="Non-Collab Videos" data-ko="일반 영상" data-zh="非合作视频">Non-Collab Videos</div>
                 </div>
                 <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-icon"><svg viewBox="0 0 24 24"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg></span></div>
                     <div class="stat-value" id="noncollabTypes">-</div>
                     <div class="stat-label" data-en="Content Types" data-ko="콘텐츠 유형" data-zh="内容类型">Content Types</div>
                 </div>
                 <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-icon"><svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></span></div>
                     <div class="stat-value" id="noncollabViews">-</div>
                     <div class="stat-label" data-en="Total Views" data-ko="총 조회수" data-zh="总浏览量">Total Views</div>
                 </div>
                 <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></span></div>
                     <div class="stat-value" id="noncollabLikes">-</div>
                     <div class="stat-label" data-en="Total Likes" data-ko="총 좋아요" data-zh="总点赞">Total Likes</div>
                 </div>
@@ -1015,18 +1428,22 @@
         <div class="tab-content" id="overviewTab">
             <section class="stats-grid">
                 <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg></span></div>
                     <div class="stat-value" id="totalVideos">-</div>
                     <div class="stat-label" data-en="Total Videos" data-ko="전체 영상" data-zh="全部视频">Total Videos</div>
                 </div>
                 <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
                     <div class="stat-value" id="overviewCollabVideos">-</div>
                     <div class="stat-label" data-en="Collab Videos" data-ko="콜라보 영상" data-zh="合作视频">Collab Videos</div>
                 </div>
                 <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-icon"><svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg></span></div>
                     <div class="stat-value" id="overviewNoncollabVideos">-</div>
                     <div class="stat-label" data-en="Non-Collab Videos" data-ko="일반 영상" data-zh="非合作视频">Non-Collab Videos</div>
                 </div>
                 <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></span></div>
                     <div class="stat-value" id="overviewPartners">-</div>
                     <div class="stat-label" data-en="Collab Partners" data-ko="콜라보 파트너" data-zh="合作伙伴">Collab Partners</div>
                 </div>
@@ -1088,18 +1505,22 @@
         <div class="tab-content" id="compareTab">
             <section class="stats-grid" id="compareStats">
                 <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></span></div>
                     <div class="stat-value" id="compareChannels">-</div>
                     <div class="stat-label" data-en="Platforms" data-ko="플랫폼" data-zh="平台数">플랫폼</div>
                 </div>
                 <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-icon"><svg viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></span></div>
                     <div class="stat-value" id="compareShared">-</div>
                     <div class="stat-label" data-en="Shared Partners" data-ko="공통 파트너" data-zh="共同合作伙伴">공통 파트너</div>
                 </div>
                 <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
                     <div class="stat-value" id="compareTotalVideos">-</div>
                     <div class="stat-label" data-en="Total Collab Videos" data-ko="전체 콜라보 영상" data-zh="合作视频总数">전체 콜라보 영상</div>
                 </div>
                 <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></span></div>
                     <div class="stat-value" id="compareTotalPartners">-</div>
                     <div class="stat-label" data-en="Total Unique Partners" data-ko="전체 파트너 수" data-zh="合作伙伴总数">전체 파트너 수</div>
                 </div>
@@ -1242,10 +1663,17 @@
                 <a href="https://github.com/SangwonJi/PUBG_YoutubeAnalyzer" target="_blank" data-en="View on GitHub" data-ko="GitHub에서 보기" data-zh="在GitHub上查看">View on GitHub</a>
             </p>
         </footer>
-    </div>
+    </div><!-- /.container -->
+    </div><!-- /.main-scroll -->
+    </div><!-- /.main-area -->
+    </div><!-- /.shell -->
     
     <script>
         Chart.defaults.plugins.datalabels = { display: false };
+        Chart.defaults.font.family = "'Inter', -apple-system, BlinkMacSystemFont, sans-serif";
+        Chart.defaults.font.size = 11;
+        Chart.defaults.animation.duration = 600;
+        Chart.defaults.animation.easing = 'easeOutQuart';
         let partnersData = [];
         let othersData = null;
         let selectedPartner = null;
@@ -1440,6 +1868,7 @@
                 );
             }
             renderPlatformNav();
+            updateBreadcrumb();
             
             // Update category filter "All" button
             document.querySelectorAll('.category-filter .filter-btn').forEach(btn => {
@@ -1515,6 +1944,7 @@
                     subtitleEl.setAttribute('data-ko', `소셜 미디어 콜라보 분석 대시보드 (${channel.dateRange})`);
                     subtitleEl.setAttribute('data-zh', `社交媒体合作分析面板 (${channel.dateRange})`);
                 }
+                updateBreadcrumb();
             })
             .catch(err => {
                 console.error('Failed to load data:', err);
@@ -1551,23 +1981,36 @@
         };
 
         const PLATFORM_SHORT = {
-            youtube: { en: 'Global', ko: '글로벌', zh: '全球' },
-            yt_mena: { en: 'MENA', ko: 'MENA', zh: '中东' },
-            yt_turkey: { en: 'Türkiye', ko: '터키', zh: '土耳其' },
-            yt_indonesia: { en: 'Indonesia', ko: '인도네시아', zh: '印尼' },
-            yt_latam: { en: 'LATAM', ko: '남미', zh: '拉美' },
-            yt_cis: { en: 'CIS', ko: 'CIS', zh: '独联体' },
-            yt_india: { en: 'India', ko: '인도', zh: '印度' },
-            yt_malaysia: { en: 'Malaysia', ko: '말레이시아', zh: '马来西亚' },
-            yt_pakistan: { en: 'Pakistan', ko: '파키스탄', zh: '巴基斯坦' },
-            yt_taiwan: { en: 'Taiwan', ko: '대만', zh: '台湾' },
-            yt_thailand: { en: 'Thailand', ko: '태국', zh: '泰国' },
+            youtube: { en: 'Global', ko: '글로벌', zh: '全球', flag: '🌍' },
+            yt_mena: { en: 'MENA', ko: 'MENA', zh: '中东', flag: '🌍' },
+            yt_turkey: { en: 'Türkiye', ko: '터키', zh: '土耳其', flag: '🇹🇷' },
+            yt_indonesia: { en: 'Indonesia', ko: '인도네시아', zh: '印尼', flag: '🇮🇩' },
+            yt_latam: { en: 'LATAM', ko: '남미', zh: '拉美', flag: '🌎' },
+            yt_cis: { en: 'CIS', ko: 'CIS', zh: '独联体', flag: '🇷🇺' },
+            yt_india: { en: 'India', ko: '인도', zh: '印度', flag: '🇮🇳' },
+            yt_malaysia: { en: 'Malaysia', ko: '말레이시아', zh: '马来西亚', flag: '🇲🇾' },
+            yt_pakistan: { en: 'Pakistan', ko: '파키스탄', zh: '巴基斯坦', flag: '🇵🇰' },
+            yt_taiwan: { en: 'Taiwan', ko: '대만', zh: '台湾', flag: '🇹🇼' },
+            yt_thailand: { en: 'Thailand', ko: '태국', zh: '泰国', flag: '🇹🇭' },
             instagram: { en: 'Instagram', ko: 'Instagram', zh: 'Instagram' },
             weibo: { en: 'Weibo', ko: '웨이보', zh: '微博' },
         };
 
         function isYouTubePlatform() {
             return currentPlatform === 'youtube' || currentPlatform.startsWith('yt_');
+        }
+
+        function updateBreadcrumb() {
+            const game = GAMES[currentGame];
+            const bcGame = document.getElementById('bcGame');
+            const bcPlat = document.getElementById('bcPlatform');
+            if (bcGame) bcGame.textContent = game ? game.name : currentGame;
+            if (bcPlat) {
+                const pn = PLATFORM_NAMES[currentPlatform] || {};
+                bcPlat.textContent = pn[currentLang] || pn.en || currentPlatform;
+            }
+            const logo = document.getElementById('sidebarLogo');
+            if (logo && game) logo.textContent = game.name;
         }
 
         function renderPlatformNav() {
@@ -1584,23 +2027,24 @@
             if (ytKeys.length > 0) {
                 const ytActive = curIsYt ? ' active' : '';
                 html += `<button class="plat-type-btn${ytActive}" onclick="switchPlatformType('yt')" data-type="yt" style="${curIsYt ? `border-color:${gc};color:${gc};background:${gc}11;` : ''}">${PLATFORM_ICONS.youtube || ''} <span>YouTube</span></button>`;
+
+                if (ytKeys.length > 1 && curIsYt) {
+                    html += `<div class="plat-region-selector">`;
+                    for (const pk of ytKeys) {
+                        const short = PLATFORM_SHORT[pk] || {};
+                        const name = short[currentLang] || short.en || pk;
+                        const flag = short.flag || '';
+                        const active = pk === currentPlatform ? ' active' : '';
+                        html += `<button class="plat-region-btn${active}" onclick="switchPlatform('${pk}')">${flag ? '<span class="region-flag">' + flag + '</span>' : ''}${name}</button>`;
+                    }
+                    html += `</div>`;
+                }
             }
             for (const pk of otherKeys) {
                 const active = pk === currentPlatform ? ' active' : '';
                 const short = PLATFORM_SHORT[pk] || {};
                 const name = short[currentLang] || short.en || pk;
                 html += `<button class="plat-type-btn${active}" onclick="switchPlatform('${pk}')" data-platform="${pk}" style="${pk === currentPlatform ? `border-color:${gc};color:${gc};background:${gc}11;` : ''}">${PLATFORM_ICONS[pk] || ''} <span>${name}</span></button>`;
-            }
-
-            if (ytKeys.length > 1 && curIsYt) {
-                html += `<div class="plat-region-selector">`;
-                for (const pk of ytKeys) {
-                    const short = PLATFORM_SHORT[pk] || {};
-                    const name = short[currentLang] || short.en || pk;
-                    const active = pk === currentPlatform ? ' active' : '';
-                    html += `<button class="plat-region-btn${active}" onclick="switchPlatform('${pk}')">${name}</button>`;
-                }
-                html += `</div>`;
             }
 
             nav.innerHTML = html;
@@ -1648,10 +2092,8 @@
         function switchGame(gameId) {
             if (_searchMode) {
                 _searchMode = false;
-                document.getElementById('platformNav').style.display = '';
-                document.querySelector('.tab-nav').style.display = '';
                 const sb = document.getElementById('globalSearchBtn');
-                if (sb) { sb.classList.remove('active'); sb.style.borderColor = ''; sb.style.color = ''; sb.style.background = ''; sb.style.opacity = ''; }
+                if (sb) { sb.classList.remove('active'); sb.style.borderColor = ''; sb.style.color = ''; sb.style.background = ''; }
                 currentTab = 'collab';
                 document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
                 document.getElementById('collabTab').classList.add('active');
@@ -1667,10 +2109,12 @@
             const headerImg = document.getElementById('headerLogoImg');
             if (headerImg && game.headerImage) headerImg.src = game.headerImage;
             document.title = game.name + ' Collab Analysis Dashboard';
+            document.documentElement.style.setProperty('--game-color', game.color);
             compareChartsInitialized = false;
             _searchIndex = null; _searchCanonical = null; _searchGameKey = null;
             updateGameBtnStyles();
             renderPlatformNav();
+            updateBreadcrumb();
             if (currentTab === 'compare') {
                 setTimeout(initCompareTab, 50);
             }
@@ -1680,12 +2124,14 @@
         function switchPlatform(platId) {
             currentPlatform = platId;
             renderPlatformNav();
+            updateBreadcrumb();
             loadChannelData(currentGame + '_' + currentPlatform);
         }
 
         // Initial render
         updateGameBtnStyles();
         renderPlatformNav();
+        updateBreadcrumb();
         loadChannelData('pubgm_youtube');
 
         // Global search input events
@@ -1701,7 +2147,7 @@
             currentTab = tab;
             
             // Update buttons
-            document.querySelectorAll('.tab-btn').forEach(btn => {
+            document.querySelectorAll('.tab-btn, .header-tab').forEach(btn => {
                 btn.classList.remove('active');
                 if (btn.getAttribute('onclick')?.includes("'" + tab + "'")) {
                     btn.classList.add('active');
@@ -1728,13 +2174,11 @@
         let _searchMode = false;
         function switchToSearch() {
             _searchMode = true;
-            document.getElementById('platformNav').style.display = 'none';
-            document.querySelector('.tab-nav').style.display = 'none';
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
             document.getElementById('searchTab').classList.add('active');
+            document.querySelectorAll('.tab-btn, .header-tab').forEach(b => b.classList.remove('active'));
             currentTab = 'search';
 
-            // Style search button as active
             document.querySelectorAll('#gameNav .channel-btn').forEach(btn => {
                 btn.classList.remove('active');
                 btn.style.borderColor = '';
@@ -1747,7 +2191,6 @@
                 sb.style.borderColor = 'var(--accent)';
                 sb.style.color = 'var(--accent-light)';
                 sb.style.background = 'var(--accent-bg)';
-                sb.style.opacity = '1';
             }
 
             setTimeout(initSearchTab, 50);
@@ -1757,10 +2200,8 @@
 
         function exitSearch() {
             _searchMode = false;
-            document.getElementById('platformNav').style.display = '';
-            document.querySelector('.tab-nav').style.display = '';
             const sb = document.getElementById('globalSearchBtn');
-            if (sb) { sb.classList.remove('active'); sb.style.borderColor = ''; sb.style.color = ''; sb.style.background = ''; sb.style.opacity = ''; }
+            if (sb) { sb.classList.remove('active'); sb.style.borderColor = ''; sb.style.color = ''; sb.style.background = ''; }
             updateGameBtnStyles();
             switchTab('collab');
         }
@@ -1811,8 +2252,15 @@
             setTextSafe('overviewNoncollabVideos', '-');
             setTextSafe('overviewPartners', '-');
             
-            // Clear partner list
-            setHtmlSafe('partnersList', '');
+            // Show skeleton loading in partner list
+            let skeletonHtml = '';
+            for (let i = 0; i < 6; i++) {
+                skeletonHtml += `<div class="partner-item" style="animation:none;opacity:0.5;">
+                    <div class="skeleton" style="width:28px;height:28px;border-radius:8px;margin-right:12px;flex-shrink:0;"></div>
+                    <div style="flex:1;"><div class="skeleton" style="width:${60+Math.random()*30}%;height:12px;margin-bottom:6px;"></div><div class="skeleton" style="width:40%;height:10px;"></div></div>
+                </div>`;
+            }
+            setHtmlSafe('partnersList', skeletonHtml);
             
             // Clear partner detail
             setTextSafe('detailTitle', '-');
@@ -1874,6 +2322,18 @@
             });
         }
         
+        function animateValue(el, endVal, dur) {
+            if (!el || endVal == null) return;
+            dur = dur || 650;
+            const t0 = performance.now();
+            (function step(now) {
+                const p = Math.min((now - t0) / dur, 1);
+                const e = 1 - Math.pow(1 - p, 3);
+                el.textContent = formatNumber(Math.round(endVal * e));
+                if (p < 1) requestAnimationFrame(step);
+            })(t0);
+        }
+
         function formatNumber(num) {
             if (num == null || isNaN(num)) return '0';
             if (num >= 1000000000) return (num / 1000000000).toFixed(1) + 'B';
@@ -1892,11 +2352,15 @@
             const videos = partnersData.reduce((sum, p) => sum + (p.video_count || 0), 0);
             const views = partnersData.reduce((sum, p) => sum + (p.total_views || 0), 0);
             const likes = partnersData.reduce((sum, p) => sum + (p.total_likes || 0), 0);
+            const comments = partnersData.reduce((sum, p) => sum + (p.total_comments || 0), 0);
             
-            document.getElementById('collabVideos').textContent = videos.toLocaleString();
-            document.getElementById('totalPartners').textContent = partnersData.length;
-            document.getElementById('collabViews').textContent = formatNumber(views);
-            document.getElementById('collabLikes').textContent = formatNumber(likes);
+            animateValue(document.getElementById('collabVideos'), videos, 700);
+            animateValue(document.getElementById('totalPartners'), partnersData.length, 700);
+            animateValue(document.getElementById('collabViews'), views, 800);
+            const fourthVal = currentPlatform === 'instagram' ? comments
+                            : currentPlatform === 'weibo' ? partnersData.reduce((s, p) => s + (p.total_reposts || p.total_comments || 0), 0)
+                            : likes;
+            animateValue(document.getElementById('collabLikes'), fourthVal, 800);
 
             const videosLabel = document.querySelector('#collabVideos').closest('.stat-card').querySelector('.stat-label');
             const viewsLabel = document.querySelector('#collabViews').closest('.stat-card').querySelector('.stat-label');
@@ -1918,10 +2382,13 @@
         function updateNoncollabStats() {
             if (!othersData) return;
             
-            document.getElementById('noncollabVideos').textContent = (othersData.video_count || 0).toLocaleString();
-            document.getElementById('noncollabTypes').textContent = (othersData.content_types || []).length;
-            document.getElementById('noncollabViews').textContent = formatNumber(othersData.total_views || 0);
-            document.getElementById('noncollabLikes').textContent = formatNumber(othersData.total_likes || 0);
+            animateValue(document.getElementById('noncollabVideos'), othersData.video_count || 0, 600);
+            animateValue(document.getElementById('noncollabTypes'), (othersData.content_types || []).length, 500);
+            animateValue(document.getElementById('noncollabViews'), othersData.total_views || 0, 700);
+            const ncFourthVal = currentPlatform === 'instagram' ? (othersData.total_comments || 0)
+                              : currentPlatform === 'weibo' ? (othersData.total_reposts || othersData.total_comments || 0)
+                              : (othersData.total_likes || 0);
+            animateValue(document.getElementById('noncollabLikes'), ncFourthVal, 700);
 
             const ncLabels = document.querySelectorAll('#noncollabTab .stat-label');
             if (ncLabels.length >= 4) {
@@ -2015,9 +2482,13 @@
                 );
             }
             
-            list.innerHTML = filtered.map((partner, index) => `
+            const maxViews = filtered.length ? Math.max(...filtered.map(p => p.total_views || 0)) : 1;
+            list.innerHTML = filtered.map((partner, index) => {
+                const pct = maxViews > 0 ? Math.round((partner.total_views || 0) / maxViews * 100) : 0;
+                return `
                 <div class="partner-item ${selectedPartner === partner.name ? 'active' : ''}" 
-                     onclick="selectPartner('${partner.name.replace(/'/g, "\\'")}')">
+                     onclick="selectPartner('${partner.name.replace(/'/g, "\\'")}');"
+                     style="animation-delay:${index * 0.02}s">
                     <div class="partner-rank">${index + 1}</div>
                     <div class="partner-info">
                         <div class="partner-name">
@@ -2025,10 +2496,11 @@
                             <span class="partner-category-badge cat-${partner.category}">${translateCategory(partner.category)}</span>
                         </div>
                         <div class="partner-meta">${partner.video_count} ${videosText}</div>
+                        <div class="partner-bar-wrap"><div class="partner-bar-fill" style="width:${pct}%"></div></div>
                     </div>
                     <div class="partner-views">${formatNumber(partner.total_views)}</div>
-                </div>
-            `).join('');
+                </div>`;
+            }).join('');
         }
         
         function selectPartner(name) {
@@ -2038,17 +2510,19 @@
             if (!partner) return;
             
             document.getElementById('emptyState').style.display = 'none';
-            document.getElementById('detailContent').style.display = 'flex';
-            document.getElementById('detailContent').style.flexDirection = 'column';
-            document.getElementById('detailContent').style.height = '100%';
+            const dc = document.getElementById('detailContent');
+            dc.style.display = 'flex';
+            dc.style.flexDirection = 'column';
+            dc.style.height = '100%';
+            dc.style.animation = 'fadeUp 0.35s cubic-bezier(.4,0,.2,1)';
             
             document.getElementById('detailTitle').textContent = partner.name;
             document.getElementById('detailCategory').textContent = translateCategory(partner.category);
             document.getElementById('detailCategory').className = 'detail-category cat-' + partner.category;
-            document.getElementById('detailVideos').textContent = partner.video_count;
-            document.getElementById('detailViews').textContent = formatNumber(partner.total_views);
-            document.getElementById('detailLikes').textContent = formatNumber(partner.total_likes);
-            document.getElementById('detailComments').textContent = formatNumber(partner.total_comments);
+            animateValue(document.getElementById('detailVideos'), partner.video_count, 400);
+            animateValue(document.getElementById('detailViews'), partner.total_views, 500);
+            animateValue(document.getElementById('detailLikes'), partner.total_likes, 500);
+            animateValue(document.getElementById('detailComments'), partner.total_comments, 500);
             
             const likeRate = partner.total_views > 0 
                 ? ((partner.total_likes / partner.total_views) * 100).toFixed(2) + '%'
@@ -2065,7 +2539,7 @@
                     detailLabels[4].textContent = t('Engagement', '인게이지먼트', '互动率');
                 } else if (currentPlatform === 'instagram') {
                     detailLabels[0].textContent = t('Posts', '게시물', '帖子');
-                    detailLabels[1].textContent = t('Likes', '좋아요', '点赞');
+                    detailLabels[1].textContent = t('Total Reach', '총 도달', '总触达');
                     detailLabels[2].textContent = t('Likes', '좋아요', '点赞');
                     detailLabels[3].textContent = t('Comments', '댓글', '评论');
                     detailLabels[4].textContent = t('Engagement', '인게이지먼트', '互动率');
@@ -2284,11 +2758,17 @@
             const chartTextBold = isLight ? '#1e293b' : '#e2e8f0';
             const chartGrid = isLight ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.04)';
             const tooltipStyle = {
-                backgroundColor: isLight ? 'rgba(255,255,255,0.96)' : 'rgba(15,23,42,0.95)',
-                titleColor: isLight ? '#1e293b' : '#e2e8f0',
+                backgroundColor: isLight ? 'rgba(255,255,255,0.97)' : 'rgba(15,23,42,0.96)',
+                titleColor: isLight ? '#1e293b' : '#f1f5f9',
                 bodyColor: isLight ? '#475569' : '#94a3b8',
-                borderColor: isLight ? '#e2e8f0' : 'rgba(255,255,255,0.1)',
+                borderColor: isLight ? '#e2e8f0' : 'rgba(255,255,255,0.08)',
                 borderWidth: 1,
+                cornerRadius: 10,
+                padding: { top: 10, bottom: 10, left: 14, right: 14 },
+                titleFont: { weight: '700', size: 12 },
+                bodyFont: { size: 11 },
+                boxPadding: 4,
+                usePointStyle: true,
                 cornerRadius: 12,
                 padding: 14,
                 titleFont: { size: 13, weight: '600' },
@@ -2433,14 +2913,16 @@
                 },
                 options: {
                     responsive: true,
-                    cutout: '72%',
+                    cutout: '70%',
                     plugins: {
                         legend: {
                             position: 'bottom',
                             labels: {
                                 color: chartText,
                                 padding: 16,
-                                font: { size: 12 },
+                                font: { size: 11, weight: '500' },
+                                usePointStyle: true,
+                                pointStyle: 'circle',
                                 usePointStyle: true,
                                 pointStyle: 'circle'
                             }
@@ -2551,8 +3033,10 @@
                                 position: 'right',
                                 labels: {
                                     color: chartText,
-                                    padding: 10,
-                                    font: { size: 11 },
+                                    padding: 12,
+                                    font: { size: 11, weight: '500' },
+                                    usePointStyle: true,
+                                    pointStyle: 'circle',
                                     usePointStyle: true,
                                     pointStyle: 'circle'
                                 }
