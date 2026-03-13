@@ -85,24 +85,24 @@
         /* ===== Header ===== */
         header {
             text-align: center;
-            padding: 40px 0 20px;
+            padding: 36px 0 20px;
             border-bottom: 1px solid var(--border);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .header-inner {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 18px;
+            gap: 16px;
         }
 
         .header-logo-img {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
             object-fit: cover;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.2);
             border: 2px solid var(--border);
             flex-shrink: 0;
         }
@@ -112,23 +112,23 @@
         }
 
         .logo {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             font-weight: 800;
             background: var(--logo-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 4px;
-            letter-spacing: -0.02em;
+            margin-bottom: 2px;
+            letter-spacing: -0.03em;
             line-height: 1.2;
         }
 
         .subtitle {
             color: var(--text-secondary);
-            font-size: 0.88rem;
+            font-size: 0.82rem;
             font-weight: 500;
-            letter-spacing: 0.02em;
-            opacity: 0.85;
+            letter-spacing: 0.01em;
+            opacity: 0.8;
         }
 
         /* ===== Top Controls (Lang + Theme) ===== */
@@ -187,18 +187,18 @@
             border-color: var(--border-accent);
         }
 
-        /* ===== Channel Nav ===== */
+        /* ===== Game Nav ===== */
         .channel-nav {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             margin-bottom: 20px;
             flex-wrap: wrap;
         }
 
         .channel-btn {
-            padding: 10px 24px;
+            padding: 10px 28px;
             border: 1.5px solid var(--border);
             background: var(--bg-secondary);
             color: var(--text-muted);
@@ -213,11 +213,6 @@
             box-shadow: var(--shadow-sm);
             position: relative;
             opacity: 0.7;
-        }
-        .channel-btn.plat-btn {
-            padding: 7px 16px;
-            font-size: 0.82rem;
-            border-radius: 10px;
         }
         .channel-btn:hover {
             color: var(--text-primary);
@@ -234,7 +229,63 @@
             opacity: 1;
             font-weight: 700;
         }
-        
+
+        /* ===== Platform Nav (Redesigned) ===== */
+        .platform-nav-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 22px;
+            flex-wrap: wrap;
+        }
+        .plat-type-btn {
+            padding: 8px 20px;
+            border: 1.5px solid var(--border);
+            background: var(--bg-secondary);
+            color: var(--text-muted);
+            font-size: 0.84rem;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            opacity: 0.75;
+        }
+        .plat-type-btn:hover { opacity: 1; color: var(--text-primary); border-color: var(--border-accent); }
+        .plat-type-btn.active {
+            opacity: 1; font-weight: 700;
+        }
+        .plat-region-selector {
+            display: inline-flex;
+            align-items: center;
+            gap: 0;
+            margin-left: 2px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 3px;
+            overflow: hidden;
+        }
+        .plat-region-btn {
+            padding: 5px 12px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 0.78rem;
+            font-weight: 600;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: all 0.15s;
+            white-space: nowrap;
+        }
+        .plat-region-btn:hover { color: var(--text-primary); background: rgba(255,255,255,0.04); }
+        .plat-region-btn.active {
+            background: var(--accent-bg);
+            color: var(--accent-light);
+        }
 
         .nav-divider {
             width: 1px;
@@ -248,11 +299,11 @@
         .tab-nav {
             display: flex;
             justify-content: center;
-            gap: 6px;
-            margin-bottom: 28px;
+            gap: 4px;
+            margin-bottom: 32px;
             background: var(--bg-secondary);
             border: 1px solid var(--border);
-            padding: 6px;
+            padding: 5px;
             border-radius: 14px;
             width: fit-content;
             margin-left: auto;
@@ -261,15 +312,18 @@
         }
 
         .tab-btn {
-            padding: 10px 28px;
+            padding: 9px 22px;
             border: 1px solid transparent;
             background: transparent;
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.84rem;
             font-weight: 600;
             border-radius: 10px;
             cursor: pointer;
             transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .tab-btn:hover {
@@ -283,6 +337,10 @@
             border-color: var(--border-accent);
         }
 
+        .tab-divider {
+            width: 1px; height: 20px; background: var(--border); margin: 0 2px; align-self: center; opacity: 0.5;
+        }
+
         .tab-content { display: none; }
         .tab-content.active { display: block; }
 
@@ -290,8 +348,8 @@
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-            margin-bottom: 28px;
+            gap: 14px;
+            margin-bottom: 24px;
         }
 
         .stat-card {
@@ -659,11 +717,12 @@
 
         /* ===== Footer ===== */
         footer {
-            text-align: center; padding: 28px 0; color: var(--text-muted);
-            font-size: 0.82rem; border-top: 1px solid var(--border); margin-top: 40px;
+            text-align: center; padding: 24px 0; color: var(--text-muted);
+            font-size: 0.78rem; border-top: 1px solid var(--border); margin-top: 48px;
+            letter-spacing: 0.01em;
         }
-        footer a { color: var(--accent-light); text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
+        footer a { color: var(--text-secondary); text-decoration: none; font-weight: 500; }
+        footer a:hover { color: var(--accent-light); }
 
         /* ===== Responsive ===== */
         @media (max-width: 1200px) {
@@ -671,16 +730,20 @@
             .sidebar { height: auto; max-height: 400px; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .charts-row { grid-template-columns: 1fr 1fr !important; }
+            .plat-region-selector { flex-wrap: wrap; }
         }
         @media (max-width: 768px) {
             .container { padding: 12px 16px; }
-            .stats-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .video-item { grid-template-columns: 1fr; gap: 10px; }
             .video-thumb { width: 100%; height: auto; aspect-ratio: 16/9; }
             .charts-row { grid-template-columns: 1fr !important; }
-            .tab-nav { flex-wrap: wrap; }
+            .tab-nav { flex-wrap: wrap; width: auto; }
             .channel-nav { flex-wrap: wrap; }
+            .platform-nav-row { flex-wrap: wrap; }
+            .plat-region-selector { flex-wrap: wrap; width: 100%; justify-content: center; }
             .top-controls { position: static; justify-content: flex-end; margin-bottom: 8px; }
+            .search-bar-wrap { max-width: 100%; }
         }
 
         /* ===== Scrollbar ===== */
@@ -801,19 +864,21 @@
         <nav class="channel-nav" id="gameNav" style="margin-bottom:10px;">
             <button class="channel-btn active" onclick="switchGame('pubgm')">PUBG MOBILE</button>
             <button class="channel-btn" onclick="switchGame('freefire')">Free Fire</button>
+            <span class="nav-divider"></span>
+            <button class="channel-btn" onclick="switchToSearch()" id="globalSearchBtn" style="opacity:0.8;">
+                <svg viewBox="0 0 20 20" width="15" height="15" fill="currentColor" style="opacity:0.7;"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+                <span data-en="Search" data-ko="검색" data-zh="搜索">검색</span>
+            </button>
         </nav>
-        <nav class="channel-nav" id="platformNav" style="margin-bottom:22px;"></nav>
+        <div class="platform-nav-row" id="platformNav"></div>
         
         <!-- Tab Navigation -->
         <nav class="tab-nav">
             <button class="tab-btn active" onclick="switchTab('collab')" data-en="Collaborations" data-ko="콜라보레이션" data-zh="合作内容">Collaborations</button>
             <button class="tab-btn" onclick="switchTab('noncollab')" data-en="Non-Collab Content" data-ko="일반 콘텐츠" data-zh="非合作内容">Non-Collab Content</button>
             <button class="tab-btn" onclick="switchTab('overview')" data-en="Overview" data-ko="전체 요약" data-zh="总览">Overview</button>
-            <button class="tab-btn" onclick="switchTab('compare')" data-en="Cross-Channel" data-ko="채널 비교" data-zh="跨频道对比" id="compareTabBtn" style="display:none;">채널 비교</button>
-            <button class="tab-btn" onclick="switchTab('search')" data-en="Global Search" data-ko="글로벌 검색" data-zh="全球搜索" id="searchTabBtn">
-                <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor" style="vertical-align:-2px;margin-right:4px;"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
-                <span data-en="Global Search" data-ko="글로벌 검색" data-zh="全球搜索">글로벌 검색</span>
-            </button>
+            <span class="tab-divider"></span>
+            <button class="tab-btn" onclick="switchTab('compare')" data-en="Compare" data-ko="비교" data-zh="对比" id="compareTabBtn" style="display:none;">비교</button>
         </nav>
         
         <!-- Collab Tab -->
@@ -1140,12 +1205,12 @@
                 </section>
 
                 <!-- Platform Comparison Table + Chart -->
-                <section style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-                    <div class="chart-card" style="padding:24px 28px;">
+                <section class="charts-row" style="margin-top:20px;">
+                    <div class="chart-card" style="padding:22px 24px;">
                         <h3 class="chart-title" data-en="Platform Comparison" data-ko="플랫폼별 비교" data-zh="各平台对比">플랫폼별 비교</h3>
                         <div id="searchPlatformTable" style="overflow-x:auto;"></div>
                     </div>
-                    <div class="chart-card" style="padding:24px 28px;">
+                    <div class="chart-card" style="padding:22px 24px;">
                         <h3 class="chart-title" data-en="Views by Platform" data-ko="플랫폼별 조회수" data-zh="各平台浏览量">플랫폼별 조회수</h3>
                         <div style="height:300px;"><canvas id="searchPlatformChart"></canvas></div>
                     </div>
@@ -1161,10 +1226,10 @@
             </div>
 
             <!-- Empty State -->
-            <div id="searchEmpty" style="text-align:center;padding:80px 20px;color:var(--text-muted);">
-                <div style="font-size:3rem;margin-bottom:12px;opacity:0.3;">🔍</div>
-                <div style="font-size:1.1rem;margin-bottom:6px;" data-en="Search for a collaboration partner" data-ko="콜라보 파트너를 검색하세요" data-zh="搜索合作伙伴">콜라보 파트너를 검색하세요</div>
-                <div style="font-size:0.85rem;" data-en="Search across all platforms at once" data-ko="모든 플랫폼의 데이터를 한 번에 검색합니다" data-zh="一次搜索所有平台的数据">모든 플랫폼의 데이터를 한 번에 검색합니다</div>
+            <div id="searchEmpty" style="text-align:center;padding:60px 20px;color:var(--text-muted);">
+                <svg viewBox="0 0 20 20" width="48" height="48" fill="currentColor" style="opacity:0.15;margin-bottom:16px;"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+                <div style="font-size:1rem;margin-bottom:4px;font-weight:600;color:var(--text-secondary);" data-en="Search for a collaboration partner" data-ko="콜라보 파트너를 검색하세요" data-zh="搜索合作伙伴">콜라보 파트너를 검색하세요</div>
+                <div style="font-size:0.82rem;" data-en="Search across all platforms at once" data-ko="모든 플랫폼의 데이터를 한 번에 검색합니다" data-zh="一次搜索所有平台的数据">모든 플랫폼의 데이터를 한 번에 검색합니다</div>
             </div>
         </div>
 
@@ -1509,26 +1574,36 @@
             const game = GAMES[currentGame];
             const nav = document.getElementById('platformNav');
             const platKeys = Object.keys(game.platforms);
-
             const ytKeys = platKeys.filter(k => k === 'youtube' || k.startsWith('yt_'));
             const otherKeys = platKeys.filter(k => k !== 'youtube' && !k.startsWith('yt_'));
-            const ordered = [...ytKeys, ...otherKeys];
+            const curIsYt = currentPlatform === 'youtube' || currentPlatform.startsWith('yt_');
+            const gc = game.color;
 
             let html = '';
-            let prevIsYt = null;
-            for (const pk of ordered) {
-                const isYt = pk === 'youtube' || pk.startsWith('yt_');
-                if (prevIsYt === true && !isYt) {
-                    html += '<span class="nav-divider"></span>';
-                }
-                prevIsYt = isYt;
+
+            if (ytKeys.length > 0) {
+                const ytActive = curIsYt ? ' active' : '';
+                html += `<button class="plat-type-btn${ytActive}" onclick="switchPlatformType('yt')" data-type="yt" style="${curIsYt ? `border-color:${gc};color:${gc};background:${gc}11;` : ''}">${PLATFORM_ICONS.youtube || ''} <span>YouTube</span></button>`;
+            }
+            for (const pk of otherKeys) {
                 const active = pk === currentPlatform ? ' active' : '';
                 const short = PLATFORM_SHORT[pk] || {};
                 const name = short[currentLang] || short.en || pk;
-                html += `<button class="channel-btn plat-btn${active}" onclick="switchPlatform('${pk}')" data-platform="${pk}">${PLATFORM_ICONS[pk] || ''} <span>${name}</span></button>`;
+                html += `<button class="plat-type-btn${active}" onclick="switchPlatform('${pk}')" data-platform="${pk}" style="${pk === currentPlatform ? `border-color:${gc};color:${gc};background:${gc}11;` : ''}">${PLATFORM_ICONS[pk] || ''} <span>${name}</span></button>`;
             }
+
+            if (ytKeys.length > 1 && curIsYt) {
+                html += `<div class="plat-region-selector">`;
+                for (const pk of ytKeys) {
+                    const short = PLATFORM_SHORT[pk] || {};
+                    const name = short[currentLang] || short.en || pk;
+                    const active = pk === currentPlatform ? ' active' : '';
+                    html += `<button class="plat-region-btn${active}" onclick="switchPlatform('${pk}')">${name}</button>`;
+                }
+                html += `</div>`;
+            }
+
             nav.innerHTML = html;
-            updatePlatformBtnStyles();
 
             const compareBtn = document.getElementById('compareTabBtn');
             if (compareBtn) {
@@ -1536,23 +1611,19 @@
             }
         }
 
-        function updatePlatformBtnStyles() {
+        function switchPlatformType(type) {
             const game = GAMES[currentGame];
-            document.querySelectorAll('#platformNav .channel-btn').forEach(btn => {
-                const pk = btn.dataset.platform;
-                const isActive = pk === currentPlatform;
-                if (isActive) {
-                    btn.classList.add('active');
-                    btn.style.borderColor = game.color;
-                    btn.style.color = game.color;
-                    btn.style.background = `linear-gradient(135deg, ${game.color}22, ${game.color}11)`;
-                } else {
-                    btn.classList.remove('active');
-                    btn.style.borderColor = '';
-                    btn.style.color = '';
-                    btn.style.background = '';
+            const platKeys = Object.keys(game.platforms);
+            if (type === 'yt') {
+                const ytKeys = platKeys.filter(k => k === 'youtube' || k.startsWith('yt_'));
+                if (ytKeys.length > 0 && !(currentPlatform === 'youtube' || currentPlatform.startsWith('yt_'))) {
+                    switchPlatform(ytKeys[0]);
                 }
-            });
+            }
+        }
+
+        function updatePlatformBtnStyles() {
+            // Handled inline in renderPlatformNav
         }
 
         function updateGameBtnStyles() {
@@ -1575,6 +1646,18 @@
         }
 
         function switchGame(gameId) {
+            if (_searchMode) {
+                _searchMode = false;
+                document.getElementById('platformNav').style.display = '';
+                document.querySelector('.tab-nav').style.display = '';
+                const sb = document.getElementById('globalSearchBtn');
+                if (sb) { sb.classList.remove('active'); sb.style.borderColor = ''; sb.style.color = ''; sb.style.background = ''; sb.style.opacity = ''; }
+                currentTab = 'collab';
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                document.getElementById('collabTab').classList.add('active');
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelector('.tab-btn')?.classList.add('active');
+            }
             currentGame = gameId;
             const game = GAMES[gameId];
             const platKeys = Object.keys(game.platforms);
@@ -1591,15 +1674,12 @@
             if (currentTab === 'compare') {
                 setTimeout(initCompareTab, 50);
             }
-            if (currentTab === 'search') {
-                setTimeout(initSearchTab, 50);
-            }
             loadChannelData(currentGame + '_' + currentPlatform);
         }
 
         function switchPlatform(platId) {
             currentPlatform = platId;
-            updatePlatformBtnStyles();
+            renderPlatformNav();
             loadChannelData(currentGame + '_' + currentPlatform);
         }
 
@@ -1643,6 +1723,46 @@
             if (tab === 'search') {
                 setTimeout(initSearchTab, 50);
             }
+        }
+
+        let _searchMode = false;
+        function switchToSearch() {
+            _searchMode = true;
+            document.getElementById('platformNav').style.display = 'none';
+            document.querySelector('.tab-nav').style.display = 'none';
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.getElementById('searchTab').classList.add('active');
+            currentTab = 'search';
+
+            // Style search button as active
+            document.querySelectorAll('#gameNav .channel-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.borderColor = '';
+                btn.style.color = '';
+                btn.style.background = '';
+            });
+            const sb = document.getElementById('globalSearchBtn');
+            if (sb) {
+                sb.classList.add('active');
+                sb.style.borderColor = 'var(--accent)';
+                sb.style.color = 'var(--accent-light)';
+                sb.style.background = 'var(--accent-bg)';
+                sb.style.opacity = '1';
+            }
+
+            setTimeout(initSearchTab, 50);
+            const inp = document.getElementById('globalSearchInput');
+            if (inp) setTimeout(() => inp.focus(), 100);
+        }
+
+        function exitSearch() {
+            _searchMode = false;
+            document.getElementById('platformNav').style.display = '';
+            document.querySelector('.tab-nav').style.display = '';
+            const sb = document.getElementById('globalSearchBtn');
+            if (sb) { sb.classList.remove('active'); sb.style.borderColor = ''; sb.style.color = ''; sb.style.background = ''; sb.style.opacity = ''; }
+            updateGameBtnStyles();
+            switchTab('collab');
         }
         
         function clearCharts() {
@@ -3057,32 +3177,34 @@
         let _searchHighlight = -1;
 
         async function initSearchTab() {
-            const game = GAMES[currentGame];
-            const allKeys = Object.keys(game.platforms);
-            if (_searchGameKey === currentGame && _searchIndex) return;
+            if (_searchGameKey === '__all__' && _searchIndex) return;
 
             document.getElementById('searchLoading').style.display = '';
             document.getElementById('searchResult').style.display = 'none';
             document.getElementById('searchEmpty').style.display = 'none';
 
             const allData = {};
-            await Promise.all(allKeys.map(async (pk) => {
-                const plat = game.platforms[pk];
-                try {
-                    const d = await fetch(plat.dataFile + '?v=' + Date.now()).then(r => r.json()).catch(() => []);
-                    allData[pk] = d;
-                } catch { allData[pk] = []; }
-            }));
+            const fetchTasks = [];
+            for (const [gameKey, game] of Object.entries(GAMES)) {
+                for (const [pk, plat] of Object.entries(game.platforms)) {
+                    const compositeKey = gameKey + '::' + pk;
+                    fetchTasks.push(
+                        fetch(plat.dataFile + '?v=' + Date.now()).then(r => r.json()).catch(() => [])
+                            .then(d => { allData[compositeKey] = { data: d, gameKey, pk, gameName: game.name }; })
+                    );
+                }
+            }
+            await Promise.all(fetchTasks);
 
             const index = new Map();
             const _canonicalName = new Map();
-            for (const pk of allKeys) {
-                const partners = allData[pk] || [];
+            for (const [compositeKey, info] of Object.entries(allData)) {
+                const partners = info.data || [];
                 for (const p of partners) {
                     const key = (p.name || '').trim().toUpperCase();
                     if (!key) continue;
                     if (!index.has(key)) index.set(key, []);
-                    index.get(key).push({ platform: pk, data: p });
+                    index.get(key).push({ platform: info.pk, game: info.gameKey, gameName: info.gameName, data: p });
                     const freq = (_canonicalName.get(key) || {});
                     freq[p.name] = (freq[p.name] || 0) + 1;
                     _canonicalName.set(key, freq);
@@ -3095,7 +3217,7 @@
 
             _searchIndex = index;
             _searchCanonical = _canonicalName;
-            _searchGameKey = currentGame;
+            _searchGameKey = '__all__';
             _searchAllData = allData;
             document.getElementById('searchLoading').style.display = 'none';
             document.getElementById('searchEmpty').style.display = '';
@@ -3120,7 +3242,8 @@
                 if (key.includes(upper)) {
                     const displayName = _searchCanonical ? (_searchCanonical.get(key) || key) : key;
                     const totalViews = entries.reduce((s, e) => s + (e.data.total_views || 0), 0);
-                    matches.push({ name: displayName, key, platforms: entries.length, totalViews });
+                    const games = new Set(entries.map(e => e.game || currentGame));
+                    matches.push({ name: displayName, key, platforms: entries.length, totalViews, gameCount: games.size });
                 }
                 if (matches.length >= 15) break;
             }
@@ -3173,11 +3296,25 @@
             if (!_searchIndex || !_searchIndex.has(partnerKey)) return;
             const entries = _searchIndex.get(partnerKey);
             const partnerName = _searchCanonical ? (_searchCanonical.get(partnerKey) || partnerKey) : partnerKey;
-            const game = GAMES[currentGame];
-            const allKeys = Object.keys(game.platforms);
             const COLORS = ['#f5af19','#3b82f6','#ef4444','#10b981','#a855f7','#f472b6','#22d3ee','#fb923c','#6366f1','#14b8a6','#e879f9','#84cc16','#f43f5e'];
-            const sName = (pk) => { const s = PLATFORM_SHORT[pk] || {}; return s[currentLang] || s.en || pk; };
-            const pName = (pk) => { const s = PLATFORM_NAMES[pk] || {}; return s[currentLang] || s.en || pk; };
+            const sName = (pk, gk) => {
+                const s = PLATFORM_SHORT[pk] || {};
+                const platLabel = s[currentLang] || s.en || pk;
+                if (gk && Object.keys(GAMES).length > 1) {
+                    const gameName = GAMES[gk]?.name || gk;
+                    return gameName + ' · ' + platLabel;
+                }
+                return platLabel;
+            };
+            const pName = (pk, gk) => {
+                const s = PLATFORM_NAMES[pk] || {};
+                const platLabel = s[currentLang] || s.en || pk;
+                if (gk && Object.keys(GAMES).length > 1) {
+                    const gameName = GAMES[gk]?.name || gk;
+                    return gameName + ' · ' + platLabel;
+                }
+                return platLabel;
+            };
             const fmtV = v => v >= 1e6 ? (v/1e6).toFixed(1) + 'M' : v >= 1e3 ? (v/1e3).toFixed(1) + 'K' : String(v);
             const fmtN = v => v.toLocaleString();
 
@@ -3194,7 +3331,7 @@
             document.getElementById('srTotalViews').textContent = fmtV(totalViews);
             document.getElementById('srTotalVideos').textContent = fmtN(totalVids);
             document.getElementById('srPlatformCount').textContent = platCount;
-            document.getElementById('srBestPlatform').textContent = sName(bestEntry.platform);
+            document.getElementById('srBestPlatform').textContent = sName(bestEntry.platform, bestEntry.game);
 
             // Platform comparison table
             const maxViews = Math.max(...entries.map(e => e.data.total_views || 0), 1);
@@ -3209,8 +3346,7 @@
 
             entries.sort((a, b) => (b.data.total_views || 0) - (a.data.total_views || 0));
             entries.forEach((e, idx) => {
-                const pkIdx = allKeys.indexOf(e.platform);
-                const color = COLORS[pkIdx % COLORS.length];
+                const color = COLORS[idx % COLORS.length];
                 const views = e.data.total_views || 0;
                 const vids = e.data.video_count || e.data.post_count || 0;
                 const likes = e.data.total_likes || 0;
@@ -3218,7 +3354,7 @@
                 const barW = Math.round((views / maxViews) * 100);
                 const bgRow = idx % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)';
                 tbl += `<tr style="background:${bgRow};">
-                    <td style="padding:10px 12px;border-bottom:1px solid var(--border);"><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:${color};margin-right:8px;"></span><strong style="color:var(--text-primary);">${sName(e.platform)}</strong></td>
+                    <td style="padding:10px 12px;border-bottom:1px solid var(--border);"><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:${color};margin-right:8px;"></span><strong style="color:var(--text-primary);">${sName(e.platform, e.game)}</strong></td>
                     <td style="padding:10px 12px;border-bottom:1px solid var(--border);text-align:right;">
                         <div style="display:flex;align-items:center;justify-content:flex-end;gap:8px;">
                             <span style="font-weight:600;color:${color};">${fmtN(views)}</span>
@@ -3237,9 +3373,9 @@
             if (_searchChart) { _searchChart.destroy(); _searchChart = null; }
             const ctx = document.getElementById('searchPlatformChart')?.getContext('2d');
             if (ctx) {
-                const labels = entries.map(e => sName(e.platform));
+                const labels = entries.map(e => sName(e.platform, e.game));
                 const data = entries.map(e => e.data.total_views || 0);
-                const colors = entries.map(e => COLORS[allKeys.indexOf(e.platform) % COLORS.length] + 'cc');
+                const colors = entries.map((e, i) => COLORS[i % COLORS.length] + 'cc');
                 const txtColor = getComputedStyle(document.documentElement).getPropertyValue('--text-secondary').trim();
                 const gridColor = getComputedStyle(document.documentElement).getPropertyValue('--chart-grid').trim();
                 _searchChart = new Chart(ctx, {
@@ -3258,7 +3394,7 @@
                             }
                         },
                         scales: {
-                            y: { grid: { display: false }, ticks: { color: (c) => COLORS[allKeys.indexOf(entries[c.index]?.platform) % COLORS.length], font: { size: 12, weight: '600' } } },
+                            y: { grid: { display: false }, ticks: { color: (c) => COLORS[c.index % COLORS.length], font: { size: 12, weight: '600' } } },
                             x: { grid: { color: gridColor }, ticks: { color: txtColor, callback: v => fmtV(v) }, border: { display: false } }
                         }
                     }
@@ -3267,12 +3403,11 @@
 
             // Video list grouped by platform
             let vhtml = '';
-            entries.forEach(e => {
-                const pkIdx = allKeys.indexOf(e.platform);
-                const color = COLORS[pkIdx % COLORS.length];
+            entries.forEach((e, eIdx) => {
+                const color = COLORS[eIdx % COLORS.length];
                 const videos = (e.data.videos || []).slice().sort((a, b) => (b.view_count || 0) - (a.view_count || 0));
                 if (!videos.length) return;
-                vhtml += `<div class="search-plat-group-header"><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:${color};"></span> ${pName(e.platform)} <span style="font-weight:400;font-size:0.85rem;color:var(--text-muted);">(${videos.length} ${t('videos','영상','视频')})</span></div>`;
+                vhtml += `<div class="search-plat-group-header"><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:${color};"></span> ${pName(e.platform, e.game)} <span style="font-weight:400;font-size:0.85rem;color:var(--text-muted);">(${videos.length} ${t('videos','영상','视频')})</span></div>`;
                 vhtml += `<div class="search-video-grid">`;
                 videos.forEach(v => {
                     const thumb = v.thumbnail || (v.video_id ? `https://img.youtube.com/vi/${v.video_id}/mqdefault.jpg` : '');
@@ -3285,7 +3420,7 @@
                             <div class="search-video-info">
                                 <div class="search-video-title">${v.title || 'Untitled'}</div>
                                 <div class="search-video-stats">
-                                    <span class="search-plat-badge" style="background:${color}22;color:${color};">${sName(e.platform)}</span>
+                                    <span class="search-plat-badge" style="background:${color}22;color:${color};">${sName(e.platform, e.game)}</span>
                                     <span class="search-video-stat">👁 ${fmtV(views)}</span>
                                     ${date ? `<span class="search-video-stat">${date}</span>` : ''}
                                 </div>
