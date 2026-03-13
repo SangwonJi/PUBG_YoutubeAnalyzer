@@ -1585,7 +1585,7 @@
             if (headerImg && game.headerImage) headerImg.src = game.headerImage;
             document.title = game.name + ' Collab Analysis Dashboard';
             compareChartsInitialized = false;
-            _searchIndex = null; _searchGameKey = null;
+            _searchIndex = null; _searchCanonical = null; _searchGameKey = null;
             updateGameBtnStyles();
             renderPlatformNav();
             if (currentTab === 'compare') {
@@ -3050,6 +3050,7 @@
 
         /* ===== Global Search Tab ===== */
         let _searchIndex = null;
+        let _searchCanonical = null;
         let _searchGameKey = null;
         let _searchAllData = null;
         let _searchChart = null;
@@ -3074,16 +3075,26 @@
             }));
 
             const index = new Map();
+            const _canonicalName = new Map();
             for (const pk of allKeys) {
                 const partners = allData[pk] || [];
                 for (const p of partners) {
-                    const key = p.name;
+                    const key = (p.name || '').trim().toUpperCase();
+                    if (!key) continue;
                     if (!index.has(key)) index.set(key, []);
                     index.get(key).push({ platform: pk, data: p });
+                    const freq = (_canonicalName.get(key) || {});
+                    freq[p.name] = (freq[p.name] || 0) + 1;
+                    _canonicalName.set(key, freq);
                 }
+            }
+            for (const [key, freq] of _canonicalName) {
+                const best = Object.entries(freq).sort((a, b) => b[1] - a[1])[0][0];
+                _canonicalName.set(key, best);
             }
 
             _searchIndex = index;
+            _searchCanonical = _canonicalName;
             _searchGameKey = currentGame;
             _searchAllData = allData;
             document.getElementById('searchLoading').style.display = 'none';
@@ -3103,12 +3114,13 @@
             _searchHighlight = -1;
             if (!val || !_searchIndex) { ac.classList.remove('open'); ac.innerHTML = ''; return; }
 
-            const lower = val.toLowerCase();
+            const upper = val.toUpperCase();
             const matches = [];
-            for (const [name, entries] of _searchIndex) {
-                if (name.toLowerCase().includes(lower)) {
+            for (const [key, entries] of _searchIndex) {
+                if (key.includes(upper)) {
+                    const displayName = _searchCanonical ? (_searchCanonical.get(key) || key) : key;
                     const totalViews = entries.reduce((s, e) => s + (e.data.total_views || 0), 0);
-                    matches.push({ name, platforms: entries.length, totalViews });
+                    matches.push({ name: displayName, key, platforms: entries.length, totalViews });
                 }
                 if (matches.length >= 15) break;
             }
@@ -3123,7 +3135,7 @@
 
             const fmtV = v => v >= 1e6 ? (v/1e6).toFixed(1) + 'M' : v >= 1e3 ? (v/1e3).toFixed(1) + 'K' : String(v);
             ac.innerHTML = matches.map((m, i) => `
-                <div class="search-ac-item" data-idx="${i}" onclick="selectSearchPartner('${m.name.replace(/'/g, "\\'")}')">
+                <div class="search-ac-item" data-idx="${i}" onclick="selectSearchPartner('${m.key.replace(/'/g, "\\'")}')">
                     <span class="search-ac-name">${m.name}</span>
                     <span class="search-ac-meta">
                         <span class="search-ac-views">${fmtV(m.totalViews)} ${t('views','조회수','浏览量')}</span>
@@ -3149,16 +3161,18 @@
             if (_searchHighlight >= 0) items[_searchHighlight].scrollIntoView({ block: 'nearest' });
         }
 
-        function selectSearchPartner(name) {
+        function selectSearchPartner(key) {
             const ac = document.getElementById('searchAutocomplete');
             ac.classList.remove('open');
-            document.getElementById('globalSearchInput').value = name;
-            renderSearchResult(name);
+            const displayName = _searchCanonical ? (_searchCanonical.get(key) || key) : key;
+            document.getElementById('globalSearchInput').value = displayName;
+            renderSearchResult(key);
         }
 
-        function renderSearchResult(partnerName) {
-            if (!_searchIndex || !_searchIndex.has(partnerName)) return;
-            const entries = _searchIndex.get(partnerName);
+        function renderSearchResult(partnerKey) {
+            if (!_searchIndex || !_searchIndex.has(partnerKey)) return;
+            const entries = _searchIndex.get(partnerKey);
+            const partnerName = _searchCanonical ? (_searchCanonical.get(partnerKey) || partnerKey) : partnerKey;
             const game = GAMES[currentGame];
             const allKeys = Object.keys(game.platforms);
             const COLORS = ['#f5af19','#3b82f6','#ef4444','#10b981','#a855f7','#f472b6','#22d3ee','#fb923c','#6366f1','#14b8a6','#e879f9','#84cc16','#f43f5e'];
