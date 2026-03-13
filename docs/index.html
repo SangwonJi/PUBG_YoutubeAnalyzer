@@ -1443,8 +1443,28 @@
                 </div>
             </section>
             
-            <!-- Full-width top partners chart -->
+            <!-- Timeline chart (콜라보 활동) -->
             <section style="margin-top: 30px;">
+                <div class="chart-card" style="padding: 28px 32px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+                        <h3 class="chart-title" id="timelineTitle" style="font-size: 1.1rem; margin-bottom: 0;">Collab Activity Timeline</h3>
+                        <div class="timeline-toggle" style="display: flex; gap: 4px; background: rgba(255,255,255,0.06); border-radius: 8px; padding: 3px;">
+                            <button class="timeline-btn active" onclick="switchTimelineMode('yearly')" data-mode="yearly" style="padding: 5px 14px; border: none; border-radius: 6px; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; background: #6366f1; color: #fff;">
+                                <span data-en="Yearly" data-ko="연도별" data-zh="按年">연도별</span>
+                            </button>
+                            <button class="timeline-btn" onclick="switchTimelineMode('monthly')" data-mode="monthly" style="padding: 5px 14px; border: none; border-radius: 6px; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; background: transparent; color: #94a3b8;">
+                                <span data-en="Monthly" data-ko="월별" data-zh="按月">월별</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div style="height: 280px;">
+                        <canvas id="timelineChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Full-width top partners chart -->
+            <section style="margin-top: 24px;">
                 <div class="chart-card" style="padding: 28px 32px;">
                     <h3 class="chart-title" id="topPartnersTitle" style="font-size: 1.1rem; margin-bottom: 20px;">Top 10 Collab Partners</h3>
                     <div style="height: 400px;">
@@ -1471,26 +1491,6 @@
                 <div class="chart-card">
                     <h3 class="chart-title" id="contentTypeTitle">Content Types</h3>
                     <canvas id="contentTypeChart"></canvas>
-                </div>
-            </section>
-
-            <!-- Timeline chart -->
-            <section style="margin-top: 24px;">
-                <div class="chart-card" style="padding: 28px 32px;">
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
-                        <h3 class="chart-title" id="timelineTitle" style="font-size: 1.1rem; margin-bottom: 0;">Collab Activity Timeline</h3>
-                        <div class="timeline-toggle" style="display: flex; gap: 4px; background: rgba(255,255,255,0.06); border-radius: 8px; padding: 3px;">
-                            <button class="timeline-btn active" onclick="switchTimelineMode('yearly')" data-mode="yearly" style="padding: 5px 14px; border: none; border-radius: 6px; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; background: #6366f1; color: #fff;">
-                                <span data-en="Yearly" data-ko="연도별" data-zh="按年">연도별</span>
-                            </button>
-                            <button class="timeline-btn" onclick="switchTimelineMode('monthly')" data-mode="monthly" style="padding: 5px 14px; border: none; border-radius: 6px; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; background: transparent; color: #94a3b8;">
-                                <span data-en="Monthly" data-ko="월별" data-zh="按月">월별</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div style="height: 280px;">
-                        <canvas id="timelineChart"></canvas>
-                    </div>
                 </div>
             </section>
         </div>
