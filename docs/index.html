@@ -709,6 +709,69 @@
             background: #fff;
             color: #1e293b;
         }
+
+        /* ===== Global Search Tab ===== */
+        .search-bar-wrap { max-width: 640px; margin: 0 auto 32px; }
+        .search-input-wrap { position: relative; }
+        .search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; z-index: 1; }
+        #globalSearchInput {
+            width: 100%; padding: 14px 18px 14px 48px; border-radius: 14px;
+            border: 1.5px solid var(--border); background: var(--bg-secondary);
+            color: var(--text-primary); font-size: 1rem; font-family: inherit;
+            outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+            box-sizing: border-box;
+        }
+        #globalSearchInput:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-bg); }
+        #globalSearchInput::placeholder { color: var(--text-muted); }
+        .search-autocomplete {
+            display: none; position: absolute; top: calc(100% + 6px); left: 0; right: 0;
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 12px; max-height: 380px; overflow-y: auto; z-index: 100;
+            box-shadow: var(--shadow-lg);
+        }
+        .search-autocomplete.open { display: block; }
+        .search-ac-item {
+            padding: 12px 18px; cursor: pointer; display: flex; align-items: center;
+            justify-content: space-between; transition: background 0.15s; border-bottom: 1px solid var(--border);
+        }
+        .search-ac-item:last-child { border-bottom: none; }
+        .search-ac-item:hover, .search-ac-item.highlighted { background: var(--bg-tertiary); }
+        .search-ac-name { font-weight: 600; color: var(--text-primary); font-size: 0.95rem; }
+        .search-ac-meta { display: flex; gap: 8px; align-items: center; }
+        .search-ac-badge {
+            font-size: 0.72rem; padding: 3px 8px; border-radius: 6px;
+            background: var(--accent-bg); color: var(--accent-light); font-weight: 600;
+        }
+        .search-ac-views { font-size: 0.8rem; color: var(--text-muted); }
+        .search-video-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-top: 16px;
+        }
+        .search-video-card {
+            background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 12px;
+            overflow: hidden; transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .search-video-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .search-video-thumb {
+            width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;
+            background: var(--thumb-bg);
+        }
+        .search-video-info { padding: 12px 14px; }
+        .search-video-title {
+            font-size: 0.85rem; font-weight: 600; color: var(--text-primary);
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+            margin-bottom: 8px; line-height: 1.4;
+        }
+        .search-video-stats { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+        .search-video-stat { font-size: 0.78rem; color: var(--text-muted); }
+        .search-plat-badge {
+            font-size: 0.7rem; padding: 2px 8px; border-radius: 5px; font-weight: 600;
+            display: inline-flex; align-items: center; gap: 4px;
+        }
+        .search-plat-group-header {
+            font-size: 1rem; font-weight: 700; color: var(--text-primary); margin: 24px 0 12px;
+            display: flex; align-items: center; gap: 8px; padding-bottom: 8px;
+            border-bottom: 2px solid var(--border);
+        }
     </style>
 </head>
 <body>
@@ -747,6 +810,10 @@
             <button class="tab-btn" onclick="switchTab('noncollab')" data-en="Non-Collab Content" data-ko="일반 콘텐츠" data-zh="非合作内容">Non-Collab Content</button>
             <button class="tab-btn" onclick="switchTab('overview')" data-en="Overview" data-ko="전체 요약" data-zh="总览">Overview</button>
             <button class="tab-btn" onclick="switchTab('compare')" data-en="Cross-Channel" data-ko="채널 비교" data-zh="跨频道对比" id="compareTabBtn" style="display:none;">채널 비교</button>
+            <button class="tab-btn" onclick="switchTab('search')" data-en="Global Search" data-ko="글로벌 검색" data-zh="全球搜索" id="searchTabBtn">
+                <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor" style="vertical-align:-2px;margin-right:4px;"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+                <span data-en="Global Search" data-ko="글로벌 검색" data-zh="全球搜索">글로벌 검색</span>
+            </button>
         </nav>
         
         <!-- Collab Tab -->
@@ -1030,6 +1097,77 @@
             </section>
         </div>
 
+        <!-- Global Search Tab -->
+        <div class="tab-content" id="searchTab">
+            <!-- Search Bar -->
+            <div class="search-bar-wrap">
+                <div class="search-input-wrap">
+                    <svg class="search-icon" viewBox="0 0 20 20" width="20" height="20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+                    <input type="text" id="globalSearchInput" autocomplete="off" spellcheck="false"
+                        data-placeholder-en="Search partner name across all platforms..."
+                        data-placeholder-ko="모든 플랫폼에서 파트너 검색..."
+                        data-placeholder-zh="在所有平台中搜索合作伙伴..."
+                        placeholder="모든 플랫폼에서 파트너 검색...">
+                    <div id="searchAutocomplete" class="search-autocomplete"></div>
+                </div>
+                <div id="searchLoading" style="display:none;text-align:center;padding:24px;color:var(--text-muted);">
+                    <span data-en="Loading all platform data..." data-ko="전체 플랫폼 데이터 로딩 중..." data-zh="加载所有平台数据中...">전체 플랫폼 데이터 로딩 중...</span>
+                </div>
+            </div>
+
+            <!-- Search Result -->
+            <div id="searchResult" style="display:none;">
+                <h2 id="searchResultTitle" style="font-size:1.3rem;font-weight:700;color:var(--text-primary);margin:0 0 20px 0;"></h2>
+
+                <!-- Summary Cards -->
+                <section class="stats-grid" id="searchSummaryCards">
+                    <div class="stat-card">
+                        <div class="stat-value" id="srTotalViews">-</div>
+                        <div class="stat-label" data-en="Total Views" data-ko="총 조회수" data-zh="总浏览量">총 조회수</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="srTotalVideos">-</div>
+                        <div class="stat-label" data-en="Total Videos" data-ko="총 영상 수" data-zh="总视频数">총 영상 수</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="srPlatformCount">-</div>
+                        <div class="stat-label" data-en="Platforms" data-ko="등장 플랫폼" data-zh="出现平台数">등장 플랫폼</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="srBestPlatform">-</div>
+                        <div class="stat-label" data-en="Best Platform" data-ko="최고 성과 플랫폼" data-zh="最佳平台">최고 성과 플랫폼</div>
+                    </div>
+                </section>
+
+                <!-- Platform Comparison Table + Chart -->
+                <section style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+                    <div class="chart-card" style="padding:24px 28px;">
+                        <h3 class="chart-title" data-en="Platform Comparison" data-ko="플랫폼별 비교" data-zh="各平台对比">플랫폼별 비교</h3>
+                        <div id="searchPlatformTable" style="overflow-x:auto;"></div>
+                    </div>
+                    <div class="chart-card" style="padding:24px 28px;">
+                        <h3 class="chart-title" data-en="Views by Platform" data-ko="플랫폼별 조회수" data-zh="各平台浏览量">플랫폼별 조회수</h3>
+                        <div style="height:300px;"><canvas id="searchPlatformChart"></canvas></div>
+                    </div>
+                </section>
+
+                <!-- Video List -->
+                <section style="margin-top:24px;">
+                    <div class="chart-card" style="padding:24px 28px;">
+                        <h3 class="chart-title" data-en="All Videos" data-ko="전체 영상 목록" data-zh="所有视频">전체 영상 목록</h3>
+                        <div id="searchVideoList"></div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Empty State -->
+            <div id="searchEmpty" style="text-align:center;padding:80px 20px;color:var(--text-muted);">
+                <div style="font-size:3rem;margin-bottom:12px;opacity:0.3;">🔍</div>
+                <div style="font-size:1.1rem;margin-bottom:6px;" data-en="Search for a collaboration partner" data-ko="콜라보 파트너를 검색하세요" data-zh="搜索合作伙伴">콜라보 파트너를 검색하세요</div>
+                <div style="font-size:0.85rem;" data-en="Search across all platforms at once" data-ko="모든 플랫폼의 데이터를 한 번에 검색합니다" data-zh="一次搜索所有平台的数据">모든 플랫폼의 데이터를 한 번에 검색합니다</div>
+            </div>
+        </div>
+
         <footer>
             <p data-en="Data from" data-ko="데이터 출처:" data-zh="数据来源：">Data from</p>
             <p>
@@ -1245,6 +1383,13 @@
                 }
             });
             
+            // Update global search placeholder
+            const gsInput = document.getElementById('globalSearchInput');
+            if (gsInput) {
+                const ph = gsInput.getAttribute('data-placeholder-' + lang);
+                if (ph) gsInput.placeholder = ph;
+            }
+
             // Re-init charts if overview is visible (labels need updating)
             if (chartsInitialized && currentTab === 'overview') {
                 clearCharts();
@@ -1440,10 +1585,14 @@
             if (headerImg && game.headerImage) headerImg.src = game.headerImage;
             document.title = game.name + ' Collab Analysis Dashboard';
             compareChartsInitialized = false;
+            _searchIndex = null; _searchGameKey = null;
             updateGameBtnStyles();
             renderPlatformNav();
             if (currentTab === 'compare') {
                 setTimeout(initCompareTab, 50);
+            }
+            if (currentTab === 'search') {
+                setTimeout(initSearchTab, 50);
             }
             loadChannelData(currentGame + '_' + currentPlatform);
         }
@@ -1458,6 +1607,15 @@
         updateGameBtnStyles();
         renderPlatformNav();
         loadChannelData('pubgm_youtube');
+
+        // Global search input events
+        (function() {
+            const inp = document.getElementById('globalSearchInput');
+            if (inp) {
+                inp.addEventListener('input', onSearchInput);
+                inp.addEventListener('keydown', onSearchKeydown);
+            }
+        })();
         
         function switchTab(tab) {
             currentTab = tab;
@@ -1481,6 +1639,9 @@
             }
             if (tab === 'compare' && !compareChartsInitialized) {
                 setTimeout(initCompareTab, 50);
+            }
+            if (tab === 'search') {
+                setTimeout(initSearchTab, 50);
             }
         }
         
@@ -2886,6 +3047,248 @@
             renderSharedTable();
             compareChartsInitialized = true;
         }
+
+        /* ===== Global Search Tab ===== */
+        let _searchIndex = null;
+        let _searchGameKey = null;
+        let _searchAllData = null;
+        let _searchChart = null;
+        let _searchHighlight = -1;
+
+        async function initSearchTab() {
+            const game = GAMES[currentGame];
+            const allKeys = Object.keys(game.platforms);
+            if (_searchGameKey === currentGame && _searchIndex) return;
+
+            document.getElementById('searchLoading').style.display = '';
+            document.getElementById('searchResult').style.display = 'none';
+            document.getElementById('searchEmpty').style.display = 'none';
+
+            const allData = {};
+            await Promise.all(allKeys.map(async (pk) => {
+                const plat = game.platforms[pk];
+                try {
+                    const d = await fetch(plat.dataFile + '?v=' + Date.now()).then(r => r.json()).catch(() => []);
+                    allData[pk] = d;
+                } catch { allData[pk] = []; }
+            }));
+
+            const index = new Map();
+            for (const pk of allKeys) {
+                const partners = allData[pk] || [];
+                for (const p of partners) {
+                    const key = p.name;
+                    if (!index.has(key)) index.set(key, []);
+                    index.get(key).push({ platform: pk, data: p });
+                }
+            }
+
+            _searchIndex = index;
+            _searchGameKey = currentGame;
+            _searchAllData = allData;
+            document.getElementById('searchLoading').style.display = 'none';
+            document.getElementById('searchEmpty').style.display = '';
+
+            const inp = document.getElementById('globalSearchInput');
+            if (inp) {
+                const phKey = 'data-placeholder-' + currentLang;
+                const ph = inp.getAttribute(phKey) || inp.getAttribute('data-placeholder-ko');
+                if (ph) inp.placeholder = ph;
+            }
+        }
+
+        function onSearchInput(e) {
+            const val = (e.target.value || '').trim();
+            const ac = document.getElementById('searchAutocomplete');
+            _searchHighlight = -1;
+            if (!val || !_searchIndex) { ac.classList.remove('open'); ac.innerHTML = ''; return; }
+
+            const lower = val.toLowerCase();
+            const matches = [];
+            for (const [name, entries] of _searchIndex) {
+                if (name.toLowerCase().includes(lower)) {
+                    const totalViews = entries.reduce((s, e) => s + (e.data.total_views || 0), 0);
+                    matches.push({ name, platforms: entries.length, totalViews });
+                }
+                if (matches.length >= 15) break;
+            }
+
+            matches.sort((a, b) => b.totalViews - a.totalViews);
+
+            if (matches.length === 0) {
+                ac.innerHTML = `<div style="padding:16px;text-align:center;color:var(--text-muted);font-size:0.9rem;">${t('No results','결과 없음','无结果')}</div>`;
+                ac.classList.add('open');
+                return;
+            }
+
+            const fmtV = v => v >= 1e6 ? (v/1e6).toFixed(1) + 'M' : v >= 1e3 ? (v/1e3).toFixed(1) + 'K' : String(v);
+            ac.innerHTML = matches.map((m, i) => `
+                <div class="search-ac-item" data-idx="${i}" onclick="selectSearchPartner('${m.name.replace(/'/g, "\\'")}')">
+                    <span class="search-ac-name">${m.name}</span>
+                    <span class="search-ac-meta">
+                        <span class="search-ac-views">${fmtV(m.totalViews)} ${t('views','조회수','浏览量')}</span>
+                        <span class="search-ac-badge">${m.platforms} ${t('platforms','플랫폼','平台')}</span>
+                    </span>
+                </div>
+            `).join('');
+            ac.classList.add('open');
+        }
+
+        function onSearchKeydown(e) {
+            const ac = document.getElementById('searchAutocomplete');
+            const items = ac.querySelectorAll('.search-ac-item');
+            if (!items.length) return;
+            if (e.key === 'ArrowDown') { e.preventDefault(); _searchHighlight = Math.min(_searchHighlight + 1, items.length - 1); }
+            else if (e.key === 'ArrowUp') { e.preventDefault(); _searchHighlight = Math.max(_searchHighlight - 1, 0); }
+            else if (e.key === 'Enter' && _searchHighlight >= 0) {
+                e.preventDefault();
+                items[_searchHighlight]?.click();
+                return;
+            } else if (e.key === 'Escape') { ac.classList.remove('open'); return; }
+            items.forEach((it, i) => it.classList.toggle('highlighted', i === _searchHighlight));
+            if (_searchHighlight >= 0) items[_searchHighlight].scrollIntoView({ block: 'nearest' });
+        }
+
+        function selectSearchPartner(name) {
+            const ac = document.getElementById('searchAutocomplete');
+            ac.classList.remove('open');
+            document.getElementById('globalSearchInput').value = name;
+            renderSearchResult(name);
+        }
+
+        function renderSearchResult(partnerName) {
+            if (!_searchIndex || !_searchIndex.has(partnerName)) return;
+            const entries = _searchIndex.get(partnerName);
+            const game = GAMES[currentGame];
+            const allKeys = Object.keys(game.platforms);
+            const COLORS = ['#f5af19','#3b82f6','#ef4444','#10b981','#a855f7','#f472b6','#22d3ee','#fb923c','#6366f1','#14b8a6','#e879f9','#84cc16','#f43f5e'];
+            const sName = (pk) => { const s = PLATFORM_SHORT[pk] || {}; return s[currentLang] || s.en || pk; };
+            const pName = (pk) => { const s = PLATFORM_NAMES[pk] || {}; return s[currentLang] || s.en || pk; };
+            const fmtV = v => v >= 1e6 ? (v/1e6).toFixed(1) + 'M' : v >= 1e3 ? (v/1e3).toFixed(1) + 'K' : String(v);
+            const fmtN = v => v.toLocaleString();
+
+            document.getElementById('searchResult').style.display = '';
+            document.getElementById('searchEmpty').style.display = 'none';
+
+            document.getElementById('searchResultTitle').textContent = partnerName;
+
+            const totalViews = entries.reduce((s, e) => s + (e.data.total_views || 0), 0);
+            const totalVids = entries.reduce((s, e) => s + (e.data.video_count || e.data.post_count || 0), 0);
+            const platCount = entries.length;
+            const bestEntry = entries.reduce((best, e) => (e.data.total_views || 0) > (best.data.total_views || 0) ? e : best, entries[0]);
+
+            document.getElementById('srTotalViews').textContent = fmtV(totalViews);
+            document.getElementById('srTotalVideos').textContent = fmtN(totalVids);
+            document.getElementById('srPlatformCount').textContent = platCount;
+            document.getElementById('srBestPlatform').textContent = sName(bestEntry.platform);
+
+            // Platform comparison table
+            const maxViews = Math.max(...entries.map(e => e.data.total_views || 0), 1);
+            let tbl = `<table style="width:100%;border-collapse:collapse;font-size:0.88rem;">`;
+            tbl += `<thead><tr>
+                <th style="text-align:left;padding:10px 12px;border-bottom:2px solid var(--border);color:var(--text-secondary);">${t('Platform','플랫폼','平台')}</th>
+                <th style="text-align:right;padding:10px 12px;border-bottom:2px solid var(--border);color:var(--text-secondary);">${t('Views','조회수','浏览量')}</th>
+                <th style="text-align:right;padding:10px 12px;border-bottom:2px solid var(--border);color:var(--text-secondary);">${t('Videos','영상','视频')}</th>
+                <th style="text-align:right;padding:10px 12px;border-bottom:2px solid var(--border);color:var(--text-secondary);">${t('Likes','좋아요','点赞')}</th>
+                <th style="text-align:right;padding:10px 12px;border-bottom:2px solid var(--border);color:var(--text-secondary);">${t('Avg Views','평균 조회수','平均浏览')}</th>
+            </tr></thead><tbody>`;
+
+            entries.sort((a, b) => (b.data.total_views || 0) - (a.data.total_views || 0));
+            entries.forEach((e, idx) => {
+                const pkIdx = allKeys.indexOf(e.platform);
+                const color = COLORS[pkIdx % COLORS.length];
+                const views = e.data.total_views || 0;
+                const vids = e.data.video_count || e.data.post_count || 0;
+                const likes = e.data.total_likes || 0;
+                const avg = vids > 0 ? Math.round(views / vids) : 0;
+                const barW = Math.round((views / maxViews) * 100);
+                const bgRow = idx % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)';
+                tbl += `<tr style="background:${bgRow};">
+                    <td style="padding:10px 12px;border-bottom:1px solid var(--border);"><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:${color};margin-right:8px;"></span><strong style="color:var(--text-primary);">${sName(e.platform)}</strong></td>
+                    <td style="padding:10px 12px;border-bottom:1px solid var(--border);text-align:right;">
+                        <div style="display:flex;align-items:center;justify-content:flex-end;gap:8px;">
+                            <span style="font-weight:600;color:${color};">${fmtN(views)}</span>
+                            <div style="width:60px;height:6px;border-radius:3px;background:rgba(255,255,255,0.06);overflow:hidden;"><div style="width:${barW}%;height:100%;background:${color};border-radius:3px;"></div></div>
+                        </div>
+                    </td>
+                    <td style="padding:10px 12px;border-bottom:1px solid var(--border);text-align:right;color:var(--text-primary);font-weight:600;">${fmtN(vids)}</td>
+                    <td style="padding:10px 12px;border-bottom:1px solid var(--border);text-align:right;color:var(--text-secondary);">${fmtN(likes)}</td>
+                    <td style="padding:10px 12px;border-bottom:1px solid var(--border);text-align:right;color:var(--text-secondary);">${fmtV(avg)}</td>
+                </tr>`;
+            });
+            tbl += `</tbody></table>`;
+            document.getElementById('searchPlatformTable').innerHTML = tbl;
+
+            // Platform chart
+            if (_searchChart) { _searchChart.destroy(); _searchChart = null; }
+            const ctx = document.getElementById('searchPlatformChart')?.getContext('2d');
+            if (ctx) {
+                const labels = entries.map(e => sName(e.platform));
+                const data = entries.map(e => e.data.total_views || 0);
+                const colors = entries.map(e => COLORS[allKeys.indexOf(e.platform) % COLORS.length] + 'cc');
+                const txtColor = getComputedStyle(document.documentElement).getPropertyValue('--text-secondary').trim();
+                const gridColor = getComputedStyle(document.documentElement).getPropertyValue('--chart-grid').trim();
+                _searchChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: { labels, datasets: [{ data, backgroundColor: colors, borderRadius: 6, barPercentage: 0.6 }] },
+                    options: {
+                        indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: { callbacks: { label: c => fmtN(c.raw) + ' ' + t('views','조회수','浏览量') } },
+                            datalabels: {
+                                display: true, anchor: 'end', align: 'right', offset: 4,
+                                font: { size: 11, weight: '600' },
+                                color: (ctx2) => colors[ctx2.dataIndex].replace(/cc$/, 'ff'),
+                                formatter: v => v > 0 ? fmtV(v) : '',
+                            }
+                        },
+                        scales: {
+                            y: { grid: { display: false }, ticks: { color: (c) => COLORS[allKeys.indexOf(entries[c.index]?.platform) % COLORS.length], font: { size: 12, weight: '600' } } },
+                            x: { grid: { color: gridColor }, ticks: { color: txtColor, callback: v => fmtV(v) }, border: { display: false } }
+                        }
+                    }
+                });
+            }
+
+            // Video list grouped by platform
+            let vhtml = '';
+            entries.forEach(e => {
+                const pkIdx = allKeys.indexOf(e.platform);
+                const color = COLORS[pkIdx % COLORS.length];
+                const videos = (e.data.videos || []).slice().sort((a, b) => (b.view_count || 0) - (a.view_count || 0));
+                if (!videos.length) return;
+                vhtml += `<div class="search-plat-group-header"><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:${color};"></span> ${pName(e.platform)} <span style="font-weight:400;font-size:0.85rem;color:var(--text-muted);">(${videos.length} ${t('videos','영상','视频')})</span></div>`;
+                vhtml += `<div class="search-video-grid">`;
+                videos.forEach(v => {
+                    const thumb = v.thumbnail || (v.video_id ? `https://img.youtube.com/vi/${v.video_id}/mqdefault.jpg` : '');
+                    const url = v.url || (v.video_id ? `https://www.youtube.com/watch?v=${v.video_id}` : '#');
+                    const views = v.view_count || v.views || 0;
+                    const date = v.published_at ? v.published_at.substring(0, 10) : '';
+                    vhtml += `
+                        <a href="${url}" target="_blank" rel="noopener" class="search-video-card" style="text-decoration:none;">
+                            ${thumb ? `<img class="search-video-thumb" src="${thumb}" alt="" loading="lazy" onerror="this.style.display='none'">` : `<div class="search-video-thumb" style="display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--text-muted);">📺</div>`}
+                            <div class="search-video-info">
+                                <div class="search-video-title">${v.title || 'Untitled'}</div>
+                                <div class="search-video-stats">
+                                    <span class="search-plat-badge" style="background:${color}22;color:${color};">${sName(e.platform)}</span>
+                                    <span class="search-video-stat">👁 ${fmtV(views)}</span>
+                                    ${date ? `<span class="search-video-stat">${date}</span>` : ''}
+                                </div>
+                            </div>
+                        </a>`;
+                });
+                vhtml += `</div>`;
+            });
+            document.getElementById('searchVideoList').innerHTML = vhtml || `<div style="text-align:center;padding:32px;color:var(--text-muted);">${t('No video data','영상 데이터 없음','无视频数据')}</div>`;
+        }
+
+        // Close autocomplete on outside click
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.search-input-wrap')) {
+                document.getElementById('searchAutocomplete')?.classList.remove('open');
+            }
+        });
     </script>
 </body>
 </html>
