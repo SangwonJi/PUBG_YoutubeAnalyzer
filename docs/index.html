@@ -1096,14 +1096,9 @@
         }
         @keyframes tabSlide { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
-        /* ===== Header Search & Separator ===== */
-        .header-search-btn {
-            width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--border);
-            background: transparent; color: var(--text-muted); cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            transition: all 0.2s;
-        }
-        .header-search-btn:hover { color: var(--text-primary); border-color: var(--border-accent); background: var(--accent-bg); }
+        /* ===== Header Search Tab ===== */
+        .header-tab-search { display: flex; align-items: center; }
+        .header-tab-search svg { flex-shrink: 0; }
         .header-sep { width: 1px; height: 20px; background: var(--border); margin: 0 4px; }
 
         /* ===== Premium Enhancements ===== */
@@ -1203,7 +1198,7 @@
         .channel-btn:active { transform: scale(0.97); }
         .header-tab:active { transform: scale(0.97); }
         .partner-item:active { transform: scale(0.99); }
-        .header-search-btn:active { transform: scale(0.92); }
+        .header-tab-search:active { transform: scale(0.97); }
         .theme-toggle:active { transform: scale(0.88); }
 
         @media (max-width: 900px) {
@@ -1266,12 +1261,11 @@
                 <button class="header-tab" onclick="switchTab('noncollab')" data-en="Content" data-ko="일반 콘텐츠" data-zh="内容">일반 콘텐츠</button>
                 <button class="header-tab" onclick="switchTab('overview')" data-en="Overview" data-ko="오버뷰" data-zh="概览">오버뷰</button>
                 <button class="header-tab" onclick="switchTab('compare')" data-en="Compare" data-ko="비교" data-zh="比较" id="compareTabBtn" style="display:none;">비교</button>
+                <button class="header-tab header-tab-search" onclick="switchTab('search')">
+                    <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor" style="margin-right:5px;opacity:0.6;flex-shrink:0;"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg><span data-en="Search All" data-ko="통합 검색" data-zh="全局搜索">통합 검색</span>
+                </button>
             </nav>
             <div class="header-bar-right">
-                <button class="header-search-btn" onclick="switchTab('search')" title="Search">
-                    <svg viewBox="0 0 20 20" width="15" height="15" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
-                </button>
-                <div class="header-sep"></div>
                 <div class="lang-toggle">
                     <button class="lang-btn" onclick="setLanguage('en')">EN</button>
                     <button class="lang-btn active" onclick="setLanguage('ko')">한</button>
