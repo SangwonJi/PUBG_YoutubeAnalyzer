@@ -342,95 +342,181 @@ def save_classifications(conn, collab_map, nc_map):
 
 
 # ═══════════════════════════════════════════════
-# STEP 4: JSON 재생성 (DB에서 전체 읽어서)
+# STEP 4: JSON 재생성
+#   Global: DB 전체에서 생성 (DB에 분류 데이터 있음)
+#   리전: 기존 JSON에 신규 분류 영상만 병합 (기존 분류는 JSON에만 존재)
 # ═══════════════════════════════════════════════
 
-def regenerate_json(conn):
-    """DB 전체를 읽어서 리전별 대시보드 JSON을 생성."""
-    log.info("JSON 재생성 중...")
+def _rebuild_global_json(conn):
+    """Global은 DB에서 전체 재생성."""
+    rows = conn.execute("""
+        SELECT video_id, title, published_at, thumbnail_url,
+               view_count, like_count, comment_count,
+               is_collab, collab_partner, collab_category, content_category
+        FROM videos WHERE region = 'Global'
+    """).fetchall()
 
-    for region, meta in REGION_META.items():
-        rows = conn.execute("""
-            SELECT video_id, title, published_at, thumbnail_url,
-                   view_count, like_count, comment_count,
-                   is_collab, collab_partner, collab_category, content_category
-            FROM videos WHERE region = ?
-            ORDER BY published_at DESC
-        """, (region,)).fetchall()
+    collab_partners = defaultdict(list)
+    noncollab_posts = []
 
-        collab_partners = defaultdict(list)
-        noncollab_posts = []
+    for r in rows:
+        post = {
+            'video_id': r[0], 'url': f"https://www.youtube.com/watch?v={r[0]}",
+            'title': (r[1] or '')[:120], 'published_at': (r[2] or '')[:10],
+            'view_count': r[4] or 0, 'like_count': r[5] or 0,
+            'comment_count': r[6] or 0, 'thumbnail': r[3] or '',
+        }
+        if r[7] == 1 and r[8]:
+            collab_partners[r[8]].append({**post, 'category': r[9] or 'Other'})
+        else:
+            post['content_category'] = r[10] or 'Other'
+            noncollab_posts.append(post)
 
-        for r in rows:
-            post = {
-                'video_id': r[0],
-                'url': f"https://www.youtube.com/watch?v={r[0]}",
-                'title': (r[1] or '')[:120],
-                'published_at': (r[2] or '')[:10],
-                'view_count': r[4] or 0,
-                'like_count': r[5] or 0,
-                'comment_count': r[6] or 0,
-                'thumbnail': r[3] or '',
-            }
+    data_list = []
+    for partner, posts in collab_partners.items():
+        cat = posts[0].get('category', 'Other')
+        data_list.append({
+            'name': partner, 'category': cat,
+            'post_count': len(posts), 'video_count': len(posts),
+            'total_views': sum(p['view_count'] for p in posts),
+            'total_likes': sum(p['like_count'] for p in posts),
+            'total_comments': sum(p['comment_count'] for p in posts),
+            'first_collab': min((p['published_at'] for p in posts if p['published_at']), default=''),
+            'videos': sorted(posts, key=lambda x: x.get('view_count', 0), reverse=True),
+        })
+    data_list.sort(key=lambda x: x['total_views'], reverse=True)
 
-            if r[7] == 1 and r[8]:  # is_collab and partner
-                collab_partners[r[8]].append({**post, 'category': r[9] or 'Other'})
-            else:
-                post['content_category'] = r[10] or 'Other'
-                noncollab_posts.append(post)
+    cat_groups = defaultdict(list)
+    for p in noncollab_posts:
+        cat_groups[p.get('content_category', 'Other')].append(p)
+    content_types = []
+    for cat, videos in sorted(cat_groups.items(), key=lambda x: -len(x[1])):
+        content_types.append({
+            'name': cat, 'video_count': len(videos),
+            'total_views': sum(v['view_count'] for v in videos),
+            'videos': sorted(videos, key=lambda x: x.get('view_count', 0), reverse=True),
+        })
+    others = {
+        'video_count': len(noncollab_posts),
+        'total_views': sum(p['view_count'] for p in noncollab_posts),
+        'total_likes': sum(p['like_count'] for p in noncollab_posts),
+        'total_comments': sum(p['comment_count'] for p in noncollab_posts),
+        'content_types': content_types,
+    }
 
-        # Build partners JSON
-        data_list = []
-        for partner, posts in collab_partners.items():
-            cat = posts[0].get('category', 'Other')
-            data_list.append({
-                'name': partner,
-                'category': cat,
-                'post_count': len(posts),
-                'total_views': sum(p['view_count'] for p in posts),
-                'total_likes': sum(p['like_count'] for p in posts),
-                'total_comments': sum(p['comment_count'] for p in posts),
-                'video_count': len(posts),
-                'first_collab': min((p['published_at'] for p in posts if p['published_at']), default=''),
-                'videos': sorted(posts, key=lambda x: x.get('view_count', 0), reverse=True),
-            })
-        data_list.sort(key=lambda x: x['total_views'], reverse=True)
+    with open(DOCS / 'data.json', 'w', encoding='utf-8') as f:
+        json.dump(data_list, f, ensure_ascii=False)
+    with open(DOCS / 'others.json', 'w', encoding='utf-8') as f:
+        json.dump(others, f, ensure_ascii=False)
 
-        # Build non-collab JSON
-        cat_groups = defaultdict(list)
-        for p in noncollab_posts:
-            cat_groups[p.get('content_category', 'Other')].append(p)
+    collab_count = sum(p['video_count'] for p in data_list)
+    log.info(f"  Global: {len(data_list)} 파트너, {collab_count} 콜라보, {len(noncollab_posts)} 일반")
 
-        content_types = []
-        for cat, videos in sorted(cat_groups.items(), key=lambda x: -len(x[1])):
-            content_types.append({
-                'name': cat,
-                'video_count': len(videos),
-                'total_views': sum(v['view_count'] for v in videos),
-                'videos': sorted(videos, key=lambda x: x.get('view_count', 0), reverse=True),
-            })
 
-        others = {
-            'video_count': len(noncollab_posts),
-            'total_views': sum(p['view_count'] for p in noncollab_posts),
-            'total_likes': sum(p['like_count'] for p in noncollab_posts),
-            'total_comments': sum(p['comment_count'] for p in noncollab_posts),
-            'content_types': content_types,
+def _merge_region_json(conn, region):
+    """리전은 기존 JSON에 신규 GPT 분류 영상만 병합."""
+    rk = region.lower()
+    data_file = DOCS / f'yt_{rk}_data.json'
+    others_file = DOCS / f'yt_{rk}_others.json'
+
+    with open(data_file, 'r', encoding='utf-8') as f:
+        partners = json.load(f)
+    with open(others_file, 'r', encoding='utf-8') as f:
+        others = json.load(f)
+
+    existing_ids = set()
+    for p in partners:
+        for v in p.get('videos', []):
+            existing_ids.add(v.get('video_id', ''))
+    for ct in others.get('content_types', []):
+        for v in ct.get('videos', []):
+            existing_ids.add(v.get('video_id', ''))
+
+    new_rows = conn.execute("""
+        SELECT video_id, title, published_at, thumbnail_url,
+               view_count, like_count, comment_count,
+               is_collab, collab_partner, collab_category, content_category
+        FROM videos
+        WHERE region = ? AND classified_by = 'gpt-4o-mini'
+    """, (region,)).fetchall()
+
+    added = 0
+    for r in new_rows:
+        vid = r[0]
+        if vid in existing_ids:
+            continue
+        post = {
+            'video_id': vid, 'url': f"https://www.youtube.com/watch?v={vid}",
+            'title': (r[1] or '')[:120], 'published_at': (r[2] or '')[:10],
+            'view_count': r[4] or 0, 'like_count': r[5] or 0,
+            'comment_count': r[6] or 0, 'thumbnail': r[3] or '',
         }
 
-        if region == 'Global':
-            data_fname, others_fname = 'data.json', 'others.json'
+        if r[7] == 1 and r[8]:
+            partner_name = r[8]
+            found = False
+            for p in partners:
+                if p['name'].upper() == partner_name.upper():
+                    p['videos'].append(post)
+                    p['video_count'] = len(p['videos'])
+                    p['post_count'] = len(p['videos'])
+                    p['total_views'] = sum(v['view_count'] for v in p['videos'])
+                    p['total_likes'] = sum(v['like_count'] for v in p['videos'])
+                    p['total_comments'] = sum(v['comment_count'] for v in p['videos'])
+                    p['videos'].sort(key=lambda x: x.get('view_count', 0), reverse=True)
+                    found = True
+                    break
+            if not found:
+                partners.append({
+                    'name': partner_name, 'category': r[9] or 'Other',
+                    'post_count': 1, 'video_count': 1,
+                    'total_views': post['view_count'], 'total_likes': post['like_count'],
+                    'total_comments': post['comment_count'],
+                    'first_collab': post['published_at'], 'videos': [post],
+                })
         else:
-            rk = region.lower()
-            data_fname, others_fname = f'yt_{rk}_data.json', f'yt_{rk}_others.json'
+            cat = r[10] or 'Other'
+            post['content_category'] = cat
+            found = False
+            for ct in others.get('content_types', []):
+                if ct['name'] == cat:
+                    ct['videos'].append(post)
+                    ct['video_count'] = len(ct['videos'])
+                    ct['total_views'] = sum(v['view_count'] for v in ct['videos'])
+                    ct['videos'].sort(key=lambda x: x.get('view_count', 0), reverse=True)
+                    found = True
+                    break
+            if not found:
+                others.setdefault('content_types', []).append({
+                    'name': cat, 'video_count': 1,
+                    'total_views': post['view_count'], 'videos': [post],
+                })
+            others['video_count'] = others.get('video_count', 0) + 1
+            others['total_views'] = others.get('total_views', 0) + post['view_count']
+            others['total_likes'] = others.get('total_likes', 0) + post['like_count']
+            others['total_comments'] = others.get('total_comments', 0) + post['comment_count']
+        added += 1
 
-        with open(DOCS / data_fname, 'w', encoding='utf-8') as f:
-            json.dump(data_list, f, ensure_ascii=False)
-        with open(DOCS / others_fname, 'w', encoding='utf-8') as f:
-            json.dump(others, f, ensure_ascii=False)
+    partners.sort(key=lambda x: x.get('total_views', 0), reverse=True)
 
-        collab_count = sum(p['video_count'] for p in data_list)
-        log.info(f"  {region}: {len(data_list)} 파트너, {collab_count} 콜라보, {len(noncollab_posts)} 일반")
+    with open(data_file, 'w', encoding='utf-8') as f:
+        json.dump(partners, f, ensure_ascii=False)
+    with open(others_file, 'w', encoding='utf-8') as f:
+        json.dump(others, f, ensure_ascii=False)
+
+    collab_count = sum(p.get('video_count', 0) for p in partners)
+    nc_count = others.get('video_count', 0)
+    log.info(f"  {region}: {len(partners)} 파트너, {collab_count} 콜라보, {nc_count} 일반 (+{added} new)")
+
+
+def regenerate_json(conn):
+    """Global은 DB에서 재생성, 리전은 기존 JSON에 병합."""
+    log.info("JSON 재생성 중...")
+    _rebuild_global_json(conn)
+    for region in REGION_META:
+        if region == 'Global':
+            continue
+        _merge_region_json(conn, region)
 
 
 # ═══════════════════════════════════════════════
