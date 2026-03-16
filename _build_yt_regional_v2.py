@@ -251,7 +251,7 @@ for region, info in REGIONS.items():
             'total_comments': total_comments,
             'video_count': len(posts),
             'first_collab': min((p['published_at'] for p in posts if p['published_at']), default=''),
-            'videos': sorted(posts, key=lambda x: x.get('published_at', ''), reverse=True),
+            'videos': sorted(posts, key=lambda x: x.get('view_count', 0), reverse=True),
         })
     data_list.sort(key=lambda x: x['total_views'], reverse=True)
     
@@ -265,7 +265,7 @@ for region, info in REGIONS.items():
             'name': cat,
             'video_count': len(videos),
             'total_views': sum(v['view_count'] for v in videos),
-            'videos': sorted(videos, key=lambda x: x.get('published_at', ''), reverse=True),
+            'videos': sorted(videos, key=lambda x: x.get('view_count', 0), reverse=True),
         })
     
     others = {
