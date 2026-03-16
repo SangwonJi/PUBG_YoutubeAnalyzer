@@ -40,6 +40,7 @@ GPT_API_KEY = os.getenv("GPT_API_KEY", "")
 
 # ── Channels ──
 CHANNELS = {
+    "Global":    "@PUBGMOBILE",
     "MENA":      "@PUBGMOBILEMENAOFFICIAL",
     "Turkey":    "@PUBGMOBILETürkiye",
     "Indonesia": "@pubgmobileofficialindonesia",
@@ -53,6 +54,7 @@ CHANNELS = {
 }
 
 REGION_META = {
+    'Global':    {'name': 'PUBG MOBILE',            'dateRange': '2018 - 2026'},
     'MENA':      {'name': 'PUBG MOBILE MENA',      'dateRange': '2019 - 2026'},
     'Turkey':    {'name': 'PUBG MOBILE Turkey',     'dateRange': '2019 - 2026'},
     'Indonesia': {'name': 'PUBG MOBILE Indonesia',  'dateRange': '2018 - 2026'},
@@ -416,10 +418,15 @@ def regenerate_json(conn):
             'content_types': content_types,
         }
 
-        rk = region.lower()
-        with open(DOCS / f"yt_{rk}_data.json", 'w', encoding='utf-8') as f:
+        if region == 'Global':
+            data_fname, others_fname = 'data.json', 'others.json'
+        else:
+            rk = region.lower()
+            data_fname, others_fname = f'yt_{rk}_data.json', f'yt_{rk}_others.json'
+
+        with open(DOCS / data_fname, 'w', encoding='utf-8') as f:
             json.dump(data_list, f, ensure_ascii=False)
-        with open(DOCS / f"yt_{rk}_others.json", 'w', encoding='utf-8') as f:
+        with open(DOCS / others_fname, 'w', encoding='utf-8') as f:
             json.dump(others, f, ensure_ascii=False)
 
         collab_count = sum(p['video_count'] for p in data_list)
