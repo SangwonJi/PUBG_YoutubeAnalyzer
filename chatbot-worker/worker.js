@@ -277,7 +277,7 @@ export default {
 
       return new Response(stream, {
         status: 200,
-        headers: { ...headers, 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache' },
+        headers: { ...headers, 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache', 'X-AI-Model': 'llama-3.3-70b' },
       });
     } catch (err) {
       return new Response(JSON.stringify({ error: `Workers AI error: ${err.message}` }), {
@@ -370,7 +370,7 @@ function streamClaudeResponse(res, cors) {
 
   return new Response(readable, {
     status: 200,
-    headers: { ...cors, 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache' },
+    headers: { ...cors, 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache', 'X-AI-Model': 'claude-sonnet' },
   });
 }
 
