@@ -227,7 +227,7 @@ export default {
       });
     }
 
-    const maxCtx = parseInt(env.MAX_CONTEXT_CHARS || '35000');
+    const maxCtx = parseInt(env.MAX_CONTEXT_CHARS || '80000');
     let fullContext = context ? context.substring(0, maxCtx) : '';
 
     const systemContent = getSystemPrompt() + (fullContext
@@ -239,7 +239,11 @@ export default {
       ...messages.slice(-10),
     ];
 
-    // Try OpenAI via AI Gateway if configured, otherwise Workers AI
+    // Priority: Claude > OpenAI > Workers AI
+    if (env.ANTHROPIC_API_KEY) {
+      return callClaude(env.ANTHROPIC_API_KEY, systemContent, messages.slice(-10), headers);
+    }
+
     if (env.OPENAI_API_KEY && env.AI_GATEWAY_URL) {
       return callOpenAI(env.OPENAI_API_KEY, env.AI_GATEWAY_URL, apiMessages, headers);
     }
@@ -269,6 +273,80 @@ export default {
     }
   },
 };
+
+async function callClaude(apiKey, systemContent, userMessages, cors) {
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 4096,
+        temperature: 0.1,
+        system: systemContent,
+        messages: userMessages,
+        stream: true,
+      }),
+    });
+
+    if (!res.ok) {
+      const errText = await res.text();
+      let errMsg = `Claude error: ${res.status}`;
+      try { errMsg = JSON.parse(errText).error?.message || errMsg; } catch {}
+      return new Response(JSON.stringify({ error: errMsg }), {
+        status: 502, headers: { ...cors, 'Content-Type': 'application/json' },
+      });
+    }
+
+    const { readable, writable } = new TransformStream();
+    const writer = writable.getWriter();
+    const encoder = new TextEncoder();
+
+    (async () => {
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
+      try {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          buffer += decoder.decode(value, { stream: true });
+          const lines = buffer.split('\n');
+          buffer = lines.pop() || '';
+          for (const line of lines) {
+            if (!line.startsWith('data: ')) continue;
+            const data = line.slice(6);
+            if (data === '[DONE]') continue;
+            try {
+              const parsed = JSON.parse(data);
+              if (parsed.type === 'content_block_delta' && parsed.delta?.text) {
+                await writer.write(encoder.encode(`data: ${JSON.stringify({ response: parsed.delta.text })}\n\n`));
+              }
+            } catch {}
+          }
+        }
+        await writer.write(encoder.encode('data: [DONE]\n\n'));
+      } catch (err) {
+        await writer.write(encoder.encode(`data: ${JSON.stringify({ error: err.message })}\n\n`));
+      } finally {
+        await writer.close();
+      }
+    })();
+
+    return new Response(readable, {
+      status: 200,
+      headers: { ...cors, 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache' },
+    });
+  } catch (err) {
+    return new Response(JSON.stringify({ error: `Failed to reach Claude: ${err.message}` }), {
+      status: 502, headers: { ...cors, 'Content-Type': 'application/json' },
+    });
+  }
+}
 
 async function callOpenAI(apiKey, gatewayUrl, apiMessages, cors) {
   try {

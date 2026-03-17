@@ -4911,12 +4911,12 @@
         const getName = p => p.partner_name || p.name || '?';
         const fmtV = n => n >= 1e6 ? (n/1e6).toFixed(1)+'M' : n >= 1e3 ? Math.round(n/1e3)+'K' : String(n);
 
-        const DETAIL_LIMIT = 35;
+        const DETAIL_LIMIT = 174;
         partnersData.slice(0, DETAIL_LIMIT).forEach((p, i) => {
             const vids = p.videos || [];
-            ctx += `\n#${i + 1} ${getName(p)} [${p.category || '?'}] ${vids.length}편 ${fmtV(p.total_views||0)}v ${fmtV(p.total_likes||0)}L\n`;
+            ctx += `\n#${i + 1} ${getName(p)} [${p.category || '?'}] ${vids.length}편 ${fmtV(p.total_views||0)}v ${fmtV(p.total_likes||0)}L ${fmtV(p.total_comments||0)}C\n`;
             vids.forEach(v => {
-                ctx += ` "${(v.title||'').substring(0,65)}" ${v.published_at?.substring(0, 10) || '?'} ${fmtV(v.view_count || 0)}v\n`;
+                ctx += ` "${(v.title||'').substring(0,80)}" ${v.published_at?.substring(0, 10) || '?'} ${fmtV(v.view_count || 0)}v ${fmtV(v.like_count || 0)}L ${fmtV(v.comment_count || 0)}C\n`;
             });
         });
 
@@ -4924,7 +4924,6 @@
             ctx += `\n[${DETAIL_LIMIT + 1}~${partnersData.length}위]\n`;
             partnersData.slice(DETAIL_LIMIT).forEach((p, i) => {
                 const vids = p.videos || [];
-                const dates = vids.map(v => v.published_at?.substring(0, 10)).filter(Boolean).sort();
                 ctx += `${DETAIL_LIMIT + i + 1}. ${getName(p)} [${p.category || '?'}] ${vids.length}편 ${fmtV(p.total_views || 0)}v\n`;
             });
         }
