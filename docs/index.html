@@ -1291,17 +1291,129 @@
         .header-tab-search:active { transform: scale(0.97); }
         .theme-toggle:active { transform: scale(0.88); }
 
+        /* ===== Heatmap Calendar ===== */
+        .heatmap-wrap { overflow-x: auto; padding: 4px 0; }
+        .heatmap-grid {
+            display: grid; grid-template-rows: repeat(7, 14px); grid-auto-flow: column;
+            gap: 3px; width: max-content;
+        }
+        .heatmap-cell {
+            width: 14px; height: 14px; border-radius: 3px;
+            background: rgba(255,255,255,0.04); transition: background 0.15s, transform 0.15s;
+        }
+        .heatmap-cell:hover { transform: scale(1.5); z-index: 2; position: relative; }
+        [data-theme="light"] .heatmap-cell { background: rgba(0,0,0,0.04); }
+        .heatmap-cell.l1 { background: rgba(99,102,241,0.2); }
+        .heatmap-cell.l2 { background: rgba(99,102,241,0.4); }
+        .heatmap-cell.l3 { background: rgba(99,102,241,0.6); }
+        .heatmap-cell.l4 { background: rgba(99,102,241,0.85); }
+        .heatmap-months {
+            display: flex; gap: 0; font-size: 0.68rem; color: var(--text-muted);
+            margin-bottom: 6px; padding-left: 28px;
+        }
+        .heatmap-days {
+            display: grid; grid-template-rows: repeat(7, 14px); gap: 3px;
+            font-size: 0.62rem; color: var(--text-muted); margin-right: 6px; text-align: right;
+        }
+        .heatmap-legend {
+            display: flex; align-items: center; gap: 4px; margin-top: 10px; font-size: 0.72rem; color: var(--text-muted);
+        }
+        .heatmap-legend-cell {
+            width: 12px; height: 12px; border-radius: 2px;
+        }
+        .heatmap-tooltip {
+            position: fixed; padding: 6px 10px; background: var(--tooltip-bg); color: var(--text-primary);
+            border: 1px solid var(--border); border-radius: 6px; font-size: 0.78rem;
+            pointer-events: none; z-index: 1000; display: none; white-space: nowrap;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ===== Treemap ===== */
+        .treemap-container { display: flex; flex-wrap: wrap; gap: 3px; border-radius: 10px; overflow: hidden; min-height: 200px; }
+        .treemap-cell {
+            display: flex; align-items: center; justify-content: center; flex-direction: column;
+            border-radius: 4px; padding: 8px 6px; min-width: 40px; cursor: default;
+            transition: opacity 0.2s, transform 0.15s; position: relative; overflow: hidden;
+        }
+        .treemap-cell:hover { opacity: 0.85; transform: scale(1.02); z-index: 1; }
+        .treemap-name { font-size: 0.72rem; font-weight: 600; color: #fff; text-align: center; line-height: 1.2; text-shadow: 0 1px 3px rgba(0,0,0,0.4); }
+        .treemap-val { font-size: 0.65rem; color: rgba(255,255,255,0.8); margin-top: 2px; }
+
+        /* ===== Sparkline ===== */
+        .sparkline-canvas { display: block; margin-top: 4px; }
+
+        /* ===== Favorite Star ===== */
+        .fav-star {
+            cursor: pointer; font-size: 0.8rem; opacity: 0.25; transition: all 0.2s;
+            margin-right: 4px; flex-shrink: 0; line-height: 1;
+        }
+        .fav-star:hover { opacity: 0.7; transform: scale(1.2); }
+        .fav-star.active { opacity: 1; color: #f59e0b; }
+
+        /* ===== Last Updated Badge ===== */
+        .last-updated {
+            display: inline-flex; align-items: center; gap: 5px;
+            font-size: 0.72rem; color: var(--text-muted); padding: 3px 10px;
+            background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+            border-radius: 20px; white-space: nowrap;
+        }
+        [data-theme="light"] .last-updated { background: rgba(0,0,0,0.02); }
+        .last-updated-dot {
+            width: 6px; height: 6px; border-radius: 50%; background: #22c55e;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        @keyframes pulse-dot { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+        /* ===== Mobile Hamburger ===== */
+        .mobile-menu-btn {
+            display: none; background: none; border: none; color: var(--text-primary);
+            cursor: pointer; padding: 6px; border-radius: 8px; transition: background 0.2s;
+        }
+        .mobile-menu-btn:hover { background: rgba(255,255,255,0.06); }
+        .sidebar-overlay {
+            display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+            z-index: 998; backdrop-filter: blur(2px);
+        }
+
+        /* ===== Mobile Responsive ===== */
         @media (max-width: 900px) {
             .main-scroll::before { left: 0; }
             .header-tabs { overflow-x: auto; }
             .header-tab { padding: 0 12px; font-size: 0.82rem; }
         }
+        @media (max-width: 768px) {
+            .mobile-menu-btn { display: block; }
+            .nav-sidebar {
+                position: fixed; left: -260px; top: 0; z-index: 999;
+                transition: left 0.3s cubic-bezier(.4,0,.2,1); box-shadow: var(--shadow-lg);
+            }
+            .nav-sidebar.open { left: 0; }
+            .sidebar-overlay.open { display: block; }
+            .main-area { margin-left: 0 !important; }
+            .header-bar { padding-left: 8px; }
+            .header-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .header-tab { padding: 0 10px; font-size: 0.78rem; white-space: nowrap; }
+            .breadcrumb { font-size: 0.75rem; }
+            .main-content {
+                flex-direction: column !important; height: auto !important;
+            }
+            .sidebar {
+                width: 100% !important; height: auto !important; max-height: 320px;
+                border-right: none !important; border-bottom: 1px solid var(--border);
+            }
+            .detail-panel { width: 100% !important; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+            .charts-row { grid-template-columns: 1fr !important; }
+            .container { padding: 16px !important; }
+        }
     </style>
 </head>
 <body>
+    <div id="heatmapTooltip" class="heatmap-tooltip"></div>
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="shell">
     <!-- ===== LEFT NAV SIDEBAR ===== -->
-    <aside class="nav-sidebar">
+    <aside class="nav-sidebar" id="navSidebar">
         <div class="sidebar-brand">
             <div class="header-inner">
                 <img id="headerLogoImg" src="channels4_profile.jpg" alt="PUBG MOBILE" class="header-logo-img">
@@ -1337,6 +1449,9 @@
     <div class="main-area">
         <div class="header-bar">
             <div class="header-bar-left">
+                <button class="mobile-menu-btn" onclick="openMobileSidebar()" aria-label="Menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                </button>
                 <div class="breadcrumb" id="breadcrumb">
                     <span data-en="Analytics" data-ko="분석" data-zh="분석">분석</span>
                     <span class="breadcrumb-sep">›</span>
@@ -1356,6 +1471,10 @@
                 </button>
             </nav>
             <div class="header-bar-right">
+                <span class="last-updated" id="lastUpdatedBadge" style="display:none;">
+                    <span class="last-updated-dot"></span>
+                    <span id="lastUpdatedText">-</span>
+                </span>
                 <div class="lang-toggle">
                     <button class="lang-btn" onclick="setLanguage('en')">EN</button>
                     <button class="lang-btn active" onclick="setLanguage('ko')">한</button>
@@ -1553,6 +1672,20 @@
                 </div>
             </section>
 
+            <!-- Heatmap Calendar -->
+            <section style="margin-top: 24px;">
+                <div class="chart-card" style="padding: 24px 28px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
+                        <div>
+                            <h3 class="chart-title" style="font-size: 1.05rem; margin-bottom: 2px;" data-en="Collab Posting Activity" data-ko="콜라보 게시 활동" data-zh="合作发布活动">콜라보 게시 활동</h3>
+                            <p style="font-size:0.76rem;color:var(--text-muted);margin:0;" data-en="Daily collab video posting frequency over the past year" data-ko="최근 1년간 일별 콜라보 영상 게시 빈도" data-zh="过去一年每日合作视频发布频率">최근 1년간 일별 콜라보 영상 게시 빈도</p>
+                        </div>
+                        <div id="heatmapSummary" style="font-size:0.82rem;color:var(--text-secondary);font-weight:600;"></div>
+                    </div>
+                    <div id="heatmapContainer" class="heatmap-wrap"></div>
+                </div>
+            </section>
+
             <!-- Full-width top partners chart -->
             <section style="margin-top: 24px;">
                 <div class="chart-card" style="padding: 28px 32px;">
@@ -1563,6 +1696,15 @@
                 </div>
             </section>
             
+            <!-- Treemap -->
+            <section style="margin-top: 24px;">
+                <div class="chart-card" style="padding: 24px 28px;">
+                    <h3 class="chart-title" style="font-size: 1.05rem; margin-bottom: 4px;" data-en="Partner Landscape" data-ko="파트너 랜드스케이프" data-zh="合作伙伴全景">파트너 랜드스케이프</h3>
+                    <p style="font-size:0.76rem;color:var(--text-muted);margin:0 0 16px;" data-en="Partner share by total views — larger area means more impact" data-ko="총 조회수 기준 파트너 비중 — 면적이 클수록 임팩트가 큼" data-zh="按总浏览量的合作伙伴占比">총 조회수 기준 파트너 비중 — 면적이 클수록 임팩트가 큼</p>
+                    <div id="treemapContainer" class="treemap-container"></div>
+                </div>
+            </section>
+
             <section class="charts-row" style="grid-template-columns: 1fr 1fr 1fr; margin-top: 24px;">
                 <div class="chart-card" style="position: relative;">
                     <h3 class="chart-title" id="collabRatioTitle">Collab vs Non-Collab</h3>
@@ -1808,7 +1950,7 @@
             if (chartsInitialized && currentTab === 'overview') {
                 clearCharts();
                 chartsInitialized = false;
-                setTimeout(() => { initCharts(); chartsInitialized = true; }, 60);
+                setTimeout(() => { initCharts(); renderHeatmap(); renderTreemap(); chartsInitialized = true; }, 60);
             }
         }
         function toggleTheme() { applyTheme(currentTheme === 'dark' ? 'light' : 'dark'); }
@@ -1997,8 +2139,7 @@
             if (chartsInitialized && currentTab === 'overview') {
                 clearCharts();
                 chartsInitialized = false;
-                setTimeout(initCharts, 50);
-                chartsInitialized = true;
+                setTimeout(() => { initCharts(); renderHeatmap(); renderTreemap(); chartsInitialized = true; }, 50);
             }
         }
         
@@ -2234,14 +2375,17 @@
             currentPlatform = platId;
             renderPlatformNav();
             updateBreadcrumb();
+            closeMobileSidebar();
             loadChannelData(currentGame + '_' + currentPlatform);
         }
 
-        // Initial render
-        updateGameBtnStyles();
-        renderPlatformNav();
-        updateBreadcrumb();
-        loadChannelData('pubgm_youtube');
+        // Initial render — restore from URL hash if available
+        if (!loadFromHash()) {
+            updateGameBtnStyles();
+            renderPlatformNav();
+            updateBreadcrumb();
+            loadChannelData('pubgm_youtube');
+        }
 
         // Global search input events
         (function() {
@@ -2267,9 +2411,12 @@
             document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
             document.getElementById(tab + 'Tab').classList.add('active');
             
-            // Initialize charts whenever overview tab is shown
             if (tab === 'overview' && !chartsInitialized) {
-                setTimeout(initCharts, 50);
+                setTimeout(() => {
+                    initCharts();
+                    renderHeatmap();
+                    renderTreemap();
+                }, 50);
                 chartsInitialized = true;
             }
             if (tab === 'compare' && !compareChartsInitialized) {
@@ -2278,6 +2425,7 @@
             if (tab === 'search') {
                 setTimeout(initSearchTab, 50);
             }
+            updateHashFromState();
         }
 
         let _searchMode = false;
@@ -2408,10 +2556,8 @@
         }
         
         function initDashboard() {
-            // Apply language first (sets data-en/data-ko defaults)
             setLanguage(currentLang);
             
-            // Then apply platform-specific label overrides (Weibo vs YouTube)
             updateCollabStats();
             updateNoncollabStats();
             updateOverviewStats();
@@ -2419,16 +2565,17 @@
             renderPartnersList();
             renderContentGroups();
             
-            // Re-activate the current tab to force full re-render with new data
             switchTab(currentTab);
             
-            // Search functionality (remove old listener first)
             const searchInput = document.getElementById('searchInput');
             const newSearchInput = searchInput.cloneNode(true);
             searchInput.parentNode.replaceChild(newSearchInput, searchInput);
             newSearchInput.addEventListener('input', (e) => {
                 renderPartnersList(e.target.value);
             });
+
+            updateLastUpdated();
+            updateHashFromState();
         }
         
         function animateValue(el, endVal, dur) {
@@ -2579,26 +2726,35 @@
                 ? t('videos', '영상', '视频')
                 : t('posts', '게시물', '帖子');
             
-            // Apply category filter
             if (currentCategory !== 'all') {
                 filtered = filtered.filter(p => p.category === currentCategory);
             }
-            
-            // Apply search filter
             if (filter) {
                 filtered = filtered.filter(p => 
                     p.name.toLowerCase().includes(filter.toLowerCase())
                 );
             }
+
+            const favs = getFavorites();
+            const favSet = new Set(favs);
+            const favItems = filtered.filter(p => favSet.has(p.name));
+            const nonFavItems = filtered.filter(p => !favSet.has(p.name));
+            const sorted = [...favItems, ...nonFavItems];
             
-            const maxViews = filtered.length ? Math.max(...filtered.map(p => p.total_views || 0)) : 1;
-            list.innerHTML = filtered.map((partner, index) => {
+            const maxViews = sorted.length ? Math.max(...sorted.map(p => p.total_views || 0)) : 1;
+            list.innerHTML = sorted.map((partner, index) => {
                 const pct = maxViews > 0 ? Math.round((partner.total_views || 0) / maxViews * 100) : 0;
+                const isFav = favSet.has(partner.name);
+                const escapedName = partner.name.replace(/'/g, "\\'");
+                const dates = (partner.videos || []).map(v => v.published_at).filter(Boolean);
                 return `
                 <div class="partner-item ${selectedPartner === partner.name ? 'active' : ''}" 
-                     onclick="selectPartner('${partner.name.replace(/'/g, "\\'")}');"
+                     onclick="selectPartner('${escapedName}');"
                      style="animation-delay:${index * 0.02}s">
-                    <div class="partner-rank">${index + 1}</div>
+                    <div class="partner-rank" style="display:flex;flex-direction:column;align-items:center;gap:2px;">
+                        <span class="fav-star ${isFav ? 'active' : ''}" onclick="toggleFavorite('${escapedName}', event)">★</span>
+                        <span>${index + 1}</span>
+                    </div>
                     <div class="partner-info">
                         <div class="partner-name">
                             ${partner.name}
@@ -2606,10 +2762,18 @@
                         </div>
                         <div class="partner-meta">${partner.video_count} ${videosText}</div>
                         <div class="partner-bar-wrap"><div class="partner-bar-fill" style="width:${pct}%"></div></div>
+                        <canvas class="sparkline-canvas" data-dates='${JSON.stringify(dates)}'></canvas>
                     </div>
                     <div class="partner-views">${formatNumber(partner.total_views)}</div>
                 </div>`;
             }).join('');
+
+            list.querySelectorAll('.sparkline-canvas').forEach(canvas => {
+                try {
+                    const dates = JSON.parse(canvas.dataset.dates || '[]');
+                    drawSparkline(canvas, dates);
+                } catch {}
+            });
         }
         
         function selectPartner(name) {
@@ -2851,6 +3015,382 @@
             `}).join('');
         }
         
+        /* ===== C12: Mobile Sidebar ===== */
+        function openMobileSidebar() {
+            document.getElementById('navSidebar')?.classList.add('open');
+            document.getElementById('sidebarOverlay')?.classList.add('open');
+        }
+        function closeMobileSidebar() {
+            document.getElementById('navSidebar')?.classList.remove('open');
+            document.getElementById('sidebarOverlay')?.classList.remove('open');
+        }
+
+        /* ===== C10: Last Updated ===== */
+        function updateLastUpdated() {
+            const badge = document.getElementById('lastUpdatedBadge');
+            const textEl = document.getElementById('lastUpdatedText');
+            if (!badge || !textEl) return;
+
+            let latest = null;
+            (partnersData || []).forEach(p => {
+                (p.videos || []).forEach(v => {
+                    if (v.published_at && (!latest || v.published_at > latest)) latest = v.published_at;
+                });
+            });
+            if (othersData?.content_types) {
+                othersData.content_types.forEach(ct => {
+                    (ct.videos || []).forEach(v => {
+                        if (v.published_at && (!latest || v.published_at > latest)) latest = v.published_at;
+                    });
+                });
+            }
+
+            if (!latest) { badge.style.display = 'none'; return; }
+            badge.style.display = 'inline-flex';
+            const d = new Date(latest);
+            const now = new Date();
+            const diffH = Math.floor((now - d) / 3600000);
+            let rel;
+            if (diffH < 1) rel = t('just now', '방금', '刚刚');
+            else if (diffH < 24) rel = t(`${diffH}h ago`, `${diffH}시간 전`, `${diffH}小时前`);
+            else {
+                const diffD = Math.floor(diffH / 24);
+                rel = t(`${diffD}d ago`, `${diffD}일 전`, `${diffD}天前`);
+            }
+            textEl.textContent = rel;
+            textEl.title = latest;
+        }
+
+        /* ===== C9: URL Hash Routing ===== */
+        function updateHashFromState() {
+            const hash = `#/${currentGame}/${currentPlatform}/${currentTab}`;
+            if (location.hash !== hash) history.replaceState(null, '', hash);
+        }
+
+        function loadFromHash() {
+            const h = location.hash.replace(/^#\/?/, '');
+            if (!h) return false;
+            const parts = h.split('/');
+            if (parts.length >= 2) {
+                const [game, plat, tab] = parts;
+                if (GAMES[game]) {
+                    currentGame = game;
+                    const platKeys = Object.keys(GAMES[game].platforms);
+                    if (platKeys.includes(plat)) currentPlatform = plat;
+                    else currentPlatform = platKeys[0];
+
+                    document.documentElement.style.setProperty('--game-color', GAMES[game].color);
+                    updateGameBtnStyles();
+                    renderPlatformNav();
+                    updateBreadcrumb();
+                    loadChannelData(game + '_' + currentPlatform);
+
+                    if (tab && ['collab','noncollab','overview','compare','search'].includes(tab)) {
+                        setTimeout(() => switchTab(tab), 200);
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        window.addEventListener('hashchange', () => {
+            loadFromHash();
+        });
+
+        /* ===== C11: Partner Favorites ===== */
+        function getFavorites() {
+            try { return JSON.parse(localStorage.getItem('pubg_fav_partners') || '[]'); }
+            catch { return []; }
+        }
+        function saveFavorites(favs) {
+            localStorage.setItem('pubg_fav_partners', JSON.stringify(favs));
+        }
+        function toggleFavorite(name, e) {
+            if (e) e.stopPropagation();
+            let favs = getFavorites();
+            if (favs.includes(name)) favs = favs.filter(f => f !== name);
+            else favs.push(name);
+            saveFavorites(favs);
+            const si = document.getElementById('searchInput');
+            renderPartnersList(si ? si.value : '');
+        }
+
+        /* ===== B5: Heatmap Calendar ===== */
+        function renderHeatmap() {
+            const container = document.getElementById('heatmapContainer');
+            const summary = document.getElementById('heatmapSummary');
+            if (!container) return;
+
+            const dateCounts = {};
+            let totalCollab = 0;
+            (partnersData || []).forEach(p => {
+                (p.videos || []).forEach(v => {
+                    if (v.published_at) {
+                        const day = v.published_at.substring(0, 10);
+                        dateCounts[day] = (dateCounts[day] || 0) + 1;
+                        totalCollab++;
+                    }
+                });
+            });
+
+            const today = new Date();
+            const startDate = new Date(today);
+            startDate.setDate(startDate.getDate() - 364);
+            startDate.setDate(startDate.getDate() - startDate.getDay());
+
+            const dayLabels = currentLang === 'ko' ? ['일','월','화','수','목','금','토']
+                            : currentLang === 'zh' ? ['日','一','二','三','四','五','六']
+                            : ['S','M','T','W','T','F','S'];
+
+            const monthNames = currentLang === 'ko' ? ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월']
+                             : currentLang === 'zh' ? ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+                             : ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+            const cells = [];
+            const d = new Date(startDate);
+            let maxCount = 0;
+            while (d <= today) {
+                const key = d.toISOString().substring(0, 10);
+                const c = dateCounts[key] || 0;
+                if (c > maxCount) maxCount = c;
+                cells.push({ date: key, count: c, day: d.getDay(), month: d.getMonth() });
+                d.setDate(d.getDate() + 1);
+            }
+
+            const getLevel = (c) => {
+                if (c === 0) return '';
+                if (maxCount <= 4) return 'l' + Math.min(c, 4);
+                const pct = c / maxCount;
+                if (pct <= 0.25) return 'l1';
+                if (pct <= 0.5) return 'l2';
+                if (pct <= 0.75) return 'l3';
+                return 'l4';
+            };
+
+            let monthsHtml = '<div class="heatmap-months">';
+            let lastMonth = -1;
+            let weekCount = 0;
+            const weekWidth = 17;
+            const monthStarts = [];
+            for (let i = 0; i < cells.length; i += 7) {
+                const m = cells[i].month;
+                if (m !== lastMonth) {
+                    monthStarts.push({ month: m, week: weekCount });
+                    lastMonth = m;
+                }
+                weekCount++;
+            }
+            monthStarts.forEach((ms, idx) => {
+                const nextWeek = idx < monthStarts.length - 1 ? monthStarts[idx + 1].week : weekCount;
+                const span = nextWeek - ms.week;
+                monthsHtml += `<span style="width:${span * weekWidth}px;">${monthNames[ms.month]}</span>`;
+            });
+            monthsHtml += '</div>';
+
+            let daysHtml = '<div class="heatmap-days">';
+            dayLabels.forEach((label, i) => {
+                daysHtml += `<span style="line-height:14px;">${i % 2 === 1 ? label : ''}</span>`;
+            });
+            daysHtml += '</div>';
+
+            let gridHtml = '<div class="heatmap-grid">';
+            cells.forEach(c => {
+                const lvl = getLevel(c.count);
+                const unitText = currentLang === 'ko' ? '편' : currentLang === 'zh' ? '个' : '';
+                gridHtml += `<div class="heatmap-cell ${lvl}" data-date="${c.date}" data-count="${c.count}" onmouseenter="showHeatmapTip(event,'${c.date}',${c.count})" onmouseleave="hideHeatmapTip()"></div>`;
+            });
+            gridHtml += '</div>';
+
+            let legendHtml = '<div class="heatmap-legend">';
+            legendHtml += `<span>${t('Less','적음','少')}</span>`;
+            ['rgba(255,255,255,0.04)','rgba(99,102,241,0.2)','rgba(99,102,241,0.4)','rgba(99,102,241,0.6)','rgba(99,102,241,0.85)'].forEach(bg => {
+                legendHtml += `<div class="heatmap-legend-cell" style="background:${bg};"></div>`;
+            });
+            legendHtml += `<span>${t('More','많음','多')}</span>`;
+            legendHtml += '</div>';
+
+            container.innerHTML = `<div style="display:flex;"><div style="padding-top:22px;">${daysHtml}</div><div>${monthsHtml}${gridHtml}</div></div>${legendHtml}`;
+
+            const activeDays = Object.keys(dateCounts).filter(k => {
+                return cells.some(c => c.date === k);
+            }).length;
+            if (summary) {
+                summary.textContent = t(
+                    `${activeDays} active days · ${totalCollab} videos`,
+                    `${activeDays}일 활동 · ${totalCollab}편`,
+                    `${activeDays}天活跃 · ${totalCollab}个视频`
+                );
+            }
+        }
+
+        function showHeatmapTip(e, date, count) {
+            const tip = document.getElementById('heatmapTooltip');
+            if (!tip) return;
+            const unitText = currentLang === 'ko' ? '편' : currentLang === 'zh' ? '个视频' : ' videos';
+            tip.textContent = `${date}: ${count}${unitText}`;
+            tip.style.display = 'block';
+            tip.style.left = (e.clientX + 10) + 'px';
+            tip.style.top = (e.clientY - 30) + 'px';
+        }
+        function hideHeatmapTip() {
+            const tip = document.getElementById('heatmapTooltip');
+            if (tip) tip.style.display = 'none';
+        }
+
+        /* ===== B7: Treemap ===== */
+        function renderTreemap() {
+            const container = document.getElementById('treemapContainer');
+            if (!container || !partnersData || partnersData.length === 0) return;
+
+            const COLORS = [
+                '#6366f1','#8b5cf6','#a855f7','#ec4899','#f43f5e',
+                '#ef4444','#f97316','#f59e0b','#eab308','#84cc16',
+                '#22c55e','#10b981','#14b8a6','#06b6d4','#3b82f6',
+                '#2563eb','#7c3aed','#c026d3','#db2777','#e11d48',
+            ];
+
+            const totalViews = partnersData.reduce((s, p) => s + (p.total_views || 0), 0);
+            if (totalViews === 0) { container.innerHTML = ''; return; }
+
+            const sorted = [...partnersData].sort((a, b) => (b.total_views || 0) - (a.total_views || 0));
+            const topN = sorted.slice(0, 30);
+            const othersViews = sorted.slice(30).reduce((s, p) => s + (p.total_views || 0), 0);
+            if (othersViews > 0) topN.push({ name: t('Others','기타','其他'), total_views: othersViews, _isOthers: true });
+
+            const containerWidth = container.offsetWidth || 800;
+            const containerHeight = 220;
+            container.style.height = containerHeight + 'px';
+
+            const items = topN.map((p, i) => ({
+                name: p.name,
+                views: p.total_views || 0,
+                pct: ((p.total_views || 0) / totalViews * 100),
+                color: p._isOthers ? '#475569' : COLORS[i % COLORS.length],
+                isOthers: p._isOthers
+            }));
+
+            const fmtK = v => v >= 1e9 ? (v/1e9).toFixed(1)+'B' : v >= 1e6 ? (v/1e6).toFixed(1)+'M' : v >= 1e3 ? (v/1e3).toFixed(0)+'K' : String(v);
+
+            function squarify(items, x, y, w, h) {
+                if (items.length === 0 || w <= 0 || h <= 0) return [];
+                const total = items.reduce((s, it) => s + it.views, 0);
+                if (total === 0) return [];
+
+                const result = [];
+                let remaining = [...items];
+                let cx = x, cy = y, cw = w, ch = h;
+
+                while (remaining.length > 0) {
+                    const rem_total = remaining.reduce((s, it) => s + it.views, 0);
+                    const isWide = cw >= ch;
+                    const sideLen = isWide ? ch : cw;
+
+                    let row = [remaining[0]];
+                    let rowSum = remaining[0].views;
+
+                    for (let i = 1; i < remaining.length; i++) {
+                        const newSum = rowSum + remaining[i].views;
+                        const oldWorst = worstRatio(row, rowSum, rem_total, sideLen);
+                        const newRow = [...row, remaining[i]];
+                        const newWorst = worstRatio(newRow, newSum, rem_total, sideLen);
+                        if (newWorst <= oldWorst) {
+                            row.push(remaining[i]);
+                            rowSum = newSum;
+                        } else break;
+                    }
+
+                    const rowFraction = rowSum / rem_total;
+                    const rowSize = isWide ? cw * rowFraction : ch * rowFraction;
+
+                    let offset = 0;
+                    row.forEach(it => {
+                        const frac = it.views / rowSum;
+                        const cellSize = sideLen * frac;
+                        if (isWide) {
+                            result.push({ ...it, x: cx, y: cy + offset, w: rowSize, h: cellSize });
+                        } else {
+                            result.push({ ...it, x: cx + offset, y: cy, w: cellSize, h: rowSize });
+                        }
+                        offset += cellSize;
+                    });
+
+                    remaining = remaining.slice(row.length);
+                    if (isWide) { cx += rowSize; cw -= rowSize; }
+                    else { cy += rowSize; ch -= rowSize; }
+                }
+                return result;
+            }
+
+            function worstRatio(row, rowSum, total, side) {
+                const rowArea = (rowSum / total) * side * side;
+                const rowLen = rowSum / total * side;
+                let worst = 0;
+                row.forEach(it => {
+                    const area = (it.views / rowSum) * rowArea;
+                    const s = area / rowLen;
+                    const ratio = Math.max(rowLen / s, s / rowLen);
+                    if (ratio > worst) worst = ratio;
+                });
+                return worst;
+            }
+
+            const rects = squarify(items, 0, 0, containerWidth, containerHeight);
+
+            container.innerHTML = rects.map(r => {
+                if (r.w < 2 || r.h < 2) return '';
+                const showName = r.w > 45 && r.h > 28;
+                const showVal = r.w > 55 && r.h > 40;
+                return `<div class="treemap-cell" style="position:absolute;left:${r.x}px;top:${r.y}px;width:${r.w-2}px;height:${r.h-2}px;background:${r.color};" title="${r.name}: ${fmtK(r.views)} (${r.pct.toFixed(1)}%)">
+                    ${showName ? `<div class="treemap-name">${r.name.length > 12 && r.w < 90 ? r.name.substring(0,10)+'…' : r.name}</div>` : ''}
+                    ${showVal ? `<div class="treemap-val">${fmtK(r.views)}</div>` : ''}
+                </div>`;
+            }).join('');
+            container.style.position = 'relative';
+        }
+
+        /* ===== B8: Sparklines ===== */
+        function drawSparkline(canvas, dates) {
+            if (!canvas || !canvas.getContext) return;
+            const ctx = canvas.getContext('2d');
+            const w = canvas.width = 60;
+            const h = canvas.height = 18;
+            ctx.clearRect(0, 0, w, h);
+
+            if (!dates || dates.length === 0) return;
+
+            const now = new Date();
+            const months = {};
+            for (let i = 5; i >= 0; i--) {
+                const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+                months[d.toISOString().substring(0, 7)] = 0;
+            }
+            dates.forEach(dt => {
+                const m = dt.substring(0, 7);
+                if (months[m] !== undefined) months[m]++;
+            });
+
+            const vals = Object.values(months);
+            const max = Math.max(...vals, 1);
+            const points = vals.map((v, i) => ({
+                x: (i / (vals.length - 1)) * (w - 4) + 2,
+                y: h - 2 - (v / max) * (h - 4)
+            }));
+
+            ctx.beginPath();
+            ctx.strokeStyle = '#818cf8';
+            ctx.lineWidth = 1.5;
+            ctx.lineJoin = 'round';
+            points.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+            ctx.stroke();
+
+            ctx.lineTo(points[points.length - 1].x, h);
+            ctx.lineTo(points[0].x, h);
+            ctx.closePath();
+            ctx.fillStyle = 'rgba(129,140,248,0.1)';
+            ctx.fill();
+        }
+
         function initCharts() {
             const isWeibo = currentPlatform === 'weibo';
             const channelColor = GAMES[currentGame]?.color || '#818cf8';
