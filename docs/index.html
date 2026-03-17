@@ -1568,6 +1568,35 @@
             border-color: var(--accent); color: var(--accent-light); background: var(--accent-bg);
         }
 
+        .chat-yt-bar {
+            display: flex; align-items: center; gap: 8px;
+            padding: 8px 14px; border-top: 1px solid var(--border);
+            background: var(--bg-secondary); font-size: 0.78rem;
+        }
+        .chat-yt-toggle {
+            position: relative; width: 36px; height: 20px;
+            background: var(--border); border-radius: 10px;
+            cursor: pointer; transition: background 0.2s; flex-shrink: 0;
+        }
+        .chat-yt-toggle.active { background: #ef4444; }
+        .chat-yt-toggle::after {
+            content: ''; position: absolute; top: 2px; left: 2px;
+            width: 16px; height: 16px; border-radius: 50%;
+            background: #fff; transition: transform 0.2s;
+        }
+        .chat-yt-toggle.active::after { transform: translateX(16px); }
+        .chat-yt-label { color: var(--text-secondary); user-select: none; cursor: pointer; }
+        .chat-yt-label.active { color: #ef4444; font-weight: 600; }
+        .chat-yt-search {
+            flex: 1; border: 1px solid var(--border); border-radius: 6px;
+            padding: 4px 8px; font-size: 0.78rem; font-family: inherit;
+            background: var(--bg-primary); color: var(--text-primary);
+            outline: none; display: none;
+        }
+        .chat-yt-search.visible { display: block; }
+        .chat-yt-search:focus { border-color: #ef4444; }
+        .chat-yt-search::placeholder { color: var(--text-muted); }
+
         @media (max-width: 500px) {
             .chat-panel { width: calc(100vw - 16px); right: 8px; bottom: 80px; max-height: 75vh; }
             .chat-fab { bottom: 16px; right: 16px; width: 50px; height: 50px; }
@@ -4871,6 +4900,8 @@
                     <button class="chat-quick-btn" onclick="sendQuickQ('가장 성과 좋은 파트너 Top 5 분석')">🏆 Top 5 파트너</button>
                     <button class="chat-quick-btn" onclick="sendQuickQ('이번 주 보고서 초안 써줘')">📝 보고서 초안</button>
                     <button class="chat-quick-btn" onclick="sendQuickQ('최근 콜라보 트렌드 분석')">📈 트렌드 분석</button>
+                    <button class="chat-quick-btn" onclick="sendYtQ('PUBG MOBILE collaboration','PUBG MOBILE 최신 콜라보 영상 검색해줘')">🔴 최신 콜라보 검색</button>
+                    <button class="chat-quick-btn" onclick="sendYtQ('PUBG MOBILE Jujutsu Kaisen','주술회전 콜라보 실시간 반응 분석')">🔴 JJK 실시간</button>
                 </div>
             </div>
             <div class="chat-typing" id="chatTyping">
@@ -4878,6 +4909,11 @@
                 <div class="chat-typing-dot"></div>
                 <div class="chat-typing-dot"></div>
             </div>
+        </div>
+        <div class="chat-yt-bar" id="chatYtBar">
+            <div class="chat-yt-toggle" id="chatYtToggle" onclick="toggleYtSearch()"></div>
+            <span class="chat-yt-label" id="chatYtLabel" onclick="toggleYtSearch()">🔴 YouTube 실시간</span>
+            <input type="text" class="chat-yt-search" id="chatYtQuery" placeholder="YouTube 검색어 (비우면 질문 기반 자동검색)" />
         </div>
         <div class="chat-input-area">
             <textarea class="chat-input" id="chatInput" placeholder="데이터에 대해 질문하세요…" rows="1"
@@ -4897,6 +4933,7 @@
     const WORKER_URL = 'https://pubgm-collab-chatbot.sangwon-ji.workers.dev/api/chat';
     let _chatMessages = [];
     let _chatStreaming = false;
+    let _ytSearchEnabled = false;
 
     function toggleChat() {
         const panel = document.getElementById('chatPanel');
@@ -4916,8 +4953,26 @@
         toRemove.forEach(el => el.remove());
     }
 
+    function toggleYtSearch() {
+        _ytSearchEnabled = !_ytSearchEnabled;
+        document.getElementById('chatYtToggle').classList.toggle('active', _ytSearchEnabled);
+        document.getElementById('chatYtLabel').classList.toggle('active', _ytSearchEnabled);
+        document.getElementById('chatYtQuery').classList.toggle('visible', _ytSearchEnabled);
+        if (_ytSearchEnabled) document.getElementById('chatYtQuery').focus();
+    }
+
     function sendQuickQ(text) {
         document.getElementById('chatInput').value = text;
+        sendChat();
+    }
+
+    function sendYtQ(ytQuery, chatText) {
+        _ytSearchEnabled = true;
+        document.getElementById('chatYtToggle').classList.add('active');
+        document.getElementById('chatYtLabel').classList.add('active');
+        document.getElementById('chatYtQuery').classList.add('visible');
+        document.getElementById('chatYtQuery').value = ytQuery;
+        document.getElementById('chatInput').value = chatText;
         sendChat();
     }
 
@@ -5040,7 +5095,13 @@
 
         input.value = '';
         input.style.height = 'auto';
-        appendChatMsg('user', text.replace(/</g, '&lt;').replace(/>/g, '&gt;'));
+
+        const ytEnabled = _ytSearchEnabled;
+        const ytQuery = document.getElementById('chatYtQuery')?.value?.trim() || '';
+        const displayText = ytEnabled
+            ? text + ' <span style="font-size:0.75em;opacity:0.7;margin-left:4px;">🔴 YouTube</span>'
+            : text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        appendChatMsg('user', displayText);
 
         _chatMessages.push({ role: 'user', content: text });
         _chatStreaming = true;
@@ -5051,14 +5112,24 @@
         let assistantText = '';
         let msgEl = null;
 
+        const payload = {
+            messages: _chatMessages.slice(-10),
+            context: context,
+        };
+
+        if (ytEnabled) {
+            payload.youtube = {
+                action: 'search',
+                query: ytQuery || text,
+                maxResults: 10,
+            };
+        }
+
         try {
             const res = await fetch(WORKER_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    messages: _chatMessages.slice(-10),
-                    context: context,
-                }),
+                body: JSON.stringify(payload),
             });
 
             document.getElementById('chatTyping').classList.remove('visible');
