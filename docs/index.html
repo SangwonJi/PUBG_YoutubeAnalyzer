@@ -4895,58 +4895,65 @@
         const pn = PLATFORM_NAMES[currentPlatform] || {};
         const platName = pn[currentLang] || pn.en || currentPlatform;
         const gameName = GAMES[currentGame]?.name || currentGame;
+        const today = new Date().toISOString().slice(0, 10);
 
-        let ctx = `[현재 대시보드]\n게임: ${gameName}\n플랫폼: ${platName}\n탭: ${currentTab}\n오늘: ${new Date().toISOString().slice(0,10)}\n`;
+        let ctx = `[데이터 소스]\n채널: ${gameName} — ${platName}\n분석 기준일: ${today}\n⚠️ 이 데이터는 "${platName}" 채널의 콜라보 영상만 포함합니다. 다른 리전 데이터는 포함되지 않습니다.\n`;
 
-        if (partnersData && partnersData.length > 0) {
-            const totalPartners = partnersData.length;
-            const totalVideos = partnersData.reduce((s, p) => s + (p.video_count || 0), 0);
-            const totalViews = partnersData.reduce((s, p) => s + (p.total_views || 0), 0);
-            const totalLikes = partnersData.reduce((s, p) => s + (p.total_likes || 0), 0);
-            const totalComments = partnersData.reduce((s, p) => s + (p.total_comments || 0), 0);
-            ctx += `\n[콜라보 전체 요약]\n총 파트너: ${totalPartners}개 | 총 영상: ${totalVideos}개 | 총 조회수: ${totalViews.toLocaleString()} | 총 좋아요: ${totalLikes.toLocaleString()} | 총 댓글: ${totalComments.toLocaleString()}\n`;
+        if (!partnersData || partnersData.length === 0) return ctx;
 
-            const top30 = partnersData.slice(0, 30);
-            ctx += `\n[상위 30 파트너 — 상세]\n`;
-            top30.forEach((p, i) => {
-                const vids = p.videos || [];
-                const dates = vids.map(v => v.published_at?.substring(0, 10)).filter(Boolean).sort();
-                const firstDate = dates[0] || '?';
-                const lastDate = dates[dates.length - 1] || '?';
-                ctx += `${i + 1}. ${p.partner_name} [${p.category || '?'}] — 영상 ${p.video_count || 0}개, 조회수 ${(p.total_views || 0).toLocaleString()}, 좋아요 ${(p.total_likes || 0).toLocaleString()}, 댓글 ${(p.total_comments || 0).toLocaleString()}, 기간: ${firstDate} ~ ${lastDate}\n`;
-                vids.slice(0, 5).forEach(v => {
-                    ctx += `   - "${v.title}" | ${v.published_at?.substring(0, 10) || '?'} | 조회 ${(v.view_count || 0).toLocaleString()} | 좋아요 ${(v.like_count || 0).toLocaleString()}\n`;
-                });
-                if (vids.length > 5) ctx += `   ... 외 ${vids.length - 5}개 영상\n`;
+        const totalPartners = partnersData.length;
+        const totalVideos = partnersData.reduce((s, p) => s + (p.video_count || 0), 0);
+        const totalViews = partnersData.reduce((s, p) => s + (p.total_views || 0), 0);
+        const totalLikes = partnersData.reduce((s, p) => s + (p.total_likes || 0), 0);
+        const totalComments = partnersData.reduce((s, p) => s + (p.total_comments || 0), 0);
+        ctx += `\n[전체 요약]\n파트너: ${totalPartners}개 | 영상: ${totalVideos}개 | 조회수: ${totalViews.toLocaleString()} | 좋아요: ${totalLikes.toLocaleString()} | 댓글: ${totalComments.toLocaleString()}\n`;
+
+        const getName = p => p.partner_name || p.name || '?';
+
+        ctx += `\n[전체 파트너 목록 — 조회수 내림차순]\n`;
+        partnersData.forEach((p, i) => {
+            const vids = p.videos || [];
+            const dates = vids.map(v => v.published_at?.substring(0, 10)).filter(Boolean).sort();
+            ctx += `${i + 1}. ${getName(p)} [${p.category || '?'}] — ${p.video_count || 0}편, 조회 ${(p.total_views || 0).toLocaleString()}, 좋아요 ${(p.total_likes || 0).toLocaleString()}, 댓글 ${(p.total_comments || 0).toLocaleString()}, ${dates[0] || '?'}~${dates[dates.length - 1] || '?'}\n`;
+        });
+
+        const DETAIL_LIMIT = 20;
+        ctx += `\n[상위 ${DETAIL_LIMIT}개 파트너 영상 상세]\n`;
+        partnersData.slice(0, DETAIL_LIMIT).forEach((p, i) => {
+            const vids = p.videos || [];
+            ctx += `\n### ${getName(p)} (${p.category || '?'}) — ${vids.length}편\n`;
+            vids.forEach(v => {
+                ctx += `  · "${v.title}" | ${v.published_at?.substring(0, 10) || '?'} | 조회 ${(v.view_count || 0).toLocaleString()} | 좋아요 ${(v.like_count || 0).toLocaleString()}\n`;
             });
+        });
 
-            const allVids = partnersData.flatMap(p => (p.videos || []).map(v => ({ ...v, partner: p.partner_name })));
-            const recent = allVids.sort((a, b) => (b.published_at || '').localeCompare(a.published_at || '')).slice(0, 15);
-            if (recent.length) {
-                ctx += `\n[최근 15개 콜라보 영상]\n`;
-                recent.forEach(v => {
-                    ctx += `- "${v.title}" (${v.partner}) | ${v.published_at?.substring(0, 10) || '?'} | 조회 ${(v.view_count || 0).toLocaleString()} | 좋아요 ${(v.like_count || 0).toLocaleString()}\n`;
-                });
-            }
-
-            const cats = {};
-            partnersData.forEach(p => {
-                const c = p.category || 'Unknown';
-                if (!cats[c]) cats[c] = { count: 0, views: 0, videos: 0 };
-                cats[c].count++;
-                cats[c].views += (p.total_views || 0);
-                cats[c].videos += (p.video_count || 0);
-            });
-            ctx += `\n[카테고리별 분포]\n`;
-            Object.entries(cats).sort((a, b) => b[1].views - a[1].views).forEach(([c, d]) => {
-                ctx += `- ${c}: ${d.count}개 파트너, ${d.videos}개 영상, 조회수 ${d.views.toLocaleString()}\n`;
+        const allVids = partnersData.flatMap(p => (p.videos || []).map(v => ({ ...v, _partner: getName(p) })));
+        const recent = allVids.sort((a, b) => (b.published_at || '').localeCompare(a.published_at || '')).slice(0, 20);
+        if (recent.length) {
+            ctx += `\n[가장 최근 게시된 콜라보 영상 20개]\n`;
+            recent.forEach(v => {
+                ctx += `- "${v.title}" (${v._partner}) | ${v.published_at?.substring(0, 10) || '?'} | 조회 ${(v.view_count || 0).toLocaleString()}\n`;
             });
         }
+
+        const cats = {};
+        partnersData.forEach(p => {
+            const c = p.category || 'Unknown';
+            if (!cats[c]) cats[c] = { count: 0, views: 0, videos: 0, likes: 0 };
+            cats[c].count++;
+            cats[c].views += (p.total_views || 0);
+            cats[c].videos += (p.video_count || 0);
+            cats[c].likes += (p.total_likes || 0);
+        });
+        ctx += `\n[카테고리별 분포]\n`;
+        Object.entries(cats).sort((a, b) => b[1].views - a[1].views).forEach(([c, d]) => {
+            ctx += `- ${c}: ${d.count}개 파트너, ${d.videos}편, 조회수 ${d.views.toLocaleString()}\n`;
+        });
 
         if (othersData && othersData.content_types) {
             ctx += `\n[일반 콘텐츠 유형]\n`;
             othersData.content_types.forEach(ct => {
-                ctx += `- ${ct.content_type}: ${ct.video_count || 0}개 영상, 조회수 ${(ct.total_views || 0).toLocaleString()}\n`;
+                ctx += `- ${ct.content_type}: ${ct.video_count || 0}편, 조회수 ${(ct.total_views || 0).toLocaleString()}\n`;
             });
         }
 

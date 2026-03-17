@@ -206,21 +206,15 @@ export default {
       });
     }
 
-    const { messages, context, youtube } = body;
+    const { messages, context } = body;
     if (!messages || !Array.isArray(messages) || messages.length === 0) {
       return new Response(JSON.stringify({ error: 'messages array required' }), {
         status: 400, headers: { ...headers, 'Content-Type': 'application/json' },
       });
     }
 
-    const maxCtx = parseInt(env.MAX_CONTEXT_CHARS || '12000');
+    const maxCtx = parseInt(env.MAX_CONTEXT_CHARS || '40000');
     let fullContext = context ? context.substring(0, maxCtx) : '';
-
-    // YouTube live data fetch
-    if (youtube && env.YOUTUBE_API_KEY) {
-      const ytData = await fetchYouTubeData(env.YOUTUBE_API_KEY, youtube);
-      fullContext += '\n\n' + ytData;
-    }
 
     const systemContent = getSystemPrompt() + (fullContext
       ? `\n\n--- CURRENT DASHBOARD DATA ---\n${fullContext}`
