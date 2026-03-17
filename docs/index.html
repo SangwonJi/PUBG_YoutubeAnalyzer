@@ -2553,8 +2553,6 @@
         function switchGame(gameId) {
             if (_searchMode) {
                 _searchMode = false;
-                const sb = document.getElementById('globalSearchBtn');
-                if (sb) { sb.classList.remove('active'); sb.style.borderColor = ''; sb.style.color = ''; sb.style.background = ''; }
                 currentTab = 'collab';
                 document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
                 document.getElementById('collabTab').classList.add('active');
@@ -2656,14 +2654,6 @@
                 btn.style.color = '';
                 btn.style.background = '';
             });
-            const sb = document.getElementById('globalSearchBtn');
-            if (sb) {
-                sb.classList.add('active');
-                sb.style.borderColor = 'var(--accent)';
-                sb.style.color = 'var(--accent-light)';
-                sb.style.background = 'var(--accent-bg)';
-            }
-
             setTimeout(initSearchTab, 50);
             const inp = document.getElementById('globalSearchInput');
             if (inp) setTimeout(() => inp.focus(), 100);
@@ -2671,8 +2661,6 @@
 
         function exitSearch() {
             _searchMode = false;
-            const sb = document.getElementById('globalSearchBtn');
-            if (sb) { sb.classList.remove('active'); sb.style.borderColor = ''; sb.style.color = ''; sb.style.background = ''; }
             updateGameBtnStyles();
             switchTab('collab');
         }
