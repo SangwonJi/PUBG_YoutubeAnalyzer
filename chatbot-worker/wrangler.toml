@@ -10,5 +10,5 @@ binding = "AI"
 
 [vars]
 ALLOWED_ORIGIN = "https://sangwonji.github.io"
-RATE_LIMIT_PER_MIN = "30"
-MAX_CONTEXT_CHARS = "12000"
+RATE_LIMIT_PER_MIN = "50"
+MAX_CONTEXT_CHARS = "16000"

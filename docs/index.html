@@ -1449,14 +1449,41 @@
         }
         .chat-msg.assistant pre code { background: none; padding: 0; }
         .chat-msg.assistant table {
-            width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 0.82em;
+            width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.82em;
+            border-radius: 8px; overflow: hidden; border: 1px solid var(--border);
         }
         .chat-msg.assistant th, .chat-msg.assistant td {
-            padding: 5px 8px; border: 1px solid var(--border); text-align: left;
+            padding: 8px 12px; border-bottom: 1px solid var(--border); text-align: left;
         }
-        .chat-msg.assistant th { background: var(--bg-tertiary); font-weight: 600; }
-        .chat-msg.assistant h3, .chat-msg.assistant h4 {
-            font-size: 0.9em; margin: 10px 0 4px; color: var(--accent-light);
+        .chat-msg.assistant th {
+            background: var(--accent); color: #fff; font-weight: 600;
+            font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.02em;
+        }
+        .chat-msg.assistant tr:nth-child(even) td { background: var(--bg-tertiary); }
+        .chat-msg.assistant tr:hover td { background: rgba(var(--accent-rgb, 99,102,241), 0.08); }
+        .chat-msg.assistant td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+        .chat-msg.assistant h2 {
+            font-size: 1.05em; margin: 16px 0 8px; color: var(--accent-light);
+            border-bottom: 2px solid var(--accent); padding-bottom: 4px;
+        }
+        .chat-msg.assistant h3 {
+            font-size: 0.95em; margin: 14px 0 6px; color: var(--accent-light);
+        }
+        .chat-msg.assistant h4, .chat-msg.assistant h5 {
+            font-size: 0.88em; margin: 10px 0 4px; color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .chat-msg.assistant ul {
+            padding-left: 20px; margin: 6px 0;
+        }
+        .chat-msg.assistant li {
+            margin: 3px 0; line-height: 1.6;
+        }
+        .chat-msg.assistant p {
+            margin: 6px 0; line-height: 1.7;
+        }
+        .chat-msg.assistant strong {
+            color: var(--text-primary);
         }
 
         .chat-typing {
@@ -1517,34 +1544,6 @@
             border-color: var(--accent); color: var(--accent-light); background: var(--accent-bg);
         }
 
-        .chat-yt-bar {
-            display: flex; align-items: center; gap: 8px;
-            padding: 8px 14px; border-top: 1px solid var(--border);
-            background: var(--bg-secondary); font-size: 0.78rem;
-        }
-        .chat-yt-toggle {
-            position: relative; width: 36px; height: 20px;
-            background: var(--border); border-radius: 10px;
-            cursor: pointer; transition: background 0.2s; flex-shrink: 0;
-        }
-        .chat-yt-toggle.active { background: #ef4444; }
-        .chat-yt-toggle::after {
-            content: ''; position: absolute; top: 2px; left: 2px;
-            width: 16px; height: 16px; border-radius: 50%;
-            background: #fff; transition: transform 0.2s;
-        }
-        .chat-yt-toggle.active::after { transform: translateX(16px); }
-        .chat-yt-label { color: var(--text-secondary); user-select: none; cursor: pointer; }
-        .chat-yt-label.active { color: #ef4444; font-weight: 600; }
-        .chat-yt-search {
-            flex: 1; border: 1px solid var(--border); border-radius: 6px;
-            padding: 4px 8px; font-size: 0.78rem; font-family: inherit;
-            background: var(--bg-primary); color: var(--text-primary);
-            outline: none; display: none;
-        }
-        .chat-yt-search.visible { display: block; }
-        .chat-yt-search:focus { border-color: #ef4444; }
-        .chat-yt-search::placeholder { color: var(--text-muted); }
 
         @media (max-width: 500px) {
             #chatTab .container { padding: 8px !important; }
@@ -2072,8 +2071,8 @@
                             <button class="chat-quick-btn" onclick="sendQuickQ('가장 성과 좋은 파트너 Top 5 분석')">🏆 Top 5 파트너</button>
                             <button class="chat-quick-btn" onclick="sendQuickQ('이번 주 보고서 초안 써줘')">📝 보고서 초안</button>
                             <button class="chat-quick-btn" onclick="sendQuickQ('최근 콜라보 트렌드 분석')">📈 트렌드 분석</button>
-                            <button class="chat-quick-btn" onclick="sendYtQ('PUBG MOBILE collaboration','PUBG MOBILE 최신 콜라보 영상 검색해줘')">🔴 최신 콜라보</button>
-                            <button class="chat-quick-btn" onclick="sendYtQ('PUBG MOBILE Jujutsu Kaisen','주술회전 콜라보 실시간 반응 분석')">🔴 JJK 실시간</button>
+                            <button class="chat-quick-btn" onclick="sendQuickQ('카테고리별 성과 비교 분석')">🏷️ 카테고리 비교</button>
+                            <button class="chat-quick-btn" onclick="sendQuickQ('최근 1개월 내 게시된 콜라보 영상만 분석해줘')">🕐 최신 영상</button>
                         </div>
                     </div>
                     <!-- Chat Messages -->
@@ -2098,12 +2097,6 @@
                             <div class="chat-typing-dot"></div>
                             <div class="chat-typing-dot"></div>
                         </div>
-                    </div>
-                    <!-- YouTube Toggle + Input -->
-                    <div class="chat-yt-bar" id="chatYtBar">
-                        <div class="chat-yt-toggle" id="chatYtToggle" onclick="toggleYtSearch()"></div>
-                        <span class="chat-yt-label" id="chatYtLabel" onclick="toggleYtSearch()">🔴 YouTube 실시간</span>
-                        <input type="text" class="chat-yt-search" id="chatYtQuery" placeholder="YouTube 검색어 (비우면 질문 기반 자동검색)" />
                     </div>
                     <div class="chat-input-area" style="border-radius:0 0 14px 14px;padding:14px 20px;">
                         <textarea class="chat-input" id="chatInput" placeholder="데이터에 대해 질문하세요… (예: 주술회전 콜라보 성과 분석해줘)" rows="1" style="font-size:0.9rem;padding:11px 16px;"
@@ -4884,8 +4877,6 @@
     const WORKER_URL = 'https://pubgm-collab-chatbot.sangwon-ji.workers.dev/api/chat';
     let _chatMessages = [];
     let _chatStreaming = false;
-    let _ytSearchEnabled = false;
-
     function clearChat() {
         _chatMessages = [];
         const msgs = document.getElementById('chatMessages');
@@ -4894,28 +4885,9 @@
         toRemove.forEach(el => el.remove());
     }
 
-    function toggleYtSearch() {
-        _ytSearchEnabled = !_ytSearchEnabled;
-        document.getElementById('chatYtToggle').classList.toggle('active', _ytSearchEnabled);
-        document.getElementById('chatYtLabel').classList.toggle('active', _ytSearchEnabled);
-        document.getElementById('chatYtQuery').classList.toggle('visible', _ytSearchEnabled);
-        if (_ytSearchEnabled) document.getElementById('chatYtQuery').focus();
-    }
-
     function sendQuickQ(text) {
         if (currentTab !== 'chat') switchTab('chat');
         document.getElementById('chatInput').value = text;
-        sendChat();
-    }
-
-    function sendYtQ(ytQuery, chatText) {
-        if (currentTab !== 'chat') switchTab('chat');
-        _ytSearchEnabled = true;
-        document.getElementById('chatYtToggle').classList.add('active');
-        document.getElementById('chatYtLabel').classList.add('active');
-        document.getElementById('chatYtQuery').classList.add('visible');
-        document.getElementById('chatYtQuery').value = ytQuery;
-        document.getElementById('chatInput').value = chatText;
         sendChat();
     }
 
@@ -4924,41 +4896,50 @@
         const platName = pn[currentLang] || pn.en || currentPlatform;
         const gameName = GAMES[currentGame]?.name || currentGame;
 
-        let ctx = `[현재 보고 있는 화면]\n게임: ${gameName}\n플랫폼: ${platName}\n탭: ${currentTab}\n`;
+        let ctx = `[현재 대시보드]\n게임: ${gameName}\n플랫폼: ${platName}\n탭: ${currentTab}\n오늘: ${new Date().toISOString().slice(0,10)}\n`;
 
         if (partnersData && partnersData.length > 0) {
             const totalPartners = partnersData.length;
             const totalVideos = partnersData.reduce((s, p) => s + (p.video_count || 0), 0);
             const totalViews = partnersData.reduce((s, p) => s + (p.total_views || 0), 0);
-            ctx += `\n[콜라보 요약]\n총 파트너: ${totalPartners}개\n총 영상: ${totalVideos}개\n총 조회수: ${totalViews.toLocaleString()}\n`;
+            const totalLikes = partnersData.reduce((s, p) => s + (p.total_likes || 0), 0);
+            const totalComments = partnersData.reduce((s, p) => s + (p.total_comments || 0), 0);
+            ctx += `\n[콜라보 전체 요약]\n총 파트너: ${totalPartners}개 | 총 영상: ${totalVideos}개 | 총 조회수: ${totalViews.toLocaleString()} | 총 좋아요: ${totalLikes.toLocaleString()} | 총 댓글: ${totalComments.toLocaleString()}\n`;
 
-            const top20 = partnersData.slice(0, 20);
-            ctx += `\n[상위 파트너 (조회수 기준)]\n`;
-            top20.forEach((p, i) => {
-                ctx += `${i + 1}. ${p.partner_name} — 영상 ${p.video_count || 0}개, 조회수 ${(p.total_views || 0).toLocaleString()}, 좋아요 ${(p.total_likes || 0).toLocaleString()}`;
-                if (p.category) ctx += `, 카테고리: ${p.category}`;
-                ctx += '\n';
+            const top30 = partnersData.slice(0, 30);
+            ctx += `\n[상위 30 파트너 — 상세]\n`;
+            top30.forEach((p, i) => {
+                const vids = p.videos || [];
+                const dates = vids.map(v => v.published_at?.substring(0, 10)).filter(Boolean).sort();
+                const firstDate = dates[0] || '?';
+                const lastDate = dates[dates.length - 1] || '?';
+                ctx += `${i + 1}. ${p.partner_name} [${p.category || '?'}] — 영상 ${p.video_count || 0}개, 조회수 ${(p.total_views || 0).toLocaleString()}, 좋아요 ${(p.total_likes || 0).toLocaleString()}, 댓글 ${(p.total_comments || 0).toLocaleString()}, 기간: ${firstDate} ~ ${lastDate}\n`;
+                vids.slice(0, 5).forEach(v => {
+                    ctx += `   - "${v.title}" | ${v.published_at?.substring(0, 10) || '?'} | 조회 ${(v.view_count || 0).toLocaleString()} | 좋아요 ${(v.like_count || 0).toLocaleString()}\n`;
+                });
+                if (vids.length > 5) ctx += `   ... 외 ${vids.length - 5}개 영상\n`;
             });
 
             const allVids = partnersData.flatMap(p => (p.videos || []).map(v => ({ ...v, partner: p.partner_name })));
-            const recent = allVids.sort((a, b) => (b.published_at || '').localeCompare(a.published_at || '')).slice(0, 10);
+            const recent = allVids.sort((a, b) => (b.published_at || '').localeCompare(a.published_at || '')).slice(0, 15);
             if (recent.length) {
-                ctx += `\n[최근 콜라보 영상 10개]\n`;
+                ctx += `\n[최근 15개 콜라보 영상]\n`;
                 recent.forEach(v => {
-                    ctx += `- "${v.title}" (${v.partner}) — 조회수 ${(v.view_count || 0).toLocaleString()}, ${v.published_at?.substring(0, 10) || '날짜 없음'}\n`;
+                    ctx += `- "${v.title}" (${v.partner}) | ${v.published_at?.substring(0, 10) || '?'} | 조회 ${(v.view_count || 0).toLocaleString()} | 좋아요 ${(v.like_count || 0).toLocaleString()}\n`;
                 });
             }
 
             const cats = {};
             partnersData.forEach(p => {
                 const c = p.category || 'Unknown';
-                if (!cats[c]) cats[c] = { count: 0, views: 0 };
+                if (!cats[c]) cats[c] = { count: 0, views: 0, videos: 0 };
                 cats[c].count++;
                 cats[c].views += (p.total_views || 0);
+                cats[c].videos += (p.video_count || 0);
             });
             ctx += `\n[카테고리별 분포]\n`;
             Object.entries(cats).sort((a, b) => b[1].views - a[1].views).forEach(([c, d]) => {
-                ctx += `- ${c}: ${d.count}개 파트너, 조회수 ${d.views.toLocaleString()}\n`;
+                ctx += `- ${c}: ${d.count}개 파트너, ${d.videos}개 영상, 조회수 ${d.views.toLocaleString()}\n`;
             });
         }
 
@@ -4985,49 +4966,75 @@
     }
 
     function renderChatMarkdown(text) {
-        let html = text
-            .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-            .replace(/```([\s\S]*?)```/g, (_, code) => `<pre><code>${code.trim()}</code></pre>`)
-            .replace(/`([^`]+)`/g, '<code>$1</code>')
-            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-            .replace(/\*(.+?)\*/g, '<em>$1</em>')
-            .replace(/^### (.+)$/gm, '<h4>$1</h4>')
-            .replace(/^## (.+)$/gm, '<h3>$1</h3>');
+        const lines = text.split('\n');
+        const out = [];
+        let inCode = false, codeBlock = '';
+        let inTable = false, tableRows = [];
+        let inList = false, listItems = [];
 
-        // Tables
-        html = html.replace(/((?:^\|.+\|$\n?)+)/gm, (block) => {
-            const rows = block.trim().split('\n').filter(r => r.trim());
-            if (rows.length < 2) return block;
+        function flushList() {
+            if (listItems.length) { out.push('<ul>' + listItems.join('') + '</ul>'); listItems = []; }
+            inList = false;
+        }
+        function flushTable() {
+            if (tableRows.length < 2) { tableRows = []; inTable = false; return; }
             const isSep = r => /^\|[\s\-:|]+\|$/.test(r.trim());
-            let thead = '', tbody = '';
-            let headerDone = false;
-            rows.forEach(row => {
+            let thead = '', tbody = '', headerDone = false;
+            tableRows.forEach(row => {
                 if (isSep(row)) { headerDone = true; return; }
                 const cells = row.split('|').slice(1, -1).map(c => c.trim());
-                if (!headerDone) {
-                    thead += '<tr>' + cells.map(c => `<th>${c}</th>`).join('') + '</tr>';
-                } else {
-                    tbody += '<tr>' + cells.map(c => `<td>${c}</td>`).join('') + '</tr>';
-                }
+                if (!headerDone) thead += '<tr>' + cells.map(c => `<th>${c}</th>`).join('') + '</tr>';
+                else tbody += '<tr>' + cells.map(c => `<td>${c}</td>`).join('') + '</tr>';
             });
-            return `<table><thead>${thead}</thead><tbody>${tbody}</tbody></table>`;
-        });
+            out.push(`<table><thead>${thead}</thead><tbody>${tbody}</tbody></table>`);
+            tableRows = []; inTable = false;
+        }
 
-        // Lists
-        html = html.replace(/^[-*] (.+)$/gm, '<li>$1</li>');
-        html = html.replace(/((?:<li>.*<\/li>\n?)+)/g, '<ul>$1</ul>');
-        html = html.replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
+        function inline(s) {
+            return s
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                .replace(/`([^`]+)`/g, '<code>$1</code>')
+                .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.+?)\*/g, '<em>$1</em>');
+        }
 
-        // Paragraphs
-        html = html.split('\n\n').map(p => {
-            p = p.trim();
-            if (!p || p.startsWith('<h') || p.startsWith('<pre') || p.startsWith('<ul') ||
-                p.startsWith('<ol') || p.startsWith('<table') || p.startsWith('<li')) return p;
-            return `<p>${p}</p>`;
-        }).join('\n');
+        for (const raw of lines) {
+            const line = raw;
+            if (line.startsWith('```')) {
+                if (inCode) { out.push(`<pre><code>${codeBlock.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').trim()}</code></pre>`); codeBlock = ''; }
+                inCode = !inCode;
+                continue;
+            }
+            if (inCode) { codeBlock += line + '\n'; continue; }
 
-        html = html.replace(/\n/g, ' ').replace(/<\/p>\s*<p>/g, '</p><p>');
-        return html;
+            if (line.trim().startsWith('|') && line.trim().endsWith('|')) {
+                if (!inTable) { flushList(); inTable = true; }
+                tableRows.push(line);
+                continue;
+            } else if (inTable) { flushTable(); }
+
+            const hMatch = line.match(/^(#{1,4})\s+(.+)$/);
+            if (hMatch) {
+                flushList();
+                const level = Math.min(hMatch[1].length + 1, 5);
+                out.push(`<h${level}>${inline(hMatch[2])}</h${level}>`);
+                continue;
+            }
+
+            const liMatch = line.match(/^[-*]\s+(.+)$/);
+            if (liMatch) { inList = true; listItems.push(`<li>${inline(liMatch[1])}</li>`); continue; }
+            const oliMatch = line.match(/^\d+\.\s+(.+)$/);
+            if (oliMatch) { inList = true; listItems.push(`<li>${inline(oliMatch[1])}</li>`); continue; }
+            if (inList) flushList();
+
+            if (!line.trim()) { out.push(''); continue; }
+            out.push(`<p>${inline(line)}</p>`);
+        }
+        if (inCode && codeBlock) out.push(`<pre><code>${codeBlock.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').trim()}</code></pre>`);
+        if (inTable) flushTable();
+        if (inList) flushList();
+
+        return out.filter(s => s !== '').join('\n');
     }
 
     async function sendChat() {
@@ -5039,12 +5046,7 @@
         input.value = '';
         input.style.height = 'auto';
 
-        const ytEnabled = _ytSearchEnabled;
-        const ytQuery = document.getElementById('chatYtQuery')?.value?.trim() || '';
-        const displayText = ytEnabled
-            ? text + ' <span style="font-size:0.75em;opacity:0.7;margin-left:4px;">🔴 YouTube</span>'
-            : text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-        appendChatMsg('user', displayText);
+        appendChatMsg('user', text.replace(/</g, '&lt;').replace(/>/g, '&gt;'));
 
         _chatMessages.push({ role: 'user', content: text });
         _chatStreaming = true;
@@ -5059,14 +5061,6 @@
             messages: _chatMessages.slice(-10),
             context: context,
         };
-
-        if (ytEnabled) {
-            payload.youtube = {
-                action: 'search',
-                query: ytQuery || text,
-                maxResults: 10,
-            };
-        }
 
         try {
             const res = await fetch(WORKER_URL, {
