@@ -1406,6 +1406,172 @@
             .charts-row { grid-template-columns: 1fr !important; }
             .container { padding: 16px !important; }
         }
+
+        /* ===== Chatbot ===== */
+        .chat-fab {
+            position: fixed; bottom: 24px; right: 24px; z-index: 9000;
+            width: 56px; height: 56px; border-radius: 50%;
+            background: var(--accent-gradient); border: none; cursor: pointer;
+            box-shadow: 0 4px 20px rgba(99,102,241,0.4);
+            display: flex; align-items: center; justify-content: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .chat-fab:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(99,102,241,0.5); }
+        .chat-fab svg { width: 26px; height: 26px; fill: #fff; }
+        .chat-fab.open { transform: rotate(90deg) scale(1.08); }
+
+        .chat-panel {
+            position: fixed; bottom: 92px; right: 24px; z-index: 9001;
+            width: 420px; max-height: 600px; height: 70vh;
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 16px; box-shadow: var(--shadow-lg);
+            display: flex; flex-direction: column;
+            opacity: 0; transform: translateY(20px) scale(0.95);
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+        .chat-panel.open {
+            opacity: 1; transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+        .chat-header {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 14px 18px; border-bottom: 1px solid var(--border);
+            border-radius: 16px 16px 0 0;
+            background: var(--bg-tertiary);
+        }
+        .chat-header-title {
+            font-size: 0.9rem; font-weight: 600; color: var(--text-primary);
+            display: flex; align-items: center; gap: 8px;
+        }
+        .chat-header-title .chat-ai-badge {
+            font-size: 0.65rem; font-weight: 700; padding: 2px 7px;
+            border-radius: 6px; background: var(--accent-gradient); color: #fff;
+            letter-spacing: 0.5px;
+        }
+        .chat-header-actions { display: flex; gap: 4px; }
+        .chat-header-actions button {
+            background: none; border: none; cursor: pointer;
+            color: var(--text-muted); padding: 4px; border-radius: 6px;
+            transition: color 0.15s, background 0.15s;
+        }
+        .chat-header-actions button:hover {
+            color: var(--text-primary); background: var(--bg-tertiary);
+        }
+
+        .chat-messages {
+            flex: 1; overflow-y: auto; padding: 16px;
+            display: flex; flex-direction: column; gap: 12px;
+            scroll-behavior: smooth;
+        }
+        .chat-messages::-webkit-scrollbar { width: 4px; }
+        .chat-messages::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 4px; }
+
+        .chat-msg {
+            max-width: 88%; padding: 10px 14px;
+            border-radius: 14px; font-size: 0.85rem; line-height: 1.65;
+            word-break: break-word; animation: chatFadeIn 0.2s ease;
+        }
+        @keyframes chatFadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+        .chat-msg.user {
+            align-self: flex-end;
+            background: var(--accent); color: #fff;
+            border-bottom-right-radius: 4px;
+        }
+        .chat-msg.assistant {
+            align-self: flex-start;
+            background: var(--bg-tertiary); color: var(--text-primary);
+            border: 1px solid var(--border);
+            border-bottom-left-radius: 4px;
+        }
+        .chat-msg.assistant p { margin: 0 0 8px; }
+        .chat-msg.assistant p:last-child { margin-bottom: 0; }
+        .chat-msg.assistant strong { color: var(--accent-light); font-weight: 600; }
+        .chat-msg.assistant ul, .chat-msg.assistant ol { margin: 4px 0 8px 18px; }
+        .chat-msg.assistant li { margin-bottom: 3px; }
+        .chat-msg.assistant code {
+            background: rgba(99,102,241,0.12); padding: 1px 5px;
+            border-radius: 4px; font-size: 0.82em; font-family: 'Fira Code', monospace;
+        }
+        .chat-msg.assistant pre {
+            background: var(--bg-primary); border: 1px solid var(--border);
+            border-radius: 8px; padding: 10px 12px; overflow-x: auto;
+            margin: 6px 0; font-size: 0.8em;
+        }
+        .chat-msg.assistant pre code { background: none; padding: 0; }
+        .chat-msg.assistant table {
+            width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 0.82em;
+        }
+        .chat-msg.assistant th, .chat-msg.assistant td {
+            padding: 5px 8px; border: 1px solid var(--border); text-align: left;
+        }
+        .chat-msg.assistant th { background: var(--bg-tertiary); font-weight: 600; }
+        .chat-msg.assistant h3, .chat-msg.assistant h4 {
+            font-size: 0.9em; margin: 10px 0 4px; color: var(--accent-light);
+        }
+
+        .chat-typing {
+            align-self: flex-start; padding: 10px 16px;
+            background: var(--bg-tertiary); border: 1px solid var(--border);
+            border-radius: 14px; border-bottom-left-radius: 4px;
+            display: none; gap: 5px; align-items: center;
+        }
+        .chat-typing.visible { display: flex; }
+        .chat-typing-dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: var(--text-muted); animation: chatDot 1.4s infinite;
+        }
+        .chat-typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .chat-typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes chatDot { 0%,60%,100% { opacity: 0.3; transform: scale(0.8); } 30% { opacity: 1; transform: scale(1); } }
+
+        .chat-input-area {
+            display: flex; gap: 8px; padding: 12px 14px;
+            border-top: 1px solid var(--border);
+            border-radius: 0 0 16px 16px;
+            background: var(--bg-tertiary);
+        }
+        .chat-input {
+            flex: 1; border: 1px solid var(--border); border-radius: 10px;
+            padding: 9px 14px; font-size: 0.85rem; font-family: inherit;
+            background: var(--bg-secondary); color: var(--text-primary);
+            outline: none; resize: none; min-height: 38px; max-height: 100px;
+            transition: border-color 0.2s;
+        }
+        .chat-input:focus { border-color: var(--accent); }
+        .chat-input::placeholder { color: var(--text-muted); }
+        .chat-send-btn {
+            width: 38px; height: 38px; border-radius: 10px; border: none;
+            background: var(--accent-gradient); color: #fff; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: transform 0.15s, opacity 0.15s; flex-shrink: 0;
+        }
+        .chat-send-btn:hover { transform: scale(1.06); }
+        .chat-send-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+        .chat-send-btn svg { width: 18px; height: 18px; }
+
+        .chat-welcome {
+            text-align: center; padding: 24px 16px; color: var(--text-secondary);
+        }
+        .chat-welcome-icon { font-size: 2rem; margin-bottom: 8px; }
+        .chat-welcome h4 { font-size: 0.95rem; color: var(--text-primary); margin-bottom: 6px; }
+        .chat-welcome p { font-size: 0.8rem; line-height: 1.5; }
+        .chat-quick-btns {
+            display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-top: 14px;
+        }
+        .chat-quick-btn {
+            padding: 6px 12px; border-radius: 8px; border: 1px solid var(--border);
+            background: var(--bg-secondary); color: var(--text-secondary);
+            font-size: 0.78rem; cursor: pointer; transition: all 0.15s;
+        }
+        .chat-quick-btn:hover {
+            border-color: var(--accent); color: var(--accent-light); background: var(--accent-bg);
+        }
+
+        @media (max-width: 500px) {
+            .chat-panel { width: calc(100vw - 16px); right: 8px; bottom: 80px; max-height: 75vh; }
+            .chat-fab { bottom: 16px; right: 16px; width: 50px; height: 50px; }
+        }
     </style>
 </head>
 <body>
@@ -4677,6 +4843,284 @@
                 document.getElementById('searchAutocomplete')?.classList.remove('open');
             }
         });
+    </script>
+
+    <!-- ===== CHATBOT ===== -->
+    <div class="chat-panel" id="chatPanel">
+        <div class="chat-header">
+            <div class="chat-header-title">
+                <span class="chat-ai-badge">AI</span>
+                PUBG MOBILE 데이터 어시스턴트
+            </div>
+            <div class="chat-header-actions">
+                <button onclick="clearChat()" title="대화 초기화">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+                </button>
+                <button onclick="toggleChat()" title="닫기">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="chat-welcome" id="chatWelcome">
+                <div class="chat-welcome-icon">🤖</div>
+                <h4>AI 데이터 어시스턴트</h4>
+                <p>현재 대시보드 데이터를 기반으로<br>분석, 비교, 보고서 작성을 도와드립니다.</p>
+                <div class="chat-quick-btns">
+                    <button class="chat-quick-btn" onclick="sendQuickQ('현재 보고 있는 데이터 요약해줘')">📊 데이터 요약</button>
+                    <button class="chat-quick-btn" onclick="sendQuickQ('가장 성과 좋은 파트너 Top 5 분석')">🏆 Top 5 파트너</button>
+                    <button class="chat-quick-btn" onclick="sendQuickQ('이번 주 보고서 초안 써줘')">📝 보고서 초안</button>
+                    <button class="chat-quick-btn" onclick="sendQuickQ('최근 콜라보 트렌드 분석')">📈 트렌드 분석</button>
+                </div>
+            </div>
+            <div class="chat-typing" id="chatTyping">
+                <div class="chat-typing-dot"></div>
+                <div class="chat-typing-dot"></div>
+                <div class="chat-typing-dot"></div>
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <textarea class="chat-input" id="chatInput" placeholder="데이터에 대해 질문하세요…" rows="1"
+                onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat();}"></textarea>
+            <button class="chat-send-btn" id="chatSendBtn" onclick="sendChat()" title="전송">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <button class="chat-fab" id="chatFab" onclick="toggleChat()" title="AI 챗봇">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+    </button>
+
+    <script>
+    /* ===== Chatbot Logic ===== */
+    const WORKER_URL = 'https://pubgm-collab-chatbot.sangwon-ji.workers.dev/api/chat';
+    let _chatMessages = [];
+    let _chatStreaming = false;
+
+    function toggleChat() {
+        const panel = document.getElementById('chatPanel');
+        const fab = document.getElementById('chatFab');
+        const isOpen = panel.classList.toggle('open');
+        fab.classList.toggle('open', isOpen);
+        if (isOpen) {
+            document.getElementById('chatInput').focus();
+        }
+    }
+
+    function clearChat() {
+        _chatMessages = [];
+        const msgs = document.getElementById('chatMessages');
+        document.getElementById('chatWelcome').style.display = '';
+        const toRemove = msgs.querySelectorAll('.chat-msg');
+        toRemove.forEach(el => el.remove());
+    }
+
+    function sendQuickQ(text) {
+        document.getElementById('chatInput').value = text;
+        sendChat();
+    }
+
+    function buildDataContext() {
+        const pn = PLATFORM_NAMES[currentPlatform] || {};
+        const platName = pn[currentLang] || pn.en || currentPlatform;
+        const gameName = GAMES[currentGame]?.name || currentGame;
+
+        let ctx = `[현재 보고 있는 화면]\n게임: ${gameName}\n플랫폼: ${platName}\n탭: ${currentTab}\n`;
+
+        if (partnersData && partnersData.length > 0) {
+            const totalPartners = partnersData.length;
+            const totalVideos = partnersData.reduce((s, p) => s + (p.video_count || 0), 0);
+            const totalViews = partnersData.reduce((s, p) => s + (p.total_views || 0), 0);
+            ctx += `\n[콜라보 요약]\n총 파트너: ${totalPartners}개\n총 영상: ${totalVideos}개\n총 조회수: ${totalViews.toLocaleString()}\n`;
+
+            const top20 = partnersData.slice(0, 20);
+            ctx += `\n[상위 파트너 (조회수 기준)]\n`;
+            top20.forEach((p, i) => {
+                ctx += `${i + 1}. ${p.partner_name} — 영상 ${p.video_count || 0}개, 조회수 ${(p.total_views || 0).toLocaleString()}, 좋아요 ${(p.total_likes || 0).toLocaleString()}`;
+                if (p.category) ctx += `, 카테고리: ${p.category}`;
+                ctx += '\n';
+            });
+
+            const allVids = partnersData.flatMap(p => (p.videos || []).map(v => ({ ...v, partner: p.partner_name })));
+            const recent = allVids.sort((a, b) => (b.published_at || '').localeCompare(a.published_at || '')).slice(0, 10);
+            if (recent.length) {
+                ctx += `\n[최근 콜라보 영상 10개]\n`;
+                recent.forEach(v => {
+                    ctx += `- "${v.title}" (${v.partner}) — 조회수 ${(v.view_count || 0).toLocaleString()}, ${v.published_at?.substring(0, 10) || '날짜 없음'}\n`;
+                });
+            }
+
+            const cats = {};
+            partnersData.forEach(p => {
+                const c = p.category || 'Unknown';
+                if (!cats[c]) cats[c] = { count: 0, views: 0 };
+                cats[c].count++;
+                cats[c].views += (p.total_views || 0);
+            });
+            ctx += `\n[카테고리별 분포]\n`;
+            Object.entries(cats).sort((a, b) => b[1].views - a[1].views).forEach(([c, d]) => {
+                ctx += `- ${c}: ${d.count}개 파트너, 조회수 ${d.views.toLocaleString()}\n`;
+            });
+        }
+
+        if (othersData && othersData.content_types) {
+            ctx += `\n[일반 콘텐츠 유형]\n`;
+            othersData.content_types.forEach(ct => {
+                ctx += `- ${ct.content_type}: ${ct.video_count || 0}개 영상, 조회수 ${(ct.total_views || 0).toLocaleString()}\n`;
+            });
+        }
+
+        return ctx;
+    }
+
+    function appendChatMsg(role, html) {
+        document.getElementById('chatWelcome').style.display = 'none';
+        const msgs = document.getElementById('chatMessages');
+        const typing = document.getElementById('chatTyping');
+        const div = document.createElement('div');
+        div.className = `chat-msg ${role}`;
+        div.innerHTML = html;
+        msgs.insertBefore(div, typing);
+        msgs.scrollTop = msgs.scrollHeight;
+        return div;
+    }
+
+    function renderChatMarkdown(text) {
+        let html = text
+            .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+            .replace(/```([\s\S]*?)```/g, (_, code) => `<pre><code>${code.trim()}</code></pre>`)
+            .replace(/`([^`]+)`/g, '<code>$1</code>')
+            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.+?)\*/g, '<em>$1</em>')
+            .replace(/^### (.+)$/gm, '<h4>$1</h4>')
+            .replace(/^## (.+)$/gm, '<h3>$1</h3>');
+
+        // Tables
+        html = html.replace(/((?:^\|.+\|$\n?)+)/gm, (block) => {
+            const rows = block.trim().split('\n').filter(r => r.trim());
+            if (rows.length < 2) return block;
+            const isSep = r => /^\|[\s\-:|]+\|$/.test(r.trim());
+            let thead = '', tbody = '';
+            let headerDone = false;
+            rows.forEach(row => {
+                if (isSep(row)) { headerDone = true; return; }
+                const cells = row.split('|').slice(1, -1).map(c => c.trim());
+                if (!headerDone) {
+                    thead += '<tr>' + cells.map(c => `<th>${c}</th>`).join('') + '</tr>';
+                } else {
+                    tbody += '<tr>' + cells.map(c => `<td>${c}</td>`).join('') + '</tr>';
+                }
+            });
+            return `<table><thead>${thead}</thead><tbody>${tbody}</tbody></table>`;
+        });
+
+        // Lists
+        html = html.replace(/^[-*] (.+)$/gm, '<li>$1</li>');
+        html = html.replace(/((?:<li>.*<\/li>\n?)+)/g, '<ul>$1</ul>');
+        html = html.replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
+
+        // Paragraphs
+        html = html.split('\n\n').map(p => {
+            p = p.trim();
+            if (!p || p.startsWith('<h') || p.startsWith('<pre') || p.startsWith('<ul') ||
+                p.startsWith('<ol') || p.startsWith('<table') || p.startsWith('<li')) return p;
+            return `<p>${p}</p>`;
+        }).join('\n');
+
+        html = html.replace(/\n/g, ' ').replace(/<\/p>\s*<p>/g, '</p><p>');
+        return html;
+    }
+
+    async function sendChat() {
+        if (_chatStreaming) return;
+        const input = document.getElementById('chatInput');
+        const text = input.value.trim();
+        if (!text) return;
+
+        input.value = '';
+        input.style.height = 'auto';
+        appendChatMsg('user', text.replace(/</g, '&lt;').replace(/>/g, '&gt;'));
+
+        _chatMessages.push({ role: 'user', content: text });
+        _chatStreaming = true;
+        document.getElementById('chatSendBtn').disabled = true;
+        document.getElementById('chatTyping').classList.add('visible');
+
+        const context = buildDataContext();
+        let assistantText = '';
+        let msgEl = null;
+
+        try {
+            const res = await fetch(WORKER_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    messages: _chatMessages.slice(-10),
+                    context: context,
+                }),
+            });
+
+            document.getElementById('chatTyping').classList.remove('visible');
+
+            if (!res.ok) {
+                const err = await res.json().catch(() => ({ error: 'Unknown error' }));
+                appendChatMsg('assistant', `<p style="color:#f87171;">오류: ${err.error || res.statusText}</p>`);
+                _chatStreaming = false;
+                document.getElementById('chatSendBtn').disabled = false;
+                return;
+            }
+
+            msgEl = appendChatMsg('assistant', '<p style="color:var(--text-muted);">생각 중…</p>');
+
+            const reader = res.body.getReader();
+            const decoder = new TextDecoder();
+            let buffer = '';
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+                buffer += decoder.decode(value, { stream: true });
+
+                const lines = buffer.split('\n');
+                buffer = lines.pop() || '';
+
+                for (const line of lines) {
+                    if (!line.startsWith('data: ')) continue;
+                    const data = line.slice(6);
+                    if (data === '[DONE]') break;
+                    try {
+                        const parsed = JSON.parse(data);
+                        const delta = parsed.response ?? parsed.choices?.[0]?.delta?.content;
+                        if (delta) {
+                            assistantText += delta;
+                            msgEl.innerHTML = renderChatMarkdown(assistantText);
+                            document.getElementById('chatMessages').scrollTop =
+                                document.getElementById('chatMessages').scrollHeight;
+                        }
+                    } catch {}
+                }
+            }
+
+            if (assistantText) {
+                msgEl.innerHTML = renderChatMarkdown(assistantText);
+                _chatMessages.push({ role: 'assistant', content: assistantText });
+            }
+        } catch (err) {
+            document.getElementById('chatTyping').classList.remove('visible');
+            appendChatMsg('assistant',
+                `<p style="color:#f87171;">연결 오류: 서버에 연결할 수 없습니다. Cloudflare Worker가 배포되었는지 확인해주세요.</p>`);
+        }
+
+        _chatStreaming = false;
+        document.getElementById('chatSendBtn').disabled = false;
+    }
+
+    // Auto-resize textarea
+    document.getElementById('chatInput').addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = Math.min(this.scrollHeight, 100) + 'px';
+    });
     </script>
 </body>
 </html>

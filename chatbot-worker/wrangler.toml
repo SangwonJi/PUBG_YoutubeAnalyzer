@@ -1,0 +1,14 @@
+name = "pubgm-collab-chatbot"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+[placement]
+mode = "smart"
+
+[ai]
+binding = "AI"
+
+[vars]
+ALLOWED_ORIGIN = "https://sangwonji.github.io"
+RATE_LIMIT_PER_MIN = "10"
+MAX_CONTEXT_CHARS = "12000"
