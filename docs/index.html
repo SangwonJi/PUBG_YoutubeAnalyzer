@@ -2549,8 +2549,8 @@
                 currentTab = 'collab';
                 document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
                 document.getElementById('collabTab').classList.add('active');
-                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                document.querySelector('.tab-btn')?.classList.add('active');
+                document.querySelectorAll('.tab-btn, .header-tab').forEach(b => b.classList.remove('active'));
+                document.querySelector('.header-tab')?.classList.add('active');
             }
             currentGame = gameId;
             const game = GAMES[gameId];
@@ -4909,30 +4909,23 @@
         ctx += `\n[전체 요약]\n파트너: ${totalPartners}개 | 영상: ${totalVideos}개 | 조회수: ${totalViews.toLocaleString()} | 좋아요: ${totalLikes.toLocaleString()} | 댓글: ${totalComments.toLocaleString()}\n`;
 
         const getName = p => p.partner_name || p.name || '?';
+        const fmtV = n => n >= 1e6 ? (n/1e6).toFixed(1)+'M' : n >= 1e3 ? Math.round(n/1e3)+'K' : String(n);
 
-        ctx += `\n[전체 파트너 목록 — 조회수 내림차순]\n`;
-        partnersData.forEach((p, i) => {
-            const vids = p.videos || [];
-            const dates = vids.map(v => v.published_at?.substring(0, 10)).filter(Boolean).sort();
-            ctx += `${i + 1}. ${getName(p)} [${p.category || '?'}] — ${p.video_count || 0}편, 조회 ${(p.total_views || 0).toLocaleString()}, 좋아요 ${(p.total_likes || 0).toLocaleString()}, 댓글 ${(p.total_comments || 0).toLocaleString()}, ${dates[0] || '?'}~${dates[dates.length - 1] || '?'}\n`;
-        });
-
-        const DETAIL_LIMIT = 20;
-        ctx += `\n[상위 ${DETAIL_LIMIT}개 파트너 영상 상세]\n`;
+        const DETAIL_LIMIT = 23;
         partnersData.slice(0, DETAIL_LIMIT).forEach((p, i) => {
             const vids = p.videos || [];
-            ctx += `\n### ${getName(p)} (${p.category || '?'}) — ${vids.length}편\n`;
+            ctx += `\n#${i + 1} ${getName(p)} [${p.category || '?'}] ${vids.length}편 ${fmtV(p.total_views||0)}v ${fmtV(p.total_likes||0)}L\n`;
             vids.forEach(v => {
-                ctx += `  · "${v.title}" | ${v.published_at?.substring(0, 10) || '?'} | 조회 ${(v.view_count || 0).toLocaleString()} | 좋아요 ${(v.like_count || 0).toLocaleString()}\n`;
+                ctx += ` "${(v.title||'').substring(0,65)}" ${v.published_at?.substring(0, 10) || '?'} ${fmtV(v.view_count || 0)}v\n`;
             });
         });
 
-        const allVids = partnersData.flatMap(p => (p.videos || []).map(v => ({ ...v, _partner: getName(p) })));
-        const recent = allVids.sort((a, b) => (b.published_at || '').localeCompare(a.published_at || '')).slice(0, 20);
-        if (recent.length) {
-            ctx += `\n[가장 최근 게시된 콜라보 영상 20개]\n`;
-            recent.forEach(v => {
-                ctx += `- "${v.title}" (${v._partner}) | ${v.published_at?.substring(0, 10) || '?'} | 조회 ${(v.view_count || 0).toLocaleString()}\n`;
+        if (partnersData.length > DETAIL_LIMIT) {
+            ctx += `\n[${DETAIL_LIMIT + 1}~${partnersData.length}위]\n`;
+            partnersData.slice(DETAIL_LIMIT).forEach((p, i) => {
+                const vids = p.videos || [];
+                const dates = vids.map(v => v.published_at?.substring(0, 10)).filter(Boolean).sort();
+                ctx += `${DETAIL_LIMIT + i + 1}. ${getName(p)} [${p.category || '?'}] ${vids.length}편 ${fmtV(p.total_views || 0)}v\n`;
             });
         }
 

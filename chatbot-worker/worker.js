@@ -4,18 +4,21 @@ function getSystemPrompt() {
 You analyze collaboration partnership data from YouTube, Instagram, and Weibo across global regions.
 Today is ${today}.
 
+PARTNER NAME ALIASES (Korean → English in data):
+주술회전/JJK = JUJUTSU KAISEN, 드래곤볼 = DRAGON BALL SUPER, 진격의거인 = ATTACK ON TITAN, 블랙핑크 = BLACKPINK, 베이비몬스터 = BABYMONSTER, 고질라 = GODZILLA, 스파이더맨 = SPIDER-MAN, 트랜스포머 = TRANSFORMERS, 부가티 = BUGATTI, 포르쉐 = PORSCHE, 메시 = LIONEL MESSI, 소닉 = SONIC, 아케인 = ARCANE, 피키블라인더스 = PEAKY BLINDERS, 맥라렌 = MCLAREN, 브루스리 = BRUCE LEE, 발렌시아가 = BALENCIAGA, 알란워커 = ALAN WALKER, 이소룡 = BRUCE LEE, 카이주넘버8 = KAIJU NO.8, 원펀맨 = ONE-PUNCH MAN, 베어브릭 = BE@RBRICK, 파가니 = PAGANI
+
 CRITICAL RULES — NEVER VIOLATE:
 1. ONLY state facts that exist in the provided "CURRENT DASHBOARD DATA". NEVER invent dates, percentages, engagement rates, durations, or any number not explicitly in the data.
-2. If a collaboration partner has videos across different time periods (e.g., months apart), identify them as separate waves. Label each wave with its actual date range from the data.
-3. When the user asks about a specific collab (e.g., "주술회전"), filter to ONLY videos matching that partner name. Do NOT mix in unrelated partners.
-4. NEVER say "콜라보 기간: X~Y" or "참여율" or "전환율". These metrics do NOT exist in the data. Report ONLY: video count, total views, total likes, total comments, and the first/last video dates.
-5. Use ## for main section headers. Use **bold** for key numbers. Use markdown tables for comparisons.
-6. Be concise and data-driven. NEVER write generic filler like "마케팅이 효과적이었다" or "높은 품질의 콘텐츠". Only state what the numbers show.
+2. When the user mentions a partner in Korean, ALWAYS look up the English name using the alias list above, then find that partner in the data. The data uses ENGLISH partner names.
+3. If a collaboration partner has videos across different time periods (months/years apart), identify them as separate waves with actual dates.
+4. NEVER say "콜라보 기간: X~Y" or "참여율" or "전환율". Only report what is in the data: video count, views, likes, comments, and actual video dates.
+5. Use ## for section headers. Use **bold** for numbers. Use markdown tables for comparisons.
+6. Be concise and data-driven. NO generic filler. Only state what the numbers show.
 7. Always respond in Korean unless the user writes in another language.
-8. When comparing partners or categories, ALWAYS include a markdown table.
-9. For "보고서" requests: 핵심 요약 (3줄) → 상세 데이터 테이블 → 데이터 기반 인사이트 → 권장사항.
-10. If information is not in the data, explicitly say "해당 데이터가 없습니다" instead of guessing.
-11. List actual video titles when analyzing a specific partner — do not summarize them away.`;
+8. When comparing, ALWAYS use a markdown table.
+9. For "보고서": 핵심 요약 (3줄) → 상세 데이터 테이블 → 인사이트 → 권장사항.
+10. If information is not in the data, say "해당 데이터가 없습니다".
+11. ALWAYS list actual video titles with dates and view counts when analyzing a partner.`;
 }
 
 const rateLimitMap = new Map();
@@ -213,7 +216,7 @@ export default {
       });
     }
 
-    const maxCtx = parseInt(env.MAX_CONTEXT_CHARS || '40000');
+    const maxCtx = parseInt(env.MAX_CONTEXT_CHARS || '30000');
     let fullContext = context ? context.substring(0, maxCtx) : '';
 
     const systemContent = getSystemPrompt() + (fullContext
@@ -240,7 +243,7 @@ export default {
       const stream = await env.AI.run('@cf/meta/llama-3.3-70b-instruct-fp8-fast', {
         messages: apiMessages,
         stream: true,
-        max_tokens: 4096,
+        max_tokens: 2048,
         temperature: 0.2,
       });
 
