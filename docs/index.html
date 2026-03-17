@@ -1014,6 +1014,96 @@
             color: #1e293b;
         }
 
+        /* ===== Compare Tab Enhancements ===== */
+        .compare-section-header {
+            display: flex; align-items: center; gap: 12px; margin-bottom: 6px;
+        }
+        .compare-section-header h3 { margin: 0; font-size: 1.1rem; font-weight: 700; color: var(--text-primary); }
+        .compare-section-desc { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 20px; }
+
+        .compare-top-n-bar {
+            display: flex; gap: 4px; background: rgba(255,255,255,0.04); border-radius: 8px; padding: 3px;
+        }
+        [data-theme="light"] .compare-top-n-bar { background: rgba(0,0,0,0.04); }
+        .compare-top-n-btn {
+            padding: 5px 14px; border: none; border-radius: 6px; font-size: 0.8rem;
+            cursor: pointer; transition: all 0.2s; background: transparent; color: var(--text-muted); font-weight: 500;
+        }
+        .compare-top-n-btn.active { background: var(--accent); color: #fff; }
+        .compare-top-n-btn:hover:not(.active) { background: rgba(255,255,255,0.06); color: var(--text-secondary); }
+        [data-theme="light"] .compare-top-n-btn:hover:not(.active) { background: rgba(0,0,0,0.06); }
+
+        .shared-tbl { width: 100%; border-collapse: separate; border-spacing: 0 4px; font-size: 0.85rem; }
+        .shared-tbl thead th {
+            padding: 10px 12px; font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.04em; color: var(--text-muted); border-bottom: none; position: sticky; top: 0;
+            background: var(--card-bg); z-index: 2;
+        }
+        .shared-tbl thead th:first-child, .shared-tbl thead th:nth-child(2) { text-align: left; }
+        .shared-tbl tbody tr {
+            background: rgba(255,255,255,0.02); border-radius: 10px; cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        [data-theme="light"] .shared-tbl tbody tr { background: rgba(0,0,0,0.015); }
+        .shared-tbl tbody tr:hover { background: rgba(99,102,241,0.08); transform: translateX(2px); }
+        .shared-tbl tbody td {
+            padding: 11px 12px; border-top: none; border-bottom: none;
+        }
+        .shared-tbl tbody td:first-child { border-radius: 10px 0 0 10px; }
+        .shared-tbl tbody td:last-child { border-radius: 0 10px 10px 0; }
+
+        .plat-color-dot {
+            display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle;
+        }
+        .shared-bar-wrap {
+            display: flex; align-items: center; gap: 8px; justify-content: flex-end;
+        }
+        .shared-bar-track {
+            flex: 1; max-width: 80px; height: 8px; background: rgba(255,255,255,0.04);
+            border-radius: 4px; overflow: hidden;
+        }
+        [data-theme="light"] .shared-bar-track { background: rgba(0,0,0,0.06); }
+        .shared-bar-fill {
+            height: 100%; border-radius: 4px; transition: width 0.5s ease;
+        }
+        .shared-val {
+            font-weight: 600; font-variant-numeric: tabular-nums; min-width: 58px; text-align: right; font-size: 0.85rem;
+        }
+        .shared-val-max { font-weight: 800; }
+
+        .partner-search-wrap {
+            position: relative; display: inline-block; min-width: 280px;
+        }
+        .partner-search-input {
+            width: 100%; padding: 9px 16px 9px 36px; border-radius: 10px;
+            border: 1px solid var(--border); background: var(--card-bg); color: var(--text-primary);
+            font-size: 0.9rem; outline: none; transition: border-color 0.2s;
+        }
+        .partner-search-input:focus { border-color: var(--accent); }
+        .partner-search-input::placeholder { color: var(--text-muted); }
+        .partner-search-icon {
+            position: absolute; left: 11px; top: 50%; transform: translateY(-50%);
+            width: 16px; height: 16px; color: var(--text-muted); pointer-events: none;
+        }
+        .partner-dropdown {
+            position: absolute; top: calc(100% + 4px); left: 0; right: 0;
+            max-height: 280px; overflow-y: auto; background: var(--card-bg);
+            border: 1px solid var(--border); border-radius: 10px;
+            box-shadow: var(--shadow-md); z-index: 100; display: none;
+        }
+        .partner-dropdown.open { display: block; }
+        .partner-dropdown-item {
+            padding: 10px 16px; cursor: pointer; font-size: 0.88rem;
+            display: flex; justify-content: space-between; align-items: center;
+            color: var(--text-primary); transition: background 0.15s;
+        }
+        .partner-dropdown-item:hover, .partner-dropdown-item.highlighted {
+            background: rgba(99,102,241,0.1);
+        }
+        .partner-dropdown-item .pdi-views {
+            font-size: 0.78rem; color: var(--text-muted); font-variant-numeric: tabular-nums;
+        }
+
         /* ===== Global Search Tab ===== */
         .search-bar-wrap { max-width: 640px; margin: 0 auto 32px; }
         .search-input-wrap { position: relative; }
@@ -1532,14 +1622,60 @@
                 </div>
             </section>
 
+            <!-- Shared partners quantitative table (moved up for priority) -->
+            <section style="margin-top: 24px;">
+                <div class="chart-card" style="padding: 28px 32px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+                        <div>
+                            <div class="compare-section-header">
+                                <h3 data-en="Shared Partners" data-ko="공통 파트너 비교" data-zh="共同合作伙伴">공통 파트너 비교</h3>
+                            </div>
+                            <div class="compare-section-desc" data-en="Partners active across 2+ platforms, sorted by total performance" data-ko="2개 이상 플랫폼에 등장하는 파트너를 성과순으로 정렬" data-zh="活跃于2个以上平台的合作伙伴，按总表现排序">2개 이상 플랫폼에 등장하는 파트너를 성과순으로 정렬</div>
+                        </div>
+                        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+                            <div class="compare-top-n-bar" id="compareTopNBar">
+                                <button class="compare-top-n-btn" onclick="setCompareTopN(10)" data-n="10">Top 10</button>
+                                <button class="compare-top-n-btn active" onclick="setCompareTopN(20)" data-n="20">Top 20</button>
+                                <button class="compare-top-n-btn" onclick="setCompareTopN(50)" data-n="50">Top 50</button>
+                                <button class="compare-top-n-btn" onclick="setCompareTopN(999)" data-n="999" data-en="All" data-ko="전체" data-zh="全部">전체</button>
+                            </div>
+                            <div style="display:flex;gap:4px;background:rgba(255,255,255,0.04);border-radius:8px;padding:3px;">
+                                <button class="compare-metric-btn active" onclick="switchCompareMetric('views')" data-metric="views" style="padding:6px 16px;border:none;border-radius:6px;font-size:0.82rem;cursor:pointer;transition:all 0.2s;background:#6366f1;color:#fff;">
+                                    <span data-en="Views" data-ko="조회수" data-zh="浏览量">조회수</span>
+                                </button>
+                                <button class="compare-metric-btn" onclick="switchCompareMetric('videos')" data-metric="videos" style="padding:6px 16px;border:none;border-radius:6px;font-size:0.82rem;cursor:pointer;transition:all 0.2s;background:transparent;color:#94a3b8;">
+                                    <span data-en="Videos" data-ko="영상 수" data-zh="视频数">영상 수</span>
+                                </button>
+                                <button class="compare-metric-btn" onclick="switchCompareMetric('avgviews')" data-metric="avgviews" style="padding:6px 16px;border:none;border-radius:6px;font-size:0.82rem;cursor:pointer;transition:all 0.2s;background:transparent;color:#94a3b8;">
+                                    <span data-en="Avg Views" data-ko="평균 조회수" data-zh="平均浏览量">평균 조회수</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sharedPartnersTable" style="overflow-x: auto; max-height: 720px; overflow-y: auto; margin-top: 8px;"></div>
+                </div>
+            </section>
+
             <!-- Partner detail comparison -->
             <section style="margin-top: 24px;">
                 <div class="chart-card" style="padding: 28px 32px;">
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
-                        <h3 class="chart-title" style="margin-bottom:0;font-size:1.1rem;" data-en="Partner Performance by Platform" data-ko="파트너별 플랫폼 성과 비교" data-zh="合作伙伴各平台表现">파트너별 플랫폼 성과 비교</h3>
-                        <select id="comparePartnerSelect" style="padding:8px 16px;border-radius:8px;border:1px solid var(--border);background:var(--card-bg);color:var(--text-primary);font-size:0.9rem;min-width:240px;cursor:pointer;">
-                            <option value="">—</option>
-                        </select>
+                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+                        <div>
+                            <div class="compare-section-header">
+                                <h3 data-en="Partner Deep Dive" data-ko="파트너 상세 비교" data-zh="合作伙伴详情">파트너 상세 비교</h3>
+                            </div>
+                            <div class="compare-section-desc" data-en="Select or search a partner to compare performance across all platforms" data-ko="파트너를 검색하면 플랫폼별 상세 성과를 비교합니다" data-zh="搜索合作伙伴以比较各平台的详细表现">파트너를 검색하면 플랫폼별 상세 성과를 비교합니다</div>
+                        </div>
+                        <div class="partner-search-wrap" id="partnerSearchWrap">
+                            <svg class="partner-search-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+                            <input type="text" class="partner-search-input" id="partnerSearchInput" autocomplete="off" spellcheck="false"
+                                data-placeholder-en="Search partner..."
+                                data-placeholder-ko="파트너 검색..."
+                                data-placeholder-zh="搜索合作伙伴..."
+                                placeholder="파트너 검색...">
+                            <div class="partner-dropdown" id="partnerDropdown"></div>
+                            <select id="comparePartnerSelect" style="display:none;"><option value="">—</option></select>
+                        </div>
                     </div>
                     <div id="partnerCompareCharts" style="display:none;">
                         <div id="partnerSummaryCards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:20px;"></div>
@@ -1550,29 +1686,8 @@
                     </div>
                     <div id="partnerCompareEmpty" style="text-align:center;padding:48px 0;color:var(--text-muted);">
                         <div style="font-size:2rem;margin-bottom:8px;opacity:0.4;">📊</div>
-                        <span data-en="Select a partner to compare across platforms" data-ko="파트너를 선택하면 플랫폼별 성과를 비교합니다" data-zh="选择合作伙伴以比较各平台表现">파트너를 선택하면 플랫폼별 성과를 비교합니다</span>
+                        <span data-en="Search a partner above or click a row in the table" data-ko="위에서 파트너를 검색하거나 테이블 행을 클릭하세요" data-zh="在上方搜索或点击表格行">위에서 파트너를 검색하거나 테이블 행을 클릭하세요</span>
                     </div>
-                </div>
-            </section>
-
-            <!-- Shared partners quantitative table -->
-            <section style="margin-top: 24px;">
-                <div class="chart-card" style="padding: 28px 32px;">
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
-                        <h3 class="chart-title" style="margin-bottom:0;font-size:1.1rem;" data-en="Shared Partners – Quantitative Comparison" data-ko="공통 파트너 정량 비교" data-zh="共同合作伙伴定量对比">공통 파트너 정량 비교</h3>
-                        <div style="display:flex;gap:4px;background:rgba(255,255,255,0.06);border-radius:8px;padding:3px;">
-                            <button class="compare-metric-btn active" onclick="switchCompareMetric('views')" data-metric="views" style="padding:6px 16px;border:none;border-radius:6px;font-size:0.85rem;cursor:pointer;transition:all 0.2s;background:#6366f1;color:#fff;">
-                                <span data-en="Views" data-ko="조회수" data-zh="浏览量">조회수</span>
-                            </button>
-                            <button class="compare-metric-btn" onclick="switchCompareMetric('videos')" data-metric="videos" style="padding:6px 16px;border:none;border-radius:6px;font-size:0.85rem;cursor:pointer;transition:all 0.2s;background:transparent;color:#94a3b8;">
-                                <span data-en="Videos" data-ko="영상 수" data-zh="视频数">영상 수</span>
-                            </button>
-                            <button class="compare-metric-btn" onclick="switchCompareMetric('avgviews')" data-metric="avgviews" style="padding:6px 16px;border:none;border-radius:6px;font-size:0.85rem;cursor:pointer;transition:all 0.2s;background:transparent;color:#94a3b8;">
-                                <span data-en="Avg Views" data-ko="평균 조회수" data-zh="平均浏览量">평균 조회수</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div id="sharedPartnersTable" style="overflow-x: auto;"></div>
                 </div>
             </section>
         </div>
@@ -3242,6 +3357,16 @@
         let _compareCtx = {};
         let _compareMetric = 'views';
 
+        let _compareTopN = 20;
+
+        function setCompareTopN(n) {
+            _compareTopN = n;
+            document.querySelectorAll('.compare-top-n-btn').forEach(btn => {
+                btn.classList.toggle('active', parseInt(btn.getAttribute('data-n')) === n);
+            });
+            if (_compareCtx.shared) renderSharedTable();
+        }
+
         function switchCompareMetric(metric) {
             _compareMetric = metric;
             document.querySelectorAll('.compare-metric-btn').forEach(btn => {
@@ -3280,64 +3405,86 @@
                 return totalB - totalA;
             });
 
-            // Find max value for data bar scaling
+            const top = sortedShared.slice(0, _compareTopN);
+
             let globalMax = 0;
-            sortedShared.slice(0, 50).forEach(([name]) => {
+            top.forEach(([name]) => {
                 allKeys.forEach(pk => {
                     const v = getPartnerMetric(pk, name);
                     if (v !== null && v > globalMax) globalMax = v;
                 });
             });
 
-            const top = sortedShared.slice(0, 50);
-            const zebraEven = 'rgba(255,255,255,0.02)';
-            const zebraOdd = 'transparent';
-
-            let tbl = `<table style="width:100%;border-collapse:separate;border-spacing:0;font-size:0.88rem;">`;
+            let tbl = `<table class="shared-tbl">`;
             tbl += `<thead><tr>`;
-            tbl += `<th style="text-align:left;padding:12px 14px;color:var(--text-primary);font-size:0.85rem;border-bottom:2px solid var(--border);position:sticky;left:0;background:var(--card-bg);z-index:2;min-width:140px;">#</th>`;
-            tbl += `<th style="text-align:left;padding:12px 14px;color:var(--text-primary);font-size:0.85rem;border-bottom:2px solid var(--border);position:sticky;left:0;background:var(--card-bg);z-index:2;min-width:140px;">${t('Partner','파트너','合作伙伴')}</th>`;
+            tbl += `<th style="width:36px;text-align:center;">#</th>`;
+            tbl += `<th style="min-width:160px;">${t('Partner','파트너','合作伙伴')}</th>`;
             allKeys.forEach((pk, i) => {
-                tbl += `<th style="text-align:right;padding:12px 10px;border-bottom:2px solid var(--border);white-space:nowrap;min-width:100px;"><span style="color:${CHAN_COLORS[i % CHAN_COLORS.length]};font-weight:600;font-size:0.85rem;">${shortName(pk)}</span></th>`;
+                const c = CHAN_COLORS[i % CHAN_COLORS.length];
+                tbl += `<th style="text-align:right;min-width:120px;white-space:nowrap;"><span class="plat-color-dot" style="background:${c};"></span><span style="color:${c};">${shortName(pk)}</span></th>`;
             });
-            tbl += `<th style="text-align:right;padding:12px 14px;color:var(--text-primary);font-size:0.85rem;border-bottom:2px solid var(--border);min-width:90px;">${t('Total','합계','总计')}</th>`;
+            tbl += `<th style="text-align:right;min-width:95px;">${t('Total','합계','总计')}</th>`;
             tbl += `</tr></thead><tbody>`;
 
             top.forEach(([name, cnt], idx) => {
-                const bg = idx % 2 === 0 ? zebraEven : zebraOdd;
-                tbl += `<tr style="background:${bg};cursor:pointer;transition:background 0.15s;" onmouseenter="this.style.background='rgba(99,102,241,0.1)'" onmouseleave="this.style.background='${bg}'" onclick="selectComparePartner('${name.replace(/'/g, "\\'")}')">`;
-                tbl += `<td style="padding:10px 14px;color:var(--text-muted);font-size:0.8rem;font-variant-numeric:tabular-nums;">${idx + 1}</td>`;
-                tbl += `<td style="padding:10px 14px;font-weight:600;color:var(--text-primary);white-space:nowrap;">`;
-                tbl += `${name} <span style="color:var(--accent-light);font-size:0.75rem;font-weight:400;opacity:0.7;margin-left:4px;">${cnt}/${allKeys.length}</span>`;
-                tbl += `</td>`;
-                let total = 0;
+                const escapedName = name.replace(/'/g, "\\'");
+
+                let rowTotal = 0;
+                const rowVals = allKeys.map(pk => {
+                    const v = getPartnerMetric(pk, name);
+                    if (v !== null) rowTotal += v;
+                    return v;
+                });
+
+                const rowMax = Math.max(...rowVals.filter(v => v !== null));
+
+                const rankBadge = idx < 3
+                    ? `<span style="display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;font-size:0.72rem;font-weight:700;background:${['linear-gradient(135deg,#f5af19,#f97316)','linear-gradient(135deg,#94a3b8,#cbd5e1)','linear-gradient(135deg,#d97706,#a16207)'][idx]};color:#fff;">${idx+1}</span>`
+                    : `<span style="color:var(--text-muted);font-size:0.8rem;font-variant-numeric:tabular-nums;">${idx+1}</span>`;
+
+                const presenceDots = allKeys.map((pk, i) => {
+                    const c = CHAN_COLORS[i % CHAN_COLORS.length];
+                    const exists = rowVals[i] !== null;
+                    return `<span style="display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:2px;background:${exists ? c : 'rgba(255,255,255,0.08)'};"></span>`;
+                }).join('');
+
+                tbl += `<tr onclick="selectComparePartner('${escapedName}')">`;
+                tbl += `<td style="text-align:center;">${rankBadge}</td>`;
+                tbl += `<td><div style="font-weight:600;color:var(--text-primary);white-space:nowrap;margin-bottom:2px;">${name}</div><div style="display:flex;align-items:center;gap:2px;">${presenceDots}<span style="color:var(--text-muted);font-size:0.72rem;margin-left:4px;">${cnt}/${allKeys.length}</span></div></td>`;
+
                 allKeys.forEach((pk, i) => {
-                    const val = getPartnerMetric(pk, name);
+                    const val = rowVals[i];
                     const color = CHAN_COLORS[i % CHAN_COLORS.length];
                     if (val !== null) {
-                        total += val;
                         const barPct = globalMax > 0 ? Math.max(2, (val / globalMax) * 100) : 0;
-                        tbl += `<td style="text-align:right;padding:10px 10px;">`;
-                        tbl += `<div style="display:flex;align-items:center;justify-content:flex-end;gap:8px;">`;
-                        tbl += `<div style="flex:1;max-width:70px;height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;">`;
-                        tbl += `<div style="width:${barPct}%;height:100%;background:${color};border-radius:3px;"></div>`;
-                        tbl += `</div>`;
-                        tbl += `<span style="color:${color};font-weight:500;font-variant-numeric:tabular-nums;min-width:55px;text-align:right;">${formatNumber(val)}</span>`;
+                        const isMax = val === rowMax && rowMax > 0;
+                        tbl += `<td style="text-align:right;"><div class="shared-bar-wrap">`;
+                        tbl += `<div class="shared-bar-track"><div class="shared-bar-fill" style="width:${barPct}%;background:${isMax ? color : color + '99'};"></div></div>`;
+                        tbl += `<span class="shared-val${isMax ? ' shared-val-max' : ''}" style="color:${isMax ? color : 'var(--text-secondary)'};">${formatNumber(val)}</span>`;
                         tbl += `</div></td>`;
                     } else {
-                        tbl += `<td style="text-align:right;padding:10px 10px;color:var(--text-muted);opacity:0.4;">—</td>`;
+                        tbl += `<td style="text-align:right;color:var(--text-muted);opacity:0.3;">—</td>`;
                     }
                 });
-                tbl += `<td style="text-align:right;padding:10px 14px;font-weight:700;color:var(--text-primary);font-variant-numeric:tabular-nums;">${formatNumber(total)}</td>`;
+
+                tbl += `<td style="text-align:right;font-weight:700;color:var(--text-primary);font-variant-numeric:tabular-nums;font-size:0.9rem;">${formatNumber(rowTotal)}</td>`;
                 tbl += `</tr>`;
             });
+
             tbl += `</tbody></table>`;
+
+            if (sortedShared.length > _compareTopN) {
+                tbl += `<div style="text-align:center;padding:12px;color:var(--text-muted);font-size:0.8rem;">${t(`Showing ${_compareTopN} of ${sortedShared.length} shared partners`,`공통 파트너 ${sortedShared.length}개 중 ${_compareTopN}개 표시`,`显示 ${sortedShared.length} 个中的 ${_compareTopN} 个`)}</div>`;
+            }
+
             tableEl.innerHTML = tbl;
         }
 
         function selectComparePartner(name) {
             const sel = document.getElementById('comparePartnerSelect');
             if (sel) { sel.value = name; }
+            const input = document.getElementById('partnerSearchInput');
+            if (input) { input.value = name; }
             renderPartnerCompareChart(name);
         }
 
@@ -3616,34 +3763,108 @@
                 }));
             }
 
-            // Populate partner select dropdown
-            const sel = document.getElementById('comparePartnerSelect');
-            if (sel) {
-                const sortedByViews = shared.map(([name]) => {
-                    const totalViews = allKeys.reduce((s, pk) => {
-                        const p = (allData[pk].partners || []).find(x => x.name === name);
-                        return s + (p ? (p.total_views || 0) : 0);
-                    }, 0);
-                    return { name, totalViews };
-                }).sort((a, b) => b.totalViews - a.totalViews);
+            // Build partner search data
+            const sortedByViews = shared.map(([name]) => {
+                const totalViews = allKeys.reduce((s, pk) => {
+                    const p = (allData[pk].partners || []).find(x => x.name === name);
+                    return s + (p ? (p.total_views || 0) : 0);
+                }, 0);
+                return { name, totalViews };
+            }).sort((a, b) => b.totalViews - a.totalViews);
 
-                sel.innerHTML = `<option value="">${t('— Select partner —','— 파트너 선택 —','— 选择合作伙伴 —')}</option>`;
-                sortedByViews.forEach(({ name, totalViews }) => {
-                    const label = totalViews >= 1e6 ? (totalViews/1e6).toFixed(1) + 'M' : totalViews >= 1e3 ? (totalViews/1e3).toFixed(0) + 'K' : totalViews;
-                    sel.innerHTML += `<option value="${name}">${name} (${label})</option>`;
-                });
-                sel.onchange = () => renderPartnerCompareChart(sel.value);
-            }
+            _comparePartnerList = sortedByViews;
+            initPartnerSearch();
 
             // Reset partner detail chart
-            document.getElementById('partnerCompareCharts').style.display = 'none';
-            document.getElementById('partnerCompareEmpty').style.display = '';
+            const chartsEl = document.getElementById('partnerCompareCharts');
+            const emptyEl = document.getElementById('partnerCompareEmpty');
+            if (chartsEl) chartsEl.style.display = 'none';
+            if (emptyEl) emptyEl.style.display = '';
             _partnerCharts.forEach(c => c.destroy());
             _partnerCharts = [];
 
             _compareMetric = 'views';
             renderSharedTable();
             compareChartsInitialized = true;
+        }
+
+        /* ===== Partner Search in Compare Tab ===== */
+        let _comparePartnerList = [];
+
+        function initPartnerSearch() {
+            const input = document.getElementById('partnerSearchInput');
+            const dropdown = document.getElementById('partnerDropdown');
+            if (!input || !dropdown) return;
+
+            input.value = '';
+            const fmtK = v => v >= 1e6 ? (v/1e6).toFixed(1) + 'M' : v >= 1e3 ? (v/1e3).toFixed(0) + 'K' : String(v);
+
+            function showDropdown(items) {
+                if (items.length === 0) {
+                    dropdown.classList.remove('open');
+                    return;
+                }
+                dropdown.innerHTML = items.slice(0, 30).map(({ name, totalViews }) =>
+                    `<div class="partner-dropdown-item" data-name="${name.replace(/"/g, '&quot;')}"><span>${name}</span><span class="pdi-views">${fmtK(totalViews)}</span></div>`
+                ).join('');
+                dropdown.classList.add('open');
+            }
+
+            input.addEventListener('focus', () => {
+                const q = input.value.trim().toLowerCase();
+                const items = q ? _comparePartnerList.filter(p => p.name.toLowerCase().includes(q)) : _comparePartnerList.slice(0, 20);
+                showDropdown(items);
+            });
+
+            input.addEventListener('input', () => {
+                const q = input.value.trim().toLowerCase();
+                const items = q ? _comparePartnerList.filter(p => p.name.toLowerCase().includes(q)) : _comparePartnerList.slice(0, 20);
+                showDropdown(items);
+            });
+
+            dropdown.addEventListener('click', (e) => {
+                const item = e.target.closest('.partner-dropdown-item');
+                if (!item) return;
+                const name = item.getAttribute('data-name');
+                input.value = name;
+                dropdown.classList.remove('open');
+                selectComparePartner(name);
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('#partnerSearchWrap')) {
+                    dropdown.classList.remove('open');
+                }
+            });
+
+            input.addEventListener('keydown', (e) => {
+                const items = dropdown.querySelectorAll('.partner-dropdown-item');
+                let idx = [...items].findIndex(i => i.classList.contains('highlighted'));
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    items.forEach(i => i.classList.remove('highlighted'));
+                    idx = Math.min(idx + 1, items.length - 1);
+                    items[idx]?.classList.add('highlighted');
+                    items[idx]?.scrollIntoView({ block: 'nearest' });
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    items.forEach(i => i.classList.remove('highlighted'));
+                    idx = Math.max(idx - 1, 0);
+                    items[idx]?.classList.add('highlighted');
+                    items[idx]?.scrollIntoView({ block: 'nearest' });
+                } else if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const highlighted = dropdown.querySelector('.partner-dropdown-item.highlighted');
+                    if (highlighted) {
+                        const name = highlighted.getAttribute('data-name');
+                        input.value = name;
+                        dropdown.classList.remove('open');
+                        selectComparePartner(name);
+                    }
+                } else if (e.key === 'Escape') {
+                    dropdown.classList.remove('open');
+                }
+            });
         }
 
         /* ===== Global Search Tab ===== */
