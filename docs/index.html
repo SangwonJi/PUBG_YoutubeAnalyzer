@@ -4911,7 +4911,7 @@
         const getName = p => p.partner_name || p.name || '?';
         const fmtV = n => n >= 1e6 ? (n/1e6).toFixed(1)+'M' : n >= 1e3 ? Math.round(n/1e3)+'K' : String(n);
 
-        const DETAIL_LIMIT = 23;
+        const DETAIL_LIMIT = 35;
         partnersData.slice(0, DETAIL_LIMIT).forEach((p, i) => {
             const vids = p.videos || [];
             ctx += `\n#${i + 1} ${getName(p)} [${p.category || '?'}] ${vids.length}편 ${fmtV(p.total_views||0)}v ${fmtV(p.total_likes||0)}L\n`;
