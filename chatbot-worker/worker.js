@@ -239,14 +239,27 @@ export default {
       ...messages.slice(-10),
     ];
 
-    // Priority: Claude > OpenAI > Workers AI
-    if (env.ANTHROPIC_API_KEY) {
-      return callClaude(env.ANTHROPIC_API_KEY, systemContent, messages.slice(-10), headers);
+    // Priority: Claude > OpenAI > Workers AI (with auto-fallback)
+    const anthropicKey = (env.ANTHROPIC_API_KEY || '').trim();
+    if (anthropicKey) {
+      const claudeRes = await callClaude(anthropicKey, systemContent, messages.slice(-10), headers);
+      if (claudeRes.status === 200) return claudeRes;
+      // Claude failed — fall through to Workers AI
     }
 
     if (env.OPENAI_API_KEY && env.AI_GATEWAY_URL) {
       return callOpenAI(env.OPENAI_API_KEY, env.AI_GATEWAY_URL, apiMessages, headers);
     }
+
+    // Workers AI fallback (Llama) — cap context for 24K token limit
+    const llamaCtx = fullContext ? fullContext.substring(0, 35000) : '';
+    const llamaSystem = getSystemPrompt() + (llamaCtx
+      ? `\n\n--- CURRENT DASHBOARD DATA ---\n${llamaCtx}`
+      : '');
+    const llamaMessages = [
+      { role: 'system', content: llamaSystem },
+      ...messages.slice(-10),
+    ];
 
     if (!env.AI) {
       return new Response(JSON.stringify({ error: 'AI binding not configured' }), {
@@ -256,7 +269,7 @@ export default {
 
     try {
       const stream = await env.AI.run('@cf/meta/llama-3.3-70b-instruct-fp8-fast', {
-        messages: apiMessages,
+        messages: llamaMessages,
         stream: true,
         max_tokens: 3000,
         temperature: 0.15,
@@ -275,77 +288,90 @@ export default {
 };
 
 async function callClaude(apiKey, systemContent, userMessages, cors) {
-  try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 4096,
-        temperature: 0.1,
-        system: systemContent,
-        messages: userMessages,
-        stream: true,
-      }),
-    });
+  const MODELS = [
+    'claude-sonnet-4-20250514',
+    'claude-3-7-sonnet-latest',
+    'claude-3-5-sonnet-latest',
+  ];
 
-    if (!res.ok) {
-      const errText = await res.text();
-      let errMsg = `Claude error: ${res.status}`;
-      try { errMsg = JSON.parse(errText).error?.message || errMsg; } catch {}
-      return new Response(JSON.stringify({ error: errMsg }), {
-        status: 502, headers: { ...cors, 'Content-Type': 'application/json' },
+  let lastErr = '';
+  for (const model of MODELS) {
+    try {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'x-api-key': apiKey,
+          'anthropic-version': '2023-06-01',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          model,
+          max_tokens: 4096,
+          temperature: 0.1,
+          system: systemContent,
+          messages: userMessages,
+          stream: true,
+        }),
       });
-    }
 
-    const { readable, writable } = new TransformStream();
-    const writer = writable.getWriter();
-    const encoder = new TextEncoder();
-
-    (async () => {
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder();
-      let buffer = '';
-      try {
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          buffer += decoder.decode(value, { stream: true });
-          const lines = buffer.split('\n');
-          buffer = lines.pop() || '';
-          for (const line of lines) {
-            if (!line.startsWith('data: ')) continue;
-            const data = line.slice(6);
-            if (data === '[DONE]') continue;
-            try {
-              const parsed = JSON.parse(data);
-              if (parsed.type === 'content_block_delta' && parsed.delta?.text) {
-                await writer.write(encoder.encode(`data: ${JSON.stringify({ response: parsed.delta.text })}\n\n`));
-              }
-            } catch {}
-          }
-        }
-        await writer.write(encoder.encode('data: [DONE]\n\n'));
-      } catch (err) {
-        await writer.write(encoder.encode(`data: ${JSON.stringify({ error: err.message })}\n\n`));
-      } finally {
-        await writer.close();
+      if (!res.ok) {
+        const errText = await res.text();
+        lastErr = `${model}→${res.status}:${errText.substring(0, 120)}`;
+        continue;
       }
-    })();
 
-    return new Response(readable, {
-      status: 200,
-      headers: { ...cors, 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache' },
-    });
-  } catch (err) {
-    return new Response(JSON.stringify({ error: `Failed to reach Claude: ${err.message}` }), {
-      status: 502, headers: { ...cors, 'Content-Type': 'application/json' },
-    });
+      return streamClaudeResponse(res, cors);
+    } catch (err) {
+      lastErr = `${model}→${err.message}`;
+      continue;
+    }
   }
+
+  return new Response(JSON.stringify({ error: `All Claude models failed. ${lastErr}` }), {
+    status: 502, headers: { ...cors, 'Content-Type': 'application/json' },
+  });
+}
+
+function streamClaudeResponse(res, cors) {
+  const { readable, writable } = new TransformStream();
+  const writer = writable.getWriter();
+  const encoder = new TextEncoder();
+
+  (async () => {
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+    try {
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop() || '';
+        for (const line of lines) {
+          if (!line.startsWith('data: ')) continue;
+          const data = line.slice(6);
+          if (data === '[DONE]') continue;
+          try {
+            const parsed = JSON.parse(data);
+            if (parsed.type === 'content_block_delta' && parsed.delta?.text) {
+              await writer.write(encoder.encode(`data: ${JSON.stringify({ response: parsed.delta.text })}\n\n`));
+            }
+          } catch {}
+        }
+      }
+      await writer.write(encoder.encode('data: [DONE]\n\n'));
+    } catch (err) {
+      await writer.write(encoder.encode(`data: ${JSON.stringify({ error: err.message })}\n\n`));
+    } finally {
+      await writer.close();
+    }
+  })();
+
+  return new Response(readable, {
+    status: 200,
+    headers: { ...cors, 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache' },
+  });
 }
 
 async function callOpenAI(apiKey, gatewayUrl, apiMessages, cors) {
