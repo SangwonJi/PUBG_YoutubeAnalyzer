@@ -1553,6 +1553,17 @@
             font-size: 0.88em; margin: 10px 0 4px; color: var(--text-secondary); font-weight: 600;
         }
         .chat-msg.assistant ul { padding-left: 20px; margin: 6px 0; }
+        .chat-msg.assistant ol { padding-left: 22px; margin: 6px 0; list-style-type: decimal; }
+        .chat-msg.assistant a {
+            color: var(--accent-light); text-decoration: underline;
+            text-decoration-color: rgba(99,102,241,0.3); text-underline-offset: 2px;
+            transition: text-decoration-color 0.2s;
+        }
+        .chat-msg.assistant a:hover { text-decoration-color: var(--accent-light); }
+        .chat-msg.assistant del { opacity: 0.5; }
+        .chat-msg.assistant hr {
+            border: none; border-top: 1px solid var(--border); margin: 14px 0;
+        }
 
         .chat-typing {
             align-self: flex-start; padding: 12px 20px;
@@ -5008,6 +5019,8 @@
         document.getElementById('chatWelcome').style.display = '';
         const toRemove = msgs.querySelectorAll('.chat-msg');
         toRemove.forEach(el => el.remove());
+        const badge = document.getElementById('chatModelBadge');
+        if (badge) { badge.textContent = 'CLAUDE SONNET'; badge.style.background = ''; badge.style.color = ''; }
     }
 
     function sendQuickQ(text) {
@@ -5055,11 +5068,15 @@
         const out = [];
         let inCode = false, codeBlock = '';
         let inTable = false, tableRows = [];
-        let inList = false, listItems = [];
+        let listType = null, listItems = [];
 
         function flushList() {
-            if (listItems.length) { out.push('<ul>' + listItems.join('') + '</ul>'); listItems = []; }
-            inList = false;
+            if (listItems.length) {
+                const tag = listType === 'ol' ? 'ol' : 'ul';
+                out.push(`<${tag}>${listItems.join('')}</${tag}>`);
+                listItems = [];
+            }
+            listType = null;
         }
         function flushTable() {
             if (tableRows.length < 2) { tableRows = []; inTable = false; return; }
@@ -5068,8 +5085,8 @@
             tableRows.forEach(row => {
                 if (isSep(row)) { headerDone = true; return; }
                 const cells = row.split('|').slice(1, -1).map(c => c.trim());
-                if (!headerDone) thead += '<tr>' + cells.map(c => `<th>${c}</th>`).join('') + '</tr>';
-                else tbody += '<tr>' + cells.map(c => `<td>${c}</td>`).join('') + '</tr>';
+                if (!headerDone) thead += '<tr>' + cells.map(c => `<th>${inline(c)}</th>`).join('') + '</tr>';
+                else tbody += '<tr>' + cells.map(c => `<td>${inline(c)}</td>`).join('') + '</tr>';
             });
             out.push(`<table><thead>${thead}</thead><tbody>${tbody}</tbody></table>`);
             tableRows = []; inTable = false;
@@ -5079,8 +5096,11 @@
             return s
                 .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
                 .replace(/`([^`]+)`/g, '<code>$1</code>')
+                .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+                .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
                 .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-                .replace(/\*(.+?)\*/g, '<em>$1</em>');
+                .replace(/\*(.+?)\*/g, '<em>$1</em>')
+                .replace(/~~(.+?)~~/g, '<del>$1</del>');
         }
 
         for (const raw of lines) {
@@ -5098,7 +5118,13 @@
                 continue;
             } else if (inTable) { flushTable(); }
 
-            const hMatch = line.match(/^(#{1,4})\s+(.+)$/);
+            if (/^---+$/.test(line.trim()) || /^\*\*\*+$/.test(line.trim())) {
+                flushList();
+                out.push('<hr>');
+                continue;
+            }
+
+            const hMatch = line.match(/^(#{1,5})\s+(.+)$/);
             if (hMatch) {
                 flushList();
                 const level = Math.min(hMatch[1].length + 1, 5);
@@ -5107,17 +5133,25 @@
             }
 
             const liMatch = line.match(/^[-*]\s+(.+)$/);
-            if (liMatch) { inList = true; listItems.push(`<li>${inline(liMatch[1])}</li>`); continue; }
+            if (liMatch) {
+                if (listType !== 'ul') { flushList(); listType = 'ul'; }
+                listItems.push(`<li>${inline(liMatch[1])}</li>`);
+                continue;
+            }
             const oliMatch = line.match(/^\d+\.\s+(.+)$/);
-            if (oliMatch) { inList = true; listItems.push(`<li>${inline(oliMatch[1])}</li>`); continue; }
-            if (inList) flushList();
+            if (oliMatch) {
+                if (listType !== 'ol') { flushList(); listType = 'ol'; }
+                listItems.push(`<li>${inline(oliMatch[1])}</li>`);
+                continue;
+            }
+            if (listType) flushList();
 
             if (!line.trim()) { out.push(''); continue; }
             out.push(`<p>${inline(line)}</p>`);
         }
         if (inCode && codeBlock) out.push(`<pre><code>${codeBlock.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').trim()}</code></pre>`);
         if (inTable) flushTable();
-        if (inList) flushList();
+        if (listType) flushList();
 
         return out.filter(s => s !== '').join('\n');
     }
@@ -5221,7 +5255,7 @@
     // Auto-resize textarea
     document.getElementById('chatInput').addEventListener('input', function() {
         this.style.height = 'auto';
-        this.style.height = Math.min(this.scrollHeight, 100) + 'px';
+        this.style.height = Math.min(this.scrollHeight, 120) + 'px';
     });
     </script>
 </body>
