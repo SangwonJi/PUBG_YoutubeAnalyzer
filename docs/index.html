@@ -410,8 +410,6 @@
         }
 
         .region-flag { font-size: 0.8rem; line-height: 1; }
-        .nav-divider { display: none; }
-
         /* ===== Tab Navigation (Sidebar) ===== */
         .tab-nav {
             display: flex;
@@ -424,36 +422,6 @@
             width: 100%;
             box-shadow: none;
         }
-        
-        .tab-btn {
-            padding: 7px 12px;
-            border: 1px solid transparent;
-            background: transparent;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            font-weight: 600;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            width: 100%;
-            text-align: left;
-        }
-        
-        .tab-btn:hover {
-            color: var(--text-primary);
-            background: var(--bg-tertiary);
-        }
-        
-        .tab-btn.active {
-            background: var(--accent-bg);
-            color: var(--accent-light);
-            border-color: var(--border-accent);
-        }
-
-        .tab-divider { display: none; }
 
         .tab-content { display: none; opacity: 0; }
         .tab-content.active { display: block; opacity: 1; }
@@ -2342,7 +2310,9 @@
 
         function getChannel() {
             const game = GAMES[currentGame];
+            if (!game?.platforms) return { name:'', platform:'', dataFile:'', othersFile:'', color:'', dateRange:'' };
             const plat = game.platforms[currentPlatform];
+            if (!plat) return { name: game.name, platform: currentPlatform, dataFile:'', othersFile:'', color: game.color, dateRange:'' };
             return {
                 name: game.name,
                 platform: currentPlatform,
@@ -2522,7 +2492,7 @@
             ])
             .then(([partners, others]) => {
                 if (thisRequestId !== loadRequestId) return;
-                partnersData = partners || [];
+                partnersData = Array.isArray(partners) ? partners : [];
                 othersData = others;
                 initDashboard();
                 
@@ -2630,6 +2600,7 @@
         function renderPlatformNav() {
             const game = GAMES[currentGame];
             const nav = document.getElementById('platformNav');
+            if (!game?.platforms || !nav) return;
             const platKeys = Object.keys(game.platforms);
             const ytKeys = platKeys.filter(k => k === 'youtube' || k.startsWith('yt_'));
             const otherKeys = platKeys.filter(k => k !== 'youtube' && !k.startsWith('yt_'));
@@ -2741,7 +2712,7 @@
                 currentTab = 'collab';
                 document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
                 document.getElementById('collabTab').classList.add('active');
-                document.querySelectorAll('.tab-btn, .header-tab').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.header-tab').forEach(b => b.classList.remove('active'));
                 document.querySelector('.header-tab')?.classList.add('active');
             }
             currentGame = gameId;
@@ -2793,7 +2764,7 @@
         function switchTab(tab) {
             currentTab = tab;
             
-            document.querySelectorAll('.tab-btn, .header-tab').forEach(btn => {
+            document.querySelectorAll('.header-tab').forEach(btn => {
                 btn.classList.remove('active');
                 if (btn.getAttribute('onclick')?.includes("'" + tab + "'")) {
                     btn.classList.add('active');
@@ -2852,7 +2823,7 @@
             _searchMode = true;
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
             document.getElementById('searchTab').classList.add('active');
-            document.querySelectorAll('.tab-btn, .header-tab').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.header-tab').forEach(b => b.classList.remove('active'));
             currentTab = 'search';
 
             document.querySelectorAll('#gameNav .channel-btn').forEach(btn => {
@@ -3096,8 +3067,9 @@
         }
         
         function renderCategoryFilter(preserveSelection) {
-            const categories = [...new Set(partnersData.map(p => p.category))].sort();
+            const categories = [...new Set(partnersData.map(p => p.category).filter(Boolean))].sort();
             const filter = document.getElementById('categoryFilter');
+            if (!filter) return;
             filter.innerHTML = '';
             
             // "All" button
@@ -3135,6 +3107,7 @@
         
         function renderPartnersList(filter = '') {
             const list = document.getElementById('partnersList');
+            if (!list) return;
             let filtered = partnersData;
             const videosText = isYouTubePlatform()
                 ? t('videos', '영상', '视频')
@@ -3194,8 +3167,10 @@
             
             if (!partner) return;
             
-            document.getElementById('emptyState').style.display = 'none';
+            const emptyEl = document.getElementById('emptyState');
+            if (emptyEl) emptyEl.style.display = 'none';
             const dc = document.getElementById('detailContent');
+            if (!dc) return;
             dc.style.display = 'flex';
             dc.style.flexDirection = 'column';
             dc.style.height = '100%';
@@ -4589,6 +4564,7 @@
 
         async function initCompareTab() {
             const game = GAMES[currentGame];
+            if (!game?.platforms) return;
             const allKeys = Object.keys(game.platforms);
             const emptyEl = document.getElementById('compareEmptyState');
             if (allKeys.length < 2) {
@@ -5127,9 +5103,9 @@
     function clearChat() {
         _chatMessages = [];
         const msgs = document.getElementById('chatMessages');
-        document.getElementById('chatWelcome').style.display = '';
-        const toRemove = msgs.querySelectorAll('.chat-msg');
-        toRemove.forEach(el => el.remove());
+        const welcome = document.getElementById('chatWelcome');
+        if (welcome) welcome.style.display = '';
+        if (msgs) { msgs.querySelectorAll('.chat-msg').forEach(el => el.remove()); }
         const badge = document.getElementById('chatModelBadge');
         if (badge) { badge.textContent = 'CLAUDE SONNET'; badge.style.background = ''; badge.style.color = ''; }
     }
@@ -5164,13 +5140,15 @@
     }
 
     function appendChatMsg(role, html) {
-        document.getElementById('chatWelcome').style.display = 'none';
+        const welcome = document.getElementById('chatWelcome');
+        if (welcome) welcome.style.display = 'none';
         const msgs = document.getElementById('chatMessages');
+        if (!msgs) return null;
         const typing = document.getElementById('chatTyping');
         const div = document.createElement('div');
         div.className = `chat-msg ${role}`;
         div.innerHTML = html;
-        msgs.insertBefore(div, typing);
+        if (typing) msgs.insertBefore(div, typing); else msgs.appendChild(div);
         msgs.scrollTop = msgs.scrollHeight;
         return div;
     }
@@ -5322,6 +5300,10 @@
 
             msgEl = appendChatMsg('assistant', '<p style="color:var(--text-muted);">생각 중…</p>');
 
+            if (!res.body) {
+                if (msgEl) msgEl.innerHTML = '<p style="color:var(--text-muted);">응답이 비어 있습니다.</p>';
+                return;
+            }
             const reader = res.body.getReader();
             const decoder = new TextDecoder();
             let buffer = '';
@@ -5341,20 +5323,22 @@
                     try {
                         const parsed = JSON.parse(data);
                         const delta = parsed.response ?? parsed.choices?.[0]?.delta?.content;
-                        if (delta) {
+                        if (delta && typeof delta === 'string') {
                             assistantText += delta;
-                            msgEl.innerHTML = renderChatMarkdown(assistantText);
-                            document.getElementById('chatMessages').scrollTop =
-                                document.getElementById('chatMessages').scrollHeight;
+                            if (msgEl) msgEl.innerHTML = renderChatMarkdown(assistantText);
+                            const cm = document.getElementById('chatMessages');
+                            if (cm) cm.scrollTop = cm.scrollHeight;
                         }
                     } catch {}
                 }
             }
 
             if (assistantText) {
-                msgEl.innerHTML = renderChatMarkdown(assistantText);
+                if (msgEl) msgEl.innerHTML = renderChatMarkdown(assistantText);
                 _chatMessages.push({ role: 'assistant', content: assistantText });
                 if (_chatMessages.length > 30) _chatMessages.splice(0, _chatMessages.length - 20);
+            } else if (msgEl) {
+                msgEl.innerHTML = '<p style="color:var(--text-muted);">응답이 없습니다.</p>';
             }
         } catch (err) {
             document.getElementById('chatTyping')?.classList.remove('visible');
