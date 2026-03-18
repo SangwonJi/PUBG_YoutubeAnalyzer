@@ -4718,9 +4718,9 @@
 
             // Reset partner detail chart
             const chartsEl = document.getElementById('partnerCompareCharts');
-            const emptyEl = document.getElementById('partnerCompareEmpty');
+            const partnerEmptyEl = document.getElementById('partnerCompareEmpty');
             if (chartsEl) chartsEl.style.display = 'none';
-            if (emptyEl) emptyEl.style.display = '';
+            if (partnerEmptyEl) partnerEmptyEl.style.display = '';
             _partnerCharts.forEach(c => c.destroy());
             _partnerCharts = [];
 
