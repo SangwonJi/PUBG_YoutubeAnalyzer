@@ -1,21 +1,22 @@
 """
 Build maximum-density all-platform context for AI chatbot.
-Budget: 310K chars. Push to the limit for accuracy.
+Budget: 400K chars (~133K tokens). Claude Sonnet supports 200K tokens.
 Strategy:
   - ALL partners: summary with views, likes, comments, date range
-  - Top 40 partners/region: ALL video titles + dates + views + likes
+  - Top 40 partners/region: ALL video titles + dates + views
   - Partners 41-100: top 3 videos only
   - Partners 101+: summary only
   - Weibo: partner summary + top 3 post dates for top 40
-  - Titles: 50 chars
+  - Titles: 40 chars (Tier1), 35 chars (Tier2)
 """
 import json, os, sys, io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 DOCS = 'docs'
-CHAR_BUDGET = 310_000
+CHAR_BUDGET = 400_000
 TIER1_N = 40
 TIER2_N = 100
+MAX_VIDS_PER_PARTNER = 30
 
 SOURCES = [
     ('YouTube Global (PUBG MOBILE)', 'pubgm_data.json', 'yt'),
@@ -93,16 +94,18 @@ def build():
                 continue
 
             if i < TIER1_N:
-                for v in items:
-                    title = (v.get('title') or '')[:50]
+                shown = sorted(items, key=lambda x: x.get('view_count', 0), reverse=True)[:MAX_VIDS_PER_PARTNER]
+                for v in shown:
+                    title = (v.get('title') or '')[:40]
                     date = (v.get('published_at') or '?')[:10]
                     vc = v.get('view_count', 0)
-                    lc = v.get('like_count', 0)
-                    section += f' "{title}" {date} {fmt(vc)}v {fmt(lc)}L\n'
+                    section += f' "{title}" {date} {fmt(vc)}v\n'
+                if len(items) > MAX_VIDS_PER_PARTNER:
+                    section += f' (+{len(items)-MAX_VIDS_PER_PARTNER} more videos)\n'
             elif i < TIER2_N:
                 top_vids = sorted(items, key=lambda x: x.get('view_count', 0), reverse=True)[:3]
                 for v in top_vids:
-                    title = (v.get('title') or '')[:45]
+                    title = (v.get('title') or '')[:35]
                     date = (v.get('published_at') or '?')[:10]
                     vc = v.get('view_count', 0)
                     section += f' "{title}" {date} {fmt(vc)}v\n'

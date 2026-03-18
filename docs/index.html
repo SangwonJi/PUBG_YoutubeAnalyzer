@@ -400,7 +400,7 @@
         .plat-region-btn:hover { color: var(--text-primary); background: var(--bg-tertiary); }
         .plat-region-group-label {
             font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
-            color: var(--text-muted); opacity: 0.5; padding: 6px 10px 2px; margin-top: 4px;
+            color: var(--text-secondary); opacity: 0.7; padding: 6px 10px 2px; margin-top: 4px;
         }
         .plat-region-group-label:first-child { margin-top: 0; }
         .plat-region-btn.active {
@@ -957,7 +957,7 @@
             .channel-nav, .platform-nav-row, .tab-nav { flex-direction: row; flex-wrap: wrap; }
             .sidebar-brand { padding: 10px 14px; }
             .top-controls { margin-top: 0; border-top: none; padding: 6px 8px; }
-            .plat-region-selector { flex-direction: row; padding-left: 0; }
+            .plat-region-selector { flex-direction: row; flex-wrap: wrap; padding-left: 0; }
             .channel-btn.active::before { display: none; }
             .main-area { height: auto; flex: 1; }
             .main-scroll { padding: 16px; }
@@ -1694,7 +1694,7 @@
 
         <!-- Platform Selection -->
         <div class="nav-sidebar-section">
-            <div class="nav-sidebar-label" data-en="PLATFORM" data-ko="플랫폼" data-zh="평台">플랫폼</div>
+            <div class="nav-sidebar-label" data-en="PLATFORM" data-ko="플랫폼" data-zh="平台">플랫폼</div>
             <div class="platform-nav-row" id="platformNav"></div>
         </div>
 
@@ -1980,7 +1980,7 @@
                         <canvas id="collabRatioChart"></canvas>
                         <div id="ratioCenter" style="position: absolute; text-align: center; pointer-events: none;">
                             <div style="font-size: 2rem; font-weight: 700; background: linear-gradient(135deg, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" id="ratioPct">-</div>
-                            <div style="font-size: 0.75rem; color: #64748b;" id="ratioLabel">Collab Rate</div>
+                            <div style="font-size: 0.75rem; color: var(--text-muted);" id="ratioLabel">Collab Rate</div>
                         </div>
                     </div>
                 </div>
@@ -2547,7 +2547,6 @@
                 updateBreadcrumb();
             })
             .catch(err => {
-                console.error('Failed to load data:', err);
                 partnersData = [];
                 othersData = null;
                 initDashboard();
@@ -3170,8 +3169,8 @@
                     <div class="partner-rank">${index + 1}</div>
                     <div class="partner-info">
                         <div class="partner-name">
-                            ${partner.name}
-                            <span class="partner-category-badge cat-${partner.category}">${translateCategory(partner.category)}</span>
+                            ${escapeHtml(partner.name)}
+                            <span class="partner-category-badge cat-${(partner.category || '').replace(/[^A-Za-z0-9_-]/g, '')}">${escapeHtml(translateCategory(partner.category))}</span>
                         </div>
                         <div class="partner-meta">${partner.video_count} ${videosText}</div>
                         <div class="partner-bar-wrap"><div class="partner-bar-fill" style="width:${pct}%"></div></div>
@@ -3261,15 +3260,15 @@
                         ? `<div class="video-thumb"><img src="${video.thumbnail}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#1a1a2e;font-size:1.5rem;\\'>📸</div>'" style="object-fit:cover;width:100%;height:100%;border-radius:6px;"></div>`
                         : currentPlatform === 'instagram'
                         ? `<div class="video-thumb" style="display:flex;align-items:center;justify-content:center;background:#1a1a2e;font-size:1.5rem;">📸</div>`
-                        : `<div class="video-thumb"><img src="${ytThumb}" alt="${video.title}" loading="lazy"></div>`;
+                        : `<div class="video-thumb"><img src="${escapeHtml(ytThumb)}" alt="${escapeHtml(video.title || '')}" loading="lazy"></div>`;
                 return `
                 <div class="video-item">
                     ${thumbHtml}
                     <div class="video-info">
                         <div class="video-title">
-                            <a href="${video.url}" target="_blank">${video.title}</a>
+                            <a href="${escapeHtml(video.url || '')}" target="_blank">${escapeHtml(video.title || '')}</a>
                         </div>
-                        <div class="video-date">${video.published_at}</div>
+                        <div class="video-date">${escapeHtml(video.published_at || '')}</div>
                     </div>
                     <div class="video-stat">
                         <div class="video-stat-value views-color">${formatNumber(video.view_count)}</div>
@@ -3315,8 +3314,8 @@
                             </div>
                             <div class="content-type-list">
                                 ${groupTypes.map(ct => `
-                                    <div class="content-type-item" data-type="${ct.name}" onclick="selectContentType('${ct.name}')">
-                                        <span class="content-type-name">${translateCategory(ct.name)}</span>
+                                    <div class="content-type-item" data-type="${escapeHtml(ct.name || '')}" onclick="selectContentType('${(ct.name || '').replace(/['\\]/g, c => c === "'" ? "\\'" : "\\\\")}')">
+                                        <span class="content-type-name">${escapeHtml(translateCategory(ct.name))}</span>
                                         <div class="content-type-meta">
                                             <div class="content-type-count">${ct.video_count} ${postsText}</div>
                                             <div class="content-type-views">${formatNumber(ct.total_views)}</div>
@@ -3345,8 +3344,8 @@
                         </div>
                         <div class="content-type-list">
                             ${groupTypes.map(ct => `
-                                    <div class="content-type-item" data-type="${ct.name}" onclick="selectContentType('${ct.name}')">
-                                    <span class="content-type-name">${ct.name}</span>
+                                    <div class="content-type-item" data-type="${escapeHtml(ct.name || '')}" onclick="selectContentType('${(ct.name || '').replace(/['\\]/g, c => c === "'" ? "\\'" : "\\\\")}')">
+                                    <span class="content-type-name">${escapeHtml(ct.name || '')}</span>
                                     <div class="content-type-meta">
                                             <div class="content-type-count">${ct.video_count} ${postsText}</div>
                                         <div class="content-type-views">${formatNumber(ct.total_views)}</div>
@@ -3401,16 +3400,16 @@
                         : `<div class="video-thumb" style="display:flex;align-items:center;justify-content:center;background:var(--thumb-bg,#1a1a2e);font-size:1.5rem;">📸</div>`;
                 } else {
                     const ncYtThumb = video.thumbnail || `https://img.youtube.com/vi/${video.video_id}/mqdefault.jpg`;
-                    thumbHtml = `<div class="video-thumb"><img src="${ncYtThumb}" alt="${video.title}" loading="lazy"></div>`;
+                    thumbHtml = `<div class="video-thumb"><img src="${escapeHtml(ncYtThumb)}" alt="${escapeHtml(video.title || '')}" loading="lazy"></div>`;
                 }
                 return `
                 <div class="video-item">
                     ${thumbHtml}
                     <div class="video-info">
                         <div class="video-title">
-                            <a href="${video.url}" target="_blank">${video.title}</a>
+                            <a href="${escapeHtml(video.url || '')}" target="_blank">${escapeHtml(video.title || '')}</a>
                         </div>
-                        <div class="video-date">${video.published_at}</div>
+                        <div class="video-date">${escapeHtml(video.published_at || '')}</div>
                     </div>
                     <div class="video-stat">
                         <div class="video-stat-value views-color">${formatNumber(video.view_count)}</div>
@@ -3499,6 +3498,7 @@
                     loadChannelData(game + '_' + currentPlatform);
 
                     if (tab && ['collab','noncollab','overview','compare','search','chat'].includes(tab)) {
+                        currentTab = tab;
                         setTimeout(() => switchTab(tab), 200);
                     }
                     return true;
@@ -4773,7 +4773,7 @@
                     return;
                 }
                 dropdown.innerHTML = items.slice(0, 30).map(({ name, totalViews }) =>
-                    `<div class="partner-dropdown-item" data-name="${name.replace(/"/g, '&quot;')}"><span>${name}</span><span class="pdi-views">${fmtK(totalViews)}</span></div>`
+                    `<div class="partner-dropdown-item" data-name="${escapeHtml(name).replace(/"/g, '&quot;')}"><span>${escapeHtml(name)}</span><span class="pdi-views">${fmtK(totalViews)}</span></div>`
                 ).join('');
                 dropdown.classList.add('open');
             }
@@ -4901,6 +4901,7 @@
         function onSearchInput(e) {
             const val = (e.target.value || '').trim();
             const ac = document.getElementById('searchAutocomplete');
+            if (!ac) return;
             _searchHighlight = -1;
             if (!val || !_searchIndex) { ac.classList.remove('open'); ac.innerHTML = ''; return; }
 
@@ -4939,6 +4940,7 @@
 
         function onSearchKeydown(e) {
             const ac = document.getElementById('searchAutocomplete');
+            if (!ac) return;
             const items = ac.querySelectorAll('.search-ac-item');
             if (!items.length) return;
             if (e.key === 'ArrowDown') { e.preventDefault(); _searchHighlight = Math.min(_searchHighlight + 1, items.length - 1); }
@@ -5084,10 +5086,10 @@
                     const views = v.view_count || v.views || 0;
                     const date = v.published_at ? v.published_at.substring(0, 10) : '';
                     vhtml += `
-                        <a href="${url}" target="_blank" rel="noopener" class="search-video-card" style="text-decoration:none;">
-                            ${thumb ? `<img class="search-video-thumb" src="${thumb}" alt="" loading="lazy" onerror="this.style.display='none'">` : `<div class="search-video-thumb" style="display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--text-muted);">📺</div>`}
+                        <a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="search-video-card" style="text-decoration:none;">
+                            ${thumb ? `<img class="search-video-thumb" src="${escapeHtml(thumb)}" alt="" loading="lazy" onerror="this.style.display='none'">` : `<div class="search-video-thumb" style="display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--text-muted);">📺</div>`}
                             <div class="search-video-info">
-                                <div class="search-video-title">${v.title || 'Untitled'}</div>
+                                <div class="search-video-title">${escapeHtml(v.title || 'Untitled')}</div>
                                 <div class="search-video-stats">
                                     <span class="search-plat-badge" style="background:${color}22;color:${color};">${sName(e.platform, e.game)}</span>
                                     <span class="search-video-stat">👁 ${fmtV(views)}</span>
@@ -5134,7 +5136,8 @@
 
     function sendQuickQ(text) {
         if (currentTab !== 'chat') switchTab('chat');
-        document.getElementById('chatInput').value = text;
+        const inp = document.getElementById('chatInput');
+        if (inp) inp.value = text;
         sendChat();
     }
 
@@ -5268,6 +5271,7 @@
     async function sendChat() {
         if (_chatStreaming) return;
         const input = document.getElementById('chatInput');
+        if (!input) return;
         const text = input.value.trim();
         if (!text) return;
 
