@@ -1706,7 +1706,7 @@
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
                 </button>
                 <div class="breadcrumb" id="breadcrumb">
-                    <span data-en="Analytics" data-ko="분석" data-zh="분석">분석</span>
+                    <span data-en="Analytics" data-ko="분석" data-zh="分析">분석</span>
                     <span class="breadcrumb-sep">›</span>
                     <span id="bcGame">PUBG MOBILE</span>
                     <span class="breadcrumb-sep">›</span>
@@ -3406,7 +3406,7 @@
                     updateBreadcrumb();
                     loadChannelData(game + '_' + currentPlatform);
 
-                    if (tab && ['collab','noncollab','overview','compare','search'].includes(tab)) {
+                    if (tab && ['collab','noncollab','overview','compare','search','chat'].includes(tab)) {
                         setTimeout(() => switchTab(tab), 200);
                     }
                     return true;
@@ -4652,12 +4652,15 @@
         /* ===== Partner Search in Compare Tab ===== */
         let _comparePartnerList = [];
 
+        let _partnerSearchInitDone = false;
         function initPartnerSearch() {
             const input = document.getElementById('partnerSearchInput');
             const dropdown = document.getElementById('partnerDropdown');
             if (!input || !dropdown) return;
 
             input.value = '';
+            if (_partnerSearchInitDone) return;
+            _partnerSearchInitDone = true;
             const fmtK = v => v >= 1e6 ? (v/1e6).toFixed(1) + 'M' : v >= 1e3 ? (v/1e3).toFixed(0) + 'K' : String(v);
 
             function showDropdown(items) {
@@ -5241,6 +5244,7 @@
             if (assistantText) {
                 msgEl.innerHTML = renderChatMarkdown(assistantText);
                 _chatMessages.push({ role: 'assistant', content: assistantText });
+                if (_chatMessages.length > 30) _chatMessages.splice(0, _chatMessages.length - 20);
             }
         } catch (err) {
             document.getElementById('chatTyping').classList.remove('visible');
