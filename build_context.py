@@ -1,18 +1,18 @@
 """
 Build compressed all-platform context for AI chatbot.
+Budget: <=300K chars (~100K tokens) to fit Claude's effective limit via Gateway.
 Strategy:
-  - ALL partners get 1-line summary (name, category, count, views, likes, comments)
-  - Top 50 partners per region: include individual video titles + dates + views
-  - Partners ranked 51+: summary only (no individual videos)
-  - Weibo: partner summary only (post text is Chinese, too large)
-  - Individual videos: title(50 chars) + date + views only (skip likes/comments)
-Target: ~150K tokens (450K chars)
+  - ALL partners: 1-line summary (name, category, count, views, likes, comments)
+  - Top 30 partners/region: include video titles + dates + views
+  - Weibo: partner summary only (post text too large)
+  - Titles truncated to 45 chars
 """
 import json, os, sys, io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 DOCS = 'docs'
-VIDEO_DETAIL_TOP_N = 50
+CHAR_BUDGET = 300_000
+VIDEO_TOP_N = 30
 
 SOURCES = [
     ('YouTube Global (PUBG MOBILE)', 'pubgm_data.json', 'yt'),
@@ -38,8 +38,8 @@ def fmt(n):
 
 def build():
     ctx = "=== PUBG MOBILE & FREE FIRE COLLAB DATA (ALL REGIONS) ===\n"
-    ctx += "YouTube(11 regions), Instagram(Global), Weibo(China), Free Fire YouTube\n"
-    ctx += "v=views L=likes C=comments. Top 50 partners/region include video details.\n\n"
+    ctx += "YouTube(11regions), Instagram, Weibo(China), Free Fire. v=views L=likes C=comments\n"
+    ctx += f"Top {VIDEO_TOP_N} partners/region include video details. Others: summary only.\n\n"
 
     overview_lines = []
     all_sections = []
@@ -75,13 +75,11 @@ def build():
 
             section += f"#{i+1} {name} [{cat}] {len(items)}편 {fmt(tv)}v {fmt(tl)}L {fmt(tc)}C{dr}\n"
 
-            if ptype == 'weibo':
-                continue
-            if i >= VIDEO_DETAIL_TOP_N:
+            if ptype == 'weibo' or i >= VIDEO_TOP_N:
                 continue
 
             for v in items:
-                title = (v.get('title') or v.get('text_preview') or '')[:50]
+                title = (v.get('title') or v.get('text_preview') or '')[:45]
                 date = (v.get('published_at') or v.get('created_at') or '?')[:10]
                 vc = v.get('view_count', v.get('reposts', 0))
                 section += f' "{title}" {date} {fmt(vc)}v\n'
@@ -93,6 +91,9 @@ def build():
     ctx += "\n\n"
     ctx += "".join(all_sections)
 
+    if len(ctx) > CHAR_BUDGET:
+        ctx = ctx[:CHAR_BUDGET - 50] + "\n\n[... truncated to fit context limit]\n"
+
     return ctx
 
 
@@ -101,12 +102,9 @@ if __name__ == '__main__':
     chars = len(ctx)
     tokens_est = chars // 3
     print(f"Total context: {chars:,} chars (~{tokens_est:,} tokens)")
-    print(f"Claude 200K limit: {'OK' if tokens_est < 180000 else 'OVER'}")
+    print(f"Budget {CHAR_BUDGET:,}: {'OK' if chars <= CHAR_BUDGET else 'OVER'}")
 
     out_path = os.path.join(DOCS, 'all_context.txt')
     with open(out_path, 'w', encoding='utf-8') as f:
         f.write(ctx)
     print(f"Written to {out_path} ({os.path.getsize(out_path)/1024:.1f} KB)")
-
-    print(f"\nFirst 500 chars:\n{ctx[:500]}")
-    print(f"\n... last 200 chars:\n{ctx[-200:]}")
