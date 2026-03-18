@@ -31,14 +31,12 @@ SOURCES = [
 ]
 
 def fmt(n):
-    if n >= 1e6: return f"{n/1e6:.1f}M"
-    if n >= 1e3: return f"{n/1e3:.1f}K"
-    return str(int(n))
+    return f"{int(n):,}"
 
 def build():
     ctx = "=== PUBG MOBILE & FREE FIRE COLLAB DATA (ALL REGIONS) ===\n"
     ctx += "16 sources: YouTube(13 regions) + Instagram + Weibo(China) + Free Fire\n"
-    ctx += "v=views L=likes C=comments. Every partner includes up to 50 top videos by views.\n\n"
+    ctx += "v=views L=likes C=comments. Numbers are exact with commas. Every partner includes up to 50 top videos by views.\n\n"
 
     overview_lines = []
     all_sections = []
