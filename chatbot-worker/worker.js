@@ -239,12 +239,11 @@ export default {
       ...messages.slice(-10),
     ];
 
-    // Priority: Claude > OpenAI > Workers AI (with auto-fallback)
+    // Always try Claude first (single attempt), instant Llama fallback
     const anthropicKey = (env.ANTHROPIC_API_KEY || '').trim();
     if (anthropicKey) {
       const claudeRes = await callClaude(anthropicKey, systemContent, messages.slice(-10), headers);
       if (claudeRes.status === 200) return claudeRes;
-      // Claude failed — fall through to Workers AI
     }
 
     if (env.OPENAI_API_KEY && env.AI_GATEWAY_URL) {
@@ -288,48 +287,60 @@ export default {
 };
 
 async function callClaude(apiKey, systemContent, userMessages, cors) {
-  const MODELS = [
-    'claude-sonnet-4-20250514',
-    'claude-3-7-sonnet-latest',
-    'claude-3-5-sonnet-latest',
+  const systemPromptOnly = getSystemPrompt();
+  const dataContext = systemContent.includes('--- CURRENT DASHBOARD DATA ---')
+    ? systemContent.split('--- CURRENT DASHBOARD DATA ---')[1] || ''
+    : '';
+
+  const systemBlocks = [
+    { type: 'text', text: systemPromptOnly, cache_control: { type: 'ephemeral' } },
   ];
 
-  let lastErr = '';
-  for (const model of MODELS) {
-    try {
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: {
-          'x-api-key': apiKey,
-          'anthropic-version': '2023-06-01',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          model,
-          max_tokens: 4096,
-          temperature: 0.1,
-          system: systemContent,
-          messages: userMessages,
-          stream: true,
-        }),
-      });
-
-      if (!res.ok) {
-        const errText = await res.text();
-        lastErr = `${model}→${res.status}:${errText.substring(0, 120)}`;
-        continue;
-      }
-
-      return streamClaudeResponse(res, cors);
-    } catch (err) {
-      lastErr = `${model}→${err.message}`;
-      continue;
-    }
+  const messagesWithContext = [];
+  if (dataContext.trim()) {
+    messagesWithContext.push({
+      role: 'user',
+      content: [
+        { type: 'text', text: `[DASHBOARD DATA]\n${dataContext}`, cache_control: { type: 'ephemeral' } },
+      ],
+    });
+    messagesWithContext.push({
+      role: 'assistant',
+      content: '데이터를 확인했습니다. 질문해 주세요.',
+    });
   }
+  messagesWithContext.push(...userMessages);
 
-  return new Response(JSON.stringify({ error: `All Claude models failed. ${lastErr}` }), {
-    status: 502, headers: { ...cors, 'Content-Type': 'application/json' },
-  });
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-beta': 'prompt-caching-2024-07-31',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 4096,
+        temperature: 0.1,
+        system: systemBlocks,
+        messages: messagesWithContext,
+        stream: true,
+      }),
+    });
+
+    if (res.ok) return streamClaudeResponse(res, cors);
+
+    const errText = await res.text();
+    return new Response(JSON.stringify({ error: `Claude ${res.status}: ${errText.substring(0, 200)}` }), {
+      status: 502, headers: { ...cors, 'Content-Type': 'application/json' },
+    });
+  } catch (err) {
+    return new Response(JSON.stringify({ error: `Claude unreachable: ${err.message}` }), {
+      status: 502, headers: { ...cors, 'Content-Type': 'application/json' },
+    });
+  }
 }
 
 function streamClaudeResponse(res, cors) {
