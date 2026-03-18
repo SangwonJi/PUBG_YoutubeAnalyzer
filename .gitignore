@@ -45,6 +45,7 @@ Thumbs.db
 *.txt
 !**/requirements.txt
 !**/top50_video_ids.txt
+!docs/all_context.txt
 
 # Jupyter
 .ipynb_checkpoints/

@@ -66,7 +66,7 @@
 
         /* ===== Base ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
+        
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-primary);
@@ -180,7 +180,7 @@
             overflow-y: auto;
             padding: 24px 28px;
         }
-
+        
         .container {
             max-width: 1600px;
             margin: 0 auto;
@@ -222,7 +222,7 @@
             text-align: left;
             min-width: 0;
         }
-
+        
         .logo {
             font-size: 1rem;
             font-weight: 800;
@@ -235,7 +235,7 @@
             line-height: 1.2;
             white-space: nowrap;
         }
-
+        
         .subtitle {
             color: var(--text-muted);
             font-size: 0.68rem;
@@ -265,7 +265,7 @@
             padding: 3px;
             border-radius: 10px;
         }
-
+        
         .lang-btn {
             padding: 6px 12px;
             border: none;
@@ -277,7 +277,7 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-
+        
         .lang-btn:hover { color: var(--text-primary); }
         .lang-btn.active {
             background: var(--accent-bg);
@@ -419,7 +419,7 @@
             width: 100%;
             box-shadow: none;
         }
-
+        
         .tab-btn {
             padding: 7px 12px;
             border: 1px solid transparent;
@@ -436,12 +436,12 @@
             width: 100%;
             text-align: left;
         }
-
+        
         .tab-btn:hover {
             color: var(--text-primary);
             background: var(--bg-tertiary);
         }
-
+        
         .tab-btn.active {
             background: var(--accent-bg);
             color: var(--accent-light);
@@ -460,7 +460,7 @@
             gap: 14px;
             margin-bottom: 24px;
         }
-
+        
         .stat-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -508,7 +508,7 @@
         .stat-card:nth-child(3) .stat-icon { background: linear-gradient(135deg, #38bdf8, #3b82f6); }
         .stat-card:nth-child(4) .stat-icon { background: linear-gradient(135deg, #f472b6, #ec4899); }
         .stat-icon svg { width: 16px; height: 16px; fill: currentColor; }
-
+        
         .stat-value {
             font-size: 2.4rem;
             font-weight: 800;
@@ -516,7 +516,7 @@
             letter-spacing: -0.045em;
             line-height: 1;
         }
-
+        
         .stat-label {
             color: var(--text-muted);
             font-size: 0.7rem;
@@ -542,7 +542,7 @@
             scrollbar-width: none;
         }
         .category-filter::-webkit-scrollbar { display: none; }
-
+        
         .filter-btn {
             padding: 6px 14px;
             border: 1px solid var(--border);
@@ -556,7 +556,7 @@
             white-space: nowrap;
             flex-shrink: 0;
         }
-
+        
         .filter-btn:hover {
             border-color: var(--border-accent);
             background: rgba(255,255,255,0.04);
@@ -618,7 +618,7 @@
             grid-template-columns: 380px 1fr;
             gap: 24px;
         }
-
+        
         /* ===== Sidebar (Partner List) ===== */
         .sidebar {
             background: var(--bg-card);
@@ -630,13 +630,13 @@
             flex-direction: column;
             box-shadow: var(--shadow-sm);
         }
-
+        
         .sidebar-header {
             padding: 14px 16px;
             border-bottom: 1px solid var(--border);
             background: transparent;
         }
-
+        
         .sidebar-title {
             font-size: 0.88rem;
             font-weight: 700;
@@ -650,7 +650,7 @@
             content: ''; width: 3px; height: 14px; border-radius: 2px;
             background: var(--accent-gradient); flex-shrink: 0;
         }
-
+        
         .search-box {
             width: 100%;
             padding: 10px 14px;
@@ -666,7 +666,7 @@
         .search-box:focus { outline: none; border-color: var(--accent); }
 
         .partners-list { flex: 1; overflow-y: auto; padding: 6px 8px; }
-
+        
         .partner-item {
             display: flex;
             align-items: center;
@@ -688,7 +688,7 @@
             width: 3px; height: 50%; border-radius: 0 2px 2px 0;
             background: var(--accent); opacity: 0.8;
         }
-
+        
         .partner-rank {
             width: 28px; height: 28px;
             background: var(--bg-tertiary);
@@ -727,7 +727,7 @@
             display: flex; flex-direction: column;
             box-shadow: var(--shadow-sm);
         }
-
+        
         .detail-header {
             padding: 26px 28px;
             border-bottom: 1px solid var(--border);
@@ -774,7 +774,7 @@
             padding: 8px 12px; margin-bottom: 10px;
         }
         .videos-title { font-weight: 600; color: var(--text-secondary); font-size: 0.9rem; }
-
+        
         .video-item {
             display: grid;
             grid-template-columns: 120px 1fr auto auto auto;
@@ -791,7 +791,7 @@
             border-color: var(--border-accent);
             box-shadow: var(--shadow-sm);
         }
-
+        
         .video-thumb {
             width: 120px; height: 68px;
             background: var(--thumb-bg);
@@ -814,7 +814,7 @@
         .views-color { color: var(--accent-light); }
         .likes-color { color: #f472b6; }
         .comments-color { color: #34d399; }
-
+        
         /* ===== Non-Collab Content ===== */
         .content-groups {
             display: grid;
@@ -1565,14 +1565,14 @@
                 </div>
             </div>
         </div>
-
+        
         <!-- Game Selection -->
         <div class="nav-sidebar-section">
             <div class="nav-sidebar-label" data-en="GAME" data-ko="게임" data-zh="游戏">게임</div>
             <nav class="channel-nav" id="gameNav">
                 <button class="channel-btn active" onclick="switchGame('pubgm')">PUBG MOBILE</button>
                 <button class="channel-btn" onclick="switchGame('freefire')">Free Fire</button>
-            </nav>
+        </nav>
         </div>
 
         <!-- Platform Selection -->
@@ -1614,7 +1614,7 @@
                 <button class="header-tab header-tab-search" onclick="switchTab('search')">
                     <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor" style="margin-right:5px;opacity:0.6;flex-shrink:0;"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg><span data-en="Search All" data-ko="통합 검색" data-zh="全局搜索">통합 검색</span>
                 </button>
-            </nav>
+        </nav>
             <div class="header-bar-right">
                 <span class="last-updated" id="lastUpdatedBadge" style="display:none;">
                     <span class="last-updated-dot"></span>
@@ -1836,8 +1836,8 @@
                 <div class="chart-card" style="padding: 28px 32px;">
                     <h3 class="chart-title" id="topPartnersTitle" style="font-size: 1.1rem; margin-bottom: 20px;">Top 10 Collab Partners</h3>
                     <div style="height: 400px;">
-                        <canvas id="topPartnersChart"></canvas>
-                    </div>
+                    <canvas id="topPartnersChart"></canvas>
+                </div>
                 </div>
             </section>
             
@@ -2067,26 +2067,26 @@
                             <button onclick="clearChat()" style="background:none;border:1px solid var(--border);border-radius:8px;padding:6px 12px;color:var(--text-secondary);cursor:pointer;font-size:0.78rem;transition:all 0.15s;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent-light)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-secondary)'" data-en="Clear" data-ko="초기화" data-zh="清除">초기화</button>
                         </div>
                         <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;" id="chatQuickBtnsTop">
-                            <button class="chat-quick-btn" onclick="sendQuickQ('현재 보고 있는 데이터 요약해줘')">📊 데이터 요약</button>
-                            <button class="chat-quick-btn" onclick="sendQuickQ('가장 성과 좋은 파트너 Top 5 분석')">🏆 Top 5 파트너</button>
-                            <button class="chat-quick-btn" onclick="sendQuickQ('이번 주 보고서 초안 써줘')">📝 보고서 초안</button>
-                            <button class="chat-quick-btn" onclick="sendQuickQ('최근 콜라보 트렌드 분석')">📈 트렌드 분석</button>
-                            <button class="chat-quick-btn" onclick="sendQuickQ('카테고리별 성과 비교 분석')">🏷️ 카테고리 비교</button>
-                            <button class="chat-quick-btn" onclick="sendQuickQ('최근 1개월 내 게시된 콜라보 영상만 분석해줘')">🕐 최신 영상</button>
+                            <button class="chat-quick-btn" onclick="sendQuickQ('전체 리전 데이터 요약해줘')">🌍 전체 요약</button>
+                            <button class="chat-quick-btn" onclick="sendQuickQ('글로벌 Top 5 콜라보 파트너 분석')">🏆 Top 5 파트너</button>
+                            <button class="chat-quick-btn" onclick="sendQuickQ('Attack on Titan 리전별 성과 비교')">⚔️ 크로스 리전</button>
+                            <button class="chat-quick-btn" onclick="sendQuickQ('2026년 주술회전 콜라보 성과 분석')">🔮 JJK 2026</button>
+                            <button class="chat-quick-btn" onclick="sendQuickQ('YouTube vs Instagram vs Weibo 플랫폼 비교')">📊 플랫폼 비교</button>
+                            <button class="chat-quick-btn" onclick="sendQuickQ('MENA와 동남아 콜라보 전략 차이 분석')">🗺️ 리전 비교</button>
                         </div>
                     </div>
                     <!-- Chat Messages -->
                     <div class="chat-messages" id="chatMessages" style="flex:1;padding:20px 24px;">
                         <div class="chat-welcome" id="chatWelcome">
-                            <div class="chat-welcome-icon" style="font-size:2.5rem;">🤖</div>
-                            <h4 style="font-size:1.1rem;">무엇이든 물어보세요</h4>
-                            <p style="font-size:0.85rem;max-width:400px;margin:0 auto;">대시보드에 수집된 콜라보 데이터를 분석하고,<br>YouTube 실시간 검색으로 최신 데이터도 가져올 수 있습니다.</p>
+                            <div class="chat-welcome-icon" style="font-size:2.5rem;">🌍</div>
+                            <h4 style="font-size:1.1rem;">글로벌 콜라보 분석 AI</h4>
+                            <p style="font-size:0.85rem;max-width:420px;margin:0 auto;">YouTube 11개 리전 + Instagram + Weibo + Free Fire<br><b>2,954 파트너 · 8,340 콘텐츠</b> 전체 데이터 기반 분석</p>
                             <div style="margin-top:16px;padding:12px 16px;border-radius:10px;background:var(--bg-tertiary);border:1px solid var(--border);text-align:left;font-size:0.8rem;max-width:420px;margin-left:auto;margin-right:auto;">
                                 <div style="font-weight:600;margin-bottom:6px;color:var(--text-primary);">💡 이런 것들을 할 수 있어요</div>
                                 <div style="color:var(--text-secondary);line-height:1.7;">
-                                    • 파트너 성과 분석 및 순위 비교<br>
-                                    • 주간/월간 보고서 초안 생성<br>
-                                    • YouTube 실시간 검색 및 댓글 분석<br>
+                                    • 크로스 리전 파트너 성과 비교<br>
+                                    • 플랫폼별 (YouTube / Instagram / Weibo) 분석<br>
+                                    • 특정 IP의 글로벌 성과 심층 분석<br>
                                     • 리전 간 콜라보 성과 비교<br>
                                     • 트렌드 분석 및 인사이트 도출
                                 </div>
@@ -2108,7 +2108,7 @@
                 </div>
             </div>
         </div>
-
+        
         <footer>
             <p data-en="Data from" data-ko="데이터 출처:" data-zh="数据来源：">Data from</p>
             <p>
@@ -2358,7 +2358,7 @@
             currentCategory = 'all';
             chartsInitialized = false;
             clearAllUI();
-
+            
             Promise.all([
                 fetch(dataFile).then(res => {
                     if (!res.ok) throw new Error('Not found');
@@ -2379,7 +2379,7 @@
                 partnersData = partners || [];
                 othersData = others;
                 initDashboard();
-
+                
                 const game = GAMES[currentGame];
                 let gameName = game.name;
                 if (currentPlatform === 'weibo') gameName = t('和平精英', '화평정영 (和平精英)', '和平精英');
@@ -2784,7 +2784,7 @@
                 if (p < 1) requestAnimationFrame(step);
             })(t0);
         }
-
+        
         function formatNumber(num) {
             if (num == null || isNaN(num)) return '0';
             if (num >= 1000000000) return (num / 1000000000).toFixed(1) + 'B';
@@ -2798,7 +2798,7 @@
             if (currentPlatform === 'instagram') return igText;
             return ytText;
         }
-
+        
         function updateCollabStats() {
             const videos = partnersData.reduce((sum, p) => sum + (p.video_count || 0), 0);
             const views = partnersData.reduce((sum, p) => sum + (p.total_views || 0), 0);
@@ -2929,7 +2929,7 @@
                     p.name.toLowerCase().includes(filter.toLowerCase())
                 );
             }
-
+            
             const favs = getFavorites();
             const favSet = new Set(favs);
             const favItems = filtered.filter(p => favSet.has(p.name));
@@ -2994,7 +2994,7 @@
                 ? ((partner.total_likes / partner.total_views) * 100).toFixed(2) + '%'
                 : '0%';
             document.getElementById('detailLikeRate').textContent = likeRate;
-
+            
             const detailLabels = document.querySelectorAll('#detailContent .detail-stat-label');
             if (detailLabels.length >= 5) {
                 if (currentPlatform === 'weibo') {
@@ -3109,33 +3109,33 @@
                 }
             } else {
                 // YouTube: group by CONTENT_GROUPS
-                for (const [groupName, groupData] of Object.entries(CONTENT_GROUPS)) {
+            for (const [groupName, groupData] of Object.entries(CONTENT_GROUPS)) {
                     const groupTypes = (othersData.content_types || []).filter(ct => groupData.types.includes(ct.name));
-                    if (groupTypes.length === 0) continue;
-                    
-                    const groupViews = groupTypes.reduce((sum, ct) => sum + ct.total_views, 0);
-                    const groupVideos = groupTypes.reduce((sum, ct) => sum + ct.video_count, 0);
+                if (groupTypes.length === 0) continue;
+                
+                const groupViews = groupTypes.reduce((sum, ct) => sum + ct.total_views, 0);
+                const groupVideos = groupTypes.reduce((sum, ct) => sum + ct.video_count, 0);
                     const displayName = t(groupName, groupData.ko, groupData.zh);
-                    
-                    html += `
-                        <div class="content-group">
-                            <div class="content-group-header">
-                                <span class="content-group-title">${displayName}</span>
+                
+                html += `
+                    <div class="content-group">
+                        <div class="content-group-header">
+                            <span class="content-group-title">${displayName}</span>
                                 <span class="content-group-stats">${groupVideos} ${postsText} · ${formatNumber(groupViews)}</span>
-                            </div>
-                            <div class="content-type-list">
-                                ${groupTypes.map(ct => `
-                                    <div class="content-type-item" data-type="${ct.name}" onclick="selectContentType('${ct.name}')">
-                                        <span class="content-type-name">${ct.name}</span>
-                                        <div class="content-type-meta">
-                                            <div class="content-type-count">${ct.video_count} ${postsText}</div>
-                                            <div class="content-type-views">${formatNumber(ct.total_views)}</div>
-                                        </div>
-                                    </div>
-                                `).join('')}
-                            </div>
                         </div>
-                    `;
+                        <div class="content-type-list">
+                            ${groupTypes.map(ct => `
+                                    <div class="content-type-item" data-type="${ct.name}" onclick="selectContentType('${ct.name}')">
+                                    <span class="content-type-name">${ct.name}</span>
+                                    <div class="content-type-meta">
+                                            <div class="content-type-count">${ct.video_count} ${postsText}</div>
+                                        <div class="content-type-views">${formatNumber(ct.total_views)}</div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
                 }
             }
             
@@ -3583,7 +3583,7 @@
             ctx.fillStyle = 'rgba(129,140,248,0.1)';
             ctx.fill();
         }
-
+        
         function initCharts() {
             const isWeibo = currentPlatform === 'weibo';
             const channelColor = GAMES[currentGame]?.color || '#818cf8';
@@ -3696,7 +3696,7 @@
                         x: {
                             beginAtZero: true,
                             grid: { color: chartGrid, drawBorder: false },
-                            ticks: {
+                            ticks: { 
                                 color: chartText,
                                 font: { size: 11 },
                                 callback: (v) => v + suffix
@@ -3705,7 +3705,7 @@
                         },
                         y: {
                             grid: { display: false },
-                            ticks: {
+                            ticks: { 
                                 color: chartTextBold,
                                 font: { size: 12, weight: '500' },
                                 padding: 8
@@ -3733,15 +3733,15 @@
             if (ratioTitleEl) ratioTitleEl.textContent = t('Collab vs Non-Collab', '콜라보 vs 일반', '合作 vs 非合作');
 
             new Chart(document.getElementById('collabRatioChart'), {
-                type: 'doughnut',
-                data: {
+                    type: 'doughnut',
+                    data: {
                     labels: [
                         t('Collab', '콜라보', '合作'),
                         t('Non-Collab', '일반', '非合作')
                     ],
-                    datasets: [{
+                        datasets: [{
                         data: [collabVideos, noncollabVideos],
-                        backgroundColor: [
+                            backgroundColor: [
                             'rgba(129, 140, 248, 0.85)',
                             'rgba(71, 85, 105, 0.5)'
                         ],
@@ -3751,15 +3751,15 @@
                         ],
                         borderWidth: 0,
                         spacing: 3
-                    }]
-                },
-                options: {
-                    responsive: true,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
                     cutout: '70%',
-                    plugins: {
-                        legend: {
+                        plugins: {
+                            legend: {
                             position: 'bottom',
-                            labels: {
+                                labels: {
                                 color: chartText,
                                 padding: 16,
                                 font: { size: 11, weight: '500' },
@@ -3803,7 +3803,7 @@
 
             const catTitleEl = document.getElementById('categoryTitle');
             if (catTitleEl) catTitleEl.textContent = t('Collab Categories', '콜라보 카테고리', '合作类别');
-
+            
             new Chart(document.getElementById('categoryChart'), {
                 type: 'bar',
                 data: {
@@ -3856,24 +3856,24 @@
                     '#22d3ee', '#34d399', '#fbbf24', '#fb923c'
                 ];
                 new Chart(document.getElementById('contentTypeChart'), {
-                    type: 'doughnut',
-                    data: {
+                type: 'doughnut',
+                data: {
                         labels: topTypes.map(ct => translateCategory(ct.name)),
-                        datasets: [{
+                    datasets: [{
                             data: topTypes.map(ct => ct.video_count),
                             backgroundColor: ctColors.slice(0, topTypes.length),
                             hoverBackgroundColor: ctColors.slice(0, topTypes.length).map(c => c + 'dd'),
                             borderWidth: 0,
                             spacing: 2
-                        }]
-                    },
-                    options: {
-                        responsive: true,
+                    }]
+                },
+                options: {
+                    responsive: true,
                         cutout: '55%',
-                        plugins: {
-                            legend: {
+                    plugins: {
+                        legend: {
                                 position: 'right',
-                                labels: {
+                            labels: {
                                     color: chartText,
                                     padding: 12,
                                     font: { size: 11, weight: '500' },
@@ -3881,14 +3881,14 @@
                                     pointStyle: 'circle',
                                     usePointStyle: true,
                                     pointStyle: 'circle'
-                                }
-                            },
-                            tooltip: {
+                            }
+                        },
+                        tooltip: {
                                 ...tooltipStyle,
-                                callbacks: {
-                                    label: (ctx) => {
+                            callbacks: {
+                                label: (ctx) => {
                                         const total = topTypes.reduce((s, t) => s + t.video_count, 0);
-                                        const pct = ((ctx.raw / total) * 100).toFixed(1);
+                                    const pct = ((ctx.raw / total) * 100).toFixed(1);
                                         return ` ${ctx.label}: ${ctx.raw} (${pct}%)`;
                                     }
                                 }
@@ -4877,6 +4877,14 @@
     const WORKER_URL = 'https://pubgm-collab-chatbot.sangwon-ji.workers.dev/api/chat';
     let _chatMessages = [];
     let _chatStreaming = false;
+    let _allContextCache = null;
+
+    (function preloadAllContext() {
+        fetch('all_context.txt?v=' + Date.now())
+            .then(r => r.ok ? r.text() : '')
+            .then(t => { _allContextCache = t; })
+            .catch(() => { _allContextCache = ''; });
+    })();
     function clearChat() {
         _chatMessages = [];
         const msgs = document.getElementById('chatMessages');
@@ -4892,63 +4900,24 @@
     }
 
     function buildDataContext() {
+        if (_allContextCache) {
+            const today = new Date().toISOString().slice(0, 10);
+            return `분석 기준일: ${today}\n\n${_allContextCache}`;
+        }
         const pn = PLATFORM_NAMES[currentPlatform] || {};
         const platName = pn[currentLang] || pn.en || currentPlatform;
         const gameName = GAMES[currentGame]?.name || currentGame;
-        const today = new Date().toISOString().slice(0, 10);
-
-        let ctx = `[데이터 소스]\n채널: ${gameName} — ${platName}\n분석 기준일: ${today}\n⚠️ 이 데이터는 "${platName}" 채널의 콜라보 영상만 포함합니다. 다른 리전 데이터는 포함되지 않습니다.\n`;
-
+        let ctx = `[데이터 소스] ${gameName} — ${platName}\n`;
         if (!partnersData || partnersData.length === 0) return ctx;
-
-        const totalPartners = partnersData.length;
-        const totalVideos = partnersData.reduce((s, p) => s + (p.video_count || 0), 0);
-        const totalViews = partnersData.reduce((s, p) => s + (p.total_views || 0), 0);
-        const totalLikes = partnersData.reduce((s, p) => s + (p.total_likes || 0), 0);
-        const totalComments = partnersData.reduce((s, p) => s + (p.total_comments || 0), 0);
-        ctx += `\n[전체 요약]\n파트너: ${totalPartners}개 | 영상: ${totalVideos}개 | 조회수: ${totalViews.toLocaleString()} | 좋아요: ${totalLikes.toLocaleString()} | 댓글: ${totalComments.toLocaleString()}\n`;
-
         const getName = p => p.partner_name || p.name || '?';
         const fmtV = n => n >= 1e6 ? (n/1e6).toFixed(1)+'M' : n >= 1e3 ? Math.round(n/1e3)+'K' : String(n);
-
-        const DETAIL_LIMIT = 174;
-        partnersData.slice(0, DETAIL_LIMIT).forEach((p, i) => {
+        partnersData.forEach((p, i) => {
             const vids = p.videos || [];
-            ctx += `\n#${i + 1} ${getName(p)} [${p.category || '?'}] ${vids.length}편 ${fmtV(p.total_views||0)}v ${fmtV(p.total_likes||0)}L ${fmtV(p.total_comments||0)}C\n`;
+            ctx += `#${i+1} ${getName(p)} [${p.category||'?'}] ${vids.length}편 ${fmtV(p.total_views||0)}v\n`;
             vids.forEach(v => {
-                ctx += ` "${(v.title||'').substring(0,80)}" ${v.published_at?.substring(0, 10) || '?'} ${fmtV(v.view_count || 0)}v ${fmtV(v.like_count || 0)}L ${fmtV(v.comment_count || 0)}C\n`;
+                ctx += ` "${(v.title||'').substring(0,50)}" ${v.published_at?.substring(0,10)||'?'} ${fmtV(v.view_count||0)}v\n`;
             });
         });
-
-        if (partnersData.length > DETAIL_LIMIT) {
-            ctx += `\n[${DETAIL_LIMIT + 1}~${partnersData.length}위]\n`;
-            partnersData.slice(DETAIL_LIMIT).forEach((p, i) => {
-                const vids = p.videos || [];
-                ctx += `${DETAIL_LIMIT + i + 1}. ${getName(p)} [${p.category || '?'}] ${vids.length}편 ${fmtV(p.total_views || 0)}v\n`;
-            });
-        }
-
-        const cats = {};
-        partnersData.forEach(p => {
-            const c = p.category || 'Unknown';
-            if (!cats[c]) cats[c] = { count: 0, views: 0, videos: 0, likes: 0 };
-            cats[c].count++;
-            cats[c].views += (p.total_views || 0);
-            cats[c].videos += (p.video_count || 0);
-            cats[c].likes += (p.total_likes || 0);
-        });
-        ctx += `\n[카테고리별 분포]\n`;
-        Object.entries(cats).sort((a, b) => b[1].views - a[1].views).forEach(([c, d]) => {
-            ctx += `- ${c}: ${d.count}개 파트너, ${d.videos}편, 조회수 ${d.views.toLocaleString()}\n`;
-        });
-
-        if (othersData && othersData.content_types) {
-            ctx += `\n[일반 콘텐츠 유형]\n`;
-            othersData.content_types.forEach(ct => {
-                ctx += `- ${ct.content_type}: ${ct.video_count || 0}편, 조회수 ${(ct.total_views || 0).toLocaleString()}\n`;
-            });
-        }
-
         return ctx;
     }
 
