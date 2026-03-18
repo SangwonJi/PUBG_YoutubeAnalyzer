@@ -398,6 +398,11 @@
             text-align: left;
         }
         .plat-region-btn:hover { color: var(--text-primary); background: var(--bg-tertiary); }
+        .plat-region-group-label {
+            font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+            color: var(--text-muted); opacity: 0.5; padding: 6px 10px 2px; margin-top: 4px;
+        }
+        .plat-region-group-label:first-child { margin-top: 0; }
         .plat-region-btn.active {
             background: var(--accent-bg);
             color: var(--accent-light);
@@ -1689,8 +1694,15 @@
 
         <!-- Platform Selection -->
         <div class="nav-sidebar-section">
-            <div class="nav-sidebar-label" data-en="PLATFORM" data-ko="플랫폼" data-zh="平台">플랫폼</div>
+            <div class="nav-sidebar-label" data-en="PLATFORM" data-ko="플랫폼" data-zh="평台">플랫폼</div>
             <div class="platform-nav-row" id="platformNav"></div>
+        </div>
+
+        <div class="nav-sidebar-section" id="sidebarCompareSection" style="display:none;">
+            <button class="plat-type-btn" id="sidebarCompareBtn" onclick="switchTab('compare')" style="width:100%;justify-content:center;gap:6px;">
+                <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor" style="opacity:0.7;flex-shrink:0;"><path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/></svg>
+                <span data-en="Compare Platforms" data-ko="플랫폼 비교" data-zh="平台比较">플랫폼 비교</span>
+            </button>
         </div>
 
         <div class="nav-sidebar-footer">
@@ -1719,7 +1731,6 @@
                 <button class="header-tab active" onclick="switchTab('collab')" data-en="Collabs" data-ko="콜라보" data-zh="合作">콜라보</button>
                 <button class="header-tab" onclick="switchTab('noncollab')" data-en="Content" data-ko="일반 콘텐츠" data-zh="内容">일반 콘텐츠</button>
                 <button class="header-tab" onclick="switchTab('overview')" data-en="Overview" data-ko="오버뷰" data-zh="概览">오버뷰</button>
-                <button class="header-tab" onclick="switchTab('compare')" data-en="Compare" data-ko="비교" data-zh="比较" id="compareTabBtn" style="display:none;">비교</button>
                 <button class="header-tab" onclick="switchTab('chat')" data-en="AI Chat" data-ko="AI 챗봇" data-zh="AI 聊天" id="chatTabBtn">
                     <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor" style="margin-right:5px;opacity:0.7;flex-shrink:0;"><path d="M18 10c0 3.866-3.582 7-8 7a8.84 8.84 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7z"/></svg><span data-en="AI Chat" data-ko="AI 챗봇" data-zh="AI 聊天">AI 챗봇</span>
                 </button>
@@ -2300,19 +2311,19 @@
                 color: '#f5af19',
                 headerImage: 'channels4_profile.jpg',
                 platforms: {
-                    youtube: { dataFile: 'data.json', othersFile: 'others.json', fallbackDataFile: 'pubgm_data.json', dateRange: '2018 - 2026' },
-                    yt_mena: { dataFile: 'yt_mena_data.json', othersFile: 'yt_mena_others.json', dateRange: '2019 - 2026' },
-                    yt_turkey: { dataFile: 'yt_turkey_data.json', othersFile: 'yt_turkey_others.json', dateRange: '2019 - 2026' },
-                    yt_indonesia: { dataFile: 'yt_indonesia_data.json', othersFile: 'yt_indonesia_others.json', dateRange: '2018 - 2026' },
-                    yt_latam: { dataFile: 'yt_latam_data.json', othersFile: 'yt_latam_others.json', dateRange: '2020 - 2026' },
-                    yt_cis: { dataFile: 'yt_cis_data.json', othersFile: 'yt_cis_others.json', dateRange: '2018 - 2026' },
-                    yt_india: { dataFile: 'yt_india_data.json', othersFile: 'yt_india_others.json', dateRange: '2021 - 2026' },
-                    yt_malaysia: { dataFile: 'yt_malaysia_data.json', othersFile: 'yt_malaysia_others.json', dateRange: '2019 - 2026' },
-                    yt_pakistan: { dataFile: 'yt_pakistan_data.json', othersFile: 'yt_pakistan_others.json', dateRange: '2020 - 2026' },
-                    yt_taiwan: { dataFile: 'yt_taiwan_data.json', othersFile: 'yt_taiwan_others.json', dateRange: '2019 - 2026' },
-                    yt_thailand: { dataFile: 'yt_thailand_data.json', othersFile: 'yt_thailand_others.json', dateRange: '2019 - 2026' },
-                    yt_korea: { dataFile: 'yt_korea_data.json', othersFile: 'yt_korea_others.json', dateRange: '2018 - 2026' },
-                    yt_japan: { dataFile: 'yt_japan_data.json', othersFile: 'yt_japan_others.json', dateRange: '2018 - 2026' },
+                    youtube: { dataFile: 'data.json', othersFile: 'others.json', fallbackDataFile: 'pubgm_data.json', dateRange: '2018 - 2026', group: 'global' },
+                    yt_korea: { dataFile: 'yt_korea_data.json', othersFile: 'yt_korea_others.json', dateRange: '2018 - 2026', group: 'east_asia' },
+                    yt_japan: { dataFile: 'yt_japan_data.json', othersFile: 'yt_japan_others.json', dateRange: '2018 - 2026', group: 'east_asia' },
+                    yt_taiwan: { dataFile: 'yt_taiwan_data.json', othersFile: 'yt_taiwan_others.json', dateRange: '2019 - 2026', group: 'east_asia' },
+                    yt_indonesia: { dataFile: 'yt_indonesia_data.json', othersFile: 'yt_indonesia_others.json', dateRange: '2018 - 2026', group: 'sea' },
+                    yt_malaysia: { dataFile: 'yt_malaysia_data.json', othersFile: 'yt_malaysia_others.json', dateRange: '2019 - 2026', group: 'sea' },
+                    yt_thailand: { dataFile: 'yt_thailand_data.json', othersFile: 'yt_thailand_others.json', dateRange: '2019 - 2026', group: 'sea' },
+                    yt_india: { dataFile: 'yt_india_data.json', othersFile: 'yt_india_others.json', dateRange: '2021 - 2026', group: 'south_asia' },
+                    yt_pakistan: { dataFile: 'yt_pakistan_data.json', othersFile: 'yt_pakistan_others.json', dateRange: '2020 - 2026', group: 'south_asia' },
+                    yt_mena: { dataFile: 'yt_mena_data.json', othersFile: 'yt_mena_others.json', dateRange: '2019 - 2026', group: 'mena' },
+                    yt_turkey: { dataFile: 'yt_turkey_data.json', othersFile: 'yt_turkey_others.json', dateRange: '2019 - 2026', group: 'mena' },
+                    yt_cis: { dataFile: 'yt_cis_data.json', othersFile: 'yt_cis_others.json', dateRange: '2018 - 2026', group: 'other' },
+                    yt_latam: { dataFile: 'yt_latam_data.json', othersFile: 'yt_latam_others.json', dateRange: '2020 - 2026', group: 'other' },
                     instagram: { dataFile: 'ig_data.json', othersFile: 'ig_others.json', dateRange: '2024 - 2026' },
                     weibo: { dataFile: 'weibo_data.json', othersFile: 'weibo_others.json', dateRange: '2019 - 2026' },
                 }
@@ -2633,8 +2644,26 @@
                 html += `<button class="plat-type-btn${ytActive}" onclick="switchPlatformType('yt')" data-type="yt" style="${curIsYt ? `border-color:${gc};color:${gc};background:${gc}11;` : ''}">${PLATFORM_ICONS.youtube || ''} <span>YouTube</span></button>`;
 
                 if (ytKeys.length > 1 && curIsYt) {
+                    const GROUP_LABELS = {
+                        global: { en:'Global', ko:'글로벌', zh:'全球' },
+                        east_asia: { en:'East Asia', ko:'동아시아', zh:'东亚' },
+                        sea: { en:'Southeast Asia', ko:'동남아시아', zh:'东南亚' },
+                        south_asia: { en:'South Asia', ko:'남아시아', zh:'南亚' },
+                        mena: { en:'Middle East', ko:'중동', zh:'中东' },
+                        other: { en:'Other', ko:'기타', zh:'其他' },
+                    };
                     html += `<div class="plat-region-selector">`;
+                    let lastGroup = null;
                     for (const pk of ytKeys) {
+                        const plat = game.platforms[pk];
+                        const grp = plat.group || 'other';
+                        if (grp !== lastGroup) {
+                            const gl = GROUP_LABELS[grp] || GROUP_LABELS.other;
+                            if (grp !== 'global') {
+                                html += `<div class="plat-region-group-label">${gl[currentLang] || gl.en}</div>`;
+                            }
+                            lastGroup = grp;
+                        }
                         const short = PLATFORM_SHORT[pk] || {};
                         const name = short[currentLang] || short.en || pk;
                         const flag = short.flag || '';
@@ -2653,9 +2682,23 @@
 
             nav.innerHTML = html;
 
-            const compareBtn = document.getElementById('compareTabBtn');
-            if (compareBtn) {
-                compareBtn.style.display = platKeys.length >= 2 ? '' : 'none';
+            const compareSec = document.getElementById('sidebarCompareSection');
+            if (compareSec) {
+                compareSec.style.display = platKeys.length >= 2 ? '' : 'none';
+            }
+            const sideCompBtn = document.getElementById('sidebarCompareBtn');
+            if (sideCompBtn) {
+                sideCompBtn.classList.toggle('active', currentTab === 'compare');
+                if (currentTab === 'compare') {
+                    const gc = game.color;
+                    sideCompBtn.style.borderColor = gc;
+                    sideCompBtn.style.color = gc;
+                    sideCompBtn.style.background = gc + '11';
+                } else {
+                    sideCompBtn.style.borderColor = '';
+                    sideCompBtn.style.color = '';
+                    sideCompBtn.style.background = '';
+                }
             }
         }
 
@@ -2778,11 +2821,29 @@
             if (tab === 'compare' && !compareChartsInitialized) {
                 setTimeout(initCompareTab, 50);
             }
+            const scBtn = document.getElementById('sidebarCompareBtn');
+            if (scBtn) {
+                const isCompare = tab === 'compare';
+                scBtn.classList.toggle('active', isCompare);
+                const gc = GAMES[currentGame]?.color || '';
+                scBtn.style.borderColor = isCompare ? gc : '';
+                scBtn.style.color = isCompare ? gc : '';
+                scBtn.style.background = isCompare ? gc + '11' : '';
+            }
             if (tab === 'search') {
                 setTimeout(initSearchTab, 50);
             }
             if (tab === 'chat') {
                 setTimeout(() => document.getElementById('chatInput')?.focus(), 100);
+            }
+            const sideCompBtn = document.getElementById('sidebarCompareBtn');
+            if (sideCompBtn) {
+                const isComp = tab === 'compare';
+                sideCompBtn.classList.toggle('active', isComp);
+                const gc = GAMES[currentGame]?.color || '#6366f1';
+                sideCompBtn.style.borderColor = isComp ? gc : '';
+                sideCompBtn.style.color = isComp ? gc : '';
+                sideCompBtn.style.background = isComp ? gc + '11' : '';
             }
             updateHashFromState();
         }
