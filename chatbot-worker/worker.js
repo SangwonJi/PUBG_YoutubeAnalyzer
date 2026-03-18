@@ -311,8 +311,12 @@ async function callClaude(apiKey, systemContent, userMessages, cors) {
   }
   messagesWithContext.push(...userMessages);
 
+  const ACCOUNT_ID = 'c0851d705f263467c1648cccbf45fcc1';
+  const GATEWAY = 'pubgm-chatbot';
+  const endpoint = `https://gateway.ai.cloudflare.com/v1/${ACCOUNT_ID}/${GATEWAY}/anthropic/v1/messages`;
+
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
+    const res = await fetch(endpoint, {
       method: 'POST',
       headers: {
         'x-api-key': apiKey,
