@@ -1,18 +1,21 @@
 """
-Build compressed all-platform context for AI chatbot.
-Budget: <=300K chars (~100K tokens) to fit Claude's effective limit via Gateway.
+Build maximum-density all-platform context for AI chatbot.
+Budget: 310K chars. Push to the limit for accuracy.
 Strategy:
-  - ALL partners: 1-line summary (name, category, count, views, likes, comments)
-  - Top 30 partners/region: include video titles + dates + views
-  - Weibo: partner summary only (post text too large)
-  - Titles truncated to 45 chars
+  - ALL partners: summary with views, likes, comments, date range
+  - Top 40 partners/region: ALL video titles + dates + views + likes
+  - Partners 41-100: top 3 videos only
+  - Partners 101+: summary only
+  - Weibo: partner summary + top 3 post dates for top 40
+  - Titles: 50 chars
 """
 import json, os, sys, io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 DOCS = 'docs'
-CHAR_BUDGET = 300_000
-VIDEO_TOP_N = 30
+CHAR_BUDGET = 310_000
+TIER1_N = 40
+TIER2_N = 100
 
 SOURCES = [
     ('YouTube Global (PUBG MOBILE)', 'pubgm_data.json', 'yt'),
@@ -38,8 +41,8 @@ def fmt(n):
 
 def build():
     ctx = "=== PUBG MOBILE & FREE FIRE COLLAB DATA (ALL REGIONS) ===\n"
-    ctx += "YouTube(11regions), Instagram, Weibo(China), Free Fire. v=views L=likes C=comments\n"
-    ctx += f"Top {VIDEO_TOP_N} partners/region include video details. Others: summary only.\n\n"
+    ctx += "14 sources: YouTube(11regions) + Instagram + Weibo(China) + Free Fire\n"
+    ctx += "v=views L=likes C=comments. Tier1(top40): all videos. Tier2(41-100): top3 videos.\n\n"
 
     overview_lines = []
     all_sections = []
@@ -58,7 +61,9 @@ def build():
         total_c = sum(p.get('total_comments', 0) for p in data)
         total_items = sum(len(p.get('videos', p.get('posts', []))) for p in data)
 
-        overview_lines.append(f"  {label}: {len(data)}p {total_items}items {fmt(total_v)}v {fmt(total_l)}L {fmt(total_c)}C")
+        overview_lines.append(
+            f"  {label}: {len(data)}p {total_items}items {fmt(total_v)}v {fmt(total_l)}L {fmt(total_c)}C"
+        )
 
         section = f"\n[{label}] {len(data)}p {total_items}items {fmt(total_v)}v\n"
 
@@ -75,14 +80,30 @@ def build():
 
             section += f"#{i+1} {name} [{cat}] {len(items)}편 {fmt(tv)}v {fmt(tl)}L {fmt(tc)}C{dr}\n"
 
-            if ptype == 'weibo' or i >= VIDEO_TOP_N:
+            if ptype == 'weibo':
+                if i < TIER1_N and items:
+                    top_posts = sorted(items, key=lambda x: x.get('reposts', 0), reverse=True)[:3]
+                    for v in top_posts:
+                        date = (v.get('created_at') or '?')[:10]
+                        rp = v.get('reposts', 0)
+                        at = v.get('attitudes', 0)
+                        section += f' {date} {fmt(rp)}rp {fmt(at)}att\n'
                 continue
 
-            for v in items:
-                title = (v.get('title') or v.get('text_preview') or '')[:45]
-                date = (v.get('published_at') or v.get('created_at') or '?')[:10]
-                vc = v.get('view_count', v.get('reposts', 0))
-                section += f' "{title}" {date} {fmt(vc)}v\n'
+            if i < TIER1_N:
+                for v in items:
+                    title = (v.get('title') or '')[:50]
+                    date = (v.get('published_at') or '?')[:10]
+                    vc = v.get('view_count', 0)
+                    lc = v.get('like_count', 0)
+                    section += f' "{title}" {date} {fmt(vc)}v {fmt(lc)}L\n'
+            elif i < TIER2_N:
+                top_vids = sorted(items, key=lambda x: x.get('view_count', 0), reverse=True)[:3]
+                for v in top_vids:
+                    title = (v.get('title') or '')[:45]
+                    date = (v.get('published_at') or '?')[:10]
+                    vc = v.get('view_count', 0)
+                    section += f' "{title}" {date} {fmt(vc)}v\n'
 
         all_sections.append(section)
 
@@ -101,8 +122,8 @@ if __name__ == '__main__':
     ctx = build()
     chars = len(ctx)
     tokens_est = chars // 3
-    print(f"Total context: {chars:,} chars (~{tokens_est:,} tokens)")
-    print(f"Budget {CHAR_BUDGET:,}: {'OK' if chars <= CHAR_BUDGET else 'OVER'}")
+    print(f"Total: {chars:,} chars (~{tokens_est:,} tokens)")
+    print(f"Budget {CHAR_BUDGET:,}: {'OK' if chars <= CHAR_BUDGET else 'OVER - truncated'}")
 
     out_path = os.path.join(DOCS, 'all_context.txt')
     with open(out_path, 'w', encoding='utf-8') as f:
