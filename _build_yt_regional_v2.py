@@ -26,6 +26,8 @@ REGIONS = {
     'Pakistan': {'name': 'PUBG MOBILE Pakistan', 'dateRange': '2020 - 2026'},
     'Taiwan': {'name': 'PUBG MOBILE Taiwan', 'dateRange': '2018 - 2026'},
     'Thailand': {'name': 'PUBG MOBILE Thailand', 'dateRange': '2018 - 2026'},
+    'Korea': {'name': 'PUBG MOBILE Korea', 'dateRange': '2018 - 2026'},
+    'Japan': {'name': 'PUBG MOBILE Japan', 'dateRange': '2018 - 2026'},
 }
 
 # ---------- Load existing classifications from JSON ----------

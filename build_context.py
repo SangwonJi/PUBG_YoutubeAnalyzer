@@ -29,6 +29,8 @@ SOURCES = [
     ('YouTube Thailand', 'yt_thailand_data.json', 'yt'),
     ('YouTube Turkey', 'yt_turkey_data.json', 'yt'),
     ('YouTube CIS', 'yt_cis_data.json', 'yt'),
+    ('YouTube Korea', 'yt_korea_data.json', 'yt'),
+    ('YouTube Japan', 'yt_japan_data.json', 'yt'),
     ('Instagram (PUBG MOBILE)', 'ig_data.json', 'ig'),
     ('Weibo (和平精英/Game For Peace China)', 'weibo_data.json', 'weibo'),
     ('YouTube Free Fire', 'freefire_data.json', 'yt'),
@@ -41,7 +43,7 @@ def fmt(n):
 
 def build():
     ctx = "=== PUBG MOBILE & FREE FIRE COLLAB DATA (ALL REGIONS) ===\n"
-    ctx += "14 sources: YouTube(11regions) + Instagram + Weibo(China) + Free Fire\n"
+    ctx += "16 sources: YouTube(13regions) + Instagram + Weibo(China) + Free Fire\n"
     ctx += "v=views L=likes C=comments. Tier1(top40): all videos. Tier2(41-100): top3 videos.\n\n"
 
     overview_lines = []

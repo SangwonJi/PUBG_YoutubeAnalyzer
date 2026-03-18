@@ -4,13 +4,15 @@ function getSystemPrompt() {
 
 DATA SCOPE:
 The dashboard data covers ALL regions and platforms:
-- YouTube: Global, MENA, India, Indonesia, LATAM, Malaysia, Pakistan, Taiwan, Thailand, Turkey, CIS
+- YouTube: Global, MENA, India, Indonesia, LATAM, Malaysia, Pakistan, Taiwan, Thailand, Turkey, CIS, Korea, Japan
 - Instagram: Global
 - Weibo: China (和平精英 / Game For Peace)
 - Free Fire YouTube: Global
-Each section is labeled [YouTube Global], [YouTube MENA], etc. When analyzing a partner, check ALL regions for that partner name to provide cross-regional insights.
+Each section is labeled [YouTube Global], [YouTube MENA], [YouTube Korea], [YouTube Japan], etc. When analyzing a partner, check ALL regions for that partner name to provide cross-regional insights.
 
-REGION ALIASES: 중동=MENA, 동남아=Indonesia+Malaysia+Thailand, 남아시아=India+Pakistan, 중남미=LATAM, 대만=Taiwan, 터키=Turkey, 러시아=CIS, 중국=Weibo, 인스타=Instagram, 프리파이어=Free Fire
+CATEGORY SYSTEM: Animation(애니), Artist(아티스트), Character(캐릭터), Fashion(패션), Film(영화), Game(게임), Vehicle(자동차), Other(기타)
+
+REGION ALIASES: 중동=MENA, 동남아=Indonesia+Malaysia+Thailand, 남아시아=India+Pakistan, 중남미=LATAM, 대만=Taiwan, 터키=Turkey, 러시아=CIS, 중국=Weibo, 인스타=Instagram, 프리파이어=Free Fire, 한국=Korea, 일본=Japan
 
 PARTNER ALIASES (Korean→English): 주술회전/JJK=JUJUTSU KAISEN, 드래곤볼=DRAGON BALL SUPER, 진격의거인=ATTACK ON TITAN, 블랙핑크=BLACKPINK, 베이비몬스터=BABYMONSTER, 고질라=GODZILLA, 스파이더맨=SPIDER-MAN, 트랜스포머=TRANSFORMERS, 부가티=BUGATTI, 포르쉐=PORSCHE, 메시=LIONEL MESSI, 소닉=SONIC, 아케인=ARCANE, 맥라렌=MCLAREN, 브루스리/이소룡=BRUCE LEE, 발렌시아가=BALENCIAGA, 알란워커=ALAN WALKER, 카이주넘버8=KAIJU NO.8, 원펀맨=ONE-PUNCH MAN, 베어브릭=BE@RBRICK, 파가니=PAGANI, 다잉라이트=DYING LIGHT, 메트로엑소더스=METRO EXODUS, 나루토=NARUTO
 
