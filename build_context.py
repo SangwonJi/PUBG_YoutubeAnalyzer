@@ -1,22 +1,15 @@
 """
 Build maximum-density all-platform context for AI chatbot.
-Budget: 400K chars (~133K tokens). Claude Sonnet supports 200K tokens.
-Strategy:
-  - ALL partners: summary with views, likes, comments, date range
-  - Top 40 partners/region: ALL video titles + dates + views
-  - Partners 41-100: top 3 videos only
-  - Partners 101+: summary only
-  - Weibo: partner summary + top 3 post dates for top 40
-  - Titles: 40 chars (Tier1), 35 chars (Tier2)
+Budget: 570K chars (~190K tokens). Claude Sonnet 4 supports 200K tokens.
+Strategy: ALL partners get video details (top 50 per partner by views).
+No tier system - every partner's top videos are included for maximum accuracy.
 """
 import json, os, sys, io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 DOCS = 'docs'
-CHAR_BUDGET = 400_000
-TIER1_N = 40
-TIER2_N = 100
-MAX_VIDS_PER_PARTNER = 30
+CHAR_BUDGET = 570_000
+MAX_VIDS_PER_PARTNER = 50
 
 SOURCES = [
     ('YouTube Global (PUBG MOBILE)', 'pubgm_data.json', 'yt'),
@@ -44,8 +37,8 @@ def fmt(n):
 
 def build():
     ctx = "=== PUBG MOBILE & FREE FIRE COLLAB DATA (ALL REGIONS) ===\n"
-    ctx += "16 sources: YouTube(13regions) + Instagram + Weibo(China) + Free Fire\n"
-    ctx += "v=views L=likes C=comments. Tier1(top40): all videos. Tier2(41-100): top3 videos.\n\n"
+    ctx += "16 sources: YouTube(13 regions) + Instagram + Weibo(China) + Free Fire\n"
+    ctx += "v=views L=likes C=comments. Every partner includes up to 50 top videos by views.\n\n"
 
     overview_lines = []
     all_sections = []
@@ -68,7 +61,7 @@ def build():
             f"  {label}: {len(data)}p {total_items}items {fmt(total_v)}v {fmt(total_l)}L {fmt(total_c)}C"
         )
 
-        section = f"\n[{label}] {len(data)}p {total_items}items {fmt(total_v)}v\n"
+        section = f"\n[{label}] {len(data)} partners, {total_items} items, {fmt(total_v)}v total\n"
 
         for i, p in enumerate(data):
             name = p.get('partner_name') or p.get('name') or '?'
@@ -77,38 +70,34 @@ def build():
             tv = p.get('total_views', p.get('total_reposts', 0))
             tl = p.get('total_likes', p.get('total_attitudes', 0))
             tc = p.get('total_comments', 0)
-            first = p.get('first_collab', '')[:7]
-            last = p.get('last_collab', '')[:7]
+            first = p.get('first_collab', '')[:10]
+            last = p.get('last_collab', '')[:10]
             dr = f" {first}~{last}" if first else ""
 
             section += f"#{i+1} {name} [{cat}] {len(items)}편 {fmt(tv)}v {fmt(tl)}L {fmt(tc)}C{dr}\n"
 
             if ptype == 'weibo':
-                if i < TIER1_N and items:
-                    top_posts = sorted(items, key=lambda x: x.get('reposts', 0), reverse=True)[:3]
+                if items:
+                    top_posts = sorted(items, key=lambda x: x.get('reposts', 0), reverse=True)[:MAX_VIDS_PER_PARTNER]
                     for v in top_posts:
                         date = (v.get('created_at') or '?')[:10]
                         rp = v.get('reposts', 0)
                         at = v.get('attitudes', 0)
-                        section += f' {date} {fmt(rp)}rp {fmt(at)}att\n'
+                        cm = v.get('comments', 0)
+                        section += f' {date} {fmt(rp)}rp {fmt(at)}att {fmt(cm)}C\n'
+                    if len(items) > MAX_VIDS_PER_PARTNER:
+                        section += f' (+{len(items)-MAX_VIDS_PER_PARTNER} more posts)\n'
                 continue
 
-            if i < TIER1_N:
-                shown = sorted(items, key=lambda x: x.get('view_count', 0), reverse=True)[:MAX_VIDS_PER_PARTNER]
-                for v in shown:
-                    title = (v.get('title') or '')[:40]
-                    date = (v.get('published_at') or '?')[:10]
-                    vc = v.get('view_count', 0)
-                    section += f' "{title}" {date} {fmt(vc)}v\n'
-                if len(items) > MAX_VIDS_PER_PARTNER:
-                    section += f' (+{len(items)-MAX_VIDS_PER_PARTNER} more videos)\n'
-            elif i < TIER2_N:
-                top_vids = sorted(items, key=lambda x: x.get('view_count', 0), reverse=True)[:3]
-                for v in top_vids:
-                    title = (v.get('title') or '')[:35]
-                    date = (v.get('published_at') or '?')[:10]
-                    vc = v.get('view_count', 0)
-                    section += f' "{title}" {date} {fmt(vc)}v\n'
+            shown = sorted(items, key=lambda x: x.get('view_count', 0), reverse=True)[:MAX_VIDS_PER_PARTNER]
+            for v in shown:
+                title = (v.get('title') or '')[:45]
+                date = (v.get('published_at') or '?')[:10]
+                vc = v.get('view_count', 0)
+                lk = v.get('like_count', 0)
+                section += f' "{title}" {date} {fmt(vc)}v {fmt(lk)}L\n'
+            if len(items) > MAX_VIDS_PER_PARTNER:
+                section += f' (+{len(items)-MAX_VIDS_PER_PARTNER} more videos)\n'
 
         all_sections.append(section)
 
