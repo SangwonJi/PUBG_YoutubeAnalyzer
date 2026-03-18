@@ -2791,29 +2791,20 @@
             if (tab === 'compare' && !compareChartsInitialized) {
                 setTimeout(initCompareTab, 50);
             }
-            const scBtn = document.getElementById('sidebarCompareBtn');
-            if (scBtn) {
+            const sideCompBtn = document.getElementById('sidebarCompareBtn');
+            if (sideCompBtn) {
                 const isCompare = tab === 'compare';
-                scBtn.classList.toggle('active', isCompare);
-                const gc = GAMES[currentGame]?.color || '';
-                scBtn.style.borderColor = isCompare ? gc : '';
-                scBtn.style.color = isCompare ? gc : '';
-                scBtn.style.background = isCompare ? gc + '11' : '';
+                sideCompBtn.classList.toggle('active', isCompare);
+                const gc = GAMES[currentGame]?.color || '#6366f1';
+                sideCompBtn.style.borderColor = isCompare ? gc : '';
+                sideCompBtn.style.color = isCompare ? gc : '';
+                sideCompBtn.style.background = isCompare ? gc + '11' : '';
             }
             if (tab === 'search') {
                 setTimeout(initSearchTab, 50);
             }
             if (tab === 'chat') {
                 setTimeout(() => document.getElementById('chatInput')?.focus(), 100);
-            }
-            const sideCompBtn = document.getElementById('sidebarCompareBtn');
-            if (sideCompBtn) {
-                const isComp = tab === 'compare';
-                sideCompBtn.classList.toggle('active', isComp);
-                const gc = GAMES[currentGame]?.color || '#6366f1';
-                sideCompBtn.style.borderColor = isComp ? gc : '';
-                sideCompBtn.style.color = isComp ? gc : '';
-                sideCompBtn.style.background = isComp ? gc + '11' : '';
             }
             updateHashFromState();
         }
@@ -5128,12 +5119,12 @@
         let ctx = `[데이터 소스] ${gameName} — ${platName}\n`;
         if (!partnersData || partnersData.length === 0) return ctx;
         const getName = p => p.partner_name || p.name || '?';
-        const fmtV = n => n >= 1e6 ? (n/1e6).toFixed(1)+'M' : n >= 1e3 ? Math.round(n/1e3)+'K' : String(n);
+        const fmtV = n => (n||0).toLocaleString();
         partnersData.forEach((p, i) => {
             const vids = p.videos || [];
-            ctx += `#${i+1} ${getName(p)} [${p.category||'?'}] ${vids.length}편 ${fmtV(p.total_views||0)}v\n`;
+            ctx += `#${i+1} ${getName(p)} [${p.category||'?'}] ${vids.length}편 ${fmtV(p.total_views)}v ${fmtV(p.total_likes)}L ${fmtV(p.total_comments)}C\n`;
             vids.forEach(v => {
-                ctx += ` "${(v.title||'').substring(0,50)}" ${v.published_at?.substring(0,10)||'?'} ${fmtV(v.view_count||0)}v\n`;
+                ctx += ` "${(v.title||'').substring(0,50)}" ${v.published_at?.substring(0,10)||'?'} ${fmtV(v.view_count)}v ${fmtV(v.like_count)}L\n`;
             });
         });
         return ctx;
