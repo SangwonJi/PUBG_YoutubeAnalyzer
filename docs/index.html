@@ -410,6 +410,116 @@
         }
 
         .region-flag { font-size: 0.8rem; line-height: 1; }
+
+        /* ===== Sidebar Tools Section ===== */
+        .nav-sidebar-tools {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border);
+        }
+        .sidebar-tool-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            padding: 9px 12px;
+            border: 1px solid transparent;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: inherit;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+        }
+        .sidebar-tool-btn:hover {
+            color: var(--text-primary);
+            background: var(--bg-tertiary);
+        }
+        .sidebar-tool-btn.active {
+            color: var(--accent-light);
+            background: var(--accent-bg);
+            border-color: rgba(99,102,241,0.2);
+        }
+        .sidebar-tool-btn svg { flex-shrink: 0; opacity: 0.6; }
+        .sidebar-tool-btn.active svg { opacity: 1; }
+
+        .sidebar-ai-btn {
+            position: relative;
+            padding: 10px 12px;
+            border: 1px solid rgba(99,102,241,0.2);
+            background: linear-gradient(135deg, rgba(99,102,241,0.06), rgba(168,85,247,0.04));
+            border-radius: 10px;
+            margin-bottom: 4px;
+            overflow: hidden;
+        }
+        .sidebar-ai-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(129,140,248,0.08), rgba(192,132,252,0.06));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .sidebar-ai-btn:hover::before { opacity: 1; }
+        .sidebar-ai-btn:hover {
+            border-color: rgba(99,102,241,0.35);
+            box-shadow: 0 0 16px rgba(99,102,241,0.1);
+        }
+        .sidebar-ai-btn.active {
+            border-color: rgba(99,102,241,0.4);
+            background: linear-gradient(135deg, rgba(99,102,241,0.12), rgba(168,85,247,0.08));
+            box-shadow: 0 0 20px rgba(99,102,241,0.15);
+        }
+        .sidebar-ai-btn.active::before { opacity: 1; }
+        [data-theme="light"] .sidebar-ai-btn {
+            border-color: rgba(99,102,241,0.18);
+            background: linear-gradient(135deg, rgba(99,102,241,0.05), rgba(168,85,247,0.03));
+        }
+        [data-theme="light"] .sidebar-ai-btn:hover {
+            border-color: rgba(99,102,241,0.3);
+            box-shadow: 0 0 16px rgba(99,102,241,0.06);
+        }
+        [data-theme="light"] .sidebar-ai-btn.active {
+            border-color: rgba(99,102,241,0.35);
+            background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(168,85,247,0.05));
+            box-shadow: 0 0 20px rgba(99,102,241,0.08);
+        }
+
+        .sidebar-ai-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px; height: 30px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #818cf8, #a78bfa);
+            flex-shrink: 0;
+        }
+        .sidebar-ai-icon svg { opacity: 1; width: 16px; height: 16px; }
+
+        .sidebar-ai-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            min-width: 0;
+        }
+        .sidebar-ai-title {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+        .sidebar-ai-sub {
+            font-size: 0.62rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+        .sidebar-ai-btn.active .sidebar-ai-title { color: var(--accent-light); }
+        .sidebar-ai-btn:hover .sidebar-ai-title { color: var(--accent-light); }
+
         /* ===== Tab Navigation (Sidebar) ===== */
         .tab-nav {
             display: flex;
@@ -1673,9 +1783,27 @@
             </button>
         </div>
 
+        <!-- TOOLS section -->
+        <div class="nav-sidebar-section nav-sidebar-tools">
+            <div class="nav-sidebar-label" data-en="TOOLS" data-ko="도구" data-zh="工具">도구</div>
+            <button class="sidebar-tool-btn sidebar-ai-btn" id="sidebarChatBtn" onclick="switchTab('chat')">
+                <span class="sidebar-ai-icon">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4v1a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V6a4 4 0 0 1 4-4z"/><path d="M8.5 7v1.5a3.5 3.5 0 1 0 7 0V7"/><circle cx="12" cy="12" r="0.5"/><path d="M9 16h6"/><path d="M7 20h10a2 2 0 0 0 2-2v-2a6 6 0 0 0-12 0v2a2 2 0 0 0 2 2z"/></svg>
+                </span>
+                <div class="sidebar-ai-text">
+                    <span class="sidebar-ai-title" data-en="AI Chatbot" data-ko="AI 챗봇" data-zh="AI 聊天">AI 챗봇</span>
+                    <span class="sidebar-ai-sub" data-en="Claude Sonnet · Real-time" data-ko="Claude Sonnet · 실시간 분석" data-zh="Claude Sonnet · 实时分析">Claude Sonnet · 실시간 분석</span>
+                </div>
+            </button>
+            <button class="sidebar-tool-btn" id="sidebarSearchBtn" onclick="switchTab('search')">
+                <svg viewBox="0 0 20 20" width="15" height="15" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+                <span data-en="Search All Platforms" data-ko="전체 플랫폼 검색" data-zh="全平台搜索">전체 플랫폼 검색</span>
+            </button>
+        </div>
+
         <div class="nav-sidebar-footer">
-            <div class="sidebar-footer-text">Analytics Dashboard v2.0</div>
-            <div class="sidebar-footer-sub">2018 – 2026 · All Platforms</div>
+            <div class="sidebar-footer-text">16 Data Sources · 2,426 Partners</div>
+            <div class="sidebar-footer-sub">Powered by Claude Sonnet</div>
         </div>
     </aside>
 
@@ -1697,14 +1825,8 @@
             </div>
             <nav class="header-tabs">
                 <button class="header-tab active" onclick="switchTab('collab')" data-en="Collabs" data-ko="콜라보" data-zh="合作">콜라보</button>
-                <button class="header-tab" onclick="switchTab('noncollab')" data-en="Content" data-ko="일반 콘텐츠" data-zh="内容">일반 콘텐츠</button>
+                <button class="header-tab" onclick="switchTab('noncollab')" data-en="Content" data-ko="일반 콘텐츠" data-zh="내용">일반 콘텐츠</button>
                 <button class="header-tab" onclick="switchTab('overview')" data-en="Overview" data-ko="오버뷰" data-zh="概览">오버뷰</button>
-                <button class="header-tab" onclick="switchTab('chat')" data-en="AI Chat" data-ko="AI 챗봇" data-zh="AI 聊天" id="chatTabBtn">
-                    <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor" style="margin-right:5px;opacity:0.7;flex-shrink:0;"><path d="M18 10c0 3.866-3.582 7-8 7a8.84 8.84 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7z"/></svg><span data-en="AI Chat" data-ko="AI 챗봇" data-zh="AI 聊天">AI 챗봇</span>
-                </button>
-                <button class="header-tab header-tab-search" onclick="switchTab('search')">
-                    <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor" style="margin-right:5px;opacity:0.6;flex-shrink:0;"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg><span data-en="Search All" data-ko="통합 검색" data-zh="全局搜索">통합 검색</span>
-                </button>
         </nav>
             <div class="header-bar-right">
                 <span class="last-updated" id="lastUpdatedBadge" style="display:none;">
@@ -2800,6 +2922,10 @@
                 sideCompBtn.style.color = isCompare ? gc : '';
                 sideCompBtn.style.background = isCompare ? gc + '11' : '';
             }
+            const sideChatBtn = document.getElementById('sidebarChatBtn');
+            if (sideChatBtn) sideChatBtn.classList.toggle('active', tab === 'chat');
+            const sideSearchBtn = document.getElementById('sidebarSearchBtn');
+            if (sideSearchBtn) sideSearchBtn.classList.toggle('active', tab === 'search');
             if (tab === 'search') {
                 setTimeout(initSearchTab, 50);
             }
@@ -2823,6 +2949,10 @@
                 btn.style.color = '';
                 btn.style.background = '';
             });
+            const sideChatBtn2 = document.getElementById('sidebarChatBtn');
+            if (sideChatBtn2) sideChatBtn2.classList.remove('active');
+            const sideSearchBtn2 = document.getElementById('sidebarSearchBtn');
+            if (sideSearchBtn2) sideSearchBtn2.classList.add('active');
             setTimeout(initSearchTab, 50);
             const inp = document.getElementById('globalSearchInput');
             if (inp) setTimeout(() => inp.focus(), 100);
