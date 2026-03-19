@@ -543,6 +543,9 @@
             gap: 14px;
             margin-bottom: 24px;
         }
+        .stats-grid-5 {
+            grid-template-columns: repeat(5, 1fr);
+        }
         
         .stat-card {
             background: var(--bg-card);
@@ -1019,7 +1022,7 @@
             .nav-sidebar { width: 220px; }
             .main-content { grid-template-columns: 1fr; }
             .sidebar { height: auto; max-height: 400px; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid, .stats-grid-5 { grid-template-columns: repeat(2, 1fr); }
             .charts-row { grid-template-columns: 1fr 1fr !important; }
             .main-scroll { padding: 20px; }
         }
@@ -1041,7 +1044,7 @@
             .main-scroll { padding: 16px; }
         }
         @media (max-width: 768px) {
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid, .stats-grid-5 { grid-template-columns: repeat(2, 1fr); }
             .video-item { grid-template-columns: 1fr; gap: 10px; }
             .video-thumb { width: 100%; height: auto; aspect-ratio: 16/9; }
             .charts-row { grid-template-columns: 1fr !important; }
@@ -1322,6 +1325,7 @@
         .stats-grid .stat-card:nth-child(2) { animation-delay: 0.05s; }
         .stats-grid .stat-card:nth-child(3) { animation-delay: 0.1s; }
         .stats-grid .stat-card:nth-child(4) { animation-delay: 0.15s; }
+        .stats-grid .stat-card:nth-child(5) { animation-delay: 0.2s; }
         @keyframes cardIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -1483,7 +1487,7 @@
                 border-right: none !important; border-bottom: 1px solid var(--border);
             }
             .detail-panel { width: 100% !important; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+            .stats-grid, .stats-grid-5 { grid-template-columns: repeat(2, 1fr) !important; }
             .charts-row { grid-template-columns: 1fr !important; }
             .container { padding: 16px !important; }
         }
@@ -1846,7 +1850,12 @@
         
         <!-- Collab Tab -->
         <div class="tab-content active" id="collabTab">
-            <section class="stats-grid">
+            <section class="stats-grid stats-grid-5">
+                <div class="stat-card">
+                    <div class="stat-card-top"><span class="stat-icon"><svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12zM10 9h8v2h-8zm0 3h4v2h-4zm0-6h8v2h-8z"/></svg></span></div>
+                    <div class="stat-value" id="channelTotalVideos">-</div>
+                    <div class="stat-label" data-en="Total Videos" data-ko="총 동영상" data-zh="总视频">Total Videos</div>
+                </div>
                 <div class="stat-card">
                     <div class="stat-card-top"><span class="stat-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
                     <div class="stat-value" id="collabVideos">-</div>
@@ -2860,6 +2869,9 @@
 
         function switchPlatform(platId) {
             currentPlatform = platId;
+            if (currentTab === 'chat' || currentTab === 'search') {
+                switchTab('collab');
+            }
             renderPlatformNav();
             updateBreadcrumb();
             closeMobileSidebar();
@@ -2993,6 +3005,7 @@
             };
             
             // Clear collab stats
+            setTextSafe('channelTotalVideos', '-');
             setTextSafe('collabVideos', '-');
             setTextSafe('totalPartners', '-');
             setTextSafe('collabViews', '-');
@@ -3117,6 +3130,15 @@
             const likes = partnersData.reduce((sum, p) => sum + (p.total_likes || 0), 0);
             const comments = partnersData.reduce((sum, p) => sum + (p.total_comments || 0), 0);
             
+            const channelTotal = videos + (othersData ? (othersData.video_count || 0) : 0);
+            const channelTotalEl = document.getElementById('channelTotalVideos');
+            if (channelTotalEl) animateValue(channelTotalEl, channelTotal, 600);
+            const channelTotalLabel = document.querySelector('#channelTotalVideos')?.closest('.stat-card')?.querySelector('.stat-label');
+            if (channelTotalLabel) channelTotalLabel.textContent = platLabel(
+                t('Total Videos', '총 동영상', '总视频'),
+                t('Total Posts', '총 게시물', '总帖子'),
+                t('Total Posts', '총 게시물', '总帖子'));
+
             animateValue(document.getElementById('collabVideos'), videos, 700);
             animateValue(document.getElementById('totalPartners'), partnersData.length, 700);
             animateValue(document.getElementById('collabViews'), views, 800);
