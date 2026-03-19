@@ -2272,7 +2272,7 @@
   },
   {
     "name": "LIONEL MESSI",
-    "category": "Artist",
+    "category": "Other",
     "post_count": 2,
     "total_views": 6211,
     "total_likes": 159,
@@ -2776,7 +2776,7 @@
   },
   {
     "name": "GUNDALA",
-    "category": "Other",
+    "category": "Film",
     "post_count": 3,
     "total_views": 2863,
     "total_likes": 129,
@@ -5015,7 +5015,7 @@
   },
   {
     "name": "ALPHA 7 ESPORTS",
-    "category": "Artist",
+    "category": "Other",
     "post_count": 2,
     "total_views": 500,
     "total_likes": 38,
@@ -5122,7 +5122,7 @@
   },
   {
     "name": "BEARBRICK",
-    "category": "Vehicle",
+    "category": "Character",
     "post_count": 1,
     "total_views": 467,
     "total_likes": 18,
@@ -5146,7 +5146,7 @@
   },
   {
     "name": "POWER 4",
-    "category": "Vehicle",
+    "category": "Other",
     "post_count": 1,
     "total_views": 466,
     "total_likes": 12,
@@ -5552,7 +5552,7 @@
   },
   {
     "name": "PEAKY BLINDERS",
-    "category": "Other",
+    "category": "Film",
     "post_count": 1,
     "total_views": 377,
     "total_likes": 6,

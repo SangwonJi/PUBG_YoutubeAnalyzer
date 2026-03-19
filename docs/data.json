@@ -719,7 +719,7 @@
   },
   {
     "name": "LIONEL MESSI",
-    "category": "Artist",
+    "category": "Other",
     "post_count": 10,
     "total_views": 41029395,
     "total_likes": 7797,
@@ -2048,7 +2048,7 @@
   },
   {
     "name": "PEAKY BLINDERS",
-    "category": "Character",
+    "category": "Film",
     "post_count": 4,
     "total_views": 17784470,
     "total_likes": 22547,
@@ -5690,7 +5690,7 @@
   },
   {
     "name": "JVKE",
-    "category": "Character",
+    "category": "Artist",
     "post_count": 1,
     "total_views": 3481954,
     "total_likes": 5365,
@@ -5826,7 +5826,7 @@
   },
   {
     "name": "ZAHA HADID ARCHITECTS",
-    "category": "Character",
+    "category": "Other",
     "post_count": 3,
     "total_views": 3270969,
     "total_likes": 2580,
@@ -6421,7 +6421,7 @@
   },
   {
     "name": "PMGC ESPORTS PLAYERS",
-    "category": "Character",
+    "category": "Other",
     "post_count": 1,
     "total_views": 2066130,
     "total_likes": 5828,
@@ -6742,7 +6742,7 @@
   },
   {
     "name": "SQUID GAME",
-    "category": "Character",
+    "category": "Film",
     "post_count": 5,
     "total_views": 1220042,
     "total_likes": 32434,
@@ -6878,7 +6878,7 @@
   },
   {
     "name": "VOLKSWAGEN BEETLE SET",
-    "category": "Character",
+    "category": "Vehicle",
     "post_count": 1,
     "total_views": 816181,
     "total_likes": 371,
@@ -8157,7 +8157,7 @@
   },
   {
     "name": "RAZER",
-    "category": "Character",
+    "category": "Other",
     "post_count": 2,
     "total_views": 175899,
     "total_likes": 5612,
@@ -8816,7 +8816,7 @@
   },
   {
     "name": "DIGIMON ADVENTURE",
-    "category": "Character",
+    "category": "Animation",
     "post_count": 1,
     "total_views": 76858,
     "total_likes": 1562,
