@@ -2939,6 +2939,7 @@
             switchTab(currentTab);
             
             const searchInput = document.getElementById('searchInput');
+            if (!searchInput) return;
             const newSearchInput = searchInput.cloneNode(true);
             searchInput.parentNode.replaceChild(newSearchInput, searchInput);
             newSearchInput.addEventListener('input', (e) => {
@@ -2994,18 +2995,18 @@
                             : likes;
             animateValue(document.getElementById('collabLikes'), fourthVal, 800);
 
-            const videosLabel = document.querySelector('#collabVideos').closest('.stat-card').querySelector('.stat-label');
-            const viewsLabel = document.querySelector('#collabViews').closest('.stat-card').querySelector('.stat-label');
-            const likesLabel = document.querySelector('#collabLikes').closest('.stat-card').querySelector('.stat-label');
-            videosLabel.textContent = platLabel(
+            const videosLabel = document.querySelector('#collabVideos')?.closest('.stat-card')?.querySelector('.stat-label');
+            const viewsLabel = document.querySelector('#collabViews')?.closest('.stat-card')?.querySelector('.stat-label');
+            const likesLabel = document.querySelector('#collabLikes')?.closest('.stat-card')?.querySelector('.stat-label');
+            if (videosLabel) videosLabel.textContent = platLabel(
                 t('Collab Videos', '콜라보 영상', '合作视频'),
                 t('Collab Posts', '콜라보 게시물', '合作帖子'),
                 t('Collab Posts', '콜라보 게시물', '合作帖子'));
-            viewsLabel.textContent = platLabel(
+            if (viewsLabel) viewsLabel.textContent = platLabel(
                 t('Total Views', '총 조회수', '总浏览量'),
                 t('Total Likes', '총 좋아요', '总点赞'),
                 t('Total Attitudes (点赞)', '총 좋아요 (点赞)', '总点赞'));
-            likesLabel.textContent = platLabel(
+            if (likesLabel) likesLabel.textContent = platLabel(
                 t('Total Likes', '총 좋아요', '总点赞'),
                 t('Total Comments', '총 댓글', '总评论'),
                 t('Total Reposts (转发)', '총 공유 (转发)', '总转发'));
@@ -3346,6 +3347,7 @@
             
             // Show detail panel
             const detail = document.getElementById('noncollabDetail');
+            if (!detail) return;
             detail.classList.add('show');
             
             document.getElementById('noncollabDetailTitle').textContent = translateCategory(name);
@@ -3796,18 +3798,13 @@
                 bodyColor: isLight ? '#475569' : '#94a3b8',
                 borderColor: isLight ? '#e2e8f0' : 'rgba(255,255,255,0.08)',
                 borderWidth: 1,
-                cornerRadius: 10,
-                padding: { top: 10, bottom: 10, left: 14, right: 14 },
-                titleFont: { weight: '700', size: 12 },
-                bodyFont: { size: 11 },
-                boxPadding: 4,
-                usePointStyle: true,
                 cornerRadius: 12,
                 padding: 14,
                 titleFont: { size: 13, weight: '600' },
                 bodyFont: { size: 12 },
-                displayColors: true,
-                boxPadding: 6
+                boxPadding: 6,
+                usePointStyle: true,
+                displayColors: true
             };
 
             // Gradient palette
@@ -3832,7 +3829,9 @@
                 : t('Top 10 Collab Partners by Views', '조회수 기준 상위 10개 콜라보 파트너', '浏览量前10合作伙伴');
             if (top10.length === 0) { chartsInitialized = true; return; }
 
-            const topCtx = document.getElementById('topPartnersChart').getContext('2d');
+            const topChartEl = document.getElementById('topPartnersChart');
+            if (!topChartEl) { chartsInitialized = true; return; }
+            const topCtx = topChartEl.getContext('2d');
             const barGradients = top10.map((_, i) => {
                 const g = topCtx.createLinearGradient(0, 0, topCtx.canvas.width, 0);
                 const c = gradientColors[i % gradientColors.length];
@@ -3955,8 +3954,6 @@
                                 padding: 16,
                                 font: { size: 11, weight: '500' },
                                 usePointStyle: true,
-                                pointStyle: 'circle',
-                                usePointStyle: true,
                                 pointStyle: 'circle'
                             }
                         },
@@ -4068,8 +4065,6 @@
                                     color: chartText,
                                     padding: 12,
                                     font: { size: 11, weight: '500' },
-                                    usePointStyle: true,
-                                    pointStyle: 'circle',
                                     usePointStyle: true,
                                     pointStyle: 'circle'
                             }
@@ -4814,9 +4809,12 @@
         async function initSearchTab() {
             if (_searchGameKey === '__all__' && _searchIndex) return;
 
-            document.getElementById('searchLoading').style.display = '';
-            document.getElementById('searchResult').style.display = 'none';
-            document.getElementById('searchEmpty').style.display = 'none';
+            const searchLoadingEl = document.getElementById('searchLoading');
+            const searchResultEl = document.getElementById('searchResult');
+            const searchEmptyEl = document.getElementById('searchEmpty');
+            if (searchLoadingEl) searchLoadingEl.style.display = '';
+            if (searchResultEl) searchResultEl.style.display = 'none';
+            if (searchEmptyEl) searchEmptyEl.style.display = 'none';
 
             const allData = {};
             const fetchTasks = [];
@@ -4933,6 +4931,8 @@
         function renderSearchResult(partnerKey) {
             if (!_searchIndex || !_searchIndex.has(partnerKey)) return;
             const entries = _searchIndex.get(partnerKey);
+            if (!entries || entries.length === 0) return;
+            if (!entries || entries.length === 0) return;
             const partnerName = _searchCanonical ? (_searchCanonical.get(partnerKey) || partnerKey) : partnerKey;
             const COLORS = ['#f5af19','#3b82f6','#ef4444','#10b981','#a855f7','#f472b6','#22d3ee','#fb923c','#6366f1','#14b8a6','#e879f9','#84cc16','#f43f5e'];
             const sName = (pk, gk) => {
