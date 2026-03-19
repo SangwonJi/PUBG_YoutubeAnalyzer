@@ -17,14 +17,14 @@ REGION ALIASES: 글로벌=Global, 중동=MENA, 동남아=Indonesia+Malaysia+Thai
 PARTNER ALIASES (Korean→English): 주술회전/JJK=JUJUTSU KAISEN, 드래곤볼=DRAGON BALL SUPER, 진격의거인=ATTACK ON TITAN, 블랙핑크=BLACKPINK, 베이비몬스터=BABYMONSTER, 고질라=GODZILLA, 스파이더맨=SPIDER-MAN, 트랜스포머=TRANSFORMERS, 부가티=BUGATTI, 포르쉐=PORSCHE, 메시=LIONEL MESSI, 소닉=SONIC, 아케인=ARCANE, 맥라렌=MCLAREN, 브루스리/이소룡=BRUCE LEE, 발렌시아가=BALENCIAGA, 알란워커=ALAN WALKER, 카이주넘버8=KAIJU NO.8, 원펀맨=ONE-PUNCH MAN, 베어브릭=BE@RBRICK, 파가니=PAGANI, 다잉라이트=DYING LIGHT, 메트로엑소더스=METRO EXODUS, 나루토=NARUTO
 
 RULES:
-1. ONLY use data from "DASHBOARD DATA". NEVER invent numbers, dates, or titles.
+1. ONLY use data from "DASHBOARD DATA". NEVER invent numbers, dates, or titles. If a partner does NOT appear in a region section, do NOT include that region — leave it out entirely.
 2. Korean partner/region names → look up alias above → find in data.
 3. **YEAR FILTERING (CRITICAL)**: If user mentions a year (e.g., "2026년 주술회전"), ONLY include videos from that year. Do NOT mix other years.
 4. When a partner has videos across multiple years, separate into waves: "Wave 1 (2022)", "Wave 2 (2026)".
-5. **CROSS-REGION ANALYSIS**: When asked about a partner's performance, search ALL regions. Show a region comparison table if the partner appears in multiple regions.
+5. **CROSS-REGION SEARCH (CRITICAL)**: When asked about a partner, you MUST search through EVERY region section header [YouTube Global], [YouTube MENA], [YouTube India], etc. Partner names may differ in case (e.g., "ATTACK ON TITAN" vs "Attack on Titan"). Search case-insensitively. Show ALL matching regions in your table.
 6. **PLATFORM COMPARISON**: When asked to compare platforms (YouTube vs Instagram vs Weibo), use the relevant section for each.
 7. NEVER fabricate: "콜라보 기간", "참여율", "전환율", "DAU", "매출".
-8. If data doesn't exist, say so. NEVER guess.
+8. If data doesn't exist, say so. NEVER guess. NEVER add regions where the partner was not found.
 9. Respond in Korean unless user writes in English/Chinese.
 10. For partners ranked 51+ per region, only summary stats are available (no individual video titles). Note this when relevant.
 11. **NUMBERS (CRITICAL)**: Data uses pipe-separated fields with labeled numbers like "1,376,211 views | 8,019 likes | 170 comments". Copy these exact numbers into your tables. NEVER abbreviate, round, or reformat them. Example: if data says "1,376,211 views", write exactly "1,376,211" in the table, NOT "1.4M" or ",376,211".
@@ -252,10 +252,17 @@ export default {
     ];
 
     // Always try Claude first (single attempt), instant Llama fallback
+    let claudeError = '';
     const anthropicKey = (env.ANTHROPIC_API_KEY || '').trim();
     if (anthropicKey) {
-      const claudeRes = await callClaude(anthropicKey, systemContent, messages.slice(-10), headers);
-      if (claudeRes.status === 200) return claudeRes;
+      try {
+        const claudeRes = await callClaude(anthropicKey, systemContent, messages.slice(-10), headers);
+        if (claudeRes.status === 200) return claudeRes;
+        claudeError = `status=${claudeRes.status}`;
+        try { const b = await claudeRes.clone().text(); claudeError += ` body=${b.substring(0,200)}`; } catch {}
+      } catch (e) {
+        claudeError = `exception=${e.message}`;
+      }
     }
 
     if (env.OPENAI_API_KEY && env.AI_GATEWAY_URL) {
@@ -288,7 +295,7 @@ export default {
 
       return new Response(stream, {
         status: 200,
-        headers: { ...headers, 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache', 'X-AI-Model': 'llama-3.3-70b' },
+        headers: { ...headers, 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache', 'X-AI-Model': 'llama-3.3-70b', 'X-Claude-Error': claudeError || 'none' },
       });
     } catch (err) {
       return new Response(JSON.stringify({ error: `Workers AI error: ${err.message}` }), {
@@ -338,7 +345,7 @@ async function callClaude(apiKey, systemContent, userMessages, cors) {
       },
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
-        max_tokens: 4096,
+        max_tokens: 8192,
         temperature: 0.1,
         system: systemBlocks,
         messages: messagesWithContext,

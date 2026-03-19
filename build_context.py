@@ -1,18 +1,18 @@
 """
 Build maximum-density all-platform context for AI chatbot.
-Budget: 580K chars (~193K tokens). Claude Sonnet 4 supports 200K tokens.
-Strategy: ALL partners get video details (top 30 per partner by views).
+Budget: 385K chars. Claude Sonnet 4 fails at ~400K chars through AI Gateway.
+Strategy: ALL partners get video details (top N per partner by views).
 Numbers are exact comma-separated integers with clear word labels.
 """
 import json, os, sys, io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 DOCS = 'docs'
-CHAR_BUDGET = 590_000
-MAX_VIDS_PER_PARTNER = 20
+CHAR_BUDGET = 385_000
+MAX_VIDS_PER_PARTNER = 2
 
 SOURCES = [
-    ('YouTube Global (PUBG MOBILE)', 'pubgm_data.json', 'yt'),
+    ('YouTube Global (PUBG MOBILE)', 'data.json', 'yt'),
     ('YouTube MENA', 'yt_mena_data.json', 'yt'),
     ('YouTube India', 'yt_india_data.json', 'yt'),
     ('YouTube Indonesia', 'yt_indonesia_data.json', 'yt'),
@@ -58,10 +58,10 @@ def build():
         total_items = sum(len(p.get('videos', p.get('posts', []))) for p in data)
 
         overview_lines.append(
-            f"  {label}: {len(data)} partners, {total_items} items, {n(total_v)} views, {n(total_l)} likes, {n(total_c)} comments"
+            f"  {label}: {len(data)} partners, {n(total_items)} items, {n(total_v)} views, {n(total_l)} likes, {n(total_c)} comments"
         )
 
-        section = f"\n[{label}] {len(data)} partners, {total_items} items, {n(total_v)} total views\n"
+        section = f"\n[{label}] {len(data)} partners, {n(total_items)} items, {n(total_v)} total views\n"
 
         for i, p in enumerate(data):
             name = p.get('partner_name') or p.get('name') or '?'
@@ -74,26 +74,24 @@ def build():
             last = p.get('last_collab', '')[:10]
             dr = f" | {first}~{last}" if first else ""
 
-            section += f"#{i+1} {name} [{cat}] {len(items)} videos | {n(tv)} views | {n(tl)} likes | {n(tc)} comments{dr}\n"
-
             if ptype == 'weibo':
-                if items and i < 50:
-                    top_posts = sorted(items, key=lambda x: x.get('reposts', 0), reverse=True)[:10]
-                    for v in top_posts:
-                        date = (v.get('created_at') or '?')[:10]
-                        rp = v.get('reposts', 0)
-                        at = v.get('attitudes', 0)
-                        cm = v.get('comments', 0)
-                        section += f'  {date} | {n(rp)} reposts | {n(at)} attitudes | {n(cm)} comments\n'
+                section += f"#{i+1} {name} [{cat}] | {n(tv)} reposts | {n(tl)} attitudes | {n(tc)} comments{dr}\n"
                 continue
+            elif ptype == 'ig':
+                section += f"#{i+1} {name} [{cat}] {len(items)} posts | {n(tl)} likes | {n(tc)} comments{dr}\n"
+            else:
+                section += f"#{i+1} {name} [{cat}] {len(items)} videos | {n(tv)} views | {n(tl)} likes | {n(tc)} comments{dr}\n"
 
             shown = sorted(items, key=lambda x: x.get('view_count', 0), reverse=True)[:MAX_VIDS_PER_PARTNER]
             for v in shown:
-                title = (v.get('title') or '')[:30]
+                title = (v.get('title') or '').replace('"', "'")[:20]
                 date = (v.get('published_at') or '?')[:10]
                 vc = v.get('view_count', 0)
                 lk = v.get('like_count', 0)
-                section += f'  "{title}" {date} | {n(vc)} views | {n(lk)} likes\n'
+                if ptype == 'ig':
+                    section += f'  "{title}" {date} | {n(lk)} likes | {n(v.get("comment_count", 0))} comments\n'
+                else:
+                    section += f'  "{title}" {date} | {n(vc)} views | {n(lk)} likes\n'
             if len(items) > MAX_VIDS_PER_PARTNER:
                 section += f'  (+{len(items)-MAX_VIDS_PER_PARTNER} more videos)\n'
 
@@ -104,18 +102,19 @@ def build():
     ctx += "\n\n"
     ctx += "".join(all_sections)
 
-    if len(ctx) > CHAR_BUDGET:
+    raw_len = len(ctx)
+    if raw_len > CHAR_BUDGET:
         ctx = ctx[:CHAR_BUDGET - 50] + "\n\n[... truncated to fit context limit]\n"
 
-    return ctx
+    return ctx, raw_len
 
 
 if __name__ == '__main__':
-    ctx = build()
+    ctx, raw_len = build()
     chars = len(ctx)
     tokens_est = chars // 3
-    print(f"Total: {chars:,} chars (~{tokens_est:,} tokens)")
-    print(f"Budget {CHAR_BUDGET:,}: {'OK' if chars <= CHAR_BUDGET else 'OVER - truncated'}")
+    print(f"Raw: {raw_len:,} chars | Final: {chars:,} chars (~{tokens_est:,} tokens)")
+    print(f"Budget {CHAR_BUDGET:,}: {'OK' if raw_len <= CHAR_BUDGET else f'OVER by {raw_len - CHAR_BUDGET:,} - truncated'}")
 
     out_path = os.path.join(DOCS, 'all_context.txt')
     with open(out_path, 'w', encoding='utf-8') as f:
