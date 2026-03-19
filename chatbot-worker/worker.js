@@ -68,7 +68,7 @@ const CATEGORY_ALIASES = {
   '패션': 'Fashion', 'fashion': 'Fashion',
   '영화': 'Film', 'film': 'Film',
   '게임': 'Game', 'game': 'Game',
-  '자동차': 'Vehicle', '차': 'Vehicle', 'vehicle': 'Vehicle',
+  '자동차': 'Vehicle', '차량': 'Vehicle', '차': 'Vehicle', 'vehicle': 'Vehicle',
 };
 
 // ===== Smart Context Retrieval (RAG) =====
@@ -129,7 +129,8 @@ function smartRetrieve(fullContext, messages, maxChars) {
   const { overview, sections } = parseContextSections(fullContext);
   const query = analyzeQuery(messages);
 
-  if (query.isGeneral || query.isOverview || query.isTopN) {
+  const hasSpecificFilter = query.partners.length > 0 || query.regions.length > 0 || query.categories.length > 0;
+  if ((query.isGeneral || query.isOverview || query.isTopN) && !hasSpecificFilter) {
     let ctx = overview;
     for (const s of sections) {
       if (ctx.length + s.content.length <= maxChars) {
@@ -146,12 +147,47 @@ function smartRetrieve(fullContext, messages, maxChars) {
   let ctx = overview;
   const usedSections = new Set();
 
+  function extractByCategory(sectionContent, cats) {
+    const lines = sectionContent.split('\n');
+    const headerLine = lines[0] || '';
+    const extracted = [];
+    const partnerSummaries = [];
+    let capturing = false;
+    for (const line of lines) {
+      if (line.startsWith('#')) {
+        capturing = cats.some(c => line.includes(`[${c}]`));
+        if (capturing) {
+          extracted.push(line);
+          partnerSummaries.push(line);
+        }
+      } else if (capturing && (line.startsWith('  ') || line.startsWith('\t'))) {
+        extracted.push(line);
+      } else if (capturing) {
+        capturing = false;
+      }
+    }
+    if (extracted.length > 0) {
+      const catName = cats.join('/');
+      const countNote = `\n[CATEGORY FILTER: ${catName} — ${partnerSummaries.length} partners found. YOU MUST LIST ALL ${partnerSummaries.length} IN YOUR TABLE.]`;
+      return countNote + '\n' + headerLine + '\n' + extracted.join('\n') + '\n';
+    }
+    return null;
+  }
+
   if (query.regions.length > 0 && query.partners.length === 0) {
     for (const s of sections) {
       const sLower = s.name.toLowerCase();
       if (query.regions.some(r => sLower.includes(r.toLowerCase()))) {
-        ctx += s.content;
-        usedSections.add(s.name);
+        if (query.categories.length > 0) {
+          const filtered = extractByCategory(s.content, query.categories);
+          if (filtered) {
+            ctx += filtered;
+            usedSections.add(s.name);
+          }
+        } else {
+          ctx += s.content;
+          usedSections.add(s.name);
+        }
       }
     }
   }
@@ -193,8 +229,9 @@ function smartRetrieve(fullContext, messages, maxChars) {
   if (query.categories.length > 0 && usedSections.size === 0) {
     for (const s of sections) {
       if (query.categories.some(c => s.content.includes(`[${c}]`))) {
-        if (!usedSections.has(s.name)) {
-          ctx += s.content;
+        const filtered = extractByCategory(s.content, query.categories);
+        if (filtered) {
+          ctx += filtered;
           usedSections.add(s.name);
         }
       }
@@ -245,23 +282,35 @@ CRITICAL RULES:
 5. **NO FABRICATION**: NEVER add regions where the partner was NOT found. NEVER fabricate 참여율, 전환율, DAU, 매출.
 6. If data doesn't exist, say so explicitly.
 7. Respond in Korean unless user writes in English/Chinese.
-8. **NUMBERS**: Copy exact comma-separated numbers from data. If data says "1,376,211 views", write "1,376,211" — NEVER "1.4M", "~1.4백만", or ",376,211".
+9. **CATEGORY COMPLETENESS**: When user asks about a specific category (e.g., "Vehicle"), list ALL partners in that category from the provided data. NEVER skip partners. If data has 20 Vehicle partners, show all 20 in the table. Count them before responding.
+8. **NUMBERS — ABSOLUTE RULE**: Every number MUST be copied character-by-character from the data. NEVER drop leading digits.
+   - Data: "23,001,580 views" → Write: "23,001,580" (CORRECT)
+   - WRONG: ",001,580" or "3,001,580" (leading digits dropped!)
+   - Data: "7,672,649 views" → Write: "7,672,649" (CORRECT)
+   - WRONG: "7,,649" (middle digits dropped!)
+   - Data: "3,536,736 views" → Write: "3,536,736" (CORRECT)
+   - WRONG: ",536,736" (leading digit dropped!)
+   - In tables, ALWAYS double-check every number has ALL digits before submitting.
+   - In summary text, write full numbers: "23,001,580 조회수" — NEVER "억천만", "~2천3백만", or abbreviations.
+   - If you are unsure of a number, look it up again in the data rather than guessing.
 
 FORMAT:
 - ## for sections, **bold** for key numbers and partner names
 - ALWAYS use markdown tables for data comparisons
+- In markdown tables, write complete numbers with all digits (e.g., | 23,001,580 | not | ,001,580 |)
 - Partner analysis: 요약 → 리전별 성과 테이블 → 영상 상세 → 인사이트
 - Regional comparison: 개요 → 리전별 비교 테이블 → 핵심 차이점
 - Cross-platform: 플랫폼별 비교 → 종합 평가
 
 ANALYSIS QUALITY:
 - Write like a senior consultant briefing a VP.
-- Every claim MUST cite a specific number from the data.
+- Every claim MUST cite a specific, complete number from the data. Double-check before writing.
 - For cross-region questions, show a region-by-region breakdown table.
 - Calculate derived metrics (평균 조회수/영상, 좋아요율) when useful.
 - Identify outliers and explain why they matter.
 - When comparing, highlight over/under-performers with hypotheses.
-- For timeline/trend questions, note collaboration waves by year.`;
+- For timeline/trend questions, note collaboration waves by year.
+- In summary/핵심 sections, write the FULL number: e.g., "BUGATTI가 23,001,580 조회수로 1위".`;
 }
 
 // ===== Rate Limiting =====
@@ -403,7 +452,7 @@ export default {
     const anthropicKey = (env.ANTHROPIC_API_KEY || '').trim();
     if (anthropicKey) {
       try {
-        const claudeRes = await callClaude(anthropicKey, claudeSystemContent, messages.slice(-10), headers);
+        const claudeRes = await callClaude(anthropicKey, claudeSystemContent, messages.slice(-10), headers, retrievalInfo);
         if (claudeRes.status === 200) return claudeRes;
         claudeError = `status=${claudeRes.status}`;
         try { const b = await claudeRes.clone().text(); claudeError += ` ${b.substring(0, 200)}`; } catch {}
@@ -437,7 +486,7 @@ export default {
 
 // ===== Claude API via AI Gateway =====
 
-async function callClaude(apiKey, systemContent, userMessages, cors) {
+async function callClaude(apiKey, systemContent, userMessages, cors, retrievalInfo) {
   const systemPromptOnly = getSystemPrompt();
   const dataContext = systemContent.includes('--- CURRENT DASHBOARD DATA')
     ? systemContent.split(/--- CURRENT DASHBOARD DATA[^-]*---/)[1] || ''
@@ -480,7 +529,7 @@ async function callClaude(apiKey, systemContent, userMessages, cors) {
       }),
     });
 
-    if (res.ok) return streamClaudeResponse(res, cors);
+    if (res.ok) return streamClaudeResponse(res, cors, retrievalInfo);
 
     const errText = await res.text();
     return new Response(JSON.stringify({ error: `Claude ${res.status}: ${errText.substring(0, 200)}` }), {
@@ -493,7 +542,7 @@ async function callClaude(apiKey, systemContent, userMessages, cors) {
   }
 }
 
-function streamClaudeResponse(res, cors) {
+function streamClaudeResponse(res, cors, retrievalInfo) {
   const { readable, writable } = new TransformStream();
   const writer = writable.getWriter();
   const encoder = new TextEncoder();
@@ -531,7 +580,7 @@ function streamClaudeResponse(res, cors) {
 
   return new Response(readable, {
     status: 200,
-    headers: { ...cors, 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache', 'X-AI-Model': 'claude-sonnet' },
+    headers: { ...cors, 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache', 'X-AI-Model': 'claude-sonnet', 'X-Retrieval': retrievalInfo || '' },
   });
 }
 
