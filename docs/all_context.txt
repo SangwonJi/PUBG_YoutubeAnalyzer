@@ -7,7 +7,7 @@ Video: "TITLE" DATE | VIEWS views | LIKES likes
 --- OVERVIEW ---
   YouTube Global (PUBG MOBILE): 174 partners, 732 items, 868,651,834 views, 3,231,300 likes, 125,212 comments
   YouTube MENA: 72 partners, 242 items, 62,178,440 views, 590,424 likes, 47,517 comments
-  YouTube India: 29 partners, 141 items, 231,035,258 views, 4,340,978 likes, 107,715 comments
+  YouTube India: 50 partners, 115 items, 246,522,156 views, 3,912,122 likes, 114,441 comments
   YouTube Indonesia: 320 partners, 795 items, 159,723,348 views, 3,544,906 likes, 49,171 comments
   YouTube LATAM: 180 partners, 364 items, 4,906,704 views, 93,325 likes, 1,725 comments
   YouTube Malaysia: 67 partners, 7,057 items, 187,595,456 views, 2,231,174 likes, 59,010 comments
@@ -16,8 +16,8 @@ Video: "TITLE" DATE | VIEWS views | LIKES likes
   YouTube Thailand: 46 partners, 199 items, 3,871,453 views, 36,785 likes, 382 comments
   YouTube Turkey: 68 partners, 376 items, 128,196,694 views, 1,062,157 likes, 64,115 comments
   YouTube CIS: 76 partners, 841 items, 65,134,901 views, 565,105 likes, 19,551 comments
-  YouTube Korea: 24 partners, 72 items, 6,061,339 views, 110,188 likes, 6,898 comments
-  YouTube Japan: 42 partners, 105 items, 564,841 views, 14,710 likes, 941 comments
+  YouTube Korea: 88 partners, 269 items, 13,708,848 views, 211,526 likes, 23,660 comments
+  YouTube Japan: 121 partners, 284 items, 1,742,631 views, 27,152 likes, 2,364 comments
   Instagram (PUBG MOBILE): 38 partners, 378 items, 11,936,158 views, 11,936,158 likes, 100,598 comments
   Weibo (和平精英/Game For Peace China): 771 partners, 2,727 items, 32,619,773 views, 11,515,941 likes, 4,570,668 comments
   YouTube Free Fire: 67 partners, 171 items, 78,303,531 views, 2,145,768 likes, 75,159 comments
@@ -834,115 +834,168 @@ Video: "TITLE" DATE | VIEWS views | LIKES likes
   "PUBG MOBILE x Volkswagen | شاهد فيد" 2024-09-20 | 858 views | 12 likes
   "PUBGMOBILE × VOLKSWAGEN!" 2024-10-04 | 649 views | 24 likes
 
-[YouTube India] 29 partners, 141 items, 231,035,258 total views
-#1 LOCO [Other] 73 videos | 57,454,398 views | 2,653,871 likes | 79,864 comments | 2021-08-23~2022-06-12
-  "[Hindi] Grand Finals Day - 4 | iQOO" 2022-06-12 | 3,553,079 views | 166,214 likes
-  "[Hindi] Round 4 - Day 2 | iQOO BMOC" 2022-05-12 | 3,236,983 views | 136,540 likes
-  "[Hindi] Grand Finals Day 1 | iQOO B" 2022-06-09 | 3,144,447 views | 137,029 likes
-  "[Hindi] League Stage Week 1 - Day 1" 2022-05-19 | 2,491,832 views | 114,294 likes
-  "[Hindi] Grand Finals Day - 2 | iQOO" 2022-06-10 | 2,471,559 views | 104,233 likes
-  "[Hindi] Grand Finals Day - 3 | iQOO" 2022-06-11 | 2,455,267 views | 108,411 likes
-  "[Hindi] Round 4 - Day 3 | iQOO BMOC" 2022-05-14 | 2,264,771 views | 96,010 likes
-  "[Hindi] League Stage Week 1 - Day 4" 2022-05-22 | 2,137,006 views | 83,617 likes
-  "[Hindi] League Stage Week 2 - Day 5" 2022-05-26 | 2,075,515 views | 85,303 likes
-  "[Hindi] Round 4 - Day 4 | iQOO BMOC" 2022-05-15 | 2,059,415 views | 80,293 likes
-  (+63 more)
-#2 Hero [Vehicle] 10 videos | 31,650,392 views | 231,068 likes | 3,319 comments | 2022-01-15~2025-06-26
-  "OG Ka Zamaana Hai | Play As Your He" 2024-08-16 | 8,051,219 views | 60,868 likes
-  "BGMI x Hero | Throttle Up & Play No" 2025-05-25 | 7,418,733 views | 7,421 likes
-  "BGMI x Hero | Get Now" 2025-06-02 | 7,301,796 views | 65,550 likes
-  "Play As Your Hero Ft. @ghatakgaming" 2022-04-03 | 2,737,461 views | 16,400 likes
-  "Play As Your Hero 2.0 Ft. @S8ULSID " 2024-07-23 | 2,540,310 views | 9,558 likes
-  "Play As Your Hero | Coming Soon" 2022-01-15 | 1,653,670 views | 37,743 likes
-  "BGMI x Hero | Play Now" 2025-06-26 | 1,219,149 views | 19,082 likes
-  "Play As Your Hero Ft @MAVIOP @shree" 2022-05-24 | 708,834 views | 12,382 likes
-  "@8bitGoldygg Special Voice Pack | P" 2024-04-08 | 10,970 views | 1,169 likes
-  "2.0 Is Here | Play As Your Hero Ft." 2024-04-07 | 8,250 views | 895 likes
-#3 Ranveer Singh [Artist] 7 videos | 24,778,206 views | 629,086 likes | 1,298 comments | 2023-09-05~2023-12-18
-  "Play Pure with Ranveer Singh Ft. @S" 2023-12-01 | 9,720,536 views | 481,390 likes
-  "Play Pure with Ranveer Singh | BGMI" 2023-09-05 | 6,496,307 views | 67,624 likes
-  "Play Pure with Ranveer Singh | Down" 2023-12-02 | 5,613,517 views | 15,361 likes
-  "Ranveer Singh Ki Diwali Party | Pla" 2023-11-11 | 2,445,619 views | 31,496 likes
-  "Ranveer Singh in BGMI | Download No" 2023-12-18 | 457,347 views | 29,489 likes
-  "Play Pure with Ranveer Singh | Down" 2023-12-04 | 30,116 views | 2,164 likes
-  "Play Pure with Ranveer Singh | Down" 2023-12-04 | 14,764 views | 1,562 likes
-#4 Royal Enfield [Vehicle] 1 videos | 22,087,556 views | 1,977 likes | 114 comments | 2026-01-18~2026-01-18
-  "Royal Enfield Just Entered Battlegr" 2026-01-18 | 22,087,556 views | 1,977 likes
-#5 Alan Walker [Artist] 7 videos | 18,743,305 views | 166,423 likes | 1,734 comments | 2024-09-20~2024-11-25
-  "Alan Walker In Battlegrounds #BGMI" 2024-11-23 | 9,084,720 views | 25,265 likes
-  "Alan Walker becomes a Shaadi DJ! #B" 2024-10-08 | 7,796,542 views | 71,337 likes
-  "Be A Hero | BGMI x Alan Walker #BGM" 2024-09-20 | 1,478,486 views | 37,521 likes
-  "We caught Alan Walker in his vanity" 2024-11-22 | 213,086 views | 12,834 likes
-  "BGMI X Alan Walker - Download Now #" 2024-10-24 | 129,113 views | 16,124 likes
-  "Alan Walker - In Game Leader #BGMI" 2024-10-04 | 35,044 views | 2,667 likes
-  "We made Alan Walker attend his firs" 2024-11-25 | 6,314 views | 675 likes
-#6 Tiger Shroff [Artist] 3 videos | 16,858,887 views | 9,406 likes | 437 comments | 2025-10-08~2025-10-10
-  "Tiger Buddy Why In Chaddi? | BGMI x" 2025-10-08 | 7,538,852 views | 4,095 likes
-  "Tiger Ji, Please Pick Up Your Gun |" 2025-10-09 | 4,934,063 views | 2,735 likes
-  "Mera Squad Alag, Meri Moves Alag | " 2025-10-10 | 4,385,972 views | 2,576 likes
-#7 McLaren [Vehicle] 2 videos | 15,603,083 views | 87,121 likes | 66 comments | 2024-12-02~2024-12-03
-  "Speed Your Way To Victory #McLARENX" 2024-12-02 | 13,563,541 views | 37,110 likes
-  "Get McLAREN P1™| Play Now #BGMI" 2024-12-03 | 2,039,542 views | 50,011 likes
-#8 Transformers [Film] 1 videos | 11,794,412 views | 2,592 likes | 430 comments | 2025-07-16~2025-07-16
-  "BGMI x TRANSFORMERS | Play Now" 2025-07-16 | 11,794,412 views | 2,592 likes
-#9 Attack on Titan [Animation] 1 videos | 6,407,325 views | 1,661 likes | 77 comments | 2025-06-03~2025-06-03
-  "BGMI x Attack on Titan | Dedicate y" 2025-06-03 | 6,407,325 views | 1,661 likes
-#10 Deepika Padukone [Artist] 3 videos | 4,895,370 views | 28,993 likes | 859 comments | 2024-09-19~2024-10-17
-  "Slay The Game with Deepika Padukone" 2024-09-19 | 2,105,101 views | 23,358 likes
-  "The Deepika Spin is now live! | BGM" 2024-10-17 | 1,992,627 views | 2,894 likes
-  "Get The 3.4 Update & Slay The Game " 2024-09-28 | 797,642 views | 2,741 likes
-#11 Mahindra [Vehicle] 5 videos | 4,073,143 views | 78,167 likes | 668 comments | 2025-01-14~2025-02-12
-  "Mahindra BE 6 lands in BGMI | Play " 2025-01-16 | 2,684,366 views | 69,644 likes
-  "Two Legends. One Arena | BGMI x Mah" 2025-01-14 | 1,361,426 views | 6,700 likes
-  "Make The Mahindra BE 6 Yours! | Pla" 2025-02-07 | 16,803 views | 877 likes
-  "Drive Home A Brand New Mahindra BE " 2025-02-09 | 5,843 views | 484 likes
+[YouTube India] 50 partners, 115 items, 246,522,156 total views
+#1 RANVEER SINGH [Artist] 15 videos | 27,707,534 views | 882,640 likes | 1,522 comments | 2023-09-05~
+  "Play Pure with Ranveer Singh Ft. @S" 2023-12-01 | 9,720,544 views | 481,298 likes
+  "Play Pure with Ranveer Singh | BGMI" 2023-09-05 | 6,496,332 views | 67,619 likes
+  "Play Pure with Ranveer Singh | Down" 2023-12-02 | 5,613,525 views | 15,359 likes
+  "Ranveer Singh Ki Diwali Party | Pla" 2023-11-11 | 2,445,619 views | 31,493 likes
+  "Get your swag on! | BGMIxRanveer" 2024-01-21 | 1,839,595 views | 178,885 likes
+  "Time to suit up in Ranveer style! |" 2024-01-23 | 614,005 views | 48,887 likes
+  "Ranveer Singh in BGMI | Download No" 2023-12-18 | 457,351 views | 29,479 likes
+  "Grab the RS crate now! | BGMIxRANVE" 2023-12-26 | 202,984 views | 17,159 likes
+  "We're waiting for you on Discovery " 2024-01-14 | 177,365 views | 1,778 likes
+  "Get your swag mode on! | BGMIxRANVE" 2023-12-23 | 57,767 views | 2,435 likes
+  (+5 more)
+#2 ROYAL ENFIELD [Vehicle] 2 videos | 22,105,449 views | 2,620 likes | 175 comments | 2026-01-13~
+  "Royal Enfield Just Entered Battlegr" 2026-01-18 | 22,093,852 views | 2,018 likes
+  "Calm Breaks | Stay Tuned" 2026-01-13 | 11,597 views | 602 likes
+#3 ALAN WALKER [Artist] 7 videos | 18,744,305 views | 166,414 likes | 1,734 comments | 2024-09-20~
+  "Alan Walker In Battlegrounds #BGMI" 2024-11-23 | 9,084,733 views | 25,264 likes
+  "Alan Walker becomes a Shaadi DJ! #B" 2024-10-08 | 7,796,545 views | 71,319 likes
+  "Be A Hero | BGMI x Alan Walker #BGM" 2024-09-20 | 1,479,427 views | 37,534 likes
+  "We caught Alan Walker in his vanity" 2024-11-22 | 213,087 views | 12,832 likes
+  "BGMI X Alan Walker - Download Now #" 2024-10-24 | 129,137 views | 16,123 likes
+  "Alan Walker - In Game Leader #BGMI" 2024-10-04 | 35,056 views | 2,667 likes
+  "We made Alan Walker attend his firs" 2024-11-25 | 6,320 views | 675 likes
+#4 TIGER SHROFF [Artist] 3 videos | 16,859,014 views | 9,402 likes | 437 comments | 2025-10-08~
+  "Tiger Buddy Why In Chaddi? | BGMI x" 2025-10-08 | 7,538,921 views | 4,095 likes
+  "Tiger Ji, Please Pick Up Your Gun |" 2025-10-09 | 4,934,092 views | 2,736 likes
+  "Mera Squad Alag, Meri Moves Alag | " 2025-10-10 | 4,386,001 views | 2,571 likes
+#5 TRANSFORMERS [Film] 2 videos | 16,698,391 views | 98,078 likes | 1,946 comments | 2025-07-11~
+  "BGMI x TRANSFORMERS | Play Now" 2025-07-16 | 11,794,457 views | 2,594 likes
+  "@CarryMinati Is MUTE | 3.9 Update #" 2025-07-11 | 4,903,934 views | 95,484 likes
+#6 HERO MOTOCORP [Vehicle] 3 videos | 15,939,707 views | 92,026 likes | 145 comments | 2025-05-25~
+  "BGMI x Hero | Throttle Up & Play No" 2025-05-25 | 7,418,750 views | 7,416 likes
+  "BGMI x Hero | Get Now" 2025-06-02 | 7,301,800 views | 65,533 likes
+  "BGMI x Hero | Play Now" 2025-06-26 | 1,219,157 views | 19,077 likes
+#7 MCLAREN [Vehicle] 2 videos | 15,603,086 views | 87,105 likes | 66 comments | 2024-12-02~
+  "Speed Your Way To Victory #McLARENX" 2024-12-02 | 13,563,542 views | 37,102 likes
+  "Get McLAREN P1™| Play Now #BGMI" 2024-12-03 | 2,039,544 views | 50,003 likes
+#8 ATTACK ON TITAN [Animation] 4 videos | 15,126,331 views | 72,632 likes | 275 comments | 2025-02-11~
+  "BGMI New Update Is Here Play Now @F" 2025-05-17 | 7,118,484 views | 44,242 likes
+  "BGMI x Attack on Titan | Dedicate y" 2025-06-03 | 6,407,443 views | 1,665 likes
+  "Gire Hue Logon Ke Liye Maps | Wow W" 2025-02-11 | 817,912 views | 13,246 likes
+  "Mauj Masti Wale Maps | Wow Wakao Ep" 2025-02-18 | 782,492 views | 13,479 likes
+#9 KALKI 2898 AD [Film] 1 videos | 10,585,781 views | 432,245 likes | 263 comments | 2024-06-27~
+  "BGMI x KALKI | Download BGMI Now" 2024-06-27 | 10,585,781 views | 432,245 likes
+#10 ANUP SONI [Other] 1 videos | 10,095,568 views | 261,528 likes | 6,024 comments | 2021-12-29~
+  "Goodbye, Cheaters." 2021-12-29 | 10,095,568 views | 261,528 likes
+#11 SATISH RAY [Other] 1 videos | 8,993,280 views | 2,035 likes | 64 comments | 2026-03-09~
+  "Lobby Mein Sher Aaya Ft. @SatishRay" 2026-03-09 | 8,993,280 views | 2,035 likes
+#12 BENNY DAYAL [Artist] 2 videos | 7,802,087 views | 302,381 likes | 472 comments | 2023-10-30~
+  "BGMI Presents Jeeto Feat. @BennyDay" 2023-10-31 | 5,918,801 views | 240,007 likes
+  "Ready! @KaashPlays @8bitthug @Dynam" 2023-10-30 | 1,883,286 views | 62,374 likes
+#13 LOCO [Artist] 5 videos | 5,172,775 views | 384,846 likes | 61,689 comments | 2021-08-23~
+  "India Ki After Party | BATTLEGROUND" 2021-08-25 | 2,053,659 views | 134,814 likes
+  "India Ki After Party | BATTLEGROUND" 2021-08-26 | 1,067,936 views | 79,987 likes
+  "India Ki After Party | BATTLEGROUND" 2021-08-28 | 948,423 views | 63,808 likes
+  "India Ki After Party | BATTLEGROUND" 2021-08-28 | 734,563 views | 55,038 likes
+  "India Ki After Party | BATTLEGROUND" 2021-08-23 | 368,194 views | 51,199 likes
+#14 IQOO [Other] 5 videos | 5,068,224 views | 97,173 likes | 5,182 comments | 2021-11-30~
+  "Witness Greatness | iQOO BATTLEGROU" 2022-01-12 | 3,602,209 views | 28,647 likes
+  "The GRIND | iQOO BATTLEGROUNDS MOBI" 2021-11-30 | 682,429 views | 35,784 likes
+  "Battle Begins | iQOO BATTLEGROUNDS " 2021-12-15 | 466,944 views | 13,519 likes
+  "Opening Ceremony | iQOO BATTLEGROUN" 2022-01-13 | 235,088 views | 14,538 likes
+  "KRAFTON INDIA AWARDS 2025 presented" 2026-01-09 | 81,554 views | 4,685 likes
+#15 DEEPIKA PADUKONE [Artist] 3 videos | 4,895,375 views | 28,990 likes | 858 comments | 2024-09-19~
+  "Slay The Game with Deepika Padukone" 2024-09-19 | 2,105,101 views | 23,355 likes
+  "The Deepika Spin is now live! | BGM" 2024-10-17 | 1,992,631 views | 2,894 likes
+  "Get The 3.4 Update & Slay The Game " 2024-09-28 | 797,643 views | 2,741 likes
+#16 PURAV JHA [Other] 1 videos | 4,782,655 views | 14,081 likes | 328 comments | 2026-02-05~
+  "@Puravjha_ Legends In Dressing Room" 2026-02-05 | 4,782,655 views | 14,081 likes
+#17 DRAGON BALL [Animation] 2 videos | 4,419,424 views | 98,447 likes | 1,850 comments | 2023-08-09~
+  "3.2 Update Podcast | BGMI Ft.@Mazyi" 2024-05-28 | 4,307,478 views | 89,184 likes
+  "2.7 Update | Part 2 Ft. @SnaxGaming" 2023-08-09 | 111,946 views | 9,263 likes
+#18 MAHINDRA [Vehicle] 5 videos | 4,073,166 views | 78,150 likes | 668 comments | 2025-01-14~
+  "Mahindra BE 6 lands in BGMI | Play " 2025-01-16 | 2,684,379 views | 69,628 likes
+  "Two Legends. One Arena | BGMI x Mah" 2025-01-14 | 1,361,428 views | 6,699 likes
+  "Make The Mahindra BE 6 Yours! | Pla" 2025-02-07 | 16,808 views | 877 likes
+  "Drive Home A Brand New Mahindra BE " 2025-02-09 | 5,846 views | 484 likes
   "Drive Home The Mahindra BE 6! | #BG" 2025-02-12 | 4,705 views | 462 likes
-#12 Superman [Film] 1 videos | 3,479,239 views | 17,683 likes | 891 comments | 2025-07-04~2025-07-04
-  "BGMI x Superman | Look Up" 2025-07-04 | 3,479,239 views | 17,683 likes
-#13 Porsche [Vehicle] 1 videos | 2,474,743 views | 471 likes | 42 comments | 2025-12-05~2025-12-05
-  "The Porsche Legacy Meets BGMI! | #B" 2025-12-05 | 2,474,743 views | 471 likes
-#14 Aston Martin [Vehicle] 1 videos | 2,385,106 views | 130,903 likes | 423 comments | 2023-09-01~2023-09-01
-  "BGMI x Aston Martin | Available Now" 2023-09-01 | 2,385,106 views | 130,903 likes
-#15 Neeraj Chopra [Other] 2 videos | 1,814,131 views | 3,890 likes | 230 comments | 2024-10-25~2024-11-05
-  "Isko Phekna Nahi Aata Ft. Neeraj Ch" 2024-10-25 | 1,098,349 views | 2,917 likes
-  "Flex Your New Phone Ft. Neeraj Chop" 2024-11-05 | 715,782 views | 973 likes
-#16 Mumbai Indians [Other] 1 videos | 1,757,898 views | 17,186 likes | 40 comments | 2024-05-17~2024-05-17
-  "BGMI x Mumbai Indians | Epic Items " 2024-05-17 | 1,757,898 views | 17,186 likes
-#17 Pagani [Vehicle] 5 videos | 1,375,348 views | 41,208 likes | 339 comments | 2023-12-08~2023-12-24
-  "BGMI x PAGANI | Now Available" 2023-12-09 | 883,759 views | 25,776 likes
-  "BGMI x PAGANI | Now Available" 2023-12-11 | 448,223 views | 10,140 likes
+#19 ARCANE [Character] 3 videos | 3,972,641 views | 101,331 likes | 9,263 comments | 2021-11-14~
+  "[ENGLISH] 1.7.0 November Update Pat" 2021-11-15 | 3,172,385 views | 24,453 likes
+  "[HINDI] 1.7.0 November Update Patch" 2021-11-15 | 571,857 views | 50,193 likes
+  "5 Days To Go! | BGMI x ARCANE" 2021-11-14 | 228,399 views | 26,685 likes
+#20 SUPERMAN [Film] 1 videos | 3,479,259 views | 17,677 likes | 890 comments | 2025-07-04~
+  "BGMI x Superman | Look Up" 2025-07-04 | 3,479,259 views | 17,677 likes
+#21 RAJKUMMAR RAO [Other] 1 videos | 2,499,327 views | 72,664 likes | 1,128 comments | 2022-06-06~
+  "Rajkummar Joins The Squad Ft. @Mort" 2022-06-06 | 2,499,327 views | 72,664 likes
+#22 HARDIK PANDYA [Other] 3 videos | 2,495,026 views | 40,068 likes | 187 comments | 2023-09-21~
+  "Leaked Footage Confirmed! | Hardik " 2023-09-21 | 1,589,027 views | 17,349 likes
+  "Get the Hardik 33 Crate Now! | #BGM" 2024-02-24 | 578,044 views | 14,085 likes
+  "Get the Hardik Voice Pack Today" 2024-02-15 | 327,955 views | 8,634 likes
+#23 PORSCHE [Vehicle] 1 videos | 2,474,765 views | 471 likes | 42 comments | 2025-12-05~
+  "The Porsche Legacy Meets BGMI! | #B" 2025-12-05 | 2,474,765 views | 471 likes
+#24 BENTLEY [Vehicle] 3 videos | 2,390,673 views | 68,385 likes | 1,420 comments | 2024-03-22~
+  "3.1 Update Podcast Ft.  @SPowerGami" 2024-03-22 | 2,069,611 views | 64,387 likes
+  "Outpace The Opponents | Get It Now" 2024-04-20 | 309,342 views | 2,618 likes
+  "Outpace The Opponents | Get It Now" 2024-04-13 | 11,720 views | 1,380 likes
+#25 ASTON MARTIN [Vehicle] 1 videos | 2,385,108 views | 130,866 likes | 423 comments | 2023-09-01~
+  "BGMI x Aston Martin | Available Now" 2023-09-01 | 2,385,108 views | 130,866 likes
+#26 NEERAJ CHOPRA [Other] 3 videos | 1,833,271 views | 4,668 likes | 257 comments | 2024-10-25~
+  "Isko Phekna Nahi Aata Ft. Neeraj Ch" 2024-10-25 | 1,098,350 views | 2,917 likes
+  "Flex Your New Phone Ft. Neeraj Chop" 2024-11-05 | 715,783 views | 973 likes
+  "Kaise manaaye @NeerajChopra1 ko? #B" 2025-04-08 | 19,138 views | 778 likes
+#27 MUMBAI INDIANS [Other] 2 videos | 1,778,416 views | 18,657 likes | 96 comments | 2024-05-17~
+  "BGMI x Mumbai Indians | Epic Items " 2024-05-17 | 1,757,974 views | 17,187 likes
+  "Conquer Now In Raapchik Style! | BG" 2024-05-21 | 20,442 views | 1,470 likes
+#28 PAGANI [Vehicle] 5 videos | 1,375,350 views | 41,196 likes | 339 comments | 2023-12-08~
+  "BGMI x PAGANI | Now Available" 2023-12-09 | 883,759 views | 25,765 likes
+  "BGMI x PAGANI | Now Available" 2023-12-11 | 448,224 views | 10,139 likes
   "Drift into the BATTLEGROUNDS | Get " 2023-12-13 | 17,799 views | 2,055 likes
   "Get PAGANI Today!" 2023-12-08 | 16,474 views | 2,020 likes
-  "What's your shade? | BGMI x Pagani" 2023-12-24 | 9,093 views | 1,217 likes
-#18 Tesla [Vehicle] 2 videos | 1,072,282 views | 113,658 likes | 5,755 comments | 2021-07-15~2021-07-15
-  "[HINDI] Tesla Super Factory Guide -" 2021-07-15 | 629,490 views | 73,062 likes
-  "[ENGLISH] Tesla Super Factory Guide" 2021-07-15 | 442,792 views | 40,596 likes
-#19 Lamborghini [Vehicle] 2 videos | 1,050,619 views | 16,560 likes | 71 comments | 2024-07-26~2024-08-23
-  "Speed Drift with Lamborghini in the" 2024-07-26 | 818,283 views | 8,239 likes
-  "Get jetting with Lamborghini in the" 2024-08-23 | 232,336 views | 8,321 likes
-#20 Yodha [Film] 1 videos | 428,116 views | 13,112 likes | 48 comments | 2024-03-08~2024-03-08
-  "BGMI x Yodha | Play Now" 2024-03-08 | 428,116 views | 13,112 likes
-#21 Bugatti [Vehicle] 2 videos | 240,523 views | 25,618 likes | 2,220 comments | 2023-06-20~2023-06-24
-  "BGMI x BUGATTI" 2023-06-20 | 168,333 views | 20,039 likes
-  "BGMI x BUGATTI" 2023-06-24 | 72,190 views | 5,579 likes
-#22 Arcane [Film] 1 videos | 228,396 views | 26,687 likes | 3,861 comments | 2021-11-14~2021-11-14
-  "5 Days To Go! | BGMI x ARCANE" 2021-11-14 | 228,396 views | 26,687 likes
-#23 Dune [Film] 1 videos | 184,564 views | 26,824 likes | 4,614 comments | 2021-10-27~2021-10-27
-  "BGMI x DUNE EvoGround Theme Week | " 2021-10-27 | 184,564 views | 26,824 likes
-#24 Baby Shark [Character] 1 videos | 55,989 views | 5,675 likes | 0 comments | 2022-05-12~2022-05-12
-  "BGMI x Baby Shark | The Treasure Sq" 2022-05-12 | 55,989 views | 5,675 likes
-#25 Dodge [Vehicle] 2 videos | 43,092 views | 6,060 likes | 143 comments | 2023-10-12~2025-02-15
-  "Get the DODGE | 2.8 Update | BGMI" 2023-10-12 | 32,523 views | 4,955 likes
-  "Where Power Meets Speed | #BGMIxDod" 2025-02-15 | 10,569 views | 1,105 likes
-#26 Peaky Blinders [Film] 2 videos | 37,683 views | 1,420 likes | 41 comments | 2026-01-26~2026-01-30
-  "Peaky blinders aura farming 🔥 #BGMI" 2026-01-26 | 18,897 views | 673 likes
-  "By order of the Peaky Blinders🔥 #BG" 2026-01-30 | 18,786 views | 747 likes
-#27 Hero Xtreme [Vehicle] 1 videos | 35,224 views | 2,163 likes | 31 comments | 2024-04-28~2024-04-28
-  "Hero Xtreme 125R x BGMI Finishes Ch" 2024-04-28 | 35,224 views | 2,163 likes
-#28 Carry Minati [Artist] 1 videos | 24,030 views | 1,200 likes | 56 comments | 2025-07-22~2025-07-22
-  "BGMI x Carry Minati | New RPA Is He" 2025-07-22 | 24,030 views | 1,200 likes
-#29 KKR [Other] 1 videos | 2,198 views | 295 likes | 44 comments | 2026-03-18~2026-03-18
-  "Eden to Erangel | Ami Conqueror, Am" 2026-03-18 | 2,198 views | 295 likes
+  "What's your shade? | BGMI x Pagani" 2023-12-24 | 9,094 views | 1,217 likes
+#29 TEKKEN [Game] 1 videos | 1,329,527 views | 30,824 likes | 1,463 comments | 2024-09-18~
+  "3.4 Update Podcast Ft. @KaashPlays " 2024-09-18 | 1,329,527 views | 30,824 likes
+#30 RAHUL SUBRAMANIAN [Other] 1 videos | 1,104,399 views | 25,406 likes | 91 comments | 2023-11-10~
+  "Escape Room Ft. Rahul Subramanian |" 2023-11-10 | 1,104,399 views | 25,406 likes
+#31 TESLA [Vehicle] 2 videos | 1,072,292 views | 113,653 likes | 5,753 comments | 2021-07-15~
+  "[HINDI] Tesla Super Factory Guide -" 2021-07-15 | 629,496 views | 73,057 likes
+  "[ENGLISH] Tesla Super Factory Guide" 2021-07-15 | 442,796 views | 40,596 likes
+#32 LAMBORGHINI [Vehicle] 2 videos | 1,050,622 views | 16,559 likes | 71 comments | 2024-07-26~
+  "Speed Drift with Lamborghini in the" 2024-07-26 | 818,286 views | 8,239 likes
+  "Get jetting with Lamborghini in the" 2024-08-23 | 232,336 views | 8,320 likes
+#33 KKR [Other] 1 videos | 849,482 views | 708 likes | 69 comments | 2026-03-18~
+  "Eden to Erangel | Ami Conqueror, Am" 2026-03-18 | 849,482 views | 708 likes
+#34 YODHA [Film] 1 videos | 428,118 views | 13,108 likes | 48 comments | 2024-03-08~
+  "BGMI x Yodha | Play Now" 2024-03-08 | 428,118 views | 13,108 likes
+#35 SAURABH GHADGE, HARSH RANE, VINEETH SRI [Other] 1 videos | 342,928 views | 9,203 likes | 88 comments | 2024-02-02~
+  "Get ready to meet the Boom Bam Bois" 2024-02-02 | 342,928 views | 9,203 likes
+#36 BUGATTI [Vehicle] 2 videos | 240,531 views | 25,610 likes | 2,220 comments | 2023-06-20~
+  "BGMI x BUGATTI" 2023-06-20 | 168,340 views | 20,034 likes
+  "BGMI x BUGATTI" 2023-06-24 | 72,191 views | 5,576 likes
+#37 DUNE [Film] 1 videos | 184,566 views | 26,820 likes | 4,614 comments | 2021-10-27~
+  "BGMI x DUNE EvoGround Theme Week | " 2021-10-27 | 184,566 views | 26,820 likes
+#38 RIFLE CLUB [Film] 1 videos | 152,826 views | 3,012 likes | 61 comments | 2024-12-19~
+  "BGMIxRifleClub | Hunt Begins | Play" 2024-12-19 | 152,826 views | 3,012 likes
+#39 GAURAV KAPOOR [Other] 1 videos | 106,789 views | 13,905 likes | 1,752 comments | 2022-05-04~
+  "What's The Secret? Ft. @GauravKapoo" 2022-05-04 | 106,789 views | 13,905 likes
+#40 DODGE [Vehicle] 3 videos | 71,122 views | 8,282 likes | 160 comments | 2023-10-12~
+  "Get the DODGE | 2.8 Update | BGMI" 2023-10-12 | 32,526 views | 4,955 likes
+  "Valentine's Day Event | Play Now" 2024-02-15 | 28,025 views | 2,223 likes
+  "Where Power Meets Speed | #BGMIxDod" 2025-02-15 | 10,571 views | 1,104 likes
+#41 BABY SHARK [Artist] 1 videos | 55,992 views | 5,674 likes | 0 comments | 2022-05-12~
+  "BGMI x Baby Shark | The Treasure Sq" 2022-05-12 | 55,992 views | 5,674 likes
+#42 SHELBY [Vehicle] 2 videos | 36,414 views | 1,427 likes | 32 comments | 2026-01-30~
+  "By order of the Peaky Blinders🔥 #BG" 2026-01-30 | 18,870 views | 751 likes
+  "Isey kehte hai power ka sahi istema" 2026-02-06 | 17,544 views | 676 likes
+#43 HERO XTREME [Vehicle] 1 videos | 35,226 views | 2,162 likes | 31 comments | 2024-04-28~
+  "Hero Xtreme 125R x BGMI Finishes Ch" 2024-04-28 | 35,226 views | 2,162 likes
+#44 CARRY MINATI [Artist] 1 videos | 24,035 views | 1,200 likes | 56 comments | 2025-07-22~
+  "BGMI x Carry Minati | New RPA Is He" 2025-07-22 | 24,035 views | 1,200 likes
+#45 PEAKY BLINDERS [Film] 1 videos | 18,948 views | 673 likes | 23 comments | 2026-01-26~
+  "Peaky blinders aura farming 🔥 #BGMI" 2026-01-26 | 18,948 views | 673 likes
+#46 SONALEE KULKARNI [Other] 1 videos | 15,651 views | 918 likes | 47 comments | 2025-02-28~
+  "Tai Chi Katkat Nahi | BGMI Boss Ft." 2025-02-28 | 15,651 views | 918 likes
+#47 SIDHARTH MALHOTRA [Other] 1 videos | 14,508 views | 1,957 likes | 36 comments | 2024-03-08~
+  "Meet & Greet with Sidharth Malhotra" 2024-03-08 | 14,508 views | 1,957 likes
+#48 8BITGOLDYGG [Other] 1 videos | 10,971 views | 1,169 likes | 19 comments | 2024-04-08~
+  "@8bitGoldygg Special Voice Pack | P" 2024-04-08 | 10,971 views | 1,169 likes
+#49 SOULREGALTOS9810 [Other] 1 videos | 10,886 views | 1,335 likes | 36 comments | 2024-04-06~
+  "Special Voice Pack | 2.0 Ft. @soulr" 2024-04-06 | 10,886 views | 1,335 likes
+#50 RANVEER [Artist] 1 videos | 10,335 views | 1,741 likes | 28 comments | 2024-01-01~
+  "Happy New Year! | Play Pure" 2024-01-01 | 10,335 views | 1,741 likes
 
 [YouTube Indonesia] 320 partners, 795 items, 159,723,348 total views
 #1 VIVO [Other] 61 videos | 50,071,680 views | 1,623,713 likes | 14,482 comments | 2019-03-25~2020-01-17
@@ -4134,252 +4187,687 @@ Video: "TITLE" DATE | VIEWS views | LIKES likes
 #76 DarWin [Artist] 1 videos | 186 views | 6 likes | 2 comments | 2025-07-25~2025-07-25
   "PUBG MOBILE x DarWin | Встречайте м" 2025-07-25 | 186 views | 6 likes
 
-[YouTube Korea] 24 partners, 72 items, 6,061,339 total views
-#1 BLACKPINK [Artist] 2 videos | 2,609,574 views | 84,163 likes | 1,474 comments | 2022-07-24~2022-07-29
-  "BLACKPINK X PUBG MOBILE - ‘Ready Fo" 2022-07-29 | 2,572,256 views | 83,032 likes
+[YouTube Korea] 88 partners, 269 items, 13,708,848 total views
+#1 BLACKPINK [Artist] 8 videos | 2,826,390 views | 105,865 likes | 1,883 comments | 2021-03-21~
+  "BLACKPINK X PUBG MOBILE - ‘Ready Fo" 2022-07-29 | 2,573,254 views | 83,042 likes
+  "Ready For Love M/V Concept Teaser V" 2022-07-29 | 131,587 views | 13,660 likes
+  "Ready For Love M/V Concept Teaser V" 2022-07-27 | 41,675 views | 4,825 likes
   "[BLACKPINK x 배틀그라운드 모바일]" 2022-07-24 | 37,318 views | 1,131 likes
-#2 Aespa [Artist] 6 videos | 1,622,979 views | 1,736 likes | 209 comments | 2026-01-13~2026-01-26
-  "aespa, 배틀그라운드 모바일 상륙 l PUBGM x aesp" 2026-01-15 | 1,103,226 views | 356 likes
-  "✨[인스타그램 이벤트] 말해줘, aespa! EVENT✨" 2026-01-13 | 494,180 views | 719 likes
-  "모배 x aespa 콜라보, 어떨까?" 2026-01-20 | 14,302 views | 400 likes
-  "aespa와 함께 모배에 빠져드는 Black magic🖤" 2026-01-19 | 6,120 views | 130 likes
+  "서프라이즈 블링크! 블랙핑크의 특별한 메시지가 도착했습니다!" 2022-07-29 | 14,343 views | 1,646 likes
+  "[🎁친구 소환 이벤트] 모배 3주년은 블랙핑크 뚜두뚜두 리믹스와" 2021-03-21 | 13,890 views | 462 likes
+  "모배러 그리고 블링크를 위한 블랙핑크의 메시지를 확인해보세요!" 2022-07-23 | 8,552 views | 650 likes
+  "THE VIRTUAL - ROSÉ" 2022-08-01 | 5,771 views | 449 likes
+#2 AESPA [Artist] 17 videos | 1,660,265 views | 2,427 likes | 260 comments | 2026-01-13~
+  "aespa, 배틀그라운드 모바일 상륙 l PUBGM x aesp" 2026-01-15 | 1,103,308 views | 357 likes
+  "✨[인스타그램 이벤트] 말해줘, aespa! EVENT✨" 2026-01-13 | 494,187 views | 717 likes
+  "모배 x aespa 콜라보, 어떨까?" 2026-01-20 | 14,342 views | 401 likes
+  "카리나 만날 준비 됐어?" 2026-01-22 | 11,722 views | 122 likes
+  "aespa와 함께 모배에 빠져드는 Black magic🖤" 2026-01-19 | 6,121 views | 129 likes
+  "전장을 채우는 황홀한 Whip-Whiplash✨" 2026-01-24 | 6,100 views | 101 likes
+  "펍지 전문가 미라클은 모배도 잘 할까?😮" 2026-01-27 | 4,218 views | 121 likes
+  "카리나 출동! 오늘 나랑 같이 치킨먹자🍗" 2026-01-17 | 3,416 views | 73 likes
   "언제 어디서나 aespa와 함께할 수 있는 방법?😮" 2026-01-21 | 3,209 views | 91 likes
-  "aespa와 함께하는 차원이 다른 배틀🔫" 2026-01-26 | 1,942 views | 40 likes
-#3 STAYC [Artist] 11 videos | 841,997 views | 4,339 likes | 629 comments | 2022-12-18~2023-01-15
+  "집중의 끝에서 터지는 슈퍼 플레이!✨" 2026-01-28 | 2,814 views | 49 likes
+  (+7 more)
+#3 STAYC [Artist] 12 videos | 861,058 views | 4,542 likes | 634 comments | 2022-12-18~
   "[티저] 스테이씨 X 배틀그라운드 모바일 | STAYC Girl" 2022-12-18 | 491,412 views | 736 likes
   "운영자가 직접 읽어주는 1월 패치노트 미리보기! (Feat. S" 2023-01-04 | 257,174 views | 526 likes
-  "스테이씨 X 배틀그라운드 모바일 | STAYC Girls, It" 2022-12-23 | 26,458 views | 829 likes
+  "스테이씨 X 배틀그라운드 모바일 | STAYC Girls, It" 2022-12-23 | 26,465 views | 829 likes
+  "[티저] 스테이씨 X 배틀그라운드 모바일" 2022-12-20 | 19,058 views | 204 likes
   "우리 맏내 '숨' 목소리 듣고 가실게요💗 | STAYC X 모배" 2022-12-28 | 16,582 views | 275 likes
-  "'씬'나는 씬니 보이스 듣고 가실게요💗 | STAYC X 모배" 2022-12-29 | 15,029 views | 232 likes
-  "STAYC Girls, It's 모배 타임! | 스테이씨 콜라보" 2022-12-23 | 9,762 views | 348 likes
-  "스테이씨 퀵보이스 깨발랄 비하인드 씬💗 | STAYC 콜라보" 2022-12-24 | 6,745 views | 490 likes
+  "'씬'나는 씬니 보이스 듣고 가실게요💗 | STAYC X 모배" 2022-12-29 | 15,033 views | 232 likes
+  "STAYC Girls, It's 모배 타임! | 스테이씨 콜라보" 2022-12-23 | 9,764 views | 348 likes
+  "스테이씨 퀵보이스 깨발랄 비하인드 씬💗 | STAYC 콜라보" 2022-12-24 | 6,733 views | 489 likes
   "챙 이사님 목소리, '아이사'랑해💗 | STAYC X 모배" 2023-01-02 | 5,147 views | 260 likes
-  "우리 복뚱이 '센'님의 녹음실 비하인드 | STAYC X 모배" 2023-01-05 | 5,094 views | 282 likes
-  "우리 짱재이의 녹음실 비하인드💗 | STAYC X 모배" 2023-01-15 | 4,777 views | 187 likes
-  (+1 more)
-#4 PICK GO [Other] 2 videos | 298,181 views | 3,053 likes | 1,455 comments | 2021-04-04~2021-10-07
-  "10월 업데이트 패치노트 미리보기-Pick up! 최고의 라떼 " 2021-10-07 | 223,673 views | 993 likes
-  "모배러 PICK! 👆 근접전 상황 우지 vs DBS 당신의 선택" 2021-04-04 | 74,508 views | 2,060 likes
-#5 충주시 [Other] 2 videos | 234,240 views | 6,541 likes | 310 comments | 2020-08-15~2020-08-23
-  "운영자가 도서관📚에 가뒀을 때 탈출하는 방법 | 웨폰데스매치 실" 2020-08-15 | 123,423 views | 2,620 likes
+  "우리 복뚱이 '센'님의 녹음실 비하인드 | STAYC X 모배" 2023-01-05 | 5,095 views | 282 likes
+  (+2 more)
+#4 ZANMANG LOOPY [Other] 2 videos | 712,779 views | 459 likes | 41 comments | 2024-01-18~
+  "잔망루피, 에란겔에 등장! | 배틀그라운드 모바일" 2024-01-18 | 708,702 views | 370 likes
+  "배틀그라운드 모바일x잔망루피 팬 아트 공모전 TOP 10 수상작" 2024-02-09 | 4,077 views | 89 likes
+#5 SPIDER-MAN [Other] 2 videos | 698,078 views | 2,043 likes | 993 comments | 2022-01-11~
+  "큰 치킨에는 큰 책임이 따른다! 웰컴 스파이더맨! | 배틀그라운" 2022-01-22 | 430,075 views | 261 likes
+  "세드가 읽어주는 1월 업데이트 패치노트 미리보기! - 웰컴 스파" 2022-01-11 | 268,003 views | 1,782 likes
+#6 ADIDAS ORIGINALS [Fashion] 2 videos | 611,343 views | 938 likes | 827 comments | 2021-11-03~
+  "[⏰한정 이벤트] PLAY YOUR STYLE, ALL TOGE" 2021-11-08 | 423,628 views | 516 likes
+  "[티저] 배틀그라운드 모바일 X 아디다스 오리지널스│지루한 일상" 2021-11-03 | 187,715 views | 422 likes
+#7 KARTRIDER RUSH+ [Game] 1 videos | 579,624 views | 12,614 likes | 2,022 comments | 2021-03-31~
+  "🍗모바일 배그 운영자가 넥슨 카러플🚗 면접 본 썰 | 배틀그라운" 2021-03-31 | 579,624 views | 12,614 likes
+#8 DRAGON BALL [Animation] 10 videos | 526,158 views | 2,921 likes | 516 comments | 2023-07-08~
+  "기를 강화해보세요! 드래곤볼 슈퍼 콜라보레이션이 7월 13일 등" 2023-07-08 | 325,892 views | 502 likes
+  "드래곤볼 슈퍼 콜라보 기념! 7개의 특별 보급상자를 찾아라! (" 2023-07-14 | 97,201 views | 1,544 likes
+  "배틀그라운드 모바일 x 드래곤볼 슈퍼 콜라보, 대규모 보상 준비" 2023-08-07 | 49,751 views | 152 likes
+  "드래곤볼 등장! 비누와 세드가 읽어주는 7월 패치노트 미리보기!" 2023-07-13 | 36,542 views | 331 likes
+  "[배틀그라운드 모바일 x 드래곤볼 슈퍼] | 배틀 로얄: 드래곤" 2023-07-14 | 4,437 views | 79 likes
+  "배틀그라운드 모바일에 돌아오는 드래곤볼 슈퍼와 함께 새로운 모험" 2024-05-28 | 3,959 views | 79 likes
+  "[배틀그라운드 모바일 x 드래곤볼 슈퍼] 드래곤볼 시련 티저 트" 2023-07-18 | 3,135 views | 64 likes
+  "[배틀그라운드 모바일 x 드래곤볼 슈퍼] | 비루스, 마인 부우" 2023-07-15 | 2,228 views | 80 likes
+  "[배틀그라운드 모바일 x 드래곤볼 슈퍼] 드래곤볼 슈퍼 세계를 " 2023-07-27 | 1,688 views | 50 likes
+  "드래곤볼 슈퍼 콜라보, 마지막 기회를 놓치지 마세요! | 배틀그" 2023-08-30 | 1,325 views | 40 likes
+#9 GODZILLA VS KONG [Animation] 1 videos | 449,117 views | 3,837 likes | 1,345 comments | 2021-05-07~
+  "5월 대규모 업데이트 패치노트 미리보기 - 이번 업데이트 놓치면" 2021-05-07 | 449,117 views | 3,837 likes
+#10 BT21 [Animation] 3 videos | 408,772 views | 1,701 likes | 59 comments | 2023-09-25~
+  "우주스타 BT21✨ 모배 착륙 완료!" 2023-09-28 | 164,832 views | 1,226 likes
+  "우주스타 BT21, 모배 착륙까지 D-1!" 2023-09-25 | 137,593 views | 236 likes
+  "내일의 우주스타 BT21, 착륙 완료!✨" 2023-09-26 | 106,347 views | 239 likes
+#11 DRAGON BALL SUPER [Animation] 2 videos | 400,858 views | 1,093 likes | 56 comments | 2023-07-13~
+  "배틀그라운드 모바일 역대급 콜라보, 드래곤볼 슈퍼를 지금 만나보" 2023-07-13 | 399,027 views | 1,038 likes
+  "배틀그라운드 IN 성수✨ POP UP STORE 현장 스케치! " 2023-07-29 | 1,831 views | 55 likes
+#12 ARCANE [Character] 5 videos | 305,634 views | 1,822 likes | 683 comments | 2021-11-10~
+  "11월 업데이트 패치노트 미리보기 - 에란겔에 등장한 징크스! " 2021-11-15 | 263,328 views | 1,294 likes
+  "[배틀그라운드모바일 X 아케인] 에란겔에 등장한 새로운 챔피언!" 2021-11-10 | 32,248 views | 254 likes
+  "징크스! 바이! 모배 안에서 아케인 등장인물이 되어보세요! | " 2021-11-20 | 4,383 views | 91 likes
+  "삼뚝맨을 만난 바이!? 에란겔의 협곡에 오신 것을 환영합니다! " 2021-11-18 | 3,014 views | 101 likes
+  "마법 수정을 갖게될 챔피언은!? 배틀그라운드 모바일 X 아케인 " 2021-11-27 | 2,661 views | 82 likes
+#13 JUJUTSU KAISEN [Animation] 3 videos | 256,876 views | 2,048 likes | 750 comments | 2022-02-09~
+  "비누가 읽어주는 2월 업데이트 패치노트 미리보기! - 신규 8v" 2022-02-09 | 216,375 views | 1,440 likes
+  "[배틀그라운드 모바일 x 주술회전] 공식 트레일러! | 배틀그라" 2022-02-25 | 21,217 views | 262 likes
+  "[배틀그라운드 모바일 x 주술회전] 배틀그라운드 모바일에서 영역" 2022-03-06 | 19,284 views | 346 likes
+#14 CHUNGJU CITY [Other] 2 videos | 234,245 views | 6,541 likes | 310 comments | 2020-08-15~
+  "운영자가 도서관📚에 가뒀을 때 탈출하는 방법 | 웨폰데스매치 실" 2020-08-15 | 123,428 views | 2,620 likes
   "에이전트 홍보맨은 도서관에서 생존 할 수 있을까? 🔥 웨폰데스매" 2020-08-23 | 110,817 views | 3,921 likes
-#6 BAPE [Fashion] 2 videos | 111,025 views | 1,281 likes | 1,475 comments | 2018-11-09~2019-02-15
-  "BAPE 상륙! 배틀그라운드모바일 X BAPE" 2018-11-09 | 59,666 views | 184 likes
-  "[배틀그라운드 모바일 X BAPE part.2] 오픈 기념 공식" 2019-02-15 | 51,359 views | 1,097 likes
-#7 대한흑인 조나단 [Artist] 1 videos | 83,812 views | 460 likes | 28 comments | 2023-03-22~2023-03-22
-  "대한흑인 조나단 X 배틀그라운드 모바일 Coming Soon" 2023-03-22 | 83,812 views | 460 likes
-#8 Qwer [Other] 5 videos | 72,483 views | 4,153 likes | 357 comments | 2025-07-14~2025-07-26
-  "모배와 함께 1, 2, QWER!🎸" 2025-07-14 | 34,127 views | 2,293 likes
-  "모배XQWER 콜라보 한 번 봐볼까?" 2025-07-17 | 17,067 views | 583 likes
-  "가장 맘에 드는 QWER 멤버의 스킨은?✨" 2025-07-18 | 11,977 views | 797 likes
-  "[🚨속보] 서울 한복판 거대 QWER 출몰" 2025-07-16 | 5,852 views | 310 likes
-  "?? : 자 비키세요 저 QWER 이에요🍳" 2025-07-26 | 3,460 views | 170 likes
-#9 BIOHAZARD RE:2 [Game] 2 videos | 57,952 views | 762 likes | 276 comments | 2019-02-18~2019-04-11
-  "BIOHAZARD RE:2 NEW 좀비 모드 커밍순!! 0.12" 2019-04-11 | 46,162 views | 636 likes
-  "배틀그라운드 모바일 X BIOHAZARD RE:2 - 새벽의 저" 2019-02-18 | 11,790 views | 126 likes
-#10 G-Dragon [Artist] 6 videos | 46,326 views | 1,379 likes | 121 comments | 2025-09-01~2025-09-20
-  "G-DRAGON이 드디어 모배러를 만나러 왔어요! 👏 | 배틀그" 2025-09-20 | 16,460 views | 501 likes
-  "PUBG x PUBG MOBILE x G-DRAGON, 그가 온" 2025-09-01 | 8,313 views | 305 likes
-  "PUBG x G-DRAGON in 펍지성수?! [배틀그라운드 모" 2025-09-02 | 7,392 views | 107 likes
-  "PUBG x G-DRAGON 메인 트레일러 | 배틀그라운드 모바" 2025-09-10 | 5,998 views | 245 likes
-  "PUBG x G-DRAGON 메인 트레일러 | 배틀그라운드 모바" 2025-09-10 | 4,648 views | 166 likes
-  "PUBGM x G-DRAGON, 곧 도착합니다.| 배틀그라운드 " 2025-09-17 | 3,515 views | 55 likes
-#11 BABYMONSTER [Artist] 6 videos | 17,347 views | 916 likes | 93 comments | 2025-03-20~2025-11-25
-  "PUBG MOBILE X BABYMONSTER Collabora" 2025-03-22 | 9,049 views | 514 likes
-  "PUBG MOBILE X BABYMONSTER Collabora" 2025-03-20 | 2,855 views | 172 likes
-  "BABYMONSTER와 함께하는 PUBG MOBILE 7주년, " 2025-03-23 | 1,837 views | 92 likes
-  "🔥SHEESH! 새벽이 밝고, BABYMONSTER가 깨어납니다" 2025-11-25 | 1,678 views | 71 likes
-  "BABYMONSTER와 함께하는 PUBG MOBILE 7주년, " 2025-03-25 | 1,311 views | 31 likes
-  "🎤BABYMONSTER 등장! 💕" 2025-11-24 | 617 views | 36 likes
-#12 여기어때 [Other] 2 videos | 13,327 views | 160 likes | 30 comments | 2025-09-18~2025-09-18
-  "올가을 모배 플레이하고 여행어때? ✈️ 모배 X 여기어때 | 배" 2025-09-18 | 8,254 views | 50 likes
-  "✈️ 100만원 여기어때 여행상품권에 한정판 모배 굿즈까지? 모" 2025-09-18 | 5,073 views | 110 likes
-#13 Porsche [Vehicle] 5 videos | 10,424 views | 165 likes | 55 comments | 2025-10-31~2025-12-05
-  "PUBG x PUBG MOBILE x Porsche Traile" 2025-10-31 | 2,860 views | 46 likes
+#15 T-VIRUS [Other] 2 videos | 230,227 views | 4,017 likes | 709 comments | 2020-06-20~
+  "🌴 드디어 사녹의 비밀이 밝혀진다! 🌴 모바일 배그 X 티바이러" 2020-06-20 | 172,276 views | 2,665 likes
+  "오늘도 평화로운 ERANGEL로 초대합니다🔥  | 에란겔 리마스" 2020-09-12 | 57,951 views | 1,352 likes
+#16 FROMIS_9 [Artist] 7 videos | 222,965 views | 12,395 likes | 923 comments | 2021-07-10~
+  "프둥이들의 랜덤문답 챌린지🌸 | 프로미스나인's 저세상 밸런스 " 2021-09-17 | 53,596 views | 2,715 likes
+  "프둥이들의 랜덤문답 챌린지🌸 | 프로미스나인's 프망진창 밸런스" 2021-09-18 | 47,394 views | 2,410 likes
+  "프로미스나인 WE GO 이모트 챌린지+ 좋아요 달성하면 한국 유" 2021-07-10 | 40,633 views | 3,406 likes
+  "👍좋아요만 눌러도 프로미스나인 앨범 아이템을 준다!? 💽 프로미" 2021-08-03 | 37,380 views | 1,976 likes
+  "쉿! 이틀 일찍 공개하는 대사들이에요💗 이새롬 이나경 백지헌 |" 2021-09-15 | 21,411 views | 732 likes
+  "잠시 고막 힐링하고 가실게요..💗 송하영,장규리,노지선 | 배틀" 2021-09-14 | 12,288 views | 687 likes
+  "안녕, 여러분의 비타민이 왔어요💗 이서연 박지원 이채영 | 배틀" 2021-09-16 | 10,263 views | 469 likes
+#17 JONATHAN [Other] 2 videos | 184,386 views | 877 likes | 259 comments | 2023-03-22~
+  "[🎁댓글 이벤트 - 종료] '조나 단'아한 조나단 퀵보이스 등장" 2023-03-25 | 100,569 views | 417 likes
+  "대한흑인 조나단 X 배틀그라운드 모바일 Coming Soon" 2023-03-22 | 83,817 views | 460 likes
+#18 T-VIRUS FILM [Other] 1 videos | 179,404 views | 1,892 likes | 249 comments | 2020-05-15~
+  "이번엔 미라마 샌드 스톰 실사판🌪 모바일 배그 X 티바이러스| " 2020-05-15 | 179,404 views | 1,892 likes
+#19 MISSION POSSIBLE [Film] 1 videos | 174,073 views | 1,857 likes | 249 comments | 2020-05-28~
+  "(찐)에이전트H님 배그 분석가로 등장! 🔥 교관님이 설명해주시는" 2020-05-28 | 174,073 views | 1,857 likes
+#20 ADIDAS [Fashion] 2 videos | 152,106 views | 2,872 likes | 200 comments | 2021-11-09~
+  "모배 이모트가 만들어지는 과정 | 아디다스 오리지널스 #Shor" 2021-11-09 | 128,301 views | 2,455 likes
+  "남자셋! 여자셋! 유저 파트너와 함께한 아디다스 콜라보 기념 브" 2021-11-21 | 23,805 views | 417 likes
+#21 NEWJEANS [Other] 28 videos | 129,628 views | 3,988 likes | 241 comments | 2024-06-02~
+  "모배 x 뉴진스 UMP45! 이렇게 귀여운 레벨업 총기 봤어?🐰" 2024-07-06 | 21,456 views | 163 likes
+  "모배 X 뉴진스 Let's Hype UP!🐰❣" 2024-06-20 | 21,163 views | 218 likes
+  "혜인이 보여줄 멋있는 모습은 무엇일까요?🐰" 2024-06-05 | 18,423 views | 391 likes
+  "더운 여름, 모배 X 뉴진스와 함께 Energy UP! 🔋⚡" 2024-08-04 | 9,395 views | 807 likes
+  "Let's Energy UP! 🔋⚡🐰" 2024-07-13 | 8,817 views | 178 likes
+  "모배와 뉴진스의 스윗한 만남❣" 2024-06-02 | 8,214 views | 362 likes
+  "배틀그라운드 모바일 X 뉴진스 Let's Hype up!🐰" 2024-06-18 | 5,732 views | 212 likes
+  "다니엘과 함께 자기장 안으로 렛츠고!⭐" 2024-06-09 | 4,576 views | 93 likes
+  "모배X뉴진스 Let's Energy UP!🔋⚡" 2024-07-17 | 3,599 views | 139 likes
+  "지금 한강에 모배X뉴진스 비행기?" 2024-07-11 | 3,119 views | 57 likes
+  (+18 more)
+#22 QWER [Other] 19 videos | 126,813 views | 7,573 likes | 597 comments | 2025-07-04~
+  "모배와 함께 1, 2, QWER!🎸" 2025-07-14 | 34,156 views | 2,293 likes
+  "모배XQWER 콜라보 한 번 봐볼까?" 2025-07-17 | 17,094 views | 583 likes
+  "가장 맘에 드는 QWER 멤버의 스킨은?✨" 2025-07-18 | 11,981 views | 797 likes
+  "어메이징! 리더다운 쵸단의 사격실력👀🔫" 2025-07-21 | 6,092 views | 511 likes
+  "[🚨속보] 서울 한복판 거대 QWER 출몰" 2025-07-16 | 5,858 views | 310 likes
+  "귀여운 시요밍 거인이 나타나도 놀라지 마세요!🤗" 2025-07-21 | 5,752 views | 248 likes
+  "큐떱 보이스 들을 때 밍모 반응 = 내 반응" 2025-07-18 | 5,686 views | 310 likes
+  "잘~ 들어보세요!🥁" 2025-07-11 | 5,503 views | 197 likes
+  "학창시절 생각나게 하는 청춘영화 한 편 뚝딱💘" 2025-07-23 | 4,643 views | 389 likes
+  "Q. 한 명만 자기장 안으로 데려올 수 있다면?🕵️‍♀️" 2025-08-04 | 3,592 views | 297 likes
+  (+9 more)
+#23 BBANGBBANG [Character] 1 videos | 124,620 views | 1,632 likes | 51 comments | 2023-03-23~
+  "[빵빵이의 일상] 맵 만드는 옥지" 2023-03-23 | 124,620 views | 1,632 likes
+#24 BAPE [Fashion] 2 videos | 111,032 views | 1,281 likes | 1,475 comments | 2018-11-09~
+  "BAPE 상륙! 배틀그라운드모바일 X BAPE" 2018-11-09 | 59,668 views | 184 likes
+  "[배틀그라운드 모바일 X BAPE part.2] 오픈 기념 공식" 2019-02-15 | 51,364 views | 1,097 likes
+#25 KAKAO [Character] 1 videos | 105,545 views | 1,092 likes | 588 comments | 2019-08-19~
+  "[바이러스 인펙션 무빙툰] 구독/댓글에 아이패드 미니5, 에어팟" 2019-08-19 | 105,545 views | 1,092 likes
+#26 COUPANG EATS [Other] 3 videos | 91,257 views | 225 likes | 25 comments | 2023-02-06~
+  "더 좋은 파밍의 시작!🍗| 쿠팡이츠 콜라보" 2023-02-06 | 87,455 views | 150 likes
+  "매일 선착순 할인 쿠폰! 모배 6살 생일 파티, 쿠팡이츠와 함께" 2024-05-16 | 2,316 views | 39 likes
+  "매일 선착순 할인 쿠폰! 쿠팡이츠와 함께하는 모배 6주년!🎁" 2024-05-16 | 1,486 views | 36 likes
+#27 UNDERCOVER [Fashion] 1 videos | 87,261 views | 847 likes | 161 comments | 2021-01-21~
+  "다음 중 파쿠르 전문가는? 파쿠르 장인 언더커버팀의 치킨 도전 " 2021-01-21 | 87,261 views | 847 likes
+#28 RESIDENT EVIL [Game] 2 videos | 86,140 views | 1,154 likes | 367 comments | 2019-04-11~
+  "BIOHAZARD RE:2 NEW 좀비 모드 커밍순!! 0.12" 2019-04-11 | 46,168 views | 636 likes
+  "제에목은 모배 3주년 축하라고 하겠습니다, 근데 이제 리듬 게임" 2021-03-13 | 39,972 views | 518 likes
+#29 MEEN & BAEK [Other] 1 videos | 84,773 views | 836 likes | 797 comments | 2019-02-27~
+  "[모바일 배그 콜라보 웹툰 특별판] 공식 유튜브 구독 이벤트! " 2019-02-27 | 84,773 views | 836 likes
+#30 ATTACK ON TITAN [Animation] 2 videos | 84,135 views | 685 likes | 243 comments | 2025-05-07~
+  "모배 x 진격의 거인 콜라보 등장! 5월 패치노트 미리보기 | " 2025-05-07 | 81,257 views | 628 likes
+  "문을 파괴한 초대형 거인 등장!" 2025-05-22 | 2,878 views | 57 likes
+#31 LAMBORGHINI [Vehicle] 5 videos | 82,437 views | 1,404 likes | 529 comments | 2022-03-23~
+  "배틀그라운드 모바일 x 람보르기니 | 본편 영상" 2022-03-29 | 21,668 views | 313 likes
+  "찐 람보르기니🏎️ 오너가 크래프톤 쳐들어온 이유 (feat. 우" 2022-04-04 | 19,815 views | 361 likes
+  "배틀그라운드 모바일 x 람보르기니 | 콜라보 티저 영상" 2022-03-23 | 17,470 views | 431 likes
+  (+2 more)
+#32 KAKAO FRIENDS [Character] 4 videos | 73,821 views | 593 likes | 285 comments | 2019-07-05~
+  "썸머썸머, 치킨썸머! 업데이트만 해도 #카카오프렌즈 상자 5개!" 2019-07-17 | 58,381 views | 167 likes
+  "[댓글이벤트] 배틀그라운드 모바일X카카오프렌즈 인게임 스킨 미리" 2019-07-05 | 11,746 views | 278 likes
+  "배틀그라운드 모바일 X 카카오프렌즈! Coming soon🐾" 2024-07-31 | 2,299 views | 111 likes
+  (+1 more)
+#33 MESSI [Other] 3 videos | 73,797 views | 328 likes | 72 comments | 2022-11-06~
+  "배틀그라운드 모바일 x 리오넬 메시  | Unleash The " 2022-12-05 | 53,873 views | 70 likes
+  "당신의 심장을 뛰게할 존재가 온다! | 배틀그라운드 모바일" 2022-11-06 | 16,246 views | 188 likes
+  "배틀그라운드 모바일 x 리오넬 메시 | Unleash Your " 2022-11-21 | 3,678 views | 70 likes
+#34 SPONGEBOB [Animation] 1 videos | 68,152 views | 1,156 likes | 202 comments | 2020-01-04~
+  "스펀지밥 뚱이 성우님이 모바일 배그에 등장!? 스노우 베어 퀵보" 2020-01-04 | 68,152 views | 1,156 likes
+#35 N.FLYING [Artist] 1 videos | 54,739 views | 1,052 likes | 418 comments | 2020-07-31~
+  "[🎁댓글 이벤트 특, 퀵보🎧DREAM ] N.Flying (엔플" 2020-07-31 | 54,739 views | 1,052 likes
+#36 G-DRAGON [Artist] 6 videos | 46,393 views | 1,380 likes | 121 comments | 2025-09-01~
+  "G-DRAGON이 드디어 모배러를 만나러 왔어요! 👏 | 배틀그" 2025-09-20 | 16,503 views | 502 likes
+  "PUBG x PUBG MOBILE x G-DRAGON, 그가 온" 2025-09-01 | 8,314 views | 305 likes
+  "PUBG x G-DRAGON in 펍지성수?! [배틀그라운드 모" 2025-09-02 | 7,399 views | 107 likes
+  (+3 more)
+#37 TRANSFORMERS [Film] 3 videos | 41,491 views | 370 likes | 167 comments | 2025-07-03~
+  "모배 X 트랜스포머 콜라보 등장! 7월 패치노트 미리보기 | 배" 2025-07-07 | 37,667 views | 293 likes
+  "PUBG MOBILE x 트랜스포머 콜라보" 2025-07-03 | 2,744 views | 56 likes
+  "배틀그라운드 모바일 X 트랜스포머 콜라보 아이템, 지금 만나보세" 2025-07-18 | 1,080 views | 21 likes
+#38 DORAEMON [Animation] 1 videos | 39,040 views | 642 likes | 78 comments | 2019-12-15~
+  "도라에몽 이슬이 목소리 성우가 모바일 배그에!? 조현정 성우 인" 2019-12-15 | 39,040 views | 642 likes
+#39 BENTLEY [Vehicle] 7 videos | 38,476 views | 505 likes | 72 comments | 2024-03-14~
+  "빛나는 힘이 배틀그라운드로 다가오고 있습니다🌟" 2024-03-14 | 28,949 views | 199 likes
+  "벤틀리 x 팬텀오브갤럭시 세트!" 2024-04-30 | 2,482 views | 91 likes
+  "배틀그라운드 모바일 X Bentley  | 여러분의 전장을 빛내" 2024-03-15 | 1,982 views | 42 likes
+  (+4 more)
+#40 METRO EXODUS [Game] 2 videos | 35,457 views | 994 likes | 1,625 comments | 2020-11-15~
+  "배틀그라운드 모바일 X 메트로: 엑소더스 트레일러! | 배틀그라" 2020-11-15 | 22,756 views | 641 likes
+  "메트로 로얄 - 로얄패스 시즌 16 트레일러! | 배틀그라운드 " 2020-11-19 | 12,701 views | 353 likes
+#41 OUTSIDER [Artist] 1 videos | 30,352 views | 768 likes | 127 comments | 2020-07-20~
+  "(찐)기네스 보유📀 #아웃사이더 의 #누빠남다 🍕 비하인드 영상" 2020-07-20 | 30,352 views | 768 likes
+#42 MONEY HEIST KOREA [Film] 2 videos | 30,270 views | 701 likes | 81 comments | 2022-07-18~
+  "종이의집💰💸보고 만들어본 케릭터 스킨" 2022-07-21 | 22,353 views | 426 likes
+  "'나한테 계획이 있어' 종이의집 패러디 #shorts" 2022-07-18 | 7,917 views | 275 likes
+#43 BIOHAZARD RE:2 [Game] 2 videos | 26,704 views | 345 likes | 128 comments | 2019-02-18~
+  "공식 티저: 좀비가 돌아왔다! 지금 바로 배그 PLAY! | 배" 2019-04-23 | 14,910 views | 219 likes
+  "배틀그라운드 모바일 X BIOHAZARD RE:2 - 새벽의 저" 2019-02-18 | 11,794 views | 126 likes
+#44 LOTTE WORLD [Other] 3 videos | 25,911 views | 605 likes | 110 comments | 2023-05-04~
+  "위니의 롯데월드 어트랙션 체험기!🎠 | 배틀그라운드 모바일" 2023-05-12 | 20,343 views | 362 likes
+  "이제 롯데월드도 배틀그라운드! 배그 어트랙션 오픈 기념 댓글 이" 2023-05-04 | 3,269 views | 168 likes
+  "이제, 롯데월드도 배틀그라운드! 🎠👆🎠👇" 2023-05-09 | 2,299 views | 75 likes
+#45 EVANGELION [Animation] 4 videos | 25,493 views | 478 likes | 151 comments | 2022-05-14~
+  "배틀그라운드 모바일 X 에반게리온 공식 티저" 2022-05-14 | 9,233 views | 165 likes
+  "[배틀그라운드 모바일 x 에반게리온] 인게임 트레일러" 2022-06-04 | 7,499 views | 115 likes
+  "[배틀그라운드 모바일 x 에반게리온] 코어 서클 모드 트레일러 " 2022-05-28 | 4,482 views | 81 likes
+  (+1 more)
+#46 BRUCELEE [Other] 3 videos | 24,950 views | 197 likes | 76 comments | 2023-01-14~
+  "[배틀그라운드 모바일 X 이소룡] | Take Them All " 2023-01-14 | 20,803 views | 98 likes
+  "[배틀그라운드 모바일 X 이소룡] | 이소룡-레이 콜라보레이션 " 2023-01-24 | 2,101 views | 46 likes
+  "[배틀그라운드 모바일 X 이소룡] | Walk On! | 콜라보" 2023-01-26 | 2,046 views | 53 likes
+#47 BABYMONSTER [Artist] 11 videos | 22,552 views | 1,018 likes | 108 comments | 2025-03-20~
+  "PUBG MOBILE X BABYMONSTER Collabora" 2025-03-22 | 9,059 views | 514 likes
+  "PUBG MOBILE X BABYMONSTER Collabora" 2025-03-20 | 2,857 views | 172 likes
+  "지금 바로 모배로 DRIP😎⭐!" 2025-11-26 | 2,139 views | 42 likes
+  (+8 more)
+#48 TESLA [Vehicle] 1 videos | 19,321 views | 368 likes | 112 comments | 2021-07-15~
+  "테슬라 슈퍼 공장 퀵가이드 - 7월 업데이트 패치노트 | 배틀그" 2021-07-15 | 19,321 views | 368 likes
+#49 GALAXY [Other] 1 videos | 14,633 views | 195 likes | 4 comments | 2024-04-13~
+  "배틀그라운드 모바일 클랜 배틀 2024 with Galaxy S" 2024-04-13 | 14,633 views | 195 likes
+#50 BAEMIN LIVE [Other] 1 videos | 13,828 views | 322 likes | 32 comments | 2021-05-21~
+  "배민쇼핑라이브, 삼뚝이닭(삼계탕) 지금 판매중! with. 밥굽" 2021-05-21 | 13,828 views | 322 likes
+#51 YEOGI EOTTAE [Other] 2 videos | 13,329 views | 160 likes | 30 comments | 2025-09-18~
+  "올가을 모배 플레이하고 여행어때? ✈️ 모배 X 여기어때 | 배" 2025-09-18 | 8,255 views | 50 likes
+  "✈️ 100만원 여기어때 여행상품권에 한정판 모배 굿즈까지? 모" 2025-09-18 | 5,074 views | 110 likes
+#52 LIVERPOOL [Other] 2 videos | 12,056 views | 283 likes | 78 comments | 2021-11-24~
+  "모배 X 리버풀 콜라보 기념, 유튜버 JK의 슈팅 챌린지!  |" 2021-12-21 | 6,254 views | 144 likes
+  "⚽배틀그라운드 모바일 X 리버풀 콜라보 티저 | 배틀그라운드 모" 2021-11-24 | 5,802 views | 139 likes
+#53 OGQ FRIENDS [Character] 1 videos | 11,148 views | 376 likes | 108 comments | 2021-02-08~
+  "[배틀그라운드 모바일 X OGQ 프렌즈] 무료로 귀여운 스티커 " 2021-02-08 | 11,148 views | 376 likes
+#54 PORSCHE [Vehicle] 5 videos | 10,433 views | 165 likes | 55 comments | 2025-10-31~
+  "PUBG x PUBG MOBILE x Porsche Traile" 2025-10-31 | 2,862 views | 46 likes
   "PUBG MOBILE x Porsche Collaboration" 2025-12-03 | 2,777 views | 35 likes
-  "모배 x Porsche 전설의 포르쉐, 스타일로 전장을 지배하라" 2025-12-05 | 2,526 views | 34 likes
-  "PUBG MOBILE x Porsche Collaboration" 2025-12-03 | 1,718 views | 31 likes
-  "모배 x Porsche 전설의 포르쉐, 스타일로 전장을 지배하라" 2025-12-05 | 543 views | 19 likes
-#14 Balenciaga [Fashion] 3 videos | 8,853 views | 87 likes | 13 comments | 2025-11-14~2025-11-14
+  "모배 x Porsche 전설의 포르쉐, 스타일로 전장을 지배하라" 2025-12-05 | 2,529 views | 34 likes
+  (+2 more)
+#55 PICK GO [Other] 1 videos | 10,046 views | 207 likes | 8 comments | 2021-12-26~
+  "삼뚝을 실제로 쓰고 돌아다닌다면? #shorts" 2021-12-26 | 10,046 views | 207 likes
+#56 CHO CHUNGHYUN [Other] 1 videos | 9,989 views | 131 likes | 27 comments | 2022-05-26~
+  "조충현 퀵보이스 진행 시켜!😎 성대모사 달인 조충현 퀵보이스 등" 2022-05-26 | 9,989 views | 131 likes
+#57 CGV [Other] 2 videos | 9,287 views | 600 likes | 248 comments | 2021-10-18~
+  "🌽 팝콘이 될 수밖에 없었던 옥수수맨의 슬픈 사연 | 배틀그라운" 2021-10-18 | 5,402 views | 434 likes
+  "[🎁 댓글 이벤트] 대용량 포대팝콘 총 50분에게 드려요! | " 2021-10-27 | 3,885 views | 166 likes
+#58 YOGIYO [Other] 1 videos | 9,265 views | 206 likes | 47 comments | 2022-05-16~
+  "'모배의 치킨은 현실이 된다' 🍗 [요기요 콜라보 안내]" 2022-05-16 | 9,265 views | 206 likes
+#59 BABY SHARK [Artist] 1 videos | 8,921 views | 178 likes | 56 comments | 2022-05-09~
+  "배틀그라운드 모바일 x 핑크퐁 아기상어 공식 뮤직비디오 [💌감상" 2022-05-09 | 8,921 views | 178 likes
+#60 BALENCIAGA [Fashion] 3 videos | 8,870 views | 87 likes | 13 comments | 2025-11-14~
   "PUBG MOBILE | BALENCIAGA Collaborat" 2025-11-14 | 4,940 views | 50 likes
-  "PUBG MOBILE | BALENCIAGA Collaborat" 2025-11-14 | 2,021 views | 18 likes
-  "PUBG MOBILE x BALENCIAGA, 오늘 출시!" 2025-11-14 | 1,892 views | 19 likes
-#15 Julien Fournie [Fashion] 1 videos | 5,407 views | 179 likes | 118 comments | 2022-02-20~2022-02-20
+  "PUBG MOBILE | BALENCIAGA Collaborat" 2025-11-14 | 2,036 views | 18 likes
+  "PUBG MOBILE x BALENCIAGA, 오늘 출시!" 2025-11-14 | 1,894 views | 19 likes
+#61 JENNIE [Artist] 1 videos | 8,388 views | 400 likes | 20 comments | 2022-08-01~
+  "THE VIRTUAL - JENNIE" 2022-08-01 | 8,388 views | 400 likes
+#62 MAYTREE [Artist] 1 videos | 8,274 views | 376 likes | 75 comments | 2021-11-28~
+  "🎧 배틀그라운드 모바일 테마송 아카펠라 버전 | 배틀그라운드 모" 2021-11-28 | 8,274 views | 376 likes
+#63 THE WALKING DEAD [Film] 1 videos | 7,787 views | 311 likes | 71 comments | 2019-10-21~
+  "배틀그라운드 모바일 x 워킹데드 콜라보 공식 트레일러 | 배틀그" 2019-10-21 | 7,787 views | 311 likes
+#64 SPY X FAMILY [Animation] 2 videos | 6,695 views | 138 likes | 33 comments | 2024-04-12~
+  "배틀그라운드 모바일 | 전투 시작! 스파이패밀리 콜라보레이션 도" 2024-04-12 | 4,648 views | 93 likes
+  "배틀그라운드 모바일 | 스파이패밀리 프라이즈 패스 이벤트 시작!" 2024-04-17 | 2,047 views | 45 likes
+#65 MOUNTAIN DEW [Other] 3 videos | 5,494 views | 172 likes | 16 comments | 2025-04-29~
+  "모배 7살 생일 파티에 초대합니다!🎉" 2025-04-29 | 2,322 views | 64 likes
+  "모배 7살 생일 파티🎉  Party with - Dew!" 2025-05-08 | 1,925 views | 66 likes
+  "오프라인 생일 파티 D-1!🧁" 2025-05-19 | 1,247 views | 42 likes
+#66 MOMMY SON [Artist] 1 videos | 5,452 views | 40 likes | 22 comments | 2018-11-20~
+  "0.9.5 업데이트 이후 마미손 무료 보이스 적용 안내" 2018-11-20 | 5,452 views | 40 likes
+#67 WATCHA [Other] 1 videos | 5,428 views | 98 likes | 20 comments | 2022-09-28~
+  "💙모배 & 왓챠 그리고 나, 이 셋 만남  너무 기쁘다!" 2022-09-28 | 5,428 views | 98 likes
+#68 JULIEN FOURNIE [Fashion] 1 videos | 5,407 views | 179 likes | 118 comments | 2022-02-20~
   "[배틀그라운드 모바일 x Julien Fournie] 첫사랑 소" 2022-02-20 | 5,407 views | 179 likes
-#16 Bentley [Vehicle] 3 videos | 4,305 views | 111 likes | 40 comments | 2024-03-15~2024-03-23
-  "배틀그라운드 모바일 X Bentley  | 여러분의 전장을 빛내" 2024-03-15 | 1,981 views | 42 likes
-  "배틀그라운드 모바일 X Bentley  | 짜릿한 경험이 여러분" 2024-03-19 | 1,381 views | 34 likes
-  "배틀그라운드 모바일 X Bentley" 2024-03-23 | 943 views | 35 likes
-#17 GB테디베어 [Character] 1 videos | 3,829 views | 127 likes | 60 comments | 2022-06-24~2022-06-24
+#69 MEEP [Character] 1 videos | 5,115 views | 217 likes | 185 comments | 2021-07-24~
+  "[여름 방학 기념] 2021년 베스트 업데이트 뽑기 | 배틀그라" 2021-07-24 | 5,115 views | 217 likes
+#70 PANCHU RABBIT [Character] 3 videos | 5,017 views | 135 likes | 21 comments | 2025-01-13~
+  "빤쮸토끼 모배 생존기🌴" 2025-01-14 | 2,129 views | 48 likes
+  "빤쮸토끼 등장까지 D-1!🐰" 2025-01-13 | 1,616 views | 48 likes
+  "빤쮸토끼 등장까지 D-1!🐰" 2025-01-13 | 1,272 views | 39 likes
+#71 GB TEDDY BEAR [Other] 1 videos | 3,829 views | 127 likes | 60 comments | 2022-06-24~
   "[배틀그라운드 모바일 x GB테디베어]" 2022-06-24 | 3,829 views | 127 likes
-#18 Ducati [Vehicle] 1 videos | 3,788 views | 59 likes | 17 comments | 2023-05-20~2023-05-20
-  "[배틀그라운드 모바일 X Ducati] | Race To Vic" 2023-05-20 | 3,788 views | 59 likes
-#19 KFC [Other] 3 videos | 3,698 views | 126 likes | 30 comments | 2023-10-06~2023-11-01
+#72 DUCATI [Vehicle] 1 videos | 3,790 views | 59 likes | 17 comments | 2023-05-20~
+  "[배틀그라운드 모바일 X Ducati] | Race To Vic" 2023-05-20 | 3,790 views | 59 likes
+#73 KFC [Other] 3 videos | 3,698 views | 126 likes | 30 comments | 2023-10-06~
   "KFC 로얄 레스토랑의 문이 열렸습니다!" 2023-10-06 | 1,987 views | 50 likes
   "KFC 로얄 레스토랑 오픈! | 배틀그라운드 모바일" 2023-10-16 | 870 views | 36 likes
   "KFC 세트를 먹고 승리의 맛을 즐기세요!🍗" 2023-11-01 | 841 views | 40 likes
-#20 Pagani [Vehicle] 4 videos | 3,244 views | 161 likes | 31 comments | 2023-11-11~2023-11-22
+#74 PAGANI [Vehicle] 5 videos | 3,643 views | 191 likes | 35 comments | 2023-11-11~
   "Pagani와 함께 바람을 느끼세요 ! | 배틀그라운드 모바일" 2023-11-11 | 1,386 views | 49 likes
   "Pagani의 ‘바람’을 느껴 보세요! | 배틀그라운드 모바일" 2023-11-22 | 728 views | 45 likes
   "Pagani의 '바람'이 전장에 펼쳐집니다! | 배틀그라운드 모" 2023-11-20 | 573 views | 35 likes
-  "Pagani와 함께 경쟁자를 뛰어 넘으세요! | 배틀그라운드 모" 2023-11-22 | 557 views | 32 likes
-#21 Dodge [Vehicle] 1 videos | 2,711 views | 58 likes | 31 comments | 2023-09-15~2023-09-15
-  "Dodge와 함께 승리의 길로 향하세요! | 배틀그라운드 모바일" 2023-09-15 | 2,711 views | 58 likes
-#22 Alan Walker [Artist] 1 videos | 2,397 views | 66 likes | 23 comments | 2023-08-03~2023-08-03
+  (+2 more)
+#75 ALAN WALKER [Artist] 2 videos | 3,558 views | 119 likes | 31 comments | 2023-08-03~
   "Alan Walker와 함께 보급 상자 카니발을! 🎁 | 배틀그" 2023-08-03 | 2,397 views | 66 likes
-#23 Jvke [Artist] 1 videos | 2,016 views | 64 likes | 13 comments | 2024-03-22~2024-03-22
-  "배틀그라운드 모바일 x JVKE | 'clouds'☁️🎂6주년 " 2024-03-22 | 2,016 views | 64 likes
-#24 BE@RBRICK [Character] 1 videos | 1,424 views | 42 likes | 10 comments | 2023-04-15~2023-04-15
+  "공중 보급 카니발🎁 이벤트에 참여하세요! | 배틀그라운드 모바일" 2023-08-11 | 1,161 views | 53 likes
+#76 NARUTO [Animation] 1 videos | 3,493 views | 85 likes | 13 comments | 2024-02-24~
+  "모배에서 나루토춤을 #배틀그라운드모바일" 2024-02-24 | 3,493 views | 85 likes
+#77 BELLYGOM [Character] 2 videos | 3,266 views | 89 likes | 34 comments | 2024-09-02~
+  "이게 실화라니🐻🔫" 2024-09-03 | 1,656 views | 42 likes
+  "모배에 벨리곰이 떴다곰!🎀" 2024-09-02 | 1,610 views | 47 likes
+#78 ASTON MARTIN [Vehicle] 1 videos | 3,216 views | 63 likes | 32 comments | 2023-07-22~
+  "배틀그라운드 모바일 | 애스턴마틴 콜라보가 시작되었습니다!" 2023-07-22 | 3,216 views | 63 likes
+#79 JISOO [Artist] 1 videos | 2,971 views | 269 likes | 13 comments | 2022-08-01~
+  "THE VIRTUAL - JISOO" 2022-08-01 | 2,971 views | 269 likes
+#80 DODGE [Vehicle] 1 videos | 2,711 views | 58 likes | 31 comments | 2023-09-15~
+  "Dodge와 함께 승리의 길로 향하세요! | 배틀그라운드 모바일" 2023-09-15 | 2,711 views | 58 likes
+#81 MASERATI [Vehicle] 1 videos | 2,282 views | 63 likes | 16 comments | 2022-11-28~
+  "배틀그라운드 모바일 x 마세라티 | Beyond All Boun" 2022-11-28 | 2,282 views | 63 likes
+#82 SAMSUNG [Other] 2 videos | 2,271 views | 24 likes | 4 comments | 2018-11-30~
+  "[갤럭시노트9 PMSC 글로벌 파이널] Day 1 - 4경기" 2018-11-30 | 1,182 views | 13 likes
+  "[갤럭시노트9 PMSC 글로벌 파이널] Day 3 - 9경기" 2018-12-03 | 1,089 views | 11 likes
+#83 GALAXY S24 [Other] 2 videos | 2,243 views | 85 likes | 27 comments | 2024-03-23~
+  "클랜배틀 with Galaxy S24 | 모배 최강 클랜을 가려" 2024-03-23 | 1,194 views | 43 likes
+  "배틀그라운드 모바일 | 클랜배틀 with Galaxy S24 결" 2024-04-27 | 1,049 views | 42 likes
+#84 JVKE [Artist] 1 videos | 2,019 views | 64 likes | 13 comments | 2024-03-22~
+  "배틀그라운드 모바일 x JVKE | 'clouds'☁️🎂6주년 " 2024-03-22 | 2,019 views | 64 likes
+#85 LINE FRIENDS [Character] 1 videos | 1,652 views | 47 likes | 15 comments | 2024-02-02~
+  "라인프렌즈 친구들 모배 컴백!💕" 2024-02-02 | 1,652 views | 47 likes
+#86 POLARIS [Vehicle] 1 videos | 1,553 views | 40 likes | 14 comments | 2023-01-25~
+  "새로운 Polaris 스킨과 함께 오프로드를 떠나보세요!" 2023-01-25 | 1,553 views | 40 likes
+#87 SAMSUNG GALAXY NOTE9 [Fashion] 1 videos | 1,449 views | 21 likes | 3 comments | 2018-12-03~
+  "[갤럭시노트9 PMSC 글로벌 파이널] Day 3 - 10경기" 2018-12-03 | 1,449 views | 21 likes
+#88 BEARBRICK [Character] 1 videos | 1,424 views | 42 likes | 10 comments | 2023-04-15~
   "[배틀그라운드 모바일 x BE@RBRICK] | 콜라보레이션 트" 2023-04-15 | 1,424 views | 42 likes
 
-[YouTube Japan] 42 partners, 105 items, 564,841 total views
-#1 さくらみこ [Other] 10 videos | 204,594 views | 5,413 likes | 90 comments | 2025-06-16~2025-08-04
-  "『PUBG MOBILE』×『さくらみこ』コラボ開催にぇー🌸　#PUB" 2025-06-16 | 143,390 views | 4,500 likes
-  "#さくらみこ が『PUBG MOBILE』にいたらこうなる…！？#PU" 2025-07-17 | 29,849 views | 135 likes
-  "さくらみこコラボ限定衣装スキンを着てドン勝の舞を踊ろう✨ #PUBGモ" 2025-06-18 | 13,179 views | 210 likes
-  "『PUBG MOBILE』×『さくらみこ』コラボ開催にぇー🌸　#PUB" 2025-06-16 | 5,626 views | 262 likes
-  "#さくらみこ が 'あの演出' を体験…！？🌸✈#PUBGモバイル" 2025-08-04 | 3,621 views | 59 likes
-  "VTuber #さくらみこ コラボ限定の衣装スキン＆ボイスカード登場中" 2025-06-17 | 3,307 views | 151 likes
+[YouTube Japan] 121 partners, 284 items, 1,742,631 total views
+#1 JUJUTSU KAISEN [Animation] 8 videos | 190,359 views | 685 likes | 93 comments | 2022-02-20~
+  "『PUBG MOBILE』で『呪術廻戦』を体感せよ！" 2022-03-02 | 134,917 views | 56 likes
+  "『呪術廻戦』 x『PUBG MOBILE』コラボモード紹介" 2022-02-20 | 39,060 views | 307 likes
+  "📢『呪術廻戦』x『PUBG MOBILE』コラボアイテム第1弾登場！" 2022-02-24 | 4,285 views | 86 likes
+  "📢『呪術廻戦』x『PUBG MOBILE』アイテム第2弾！" 2022-02-28 | 3,446 views | 75 likes
+  "『呪術廻戦』×『PUBG MOBILE』コラボ開催中！" 2022-03-09 | 2,789 views | 60 likes
+  "『呪術廻戦』コラボモードのプレイ方法をご紹介！" 2022-02-25 | 2,394 views | 44 likes
+  "『呪術廻戦』コラボモードをプレイして「封印箱」と「限定称号」を手に入れ" 2022-02-26 | 1,939 views | 32 likes
+  "今しか手に入らない『呪術廻戦』コラボモードの限定業績を手に入れよう！" 2022-02-28 | 1,529 views | 25 likes
+#2 さくらみこ [Other] 6 videos | 168,899 views | 5,047 likes | 77 comments | 2025-06-16~
+  "『PUBG MOBILE』×『さくらみこ』コラボ開催にぇー🌸　#PUB" 2025-06-16 | 143,392 views | 4,500 likes
+  "さくらみこコラボ限定衣装スキンを着てドン勝の舞を踊ろう✨ #PUBGモ" 2025-06-18 | 13,182 views | 210 likes
+  "『PUBG MOBILE』×『さくらみこ』コラボ開催にぇー🌸　#PUB" 2025-06-16 | 5,632 views | 262 likes
   "さくらみこコラボ限定衣装スキンでジェットコースターに乗ってみよう🌸💥#" 2025-07-03 | 2,426 views | 19 likes
+  "コラボ中のみこちと一緒に…！渋谷で'振り向き界隈'🌸💕" 2025-07-10 | 2,284 views | 24 likes
   "🌸『PUBG MOBILE』を #さくらみこ コラボ限定アイテムで埋め" 2025-07-09 | 1,983 views | 32 likes
-  "#さくらみこ が『PUBG MOBILE』にいたらこうなる…！？#PU" 2025-07-17 | 897 views | 31 likes
-  "🌸『PUBG MOBILE』を #さくらみこ コラボ限定アイテムで埋め" 2025-07-09 | 316 views | 14 likes
-#2 P丸様。 [Artist] 10 videos | 73,300 views | 1,506 likes | 20 comments | 2024-09-18~2025-07-15
-  "【P丸様。コラボ】ぼくと、P丸BGしよっ？ボイスカードが登場中！" 2024-09-18 | 53,495 views | 1,261 likes
-  "7周年記念の #P丸様。衣装スキンがPUBG MOBILEに新登場✨" 2025-05-08 | 3,705 views | 105 likes
-  "『PUBG MOBILE』×『#P丸様。』コラボ楽曲で踊ってみた❕ #" 2025-07-15 | 3,560 views | 24 likes
-  "『PUBG MOBILE』×『#P丸様。』コラボ楽曲に合わせて踊ろう❤" 2025-07-13 | 3,026 views | 26 likes
-  "『PUBG MOBILE』×『#P丸様。』コラボ楽曲に合わせて、踊ろう" 2025-07-11 | 2,525 views | 18 likes
+#3 にじさんじ [Other] 1 videos | 118,066 views | 86 likes | 12 comments | 2024-12-13~
+  "にじさんじ所属『星川サラ』&『レオス・ヴィンセント』のボイスカードがP" 2024-12-13 | 118,066 views | 86 likes
+#4 SONIC THE HEDGEHOG [Character] 1 videos | 110,312 views | 19 likes | 2 comments | 2025-10-03~
+  "PUBG MOBILE×『ソニック・ザ・ヘッジホッグ』コラボ開催中" 2025-10-03 | 110,312 views | 19 likes
+#5 DRAGON BALL [Animation] 7 videos | 89,045 views | 854 likes | 46 comments | 2023-07-13~
+  "PMOT2023 GROUP STAGE" 2023-08-05 | 26,418 views | 200 likes
+  "PMOT 2023 SEMI FINAL Day1" 2023-08-12 | 18,446 views | 135 likes
+  "PMOT 2023 SEMI FINAL Day2" 2023-08-13 | 18,173 views | 140 likes
+  "7月パッチノートプレビュー" 2023-07-13 | 15,894 views | 209 likes
+  "実装予定のモード「バトルロイヤル：ドラゴンボール超コラボ」で生き残るた" 2023-07-14 | 4,843 views | 87 likes
+  "ドラゴンボール超がPUBG MOBILEに帰ってくる！新たな冒険へ飛び" 2024-05-28 | 4,477 views | 71 likes
+  "ドラゴンボール超のフィギュアがPUBG MOBILEに登場中！" 2024-06-19 | 794 views | 12 likes
+#6 KANAE & KUZUHA [Other] 3 videos | 86,885 views | 697 likes | 15 comments | 2025-12-01~
+  "🌈叶と葛葉でPUBGいっとく？#PUBGモバイル" 2025-12-01 | 71,938 views | 197 likes
+  "'叶＆葛葉'のコラボ限定衣装スキンでドン勝したくない？ #PUBGモバ" 2025-12-02 | 8,613 views | 244 likes
+  "🌈叶と葛葉でPUBGいっとく？#PUBGモバイル" 2025-12-01 | 6,334 views | 256 likes
+#7 P丸様。 [Artist] 9 videos | 66,754 views | 1,391 likes | 13 comments | 2024-09-18~
+  "【P丸様。コラボ】ぼくと、P丸BGしよっ？ボイスカードが登場中！" 2024-09-18 | 53,496 views | 1,260 likes
+  "『PUBG MOBILE』×『#P丸様。』コラボ楽曲に合わせて踊ろう❤" 2025-07-13 | 3,028 views | 26 likes
+  "ダンス経験者と未経験者を比べてみたら、、、？#PUBGモバイル" 2025-06-19 | 2,506 views | 18 likes
   "7周年記念のP丸様。とのオリジナルコラボ楽曲に合わせてダンス❕　#PU" 2025-06-09 | 2,099 views | 17 likes
-  "VictorがP丸様。とのコラボ楽曲に合わせて踊ってみた🐶💛 #犬ダン" 2025-05-28 | 1,576 views | 11 likes
-  "#P丸様。とのコラボ楽曲で踊ってみた🐈💛 #猫ダンス #PUBGモバイ" 2025-05-29 | 1,503 views | 11 likes
-  "7周年記念の #P丸様。衣装スキンがPUBG MOBILEに新登場✨" 2025-05-08 | 932 views | 22 likes
-  "わんちゃんが #P丸様。とのコラボ楽曲で踊ってみた🐶💛 #犬ダンス #" 2025-06-04 | 879 views | 11 likes
-#3 BLACKPINK [Artist] 5 videos | 48,258 views | 2,963 likes | 216 comments | 2022-07-22~2022-07-29
+  "VictorがP丸様。とのコラボ楽曲に合わせて踊ってみた🐶💛 #犬ダン" 2025-05-28 | 1,577 views | 11 likes
+  "#P丸様。とのコラボ楽曲で踊ってみた🐈💛 #猫ダンス #PUBGモバイ" 2025-05-29 | 1,504 views | 11 likes
+  "◥◣PUBG MOBILE 日本リリース7⃣周年記念💐◢◤" 2025-05-16 | 1,115 views | 24 likes
+  "わんちゃんが #P丸様。とのコラボ楽曲で踊ってみた🐶💛 #犬ダンス #" 2025-06-04 | 880 views | 11 likes
+  "◥◣PUBG MOBILE 日本リリース7⃣周年記念💐◢◤" 2025-05-16 | 549 views | 13 likes
+#8 EVANGELION [Animation] 5 videos | 64,197 views | 581 likes | 109 comments | 2022-04-26~
+  "『PUBG MOBILE』から逃げちゃダメだ！『エヴァンゲリオン』コラ" 2022-05-21 | 31,337 views | 81 likes
+  "5月パッチノート最速プレビュー" 2022-05-11 | 23,345 views | 317 likes
+  "『PUBG MOBILE』×『エヴァンゲリオン』Coming soon" 2022-04-26 | 5,119 views | 115 likes
+  "PUBG MOBILE × エヴァンゲリオン コラボテーマモード「Co" 2022-06-03 | 2,926 views | 44 likes
+  "エヴァンゲリオン機体テーマの衣装スキンを身にまといドン勝をつかみ取ろう" 2022-06-04 | 1,470 views | 24 likes
+#9 GODZILLA [Film] 8 videos | 54,330 views | 1,000 likes | 162 comments | 2021-04-02~
+  "5月パッチノート最速プレビュー" 2021-05-07 | 27,891 views | 491 likes
+  "『PUBG MOBILE』×『ゴジラvsコング』コラボテーマモードでド" 2021-05-27 | 10,376 views | 216 likes
+  "『PUBG MOBILE』×『ゴジラvsコング』" 2021-04-02 | 5,667 views | 140 likes
+  "『PUBG MOBILE』ｘ『ゴジラvsコング』コラボアイテム「相棒-" 2021-05-22 | 3,818 views | 66 likes
+  "『PUBG MOBILE』ｘ『ゴジラvsコング』コラボアイテム「相棒-" 2021-05-21 | 3,183 views | 52 likes
+  "チームを組んで戦場を熱くせよ！" 2025-04-28 | 2,138 views | 17 likes
+  "PUBG MOBILE ｜ ゴジラ ：目覚めよ、怪獣の力！" 2025-03-29 | 887 views | 11 likes
+  "ゴジラコラボの衣装セットを着て、フレンドと一緒に『PUBG MOBIL" 2025-04-21 | 370 views | 7 likes
+#10 BLACKPINK [Artist] 5 videos | 48,272 views | 2,963 likes | 216 comments | 2022-07-22~
   "BLACKPINKから『PUBG MOBILE』プレイヤーとBLINK" 2022-07-22 | 24,236 views | 2,313 likes
-  "BLACKPINK X PUBG MOBILE  『Ready For" 2022-07-29 | 12,932 views | 210 likes
-  "BLACKPINK X PUBG MOBILE 『Ready For " 2022-07-28 | 7,396 views | 292 likes
+  "BLACKPINK X PUBG MOBILE  『Ready For" 2022-07-29 | 12,945 views | 210 likes
+  "BLACKPINK X PUBG MOBILE 『Ready For " 2022-07-28 | 7,397 views | 292 likes
   "BLACKPINK X PUBG MOBILE 『Ready For " 2022-07-27 | 2,439 views | 99 likes
   "『BLACKPINK』から直接皆さまに特別なメッセージが届きました！" 2022-07-29 | 1,255 views | 49 likes
-#4 涼宮ハルヒの憂鬱 [Animation] 1 videos | 40,757 views | 544 likes | 44 comments | 2021-11-30~2021-11-30
-  "『PUBG MOBILE』×『涼宮ハルヒの憂鬱』コラボ！" 2021-11-30 | 40,757 views | 544 likes
-#5 ひぐらしのなく頃に 卒 [Animation] 4 videos | 38,469 views | 810 likes | 124 comments | 2021-09-30~2021-10-14
-  "『PUBG MOBILE』×『ひぐらしのなく頃に 卒』クレート動画公開" 2021-09-30 | 16,801 views | 287 likes
-  "『PUBG MOBILE』×『ひぐらしのなく頃に 卒』のコラボボイスカ" 2021-09-30 | 8,628 views | 183 likes
-  "『PUBG MOBILE』×『ひぐらしのなく頃に 卒』コラボ開始！" 2021-09-30 | 8,264 views | 212 likes
-  "『PUBG MOBILE』×『ひぐらしのなく頃に 卒』の第2弾コラボボ" 2021-10-14 | 4,776 views | 128 likes
-#6 BLACK LAGOON [Animation] 1 videos | 29,862 views | 629 likes | 44 comments | 2022-03-17~2022-03-17
-  "🔫『PUBG MOBILE』×『BLACK LAGOON』コラボ開催！" 2022-03-17 | 29,862 views | 629 likes
-#7 葬送のフリーレン [Animation] 2 videos | 15,420 views | 304 likes | 30 comments | 2025-04-01~2025-04-10
-  "『PUBG MOBILE』×アニメ『#葬送のフリーレン』コラボ開催🍃 " 2025-04-01 | 13,161 views | 284 likes
-  "アニメ『#葬送のフリーレン』コラボ限定ボイスカードがゲーム内に登場中🍃" 2025-04-10 | 2,259 views | 20 likes
-#8 Newjeans [Other] 11 videos | 14,923 views | 643 likes | 21 comments | 2024-06-03~2024-08-05
-  "🐰『PUBG MOBILE』 × 『NewJeans』Let's Hy" 2024-06-03 | 3,139 views | 189 likes
+#11 TESLA [Vehicle] 4 videos | 45,042 views | 766 likes | 208 comments | 2021-07-08~
+  "7月パッチノート最速プレビュー" 2021-07-08 | 33,864 views | 610 likes
+  "DRIVE in PUBG MOBILE" 2021-08-06 | 5,934 views | 68 likes
+  "未来のトラック「Cybertruck」が『PUBG MOBILE』に登" 2021-08-10 | 2,948 views | 46 likes
+  "『PUBG MOBILE』で#テスラ に乗ってドン勝を目指そう！" 2021-08-09 | 2,296 views | 42 likes
+#12 THE MELANCHOLY OF HARUHI SUZUMIYA [Animation] 2 videos | 41,967 views | 574 likes | 49 comments | 2021-11-30~
+  "『PUBG MOBILE』×『涼宮ハルヒの憂鬱』コラボ！" 2021-11-30 | 40,759 views | 544 likes
+  "Coming soon..." 2024-11-13 | 1,208 views | 30 likes
+#13 HIGURASHI [Animation] 4 videos | 38,478 views | 812 likes | 124 comments | 2021-09-30~
+  "『PUBG MOBILE』×『ひぐらしのなく頃に 卒』クレート動画公開" 2021-09-30 | 16,803 views | 288 likes
+  "『PUBG MOBILE』×『ひぐらしのなく頃に 卒』のコラボボイスカ" 2021-09-30 | 8,631 views | 183 likes
+  "『PUBG MOBILE』×『ひぐらしのなく頃に 卒』コラボ開始！" 2021-09-30 | 8,265 views | 212 likes
+  "『PUBG MOBILE』×『ひぐらしのなく頃に 卒』の第2弾コラボボ" 2021-10-14 | 4,779 views | 129 likes
+#14 SAKURA MIKO [Other] 5 videos | 37,997 views | 390 likes | 13 comments | 2025-06-17~
+  "#さくらみこ が『PUBG MOBILE』にいたらこうなる…！？#PU" 2025-07-17 | 29,849 views | 135 likes
+  "#さくらみこ が 'あの演出' を体験…！？🌸✈#PUBGモバイル" 2025-08-04 | 3,623 views | 59 likes
+  "VTuber #さくらみこ コラボ限定の衣装スキン＆ボイスカード登場中" 2025-06-17 | 3,312 views | 151 likes
+  "#さくらみこ が『PUBG MOBILE』にいたらこうなる…！？#PU" 2025-07-17 | 897 views | 31 likes
+  "🌸『PUBG MOBILE』を #さくらみこ コラボ限定アイテムで埋め" 2025-07-09 | 316 views | 14 likes
+#15 SAKURA WARS [Animation] 4 videos | 30,639 views | 690 likes | 110 comments | 2021-07-30~
+  "サクラ大戦コラボ決定！" 2021-07-30 | 14,190 views | 318 likes
+  "『PUBG MOBILE』×『サクラ大戦』コラボボイスカードが新登場🌸" 2021-08-01 | 11,112 views | 238 likes
+  "『PUBG MOBILE』×『サクラ大戦』コラボボイスカード《第2弾》" 2021-08-16 | 3,058 views | 84 likes
+  "『PUBG MOBILE』×『サクラ大戦』コラボ開催中！" 2021-08-03 | 2,279 views | 50 likes
+#16 BLACK LAGOON [Animation] 1 videos | 29,878 views | 629 likes | 44 comments | 2022-03-17~
+  "🔫『PUBG MOBILE』×『BLACK LAGOON』コラボ開催！" 2022-03-17 | 29,878 views | 629 likes
+#17 SPIDER-MAN [Other] 2 videos | 26,386 views | 357 likes | 82 comments | 2022-01-12~
+  "1月パッチノート最速プレビュー　#スパイダーマン #spiderman" 2022-01-12 | 21,200 views | 269 likes
+  "『PUBG MOBILE』×『スパイダーマン』コラボ開催中🕷🕸" 2022-01-21 | 5,186 views | 88 likes
+#18 FRIEREN [Animation] 6 videos | 23,192 views | 385 likes | 40 comments | 2025-04-01~
+  "『PUBG MOBILE』×アニメ『#葬送のフリーレン』コラボ開催🍃 " 2025-04-01 | 13,175 views | 284 likes
+  "言っておくけど私、強いよ。" 2025-04-02 | 2,682 views | 25 likes
+  "アニメ『#葬送のフリーレン』コラボ限定ボイスカードがゲーム内に登場中🍃" 2025-04-10 | 2,280 views | 21 likes
+  "必要なものは覚悟だけだったのです。" 2025-04-03 | 2,036 views | 23 likes
+  "僕はね、終わった後にくだらなかったって，笑い飛ばせるような楽しい旅がし" 2025-04-05 | 1,767 views | 20 likes
+  "この村の英雄シュタルクなんだ。俺が守らなきゃならないんだよ。" 2025-04-04 | 1,252 views | 12 likes
+#19 NEWJEANS [Other] 20 videos | 19,118 views | 850 likes | 21 comments | 2024-06-03~
+  "🐰『PUBG MOBILE』 × 『NewJeans』Let's Hy" 2024-06-03 | 3,140 views | 189 likes
   "一緒にPUBG MOBILEでPUBGM x NewJeansエモート" 2024-07-18 | 2,148 views | 72 likes
   "PUBG MOBILE×NewJeans Let's Hype UP!" 2024-06-21 | 1,799 views | 65 likes
-  "PUBG MOBILEにNewJeansが登場!🐰" 2024-06-18 | 1,619 views | 95 likes
+  "PUBG MOBILEにNewJeansが登場!🐰" 2024-06-18 | 1,621 views | 95 likes
   "PUBG MOBILE × NewJeans Let's Energy" 2024-07-17 | 1,530 views | 41 likes
-  "PUBGM X NewJeansエモートでLet’s Energy U" 2024-07-20 | 1,330 views | 46 likes
+  "PUBGM X NewJeansエモートでLet’s Energy U" 2024-07-20 | 1,336 views | 46 likes
+  "PUBG MOBILEにHAERINが登場!🐰" 2024-06-13 | 991 views | 37 likes
   "熱い夏はPUBG MOBILE × NewJeansと一緒にEnerg" 2024-08-05 | 934 views | 26 likes
   "PUBG MOBILE × NewJeansの補給物資を一緒に飾りまし" 2024-08-03 | 877 views | 35 likes
-  "今すぐゲーム内でPUBGMxNewJeansのHANNIのボイスカード" 2024-06-29 | 539 views | 27 likes
-  "DANIELLEと一緒にPUBG MOBILEへLet's Go!PU" 2024-07-03 | 526 views | 22 likes
-  (+1 more)
-#9 McLaren [Vehicle] 4 videos | 11,787 views | 216 likes | 116 comments | 2021-06-01~2024-11-22
-  "『McLaren』のコラボスキンが『PUBG MOBILE』に登場🏎" 2021-06-01 | 4,470 views | 66 likes
+  "HYEINが見せてくれるかっこいい所はなんでしょうか？🐰" 2024-06-12 | 773 views | 32 likes
+  (+10 more)
+#20 DRAGON BALL SUPER [Animation] 2 videos | 18,321 views | 313 likes | 22 comments | 2023-07-08~
+  "『ドラゴンボール超』×『PUBG MOBILE』 ​まもなく開催！" 2023-07-08 | 14,683 views | 288 likes
+  "PUBG MOBILE×ドラゴンボール超コラボ開催！" 2024-06-07 | 3,638 views | 25 likes
+#21 OVERLORD [Animation] 2 videos | 17,958 views | 211 likes | 12 comments | 2022-08-08~
+  "『PUBG MOBILE』×『オーバーロード』のコラボボイスカード「ア" 2022-08-08 | 12,928 views | 152 likes
+  "「シャルティア」「ナーベラル」「シズ」のコラボボイスカードが「オーバー" 2022-08-19 | 5,030 views | 59 likes
+#22 TOKYO REVENGERS [Animation] 7 videos | 13,555 views | 116 likes | 3 comments | 2025-10-01~
+  "#東京リベンジャーズ コラボ限定バイクに乗ってPUBG MOBILEで" 2025-10-07 | 2,512 views | 17 likes
+  "『PUBG MOBILE』×TVアニメ『東京リベンジャーズ』コラボ開催" 2025-10-01 | 2,483 views | 22 likes
+  "佐野万次郎のコラボ限定衣装スキンと龍宮寺堅のボイスカードがゲーム内に期" 2025-10-05 | 2,334 views | 18 likes
+  "花垣武道&松野千冬のコラボ限定衣装スキンでドン勝を目指そう🏍コラボボイ" 2025-10-04 | 2,242 views | 19 likes
+  "制服姿の佐野エマと浴衣姿の橘日向になってPUBG MOBILEのフィー" 2025-10-06 | 1,715 views | 6 likes
+  "『PUBG MOBILE』× TVアニメ『東京リベンジャーズ』コラボ開" 2025-10-21 | 1,317 views | 16 likes
+  "『PUBG MOBILE』×TVアニメ『東京リベンジャーズ』コラボ開催" 2025-10-01 | 952 views | 18 likes
+#23 CODE GEASS [Animation] 4 videos | 12,174 views | 150 likes | 11 comments | 2020-11-18~
+  "『コードギアス 反逆のルルーシュ』コラボボイスカード「枢木スザク」と「" 2020-11-27 | 6,000 views | 53 likes
+  "『PUBG MOBILE』×『コードギアス 反逆のルルーシュ』のコラボ" 2020-11-18 | 3,549 views | 65 likes
+  "『PUBG MOBILE』×『コードギアス』コラボ開催！PUBG制圧作" 2024-10-24 | 1,907 views | 24 likes
+  "『PUBG MOBILE』×『コードギアス 反逆のルルーシュ』ボイスカ" 2020-11-18 | 718 views | 8 likes
+#24 LAMBORGHINI [Vehicle] 4 videos | 12,056 views | 281 likes | 39 comments | 2022-03-25~
+  "＜PUBG MOBILE公式パートナー対抗＞Lamborghiniスキ" 2022-04-14 | 5,291 views | 129 likes
+  "ランボルギーニ公式コラボ開始！" 2022-03-25 | 3,638 views | 82 likes
+  "『ランボルギーニ』×『PUBG MOBILE』コラボ開催中！お気に入り" 2022-04-05 | 1,994 views | 45 likes
+  "『PUBG MOBILE』 × 『#ランボルギーニ』コラボ開催！" 2024-07-19 | 1,133 views | 25 likes
+#25 宝鐘マリン [Other] 2 videos | 11,987 views | 138 likes | 4 comments | 2025-09-18~
+  "コラボ中の #宝鐘マリン 船長の曲に合わせて踊ってみた⚓ #PUBGモ" 2025-09-20 | 8,641 views | 109 likes
+  "ダンスも曲もかわいすぎる💕#宝鐘マリン 船長の曲に合わせて踊ってみた！" 2025-09-18 | 3,346 views | 29 likes
+#26 LIONEL MESSI [Other] 1 videos | 11,842 views | 209 likes | 46 comments | 2022-11-11~
+  "11月パッチノート最速プレビュー" 2022-11-11 | 11,842 views | 209 likes
+#27 MCLAREN [Vehicle] 4 videos | 11,792 views | 216 likes | 116 comments | 2021-06-01~
+  "『McLaren』のコラボスキンが『PUBG MOBILE』に登場🏎" 2021-06-01 | 4,473 views | 66 likes
   "McLarenが欲しい？当然です。誰だってほしい。" 2021-06-26 | 3,834 views | 77 likes
   "『McLaren』を『PUBG MOBILE』で運転できるチャンス！" 2021-06-14 | 2,699 views | 57 likes
-  "PUBG MOBILE × @mclarenauto コラボがついに始" 2024-11-22 | 784 views | 16 likes
-#10 G-Dragon [Artist] 3 videos | 8,132 views | 149 likes | 9 comments | 2025-09-01~2025-10-22
-  "G-DRAGONが定義する、新たな戦場の秩序。" 2025-09-01 | 3,596 views | 49 likes
-  "🎥PUBG × PUBG MOBILE × G-DRAGON Trai" 2025-10-22 | 2,765 views | 73 likes
-  "PUBG x G-DRAGON メイントレーラー | PUBGモバイル" 2025-09-19 | 1,771 views | 27 likes
-#11 Pagani [Vehicle] 2 videos | 6,623 views | 53 likes | 31 comments | 2023-11-09~2023-11-10
-  "PUBG MOBILE × Pagani" 2023-11-10 | 5,243 views | 37 likes
-  "PUBG MOBILE x PaganiコラボComing Soon" 2023-11-09 | 1,380 views | 16 likes
-#12 おぱんちゅうさぎ [Character] 7 videos | 6,534 views | 152 likes | 4 comments | 2025-01-14~2025-03-09
-  "『PUBG MOBILE』と『おぱんちゅうさぎ』のコラボ開催！不憫かわ" 2025-01-14 | 2,031 views | 29 likes
-  "💗おぱんちゅうさぎ、全力疾走！？💗" 2025-03-08 | 1,239 views | 33 likes
-  "ケンチャナ✋踊ってみた with おぱんちゅうさぎ" 2025-03-09 | 1,173 views | 31 likes
-  "#おぱんちゅうさぎ のコラボアイテムでドン勝するんだよ～💕" 2025-02-19 | 892 views | 28 likes
-  "#おぱんちゅうさぎ のコラボアイテムでドン勝するんだよ～💕" 2025-02-19 | 459 views | 11 likes
-  "💗PUBG MOBILE × #おぱんちゅうさぎ オフラインイベント情" 2025-01-31 | 383 views | 14 likes
-  "💗PUBG MOBILE × #おぱんちゅうさぎ オフラインイベント情" 2025-01-31 | 357 views | 6 likes
-#13 Lamborghini [Vehicle] 1 videos | 5,287 views | 129 likes | 21 comments | 2022-04-14~2022-04-14
-  "＜PUBG MOBILE公式パートナー対抗＞Lamborghiniスキ" 2022-04-14 | 5,287 views | 129 likes
-#14 Alan Walker [Artist] 1 videos | 4,386 views | 161 likes | 15 comments | 2021-09-23~2021-09-23
-  "Alan Walkerさんからプレイヤーの皆さんへビデオメッセージが届" 2021-09-23 | 4,386 views | 161 likes
-#15 Line Friends [Character] 3 videos | 4,380 views | 95 likes | 24 comments | 2021-07-11~2024-02-02
+  "PUBG MOBILE × @mclarenauto コラボがついに始" 2024-11-22 | 786 views | 16 likes
+#28 ARCANE [Character] 1 videos | 11,276 views | 216 likes | 54 comments | 2021-11-13~
+  "11月パッチノート最速プレビュー" 2021-11-13 | 11,276 views | 216 likes
+#29 P丸様 [Artist] 4 videos | 10,758 views | 173 likes | 5 comments | 2025-05-08~
+  "7周年記念の #P丸様。衣装スキンがPUBG MOBILEに新登場✨" 2025-05-08 | 3,711 views | 105 likes
+  "ななななナッ!!!!!!!❕みんなも踊ってみよ✨ #PUBGモバイル" 2025-07-16 | 3,517 views | 27 likes
+  "レベル1、5、10で踊るとこうなる…！？#PUBGモバイル" 2025-06-10 | 2,597 views | 19 likes
+  "7周年記念の #P丸様。衣装スキンがPUBG MOBILEに新登場✨" 2025-05-08 | 933 views | 22 likes
+#30 TRANSFORMERS [Film] 7 videos | 9,452 views | 108 likes | 6 comments | 2025-07-08~
+  "『PUBG MOBILE』×『トランスフォーマー』コラボ開催❕" 2025-07-08 | 2,848 views | 30 likes
+  "オプティマスプライム vs メガトロンの伝説の戦いがErangelで勃" 2025-07-20 | 2,235 views | 21 likes
+  "トランスフォーマーコラボ限定スキンをまとって踊ろう！#PUBGモバイル" 2025-08-18 | 2,155 views | 27 likes
+  "「星間ジャンプポイント」で特別演出を体験しよう！#PUBGモバイル" 2025-08-25 | 661 views | 6 likes
+  "『PUBG MOBILE』×『トランスフォーマー』コラボ開催中！フォト" 2025-08-27 | 624 views | 4 likes
+  "#トランスフォーマー コラボ限定スキンがゲーム内に新登場🔥🤖 #PUB" 2025-07-18 | 476 views | 10 likes
+  "🚨『PUBG MOBILE』×『トランスフォーマー』🚨" 2025-07-10 | 453 views | 10 likes
+#31 大塚芳忠 [Other] 1 videos | 9,449 views | 109 likes | 11 comments | 2022-04-22~
+  "声優 大塚芳忠さんのボイスカードが『PUBG MOBILE』に新登場✨" 2022-04-22 | 9,449 views | 109 likes
+#32 金田朋子 [Other] 1 videos | 8,574 views | 161 likes | 18 comments | 2021-05-29~
+  "声優・金田朋子さんの新ボイスカードが『PUBG MOBILE』に新登場" 2021-05-29 | 8,574 views | 161 likes
+#33 HOUSHOU MARINE [Other] 3 videos | 8,545 views | 174 likes | 10 comments | 2025-09-10~
+  "マリン船長PUBGへ出航ー！⚓#PUBGモバイル" 2025-09-10 | 3,545 views | 85 likes
+  "宝鐘マリンコラボ限定ボイスカード＆衣装スキンが登場中⚓#PUBGモバイ" 2025-09-17 | 2,739 views | 35 likes
+  "マリン船長PUBGへ出航ー！⚓#PUBGモバイル" 2025-09-10 | 2,261 views | 54 likes
+#34 G-DRAGON [Artist] 3 videos | 8,149 views | 149 likes | 9 comments | 2025-09-01~
+  "G-DRAGONが定義する、新たな戦場の秩序。" 2025-09-01 | 3,606 views | 49 likes
+  "🎥PUBG × PUBG MOBILE × G-DRAGON Trai" 2025-10-22 | 2,771 views | 73 likes
+  "PUBG x G-DRAGON メイントレーラー | PUBGモバイル" 2025-09-19 | 1,772 views | 27 likes
+#35 立木文彦 [Other] 1 videos | 7,699 views | 167 likes | 14 comments | 2021-01-14~
+  "声優・立木文彦さんのボイスカードが『PUBG MOBILE』に新登場😎" 2021-01-14 | 7,699 views | 167 likes
+#36 AMI KOSHIMIZU [Other] 2 videos | 7,665 views | 115 likes | 5 comments | 2022-07-21~
+  "声優・小清水亜美さんのボイスカードが『PUBG MOBILE』に初登場" 2022-07-21 | 4,170 views | 65 likes
+  "小清水亜美「男勝りな女の子」ボイス紹介 #shorts" 2022-12-29 | 3,495 views | 50 likes
+#37 TOMOKAZU SEKI [Other] 2 videos | 7,591 views | 160 likes | 30 comments | 2021-04-05~
+  "声優・関智一さんのボイスカードが『PUBG MOBILE』に新登場！" 2021-04-05 | 5,414 views | 119 likes
+  "声優・関智一さんの新ボイスカード「関智一B」が登場中！" 2021-07-17 | 2,177 views | 41 likes
+#38 クロちゃん [Other] 2 videos | 6,917 views | 86 likes | 6 comments | 2020-11-18~
+  "予告【PUBG MOBILE】クロちゃんがボイスカード声優を目指して猛" 2020-11-18 | 3,899 views | 37 likes
+  "【PUBG MOBILE】クロちゃんの超リアルボイスカード登場⚡️" 2020-11-18 | 3,018 views | 49 likes
+#39 RECORD OF RAGNAROK [Animation] 1 videos | 6,901 views | 132 likes | 18 comments | 2021-12-22~
+  "『PUBG MOBILE』×『終末のワルキューレ』のコラボボイスカード" 2021-12-22 | 6,901 views | 132 likes
+#40 LINE FRIENDS [Character] 4 videos | 6,799 views | 151 likes | 31 comments | 2021-07-11~
+  "『PUBG MOBILE』の戦場に癒し・・・！？ #shorts" 2021-07-14 | 2,419 views | 56 likes
   "『LINE FRIENDS』のお友達はErangelでのんびりした日常" 2021-07-11 | 2,408 views | 58 likes
   "『LINE FRIENDS』と一緒にドン勝しよう🍳" 2021-07-12 | 1,245 views | 29 likes
-  "PUBG MOBILEにLINE FRIENDSが登場！| タイアップ" 2024-02-02 | 727 views | 8 likes
-#16 SAKAMOTO DAYS [Animation] 2 videos | 4,369 views | 76 likes | 7 comments | 2026-03-12~2026-03-12
-  "『PUBG MOBILE』× TVアニメ『SAKAMOTO DAYS』" 2026-03-12 | 3,037 views | 37 likes
-  "『PUBG MOBILE』× TVアニメ『SAKAMOTO DAYS』" 2026-03-12 | 1,332 views | 39 likes
-#17 進撃の巨人 [Other] 1 videos | 3,841 views | 56 likes | 7 comments | 2025-05-08~2025-05-08
-  "『PUBG MOBILE』×『進撃の巨人』｜ドン勝に、心臓を捧げよ！ " 2025-05-08 | 3,841 views | 56 likes
-#18 Godzilla [Film] 1 videos | 3,816 views | 66 likes | 21 comments | 2021-05-22~2021-05-22
-  "『PUBG MOBILE』ｘ『ゴジラvsコング』コラボアイテム「相棒-" 2021-05-22 | 3,816 views | 66 likes
-#19 KFC [Other] 3 videos | 3,614 views | 57 likes | 3 comments | 2023-10-05~2023-11-01
+  (+1 more)
+#41 PAGANI [Vehicle] 2 videos | 6,629 views | 53 likes | 31 comments | 2023-11-09~
+  "PUBG MOBILE × Pagani" 2023-11-10 | 5,249 views | 37 likes
+  "PUBG MOBILE x PaganiコラボComing Soon" 2023-11-09 | 1,380 views | 16 likes
+#42 OPANCHU USAGI [Character] 7 videos | 6,542 views | 152 likes | 4 comments | 2025-01-14~
+  "『PUBG MOBILE』と『おぱんちゅうさぎ』のコラボ開催！不憫かわ" 2025-01-14 | 2,034 views | 29 likes
+  "💗おぱんちゅうさぎ、全力疾走！？💗" 2025-03-08 | 1,243 views | 33 likes
+  "ケンチャナ✋踊ってみた with おぱんちゅうさぎ" 2025-03-09 | 1,174 views | 31 likes
+  (+4 more)
+#43 DANDADAN [Animation] 3 videos | 6,516 views | 78 likes | 4 comments | 2025-11-06~
+  "『PUBG MOBILE』×TVアニメ『ダンダダン』コラボ始動！#PU" 2025-11-06 | 3,239 views | 42 likes
+  "TVアニメ『ダンダダン』コラボ限定アイテムを駆使してドン勝だ！#PUB" 2025-11-21 | 2,364 views | 18 likes
+  "『PUBG MOBILE』×TVアニメ『ダンダダン』コラボ始動！#PU" 2025-11-07 | 913 views | 18 likes
+#44 三森すずこ [Other] 2 videos | 6,446 views | 150 likes | 16 comments | 2021-04-22~
+  "声優・三森すずこさんのボイスカードが『PUBG MOBILE』に新登場" 2021-04-22 | 3,629 views | 80 likes
+  "声優・三森すずこさんのボイスカード「三森すずこB」が新登場！" 2021-07-03 | 2,817 views | 70 likes
+#45 SAKAMOTO DAYS [Animation] 3 videos | 6,307 views | 105 likes | 15 comments | 2026-03-12~
+  "『PUBG MOBILE』× TVアニメ『SAKAMOTO DAYS』" 2026-03-12 | 3,518 views | 44 likes
+  "『PUBG MOBILE』× TVアニメ『SAKAMOTO DAYS』" 2026-03-12 | 1,545 views | 41 likes
+  "最強の殺し屋だった坂本太郎が『PUBG MOBILE』に参戦...！？" 2026-03-13 | 1,244 views | 20 likes
+#46 #P丸様。 [Other] 2 videos | 6,087 views | 42 likes | 6 comments | 2025-07-11~
+  "『PUBG MOBILE』×『#P丸様。』コラボ楽曲で踊ってみた❕ #" 2025-07-15 | 3,561 views | 24 likes
+  "『PUBG MOBILE』×『#P丸様。』コラボ楽曲に合わせて、踊ろう" 2025-07-11 | 2,526 views | 18 likes
+#47 森川智之 [Other] 2 videos | 5,950 views | 138 likes | 7 comments | 2021-06-17~
+  "声優・ 森川智之さんのボイスカードが『PUBG MOBILE』に新登場" 2021-06-17 | 3,667 views | 80 likes
+  "物腰は柔らかいが圧倒的な存在感がある男のボイスカード「森川智之B」が「" 2021-08-30 | 2,283 views | 58 likes
+#48 RYOKO SHIRAISHI [Other] 1 videos | 5,599 views | 83 likes | 6 comments | 2021-07-14~
+  "声優・白石涼子さんのCVボイスカードが『PUBG MOBILE』に新登" 2021-07-14 | 5,599 views | 83 likes
+#49 HOLOLIVE [Other] 3 videos | 5,540 views | 178 likes | 15 comments | 2025-03-12~
+  "🎙️hololive DEV_IS所属VTuber『#ReGLOSS』" 2025-03-12 | 2,126 views | 68 likes
+  "🎙️hololive DEV_IS所属VTuber『#ReGLOSS』" 2025-03-12 | 1,920 views | 90 likes
+  "🌟ぺこらとぼたんがスターイベントに登場🌊" 2025-07-28 | 1,494 views | 20 likes
+#50 BTS [Artist] 1 videos | 5,360 views | 132 likes | 11 comments | 2021-08-14~
+  "BTSの #PermissiontoDance チャレンジに『PUBG" 2021-08-14 | 5,360 views | 132 likes
+#51 TAKUYA KOYASU [Other] 1 videos | 5,192 views | 145 likes | 14 comments | 2021-03-05~
+  "声優・子安武人さんのボイスカードが『PUBG MOBILE』に新登場🐉" 2021-03-05 | 5,192 views | 145 likes
+#52 FUMIHIKO TACHIKI [Other] 1 videos | 5,175 views | 113 likes | 17 comments | 2021-06-06~
+  "第三者視点で戦況を実況する男のボイスカード「立木文彦B」が『PUBG " 2021-06-06 | 5,175 views | 113 likes
+#53 佐倉綾音 [Other] 2 videos | 4,884 views | 117 likes | 6 comments | 2022-10-04~
+  "CV.佐倉綾音「ふわふわウサギ」ボイス紹介 #shorts" 2022-10-04 | 3,168 views | 72 likes
+  "CV.佐倉綾音「ウサギャル」ボイス紹介 #shorts" 2023-03-16 | 1,716 views | 45 likes
+#54 RIKIYA KOYAMA [Other] 1 videos | 4,837 views | 73 likes | 9 comments | 2020-12-28~
+  "声優・小山力也さんの新ボイスカードが『PUBG MOBILE』に登場！" 2020-12-28 | 4,837 views | 73 likes
+#55 戸松遥 [Other] 2 videos | 4,766 views | 115 likes | 4 comments | 2023-06-11~
+  "バーサーカーな女の子がコンセプトの「戸松遥B」ボイス紹介 #short" 2023-08-14 | 3,041 views | 65 likes
+  "明るく社交的なお嬢様コンセプトの「戸松遥A」ボイス紹介 #shorts" 2023-06-11 | 1,725 views | 50 likes
+#56 REGLOSS [Other] 5 videos | 4,458 views | 166 likes | 8 comments | 2025-03-15~
+  "🎙️5人組VTuberガールズグループ #ReGLOSS のボイスカー" 2025-03-19 | 1,404 views | 48 likes
+  "🎙️5人組VTuberガールズグループ #ReGLOSS のボイスカー" 2025-03-18 | 1,152 views | 37 likes
+  "🎙️5人組VTuberガールズグループ #ReGLOSS のボイスカー" 2025-03-16 | 685 views | 19 likes
+  (+2 more)
+#57 ALAN WALKER [Artist] 1 videos | 4,386 views | 161 likes | 15 comments | 2021-09-23~
+  "Alan Walkerさんからプレイヤーの皆さんへビデオメッセージが届" 2021-09-23 | 4,386 views | 161 likes
+#58 小林ゆう [Other] 1 videos | 4,302 views | 71 likes | 5 comments | 2022-11-04~
+  "小林ゆうAボイス紹介 #shorts" 2022-11-04 | 4,302 views | 71 likes
+#59 小野賢章 [Other] 1 videos | 4,294 views | 132 likes | 7 comments | 2021-01-11~
+  "【 #ドン勝成人式 】小野賢章さん お祝いメッセージ" 2021-01-11 | 4,294 views | 132 likes
+#60 VENOM [Film] 2 videos | 4,200 views | 66 likes | 5 comments | 2024-10-18~
+  "『PUBG MOBILE』×『ヴェノム：ザ・ラストダンス』コラボついに" 2024-10-18 | 2,891 views | 44 likes
+  "ヴェノム化した戦馬とアームを使って敵を倒せ！#ヴェノム" 2024-10-21 | 1,309 views | 22 likes
+#61 堀江由衣 [Other] 2 videos | 4,016 views | 83 likes | 5 comments | 2023-06-27~
+  "聡明で親しみ深い女の子がコンセプトの「堀江由衣A」ボイス紹介 #sho" 2023-06-27 | 2,184 views | 51 likes
+  "元気はつらつムードメーカー女子コンセプトの「堀江由衣B」ボイス紹介 #" 2023-07-28 | 1,832 views | 32 likes
+#62 GODZILLA VS KONG [Animation] 2 videos | 3,911 views | 78 likes | 28 comments | 2021-05-22~
+  "『PUBG MOBILE』×『ゴジラvsコング』コラボテーマモード登場" 2021-05-22 | 2,371 views | 50 likes
+  "壮絶な戦いを『PUBG MOBILE』で目撃しよう👀" 2021-10-13 | 1,540 views | 28 likes
+#63 ATTACK ON TITAN [Animation] 1 videos | 3,845 views | 56 likes | 7 comments | 2025-05-08~
+  "『PUBG MOBILE』×『進撃の巨人』｜ドン勝に、心臓を捧げよ！ " 2025-05-08 | 3,845 views | 56 likes
+#64 石原夏織 [Other] 1 videos | 3,765 views | 77 likes | 10 comments | 2021-03-12~
+  "声優・石原夏織さんのボイスカードが『PUBG MOBILE』に新登場🐈" 2021-03-12 | 3,765 views | 77 likes
+#65 ファイルーズあい [Other] 1 videos | 3,720 views | 67 likes | 5 comments | 2022-11-21~
+  "CV.ファイルーズあい「アップビートガール」ボイス紹介 #shorts" 2022-11-21 | 3,720 views | 67 likes
+#66 KFC [Other] 3 videos | 3,614 views | 57 likes | 3 comments | 2023-10-05~
   "KFC PUBGM店がオープンしました！" 2023-10-05 | 2,615 views | 30 likes
   "PUBG MOBILEにKFCロイヤルレストランとテーマアイテムが登場" 2023-10-17 | 504 views | 16 likes
   "PUBG MOBILE x KFC | Time to Taste V" 2023-11-01 | 495 views | 11 likes
-#20 Yamaha [Vehicle] 2 videos | 3,482 views | 51 likes | 3 comments | 2025-02-13~2025-02-14
-  "#YAMAHA コラボバイクがPUBG MOBILEに登場中✨" 2025-02-14 | 2,920 views | 35 likes
+#67 LINE MANGA [Other] 1 videos | 3,530 views | 63 likes | 8 comments | 2022-02-12~
+  "『PUBG』のオリジナル漫画がLINEマンガに新登場！" 2022-02-12 | 3,530 views | 63 likes
+#68 花澤香菜 [Other] 1 videos | 3,517 views | 61 likes | 4 comments | 2021-02-17~
+  "知的で大人の雰囲気漂うお姉さんボイスカード「花澤香菜B」が登場！" 2021-02-17 | 3,517 views | 61 likes
+#69 RED° TOKYO TOWER [Other] 1 videos | 3,512 views | 65 likes | 5 comments | 2022-06-30~
+  "『 RED°  SHOOTING』× 『PUBG MOBILE』Com" 2022-06-30 | 3,512 views | 65 likes
+#70 YAMAHA [Vehicle] 2 videos | 3,483 views | 51 likes | 3 comments | 2025-02-13~
+  "#YAMAHA コラボバイクがPUBG MOBILEに登場中✨" 2025-02-14 | 2,921 views | 35 likes
   "『PUBG MOBILE』×『#YAMAHA』コラボ復刻🏍️" 2025-02-13 | 562 views | 16 likes
-#21 Balenciaga [Fashion] 2 videos | 3,114 views | 39 likes | 0 comments | 2025-11-14~2025-11-14
-  "PUBG MOBILE | BALENCIAGAコラボレーショントレー" 2025-11-14 | 2,484 views | 28 likes
+#71 小野友樹 [Other] 1 videos | 3,327 views | 117 likes | 12 comments | 2021-10-28~
+  "声優・小野友樹さんのボイスカードが「Travelerクレート」に新登場" 2021-10-28 | 3,327 views | 117 likes
+#72 梶裕貴 [Other] 1 videos | 3,247 views | 79 likes | 4 comments | 2021-12-31~
+  "声優・梶裕貴さんのボイスカードが「Travelerクレート」に新登場✨" 2021-12-31 | 3,247 views | 79 likes
+#73 BALENCIAGA [Fashion] 2 videos | 3,118 views | 39 likes | 0 comments | 2025-11-14~
+  "PUBG MOBILE | BALENCIAGAコラボレーショントレー" 2025-11-14 | 2,488 views | 28 likes
   "PUBG MOBILE | BALENCIAGAコラボレーショントレー" 2025-11-14 | 630 views | 11 likes
-#22 Warframe [Game] 1 videos | 2,716 views | 37 likes | 2 comments | 2022-03-30~2022-03-30
+#74 小松未可子 [Other] 1 videos | 3,096 views | 82 likes | 5 comments | 2021-09-15~
+  "声優・小松未可子さんのボイスカードが「Travelerクレート」に新登" 2021-09-15 | 3,096 views | 82 likes
+#75 宇都圭輝 [Other] 1 videos | 3,057 views | 119 likes | 18 comments | 2021-04-29~
+  "『PUBG MOBILE』日本リリース3周年を音楽で盛り上げよう！Wi" 2021-04-29 | 3,057 views | 119 likes
+#76 PORSCHE [Vehicle] 1 videos | 3,044 views | 37 likes | 2 comments | 2025-10-31~
+  "PUBG × PUBG MOBILE × ポルシェ トレーラー動画公開" 2025-10-31 | 3,044 views | 37 likes
+#77 古谷徹 & 今井麻美 [Other] 1 videos | 2,849 views | 66 likes | 2 comments | 2022-10-19~
+  "古谷徹&今井麻美ボイス紹介 #shorts" 2022-10-19 | 2,849 views | 66 likes
+#78 福山潤 [Other] 1 videos | 2,819 views | 53 likes | 1 comments | 2022-07-04~
+  "人柄が良くて勇ましい青年のボイスカード「福山潤A」が「Traveler" 2022-07-04 | 2,819 views | 53 likes
+#79 WARFRAME [Game] 1 videos | 2,716 views | 37 likes | 2 comments | 2022-03-30~
   "『PUBG MOBILE』 x 『Warframe』コラボ開催中！ R" 2022-03-30 | 2,716 views | 37 likes
-#23 Koenigsegg [Vehicle] 1 videos | 2,265 views | 39 likes | 9 comments | 2022-08-31~2022-08-31
-  "新しいコラボ車両スキン「Koenigsegg One:1」が『PUBG" 2022-08-31 | 2,265 views | 39 likes
-#24 転スラ [Animation] 1 videos | 2,173 views | 28 likes | 6 comments | 2024-11-28~2024-11-28
-  "『PUBG MOBILE』×『#転スラ』コラボ開催中💧" 2024-11-28 | 2,173 views | 28 likes
-#25 Dune [Film] 1 videos | 2,159 views | 56 likes | 10 comments | 2021-11-08~2021-11-08
+#80 CHIKUWA [Character] 1 videos | 2,605 views | 50 likes | 0 comments | 2020-11-18~
+  "「Erangel Days 」ちくわ篇" 2020-11-18 | 2,605 views | 50 likes
+#81 KAIJU NO.8 [Animation] 3 videos | 2,579 views | 29 likes | 0 comments | 2025-12-16~
+  "怪獣８号、PUBGで討伐開始！ #PUBGモバイル" 2025-12-29 | 1,147 views | 9 likes
+  "『PUBG MOBILE』×アニメ『#怪獣8号』コラボ開催中！#PUB" 2025-12-16 | 1,019 views | 10 likes
+  "『PUBG MOBILE』×アニメ『#怪獣8号』コラボ開催中！#PUB" 2025-12-16 | 413 views | 10 likes
+#82 NIER [Film] 1 videos | 2,428 views | 41 likes | 1 comments | 2024-09-11~
+  "PUBG MOBILE × NieRコラボ開催！ #PUBGモバイル" 2024-09-11 | 2,428 views | 41 likes
+#83 夏色まつり [Other] 2 videos | 2,346 views | 92 likes | 3 comments | 2025-02-01~
+  "VTuber『#夏色まつり』のボイスカードがPUBG MOBILEに登" 2025-02-01 | 1,295 views | 61 likes
+  "VTuber『#夏色まつり』のボイスカードがPUBG MOBILEに登" 2025-02-01 | 1,051 views | 31 likes
+#84 KOENIGSEGG [Vehicle] 1 videos | 2,266 views | 39 likes | 9 comments | 2022-08-31~
+  "新しいコラボ車両スキン「Koenigsegg One:1」が『PUBG" 2022-08-31 | 2,266 views | 39 likes
+#85 THAT TIME I GOT REINCARNATED AS A SLIME [Animation] 1 videos | 2,175 views | 28 likes | 6 comments | 2024-11-28~
+  "『PUBG MOBILE』×『#転スラ』コラボ開催中💧" 2024-11-28 | 2,175 views | 28 likes
+#86 DUNE [Film] 1 videos | 2,159 views | 56 likes | 10 comments | 2021-11-08~
   "『PUBG MOBILE』×『DUNE』コラボ開催中！ゲーム内のイベン" 2021-11-08 | 2,159 views | 56 likes
-#26 Bruce Lee [Artist] 2 videos | 2,082 views | 51 likes | 6 comments | 2023-01-12~2023-02-02
+#87 THE KING OF FIGHTERS [Game] 2 videos | 2,145 views | 18 likes | 1 comments | 2026-02-01~
+  "🔥『PUBG MOBILE』×『KOF』🔥" 2026-02-11 | 1,677 views | 6 likes
+  "🔥『PUBG MOBILE』×『KOF』🔥#PUBGモバイル" 2026-02-01 | 468 views | 12 likes
+#88 伊瀬茉莉也 & 池田秀一 [Other] 1 videos | 2,120 views | 47 likes | 5 comments | 2024-01-01~
+  "声優 #伊瀬茉莉也 さん＆ #池田秀一 さんボイスカードが新登場✨" 2024-01-01 | 2,120 views | 47 likes
+#89 BRUCELEE [Other] 2 videos | 2,082 views | 51 likes | 6 comments | 2023-01-12~
   "#PUBGMxBRUCELEE 闘魂トレーラー【Take Them A" 2023-01-12 | 1,089 views | 24 likes
   "#PUBGMxBRUCELEE コラボ開催中🔥【Walk on！】" 2023-02-02 | 993 views | 27 likes
-#27 BABYMONSTER [Artist] 2 videos | 2,001 views | 64 likes | 2 comments | 2025-03-22~2025-12-03
-  "SHEESH！夜が明け、BABYMONSTERがついに動き出す。" 2025-12-03 | 1,003 views | 37 likes
-  "PUBG MOBILE× BABYMONSTERコラボ開催👿❤ #PU" 2025-03-22 | 998 views | 27 likes
-#28 Bentley [Vehicle] 2 videos | 1,927 views | 28 likes | 7 comments | 2024-03-15~2024-03-23
+#90 BABYMONSTER [Artist] 2 videos | 2,003 views | 64 likes | 2 comments | 2025-03-22~
+  "SHEESH！夜が明け、BABYMONSTERがついに動き出す。" 2025-12-03 | 1,004 views | 37 likes
+  "PUBG MOBILE× BABYMONSTERコラボ開催👿❤ #PU" 2025-03-22 | 999 views | 27 likes
+#91 JUN FUKUYAMA [Other] 1 videos | 1,971 views | 41 likes | 3 comments | 2023-08-28~
+  "ユーモア溢れる紳士的な教官がコンセプトの「福山潤B」ボイス紹介 #sh" 2023-08-28 | 1,971 views | 41 likes
+#92 SHELBY [Vehicle] 3 videos | 1,957 views | 32 likes | 2 comments | 2025-05-09~
+  "PUBG MOBILE×ピーキー・ブラインダーズコラボトレイラー" 2026-01-09 | 1,140 views | 10 likes
+  "PUBG MOBILE×ピーキー・ブラインダーズコラボトレイラー" 2026-01-09 | 420 views | 13 likes
+  "「Shelby GT500」＆「Shelby 427 Cobra」をゲ" 2025-05-09 | 397 views | 9 likes
+#93 BENTLEY [Vehicle] 2 videos | 1,927 views | 28 likes | 7 comments | 2024-03-15~
   "PUBG MOBILE × Bentleyコラボ開催✨" 2024-03-15 | 1,175 views | 11 likes
   "PUBG MOBILE × Bentley" 2024-03-23 | 752 views | 17 likes
-#29 Bugatti [Vehicle] 2 videos | 1,699 views | 38 likes | 6 comments | 2023-03-23~2025-03-14
+#94 BABY SHARK [Artist] 1 videos | 1,721 views | 55 likes | 8 comments | 2022-05-11~
+  "『ちびザメ』と一緒にドン勝を目指そう🦈" 2022-05-11 | 1,721 views | 55 likes
+#95 BUGATTI [Vehicle] 2 videos | 1,701 views | 38 likes | 6 comments | 2023-03-23~
   "『PUBG MOBILE』×『BUGATTI』コラボ開催中！" 2023-03-23 | 1,112 views | 25 likes
-  "PUBG MOBILE x BUGATTI、夢の車を手に入れよう！" 2025-03-14 | 587 views | 13 likes
-#30 BE@RBRICK [Character] 2 videos | 1,590 views | 30 likes | 14 comments | 2023-04-19~2023-05-15
+  "PUBG MOBILE x BUGATTI、夢の車を手に入れよう！" 2025-03-14 | 589 views | 13 likes
+#96 BT21 [Animation] 2 videos | 1,659 views | 54 likes | 3 comments | 2023-10-01~
+  "ユニバースター#BT21 着陸完了！" 2023-10-01 | 912 views | 28 likes
+  "ユニバースターBT21PV公開記念キャンペーン🎉" 2023-10-01 | 747 views | 26 likes
+#97 日笠陽子 [Other] 1 videos | 1,611 views | 25 likes | 0 comments | 2023-04-20~
+  "CV.日笠陽子「ピンクヒポポタマス」ボイス紹介 #shorts" 2023-04-20 | 1,611 views | 25 likes
+#98 古谷徹 [Other] 1 videos | 1,591 views | 23 likes | 1 comments | 2024-01-06~
+  "冷徹な指揮官がコンセプトの「古谷徹B」ボイス紹介 #shorts" 2024-01-06 | 1,591 views | 23 likes
+#99 BE@RBRICK [Character] 2 videos | 1,590 views | 30 likes | 14 comments | 2023-04-19~
   "『PUBG MOBILE』×『 BE@RBRICK』コラボ開催中！" 2023-05-15 | 977 views | 17 likes
   "『BE@RBRICK』×『PUBG MOBILE』コラボ開催中！" 2023-04-19 | 613 views | 13 likes
-#31 Metro Exodus [Game] 3 videos | 1,526 views | 36 likes | 5 comments | 2020-11-18~2020-11-18
-  "『PUBG MOBILE』×『METRO EXODUS』コラボ開始！" 2020-11-18 | 1,183 views | 28 likes
-  "PUBG MOBILE x METRO EXODUS" 2020-11-18 | 200 views | 5 likes
-  "PUBG MOBILE x METRO EXODUS" 2020-11-18 | 143 views | 3 likes
-#32 Dodge [Vehicle] 2 videos | 1,342 views | 27 likes | 5 comments | 2023-09-30~2025-01-10
-  "PUBG MOBILE × Dodgeコラボ開催中！" 2023-09-30 | 685 views | 17 likes
-  "『PUBG MOBILE』× 『Dodge』コラボ復刻！" 2025-01-10 | 657 views | 10 likes
-#33 SPY×FAMILY [Animation] 1 videos | 1,211 views | 20 likes | 3 comments | 2024-04-21~2024-04-21
-  "『PUBG MOBILE』とTVアニメ『SPY×FAMILY』とのコラ" 2024-04-21 | 1,211 views | 20 likes
-#34 Jvke [Artist] 1 videos | 1,180 views | 17 likes | 1 comments | 2024-03-21~2024-03-21
-  "PUBG MOBILE x JVKE  グローバル6周年テーマソング「" 2024-03-21 | 1,180 views | 17 likes
-#35 Aston Martin [Vehicle] 1 videos | 1,155 views | 27 likes | 6 comments | 2023-07-27~2023-07-27
-  "『PUBG MOBILE』×『Aston Martin』コラボ開催中！" 2023-07-27 | 1,155 views | 27 likes
-#36 パンパンくんの日常 [Character] 1 videos | 1,011 views | 12 likes | 0 comments | 2026-02-01~2026-02-01
-  "PUBG MOBILE × パンパンくんの日常 コラボ開催☀ ＃PUB" 2026-02-01 | 1,011 views | 12 likes
-#37 Tekken [Game] 1 videos | 943 views | 22 likes | 2 comments | 2024-09-30~2024-09-30
-  "PUBG MOBILE×TEKKEN 8コラボ開催！ #PUBGモバイ" 2024-09-30 | 943 views | 22 likes
-#38 Skibidi Toilet [Character] 1 videos | 920 views | 18 likes | 2 comments | 2025-09-27~2025-09-27
-  "PUBG MOBILE X Skibidi Toilet" 2025-09-27 | 920 views | 18 likes
-#39 Ducati [Vehicle] 1 videos | 882 views | 24 likes | 3 comments | 2023-06-03~2023-06-03
-  "『PUBG MOBILE』×『Ducati』コラボ開催中！" 2023-06-03 | 882 views | 24 likes
-#40 Bellygom [Character] 1 videos | 486 views | 10 likes | 1 comments | 2024-09-05~2024-09-05
-  "PUBG MOBILE × Bellygomコラボ開催❕" 2024-09-05 | 486 views | 10 likes
-#41 Shelby [Vehicle] 1 videos | 396 views | 9 likes | 1 comments | 2025-05-09~2025-05-09
-  "「Shelby GT500」＆「Shelby 427 Cobra」をゲ" 2025-05-09 | 396 views | 9 likes
-#42 Lotus [Vehicle] 1 videos | 229 views | 5 likes | 0 comments | 2025-09-17~2025-09-17
-  "『PUBG MOBILE』×『Lotus』コラボ開催中🚙 #PUBGモ" 2025-09-17 | 229 views | 5 likes
+#100 兎田ぺこら [Other] 1 videos | 1,540 views | 27 likes | 4 comments | 2024-02-14~
+  "今ゲームにログインするとぺこーらから期間制の衣装スキンを受け取れる💕 " 2024-02-14 | 1,540 views | 27 likes
+#101 METRO EXODUS [Game] 3 videos | 1,530 views | 36 likes | 5 comments | 2020-11-18~
+#102 前田佳織里 [Other] 1 videos | 1,439 views | 27 likes | 0 comments | 2023-11-22~
+#103 METRO [Game] 1 videos | 1,350 views | 14 likes | 5 comments | 2020-12-03~
+#104 DODGE [Vehicle] 2 videos | 1,344 views | 27 likes | 5 comments | 2023-09-30~
+#105 大橋彩香 [Other] 1 videos | 1,239 views | 39 likes | 1 comments | 2023-05-25~
+#106 JULIEN FOURNIÉ [Artist] 1 videos | 1,237 views | 32 likes | 0 comments | 2022-02-10~
+#107 SPY X FAMILY [Animation] 1 videos | 1,212 views | 20 likes | 3 comments | 2024-04-21~
+#108 JVKE [Artist] 1 videos | 1,182 views | 17 likes | 1 comments | 2024-03-21~
+#109 ASTON MARTIN [Vehicle] 1 videos | 1,155 views | 27 likes | 6 comments | 2023-07-27~
+#110 PANPANKUN [Character] 1 videos | 1,054 views | 12 likes | 0 comments | 2026-02-01~
+#111 TEKKEN [Game] 1 videos | 943 views | 22 likes | 2 comments | 2024-09-30~
+#112 SKIBIDI TOILET [Other] 1 videos | 922 views | 18 likes | 2 comments | 2025-09-27~
+#113 DUCATI [Vehicle] 1 videos | 882 views | 24 likes | 3 comments | 2023-06-03~
+#114 KAIJU NO. 8 [Animation] 1 videos | 801 views | 8 likes | 0 comments | 2025-12-17~
+#115 JANMAN LOOPY [Character] 1 videos | 765 views | 9 likes | 1 comments | 2024-02-16~
+#116 NEWJEANSのHANNIのボイスカードをチェックしよう [Other] 1 videos | 539 views | 27 likes | 0 comments | 2024-06-29~
+#117 NEWJEANSボイスカード登場 [Other] 1 videos | 496 views | 26 likes | 0 comments | 2024-06-25~
+#118 BELLYGOM [Character] 1 videos | 486 views | 10 likes | 1 comments | 2024-09-05~
+#119 DYING LIGHT [Game] 1 videos | 454 views | 9 likes | 1 comments | 2025-10-17~
+#120 OIMO [Character] 1 videos | 264 views | 7 likes | 2 comments | 2020-11-18~
+#121 LOTUS [Vehicle] 1 videos | 229 views | 5 likes | 0 comments | 2025-09-17~
 
 [Instagram (PUBG MOBILE)] 38 partners, 378 items, 11,936,158 total views
 #1 ATTACK ON TITAN [Animation] 45 posts | 1,900,144 likes | 7,798 comments | 2025-04-21~2025-06-24
