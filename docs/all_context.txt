@@ -8,7 +8,7 @@ Video: "TITLE" DATE | VIEWS views | LIKES likes
   YouTube Global (PUBG MOBILE): 174 partners, 732 items, 868,651,834 views, 3,231,300 likes, 125,212 comments
   YouTube MENA: 72 partners, 242 items, 62,178,440 views, 590,424 likes, 47,517 comments
   YouTube India: 50 partners, 115 items, 246,522,156 views, 3,912,122 likes, 114,441 comments
-  YouTube Indonesia: 320 partners, 795 items, 159,723,348 views, 3,544,906 likes, 49,171 comments
+  YouTube Indonesia: 319 partners, 795 items, 159,723,348 views, 3,544,906 likes, 49,171 comments
   YouTube LATAM: 180 partners, 364 items, 4,906,704 views, 93,325 likes, 1,725 comments
   YouTube Malaysia: 67 partners, 7,057 items, 187,595,456 views, 2,231,174 likes, 59,010 comments
   YouTube Pakistan: 225 partners, 487 items, 94,546,917 views, 575,823 likes, 28,583 comments
@@ -997,7 +997,7 @@ Video: "TITLE" DATE | VIEWS views | LIKES likes
 #50 RANVEER [Artist] 1 videos | 10,335 views | 1,741 likes | 28 comments | 2024-01-01~
   "Happy New Year! | Play Pure" 2024-01-01 | 10,335 views | 1,741 likes
 
-[YouTube Indonesia] 320 partners, 795 items, 159,723,348 total views
+[YouTube Indonesia] 319 partners, 795 items, 159,723,348 total views
 #1 VIVO [Other] 61 videos | 50,071,680 views | 1,623,713 likes | 14,482 comments | 2019-03-25~2020-01-17
   "Winner Winner Ketupat Dinner #1/100" 2019-06-05 | 8,409,369 views | 147,074 likes
   "[ID] PMCO SEA Grand Finals 2019 Day" 2019-06-23 | 2,767,146 views | 116,031 likes
@@ -1027,9 +1027,10 @@ Video: "TITLE" DATE | VIEWS views | LIKES likes
   "PMPL S3 INDONESIA GRAND FINAL DAY 3" 2021-04-18 | 2,396,538 views | 108,879 likes
   "PMPL INDONESIA S3 | W3 D1 | SAMSUNG" 2021-04-07 | 1,919,578 views | 50,950 likes
   "Kilas Balik PUBG MOBILE di 2020 'KE" 2021-04-01 | 8,582 views | 199 likes
-#4 Pevita Pearce [Artist] 2 videos | 11,800,252 views | 16,794 likes | 5,359 comments | 2021-11-11~2022-01-11
+#4 Pevita Pearce [Artist] 3 videos | 11,809,200 views | 17,030 likes | 5,385 comments | 2021-11-11~2022-01-11
   "PUBG Mobile x Pevita Pearce | Pev P" 2021-11-11 | 11,635,520 views | 16,558 likes
   "PUBG MOBILE | Pevita Pearce in Acti" 2022-01-11 | 164,732 views | 236 likes
+  "PUBG MOBILE | Yuk Ikutan Event SUMM" 2021-08-05 | 8,948 views | 236 likes
 #5 BLACKPINK [Artist] 14 videos | 6,260,645 views | 29,269 likes | 1,257 comments | 2020-09-28~2022-08-15
   "BlACKPINK Menyerbu Area Pertempuran" 2020-09-28 | 4,220,221 views | 3,404 likes
   "Jangan Lewatkan Blackpink x PUBGMob" 2020-11-10 | 645,962 views | 1,838 likes
@@ -1529,119 +1530,118 @@ Video: "TITLE" DATE | VIEWS views | LIKES likes
 #205 LIVERPOOL FC [Other] 1 videos | 10,242 views | 146 likes | 32 comments | 2021-11-15~2021-11-15
 #206 BOY WILLIAM [Artist] 1 videos | 9,452 views | 381 likes | 33 comments | 2019-04-08~2019-04-08
 #207 NASA [Other] 1 videos | 9,010 views | 160 likes | 3 comments | 2022-02-13~2022-02-13
-#208 PEVITA PEARCE [Artist] 1 videos | 8,948 views | 236 likes | 26 comments | 2021-08-05~2021-08-05
-#209 PANDA [Character] 5 videos | 8,892 views | 166 likes | 80 comments | 2025-02-03~2025-02-10
-#210 JUJUTSU HIGH TOKYO [Animation] 2 videos | 8,846 views | 199 likes | 74 comments | 2022-02-24~2022-03-05
-#211 BANG MOON GAZE [Artist] 1 videos | 8,365 views | 125 likes | 5 comments | 2021-08-24~2021-08-24
-#212 SCUDERIA FERRARI [Vehicle] 1 videos | 8,261 views | 101 likes | 10 comments | 2025-12-14~2025-12-14
-#213 POLARIS [Vehicle] 2 videos | 8,246 views | 108 likes | 4 comments | 2023-01-20~2023-01-24
-#214 THE SHOUTERS [Artist] 1 videos | 8,068 views | 236 likes | 8 comments | 2023-11-03~2023-11-03
-#215 RRQKENBOO [Artist] 1 videos | 8,056 views | 100 likes | 8 comments | 2020-04-08~2020-04-08
-#216 JVKE [Artist] 1 videos | 7,957 views | 169 likes | 0 comments | 2024-03-21~2024-03-21
-#217 PABLO LAPUTA [Artist] 1 videos | 7,918 views | 100 likes | 3 comments | 2023-06-20~2023-06-20
-#218 AX_RIEF [Artist] 1 videos | 7,800 views | 80 likes | 0 comments | 2024-03-17~2024-03-17
-#219 NEON ASSASSINS [Other] 1 videos | 7,753 views | 151 likes | 2 comments | 2023-02-04~2023-02-04
-#220 STYGIAN LIEGE [Game] 2 videos | 7,698 views | 181 likes | 11 comments | 2023-05-14~2023-05-16
-#221 KC ADICTIVO [Artist] 1 videos | 7,655 views | 218 likes | 3 comments | 2024-05-15~2024-05-15
-#222 DUCATI [Vehicle] 2 videos | 7,503 views | 138 likes | 8 comments | 2023-06-07~2023-06-15
-#223 PEAKY BLINDERS [Film] 2 videos | 7,439 views | 93 likes | 1 comments | 2026-01-09~2026-01-14
-#224 MICROBOY & LUXXY [Artist] 1 videos | 7,390 views | 66 likes | 1 comments | 2025-11-08~2025-11-08
-#225 KOPI MANUSIA [Other] 1 videos | 7,343 views | 96 likes | 1 comments | 2025-12-07~2025-12-07
-#226 NADIA AND CELLYMOO [Artist] 1 videos | 7,340 views | 142 likes | 3 comments | 2022-09-29~2022-09-29
-#227 ZUXXY LUXXY [Artist] 1 videos | 7,277 views | 81 likes | 0 comments | 2026-02-25~2026-02-25
-#228 RRQ HEXAZ [Artist] 2 videos | 7,151 views | 165 likes | 5 comments | 2023-10-24~2023-10-25
-#229 BINTANG EMON [Artist] 1 videos | 6,904 views | 117 likes | 11 comments | 2022-04-05~2022-04-05
-#230 BABANG VIKTOR [Artist] 3 videos | 6,758 views | 160 likes | 8 comments | 2022-10-23~2023-06-28
-#231 PRO TESLA [Other] 1 videos | 6,691 views | 183 likes | 21 comments | 2021-07-30~2021-07-30
-#232 Apple [Other] 1 videos | 6,225 views | 126 likes | 0 comments | 2024-05-08~2024-05-08
-#233 RONDS TV & THIO [Artist] 1 videos | 6,184 views | 152 likes | 8 comments | 2022-04-16~2022-04-16
-#234 MAHALINI & ALVIN JO [Artist] 1 videos | 5,883 views | 121 likes | 12 comments | 2023-01-10~2023-01-10
-#235 AFA [Other] 2 videos | 5,851 views | 64 likes | 2 comments | 2025-08-22~2025-09-01
-#236 RIGEN & RISPO [Artist] 1 videos | 5,743 views | 159 likes | 0 comments | 2019-12-26~2019-12-26
-#237 CRYONIX WRAITH [Game] 2 videos | 5,727 views | 59 likes | 3 comments | 2025-11-30~2026-01-06
-#238 MIRALDHA [Artist] 1 videos | 5,655 views | 69 likes | 7 comments | 2020-04-09~2020-04-09
-#239 CURLY [Artist] 1 videos | 5,535 views | 53 likes | 0 comments | 2024-08-16~2024-08-16
-#240 PAGANI [Vehicle] 3 videos | 5,502 views | 150 likes | 1 comments | 2023-11-08~2023-11-14
-#241 HAYA, REZ, BANGKEV [Artist] 2 videos | 5,479 views | 83 likes | 5 comments | 2024-08-11~2024-08-11
-#242 Anukhra [Artist] 2 videos | 5,478 views | 117 likes | 10 comments | 2025-04-04~2025-04-12
-#243 BANGKEV [Artist] 1 videos | 5,409 views | 73 likes | 0 comments | 2024-08-27~2024-08-27
-#244 WAKIL GUBERNUR JAWA BARAT [Other] 1 videos | 5,314 views | 135 likes | 7 comments | 2022-03-25~2022-03-25
-#245 ROG [Other] 2 videos | 5,285 views | 130 likes | 6 comments | 2024-05-28~2024-05-29
-#246 KAPTEN VIKTOR [Artist] 2 videos | 5,124 views | 62 likes | 0 comments | 2024-07-04~2024-08-28
-#247 RRQ [Artist] 1 videos | 5,015 views | 80 likes | 0 comments | 2024-07-07~2024-07-07
-#248 EVOS MICROBOY [Artist] 1 videos | 4,815 views | 152 likes | 2 comments | 2022-12-24~2022-12-24
-#249 GEAR FRONT [Other] 1 videos | 4,746 views | 138 likes | 0 comments | 2022-11-05~2022-11-05
-#250 ASTON MARTIN [Vehicle] 2 videos | 4,559 views | 71 likes | 1 comments | 2023-07-22~2023-08-09
-#251 BEBYNYA [Artist] 1 videos | 4,488 views | 88 likes | 6 comments | 2023-06-20~2023-06-20
-#252 BLOODSTAINED NEMESIS [Game] 1 videos | 4,382 views | 70 likes | 0 comments | 2023-05-12~2023-05-12
-#253 CRABSTICK [Artist] 1 videos | 4,370 views | 121 likes | 7 comments | 2021-06-29~2021-06-29
-#254 MALUS MAJESTY [Other] 1 videos | 4,313 views | 32 likes | 1 comments | 2025-04-26~2025-04-26
-#255 DRCCHEN [Artist] 1 videos | 4,244 views | 122 likes | 24 comments | 2021-07-16~2021-07-16
-#256 BUFFALO WILD WINGS [Other] 1 videos | 4,150 views | 88 likes | 11 comments | 2022-01-06~2022-01-06
-#257 THE DONKEY KING [Other] 1 videos | 4,143 views | 87 likes | 1 comments | 2023-05-15~2023-05-15
-#258 MYTHIC FORGE [Other] 1 videos | 3,917 views | 81 likes | 3 comments | 2023-04-06~2023-04-06
-#259 CREATIVE VISION AWARDS [Other] 1 videos | 3,897 views | 90 likes | 8 comments | 2023-12-28~2023-12-28
-#260 Aurous [Other] 1 videos | 3,893 views | 38 likes | 1 comments | 2023-04-06~2023-04-06
-#261 INFLUENCERS [Artist] 3 videos | 3,813 views | 99 likes | 13 comments | 2023-02-07~2025-02-01
-#262 ODIDIEU [Artist] 1 videos | 3,789 views | 62 likes | 2 comments | 2022-11-03~2022-11-03
-#263 FERNAN [Artist] 1 videos | 3,776 views | 98 likes | 10 comments | 2022-07-02~2022-07-02
-#264 DINOZONA [Game] 1 videos | 3,660 views | 62 likes | 9 comments | 2023-05-12~2023-05-12
-#265 POWER4BAND [Artist] 1 videos | 3,578 views | 96 likes | 9 comments | 2022-07-08~2022-07-08
-#266 BABANG ZAN [Artist] 1 videos | 3,501 views | 45 likes | 3 comments | 2022-08-26~2022-08-26
-#267 RYZEN & PASCOL [Artist] 1 videos | 3,424 views | 44 likes | 0 comments | 2024-07-06~2024-07-06
-#268 OPPENHEIMER [Film] 1 videos | 3,314 views | 88 likes | 7 comments | 2023-08-29~2023-08-29
-#269 BE@RBRICK [Character] 1 videos | 3,277 views | 60 likes | 5 comments | 2023-04-18~2023-04-18
-#270 BOT GAMING [Artist] 1 videos | 3,240 views | 85 likes | 4 comments | 2023-06-23~2023-06-23
-#271 Sandiaga Uno [Artist] 1 videos | 3,165 views | 143 likes | 9 comments | 2023-03-28~2023-03-28
-#272 Punch Monkey [Other] 1 videos | 3,163 views | 29 likes | 1 comments | 2026-03-13~2026-03-13
-#273 BIGETRON [Artist] 1 videos | 3,122 views | 73 likes | 2 comments | 2023-11-21~2023-11-21
-#274 NAMIDYA MEMEY [Artist] 1 videos | 2,843 views | 52 likes | 1 comments | 2023-06-21~2023-06-21
-#275 SEI'TAN [Other] 1 videos | 2,833 views | 49 likes | 13 comments | 2022-07-26~2022-07-26
-#276 VAMPIRE ESPORTS [Other] 1 videos | 2,707 views | 61 likes | 6 comments | 2024-09-12~2024-09-12
-#277 RADIO DANGDUT [Other] 1 videos | 2,692 views | 90 likes | 3 comments | 2023-09-19~2023-09-19
-#278 BABY SHARK [Character] 1 videos | 2,653 views | 83 likes | 15 comments | 2022-05-10~2022-05-10
-#279 9Z [Artist] 1 videos | 2,643 views | 47 likes | 1 comments | 2024-09-23~2024-09-23
-#280 BANG YOYO [Artist] 1 videos | 2,607 views | 64 likes | 0 comments | 2023-05-30~2023-05-30
-#281 KEMENPAREKRAF [Other] 1 videos | 2,554 views | 52 likes | 5 comments | 2022-09-15~2022-09-15
-#282 HAYAA AND PANNAILY [Artist] 1 videos | 2,544 views | 46 likes | 0 comments | 2024-06-28~2024-06-28
-#283 GHOST BUDDY [Other] 1 videos | 2,542 views | 25 likes | 0 comments | 2025-09-27~2025-09-27
-#284 VETERNINE [Artist] 1 videos | 2,509 views | 60 likes | 0 comments | 2024-03-16~2024-03-16
-#285 HUNTER X HUNTER [Animation] 2 videos | 2,503 views | 54 likes | 3 comments | 2024-07-18~2024-11-09
-#286 PUBG PARTNER [Other] 2 videos | 2,492 views | 78 likes | 1 comments | 2024-02-10~2024-02-10
-#287 Aftermath [Game] 1 videos | 2,462 views | 68 likes | 3 comments | 2022-12-20~2022-12-20
-#288 LEVEL 100 [Other] 1 videos | 2,444 views | 64 likes | 2 comments | 2024-01-29~2024-01-29
-#289 RADIANT CITADEL [Other] 1 videos | 2,400 views | 83 likes | 2 comments | 2024-04-07~2024-04-07
-#290 POWER 4 [Other] 1 videos | 2,375 views | 67 likes | 0 comments | 2023-02-04~2023-02-04
-#291 BUTTERFLAME [Other] 1 videos | 2,369 views | 72 likes | 1 comments | 2023-10-02~2023-10-02
-#292 PULSAR [Vehicle] 1 videos | 2,364 views | 10 likes | 0 comments | 2025-07-28~2025-07-28
-#293 MCLAREN F1 [Vehicle] 2 videos | 2,349 views | 73 likes | 64 comments | 2024-11-23~2024-11-23
-#294 LOTUS [Vehicle] 1 videos | 2,333 views | 18 likes | 1 comments | 2025-09-18~2025-09-18
-#295 VOLKSWAGEN [Vehicle] 2 videos | 2,268 views | 43 likes | 0 comments | 2024-10-03~2024-10-07
-#296 SHELBY AMERICAN [Vehicle] 1 videos | 2,252 views | 40 likes | 1 comments | 2025-05-09~2025-05-09
-#297 NAZMITSU [Artist] 1 videos | 2,248 views | 33 likes | 0 comments | 2024-08-05~2024-08-05
-#298 CYBERTRON [Character] 1 videos | 2,240 views | 23 likes | 0 comments | 2025-07-13~2025-07-13
-#299 BEAT DROP [Other] 1 videos | 2,222 views | 44 likes | 11 comments | 2022-12-19~2022-12-19
-#300 PAK SANDIAGA UNO [Other] 1 videos | 2,213 views | 50 likes | 17 comments | 2022-09-15~2022-09-15
-#301 PTOPIA [Other] 1 videos | 2,104 views | 39 likes | 4 comments | 2022-06-25~2022-06-25
-#302 P.D.P [Other] 1 videos | 2,083 views | 38 likes | 0 comments | 2024-01-31~2024-01-31
-#303 DANDY GROOVSTER [Artist] 1 videos | 2,034 views | 19 likes | 0 comments | 2023-08-04~2023-08-04
-#304 MICHELLE ZIUDITH [Artist] 1 videos | 2,009 views | 41 likes | 14 comments | 2022-06-12~2022-06-12
-#305 WINGSTOP [Other] 1 videos | 1,987 views | 35 likes | 1 comments | 2022-09-08~2022-09-08
-#306 OCEAN ODYSSEY [Other] 1 videos | 1,908 views | 56 likes | 6 comments | 2024-09-11~2024-09-11
-#307 SSC [Vehicle] 1 videos | 1,902 views | 51 likes | 0 comments | 2024-05-22~2024-05-22
-#308 SKIBIDI TOILET [Character] 1 videos | 1,823 views | 12 likes | 0 comments | 2025-09-26~2025-09-26
-#309 RRQ MABAR [Artist] 1 videos | 1,813 views | 46 likes | 0 comments | 2024-06-25~2024-06-25
-#310 Artis Bela Diri Indonesia [Artist] 1 videos | 1,720 views | 39 likes | 0 comments | 2023-02-25~2023-02-25
-#311 GD YEOREOBUN [Artist] 1 videos | 1,650 views | 19 likes | 4 comments | 2025-09-20~2025-09-20
-#312 PMWC 2025 [Other] 1 videos | 1,515 views | 17 likes | 1 comments | 2025-07-23~2025-07-23
-#313 MR BEAST [Artist] 1 videos | 1,457 views | 35 likes | 1 comments | 2026-03-10~2026-03-10
-#314 TOKO KOPI MANUSIA [Other] 1 videos | 1,403 views | 13 likes | 1 comments | 2025-12-31~2025-12-31
-#315 PENGUIN NINJA [Character] 1 videos | 1,403 views | 8 likes | 0 comments | 2025-11-05~2025-11-05
-#316 DRAKE GAMING [Artist] 1 videos | 1,396 views | 8 likes | 0 comments | 2025-07-11~2025-07-11
-#317 NAGA [Game] 1 videos | 1,365 views | 40 likes | 0 comments | 2024-02-09~2024-02-09
-#318 LORD OF THE RINGS [Film] 1 videos | 1,332 views | 24 likes | 0 comments | 2024-12-15~2024-12-15
-#319 WORLD OF WONDER [Game] 1 videos | 1,248 views | 29 likes | 5 comments | 2024-03-24~2024-03-24
-#320 LUMINOUS MUSE [Other] 1 videos | 989 views | 38 likes | 2 comments | 2024-04-25~2024-04-25
+#208 PANDA [Character] 5 videos | 8,892 views | 166 likes | 80 comments | 2025-02-03~2025-02-10
+#209 JUJUTSU HIGH TOKYO [Animation] 2 videos | 8,846 views | 199 likes | 74 comments | 2022-02-24~2022-03-05
+#210 BANG MOON GAZE [Artist] 1 videos | 8,365 views | 125 likes | 5 comments | 2021-08-24~2021-08-24
+#211 SCUDERIA FERRARI [Vehicle] 1 videos | 8,261 views | 101 likes | 10 comments | 2025-12-14~2025-12-14
+#212 POLARIS [Vehicle] 2 videos | 8,246 views | 108 likes | 4 comments | 2023-01-20~2023-01-24
+#213 THE SHOUTERS [Artist] 1 videos | 8,068 views | 236 likes | 8 comments | 2023-11-03~2023-11-03
+#214 RRQKENBOO [Artist] 1 videos | 8,056 views | 100 likes | 8 comments | 2020-04-08~2020-04-08
+#215 JVKE [Artist] 1 videos | 7,957 views | 169 likes | 0 comments | 2024-03-21~2024-03-21
+#216 PABLO LAPUTA [Artist] 1 videos | 7,918 views | 100 likes | 3 comments | 2023-06-20~2023-06-20
+#217 AX_RIEF [Artist] 1 videos | 7,800 views | 80 likes | 0 comments | 2024-03-17~2024-03-17
+#218 NEON ASSASSINS [Other] 1 videos | 7,753 views | 151 likes | 2 comments | 2023-02-04~2023-02-04
+#219 STYGIAN LIEGE [Game] 2 videos | 7,698 views | 181 likes | 11 comments | 2023-05-14~2023-05-16
+#220 KC ADICTIVO [Artist] 1 videos | 7,655 views | 218 likes | 3 comments | 2024-05-15~2024-05-15
+#221 DUCATI [Vehicle] 2 videos | 7,503 views | 138 likes | 8 comments | 2023-06-07~2023-06-15
+#222 PEAKY BLINDERS [Film] 2 videos | 7,439 views | 93 likes | 1 comments | 2026-01-09~2026-01-14
+#223 MICROBOY & LUXXY [Artist] 1 videos | 7,390 views | 66 likes | 1 comments | 2025-11-08~2025-11-08
+#224 KOPI MANUSIA [Other] 1 videos | 7,343 views | 96 likes | 1 comments | 2025-12-07~2025-12-07
+#225 NADIA AND CELLYMOO [Artist] 1 videos | 7,340 views | 142 likes | 3 comments | 2022-09-29~2022-09-29
+#226 ZUXXY LUXXY [Artist] 1 videos | 7,277 views | 81 likes | 0 comments | 2026-02-25~2026-02-25
+#227 RRQ HEXAZ [Artist] 2 videos | 7,151 views | 165 likes | 5 comments | 2023-10-24~2023-10-25
+#228 BINTANG EMON [Artist] 1 videos | 6,904 views | 117 likes | 11 comments | 2022-04-05~2022-04-05
+#229 BABANG VIKTOR [Artist] 3 videos | 6,758 views | 160 likes | 8 comments | 2022-10-23~2023-06-28
+#230 PRO TESLA [Other] 1 videos | 6,691 views | 183 likes | 21 comments | 2021-07-30~2021-07-30
+#231 Apple [Other] 1 videos | 6,225 views | 126 likes | 0 comments | 2024-05-08~2024-05-08
+#232 RONDS TV & THIO [Artist] 1 videos | 6,184 views | 152 likes | 8 comments | 2022-04-16~2022-04-16
+#233 MAHALINI & ALVIN JO [Artist] 1 videos | 5,883 views | 121 likes | 12 comments | 2023-01-10~2023-01-10
+#234 AFA [Other] 2 videos | 5,851 views | 64 likes | 2 comments | 2025-08-22~2025-09-01
+#235 RIGEN & RISPO [Artist] 1 videos | 5,743 views | 159 likes | 0 comments | 2019-12-26~2019-12-26
+#236 CRYONIX WRAITH [Game] 2 videos | 5,727 views | 59 likes | 3 comments | 2025-11-30~2026-01-06
+#237 MIRALDHA [Artist] 1 videos | 5,655 views | 69 likes | 7 comments | 2020-04-09~2020-04-09
+#238 CURLY [Artist] 1 videos | 5,535 views | 53 likes | 0 comments | 2024-08-16~2024-08-16
+#239 PAGANI [Vehicle] 3 videos | 5,502 views | 150 likes | 1 comments | 2023-11-08~2023-11-14
+#240 HAYA, REZ, BANGKEV [Artist] 2 videos | 5,479 views | 83 likes | 5 comments | 2024-08-11~2024-08-11
+#241 Anukhra [Artist] 2 videos | 5,478 views | 117 likes | 10 comments | 2025-04-04~2025-04-12
+#242 BANGKEV [Artist] 1 videos | 5,409 views | 73 likes | 0 comments | 2024-08-27~2024-08-27
+#243 WAKIL GUBERNUR JAWA BARAT [Other] 1 videos | 5,314 views | 135 likes | 7 comments | 2022-03-25~2022-03-25
+#244 ROG [Other] 2 videos | 5,285 views | 130 likes | 6 comments | 2024-05-28~2024-05-29
+#245 KAPTEN VIKTOR [Artist] 2 videos | 5,124 views | 62 likes | 0 comments | 2024-07-04~2024-08-28
+#246 RRQ [Artist] 1 videos | 5,015 views | 80 likes | 0 comments | 2024-07-07~2024-07-07
+#247 EVOS MICROBOY [Artist] 1 videos | 4,815 views | 152 likes | 2 comments | 2022-12-24~2022-12-24
+#248 GEAR FRONT [Other] 1 videos | 4,746 views | 138 likes | 0 comments | 2022-11-05~2022-11-05
+#249 ASTON MARTIN [Vehicle] 2 videos | 4,559 views | 71 likes | 1 comments | 2023-07-22~2023-08-09
+#250 BEBYNYA [Artist] 1 videos | 4,488 views | 88 likes | 6 comments | 2023-06-20~2023-06-20
+#251 BLOODSTAINED NEMESIS [Game] 1 videos | 4,382 views | 70 likes | 0 comments | 2023-05-12~2023-05-12
+#252 CRABSTICK [Artist] 1 videos | 4,370 views | 121 likes | 7 comments | 2021-06-29~2021-06-29
+#253 MALUS MAJESTY [Other] 1 videos | 4,313 views | 32 likes | 1 comments | 2025-04-26~2025-04-26
+#254 DRCCHEN [Artist] 1 videos | 4,244 views | 122 likes | 24 comments | 2021-07-16~2021-07-16
+#255 BUFFALO WILD WINGS [Other] 1 videos | 4,150 views | 88 likes | 11 comments | 2022-01-06~2022-01-06
+#256 THE DONKEY KING [Other] 1 videos | 4,143 views | 87 likes | 1 comments | 2023-05-15~2023-05-15
+#257 MYTHIC FORGE [Other] 1 videos | 3,917 views | 81 likes | 3 comments | 2023-04-06~2023-04-06
+#258 CREATIVE VISION AWARDS [Other] 1 videos | 3,897 views | 90 likes | 8 comments | 2023-12-28~2023-12-28
+#259 Aurous [Other] 1 videos | 3,893 views | 38 likes | 1 comments | 2023-04-06~2023-04-06
+#260 INFLUENCERS [Artist] 3 videos | 3,813 views | 99 likes | 13 comments | 2023-02-07~2025-02-01
+#261 ODIDIEU [Artist] 1 videos | 3,789 views | 62 likes | 2 comments | 2022-11-03~2022-11-03
+#262 FERNAN [Artist] 1 videos | 3,776 views | 98 likes | 10 comments | 2022-07-02~2022-07-02
+#263 DINOZONA [Game] 1 videos | 3,660 views | 62 likes | 9 comments | 2023-05-12~2023-05-12
+#264 POWER4BAND [Artist] 1 videos | 3,578 views | 96 likes | 9 comments | 2022-07-08~2022-07-08
+#265 BABANG ZAN [Artist] 1 videos | 3,501 views | 45 likes | 3 comments | 2022-08-26~2022-08-26
+#266 RYZEN & PASCOL [Artist] 1 videos | 3,424 views | 44 likes | 0 comments | 2024-07-06~2024-07-06
+#267 OPPENHEIMER [Film] 1 videos | 3,314 views | 88 likes | 7 comments | 2023-08-29~2023-08-29
+#268 BE@RBRICK [Character] 1 videos | 3,277 views | 60 likes | 5 comments | 2023-04-18~2023-04-18
+#269 BOT GAMING [Artist] 1 videos | 3,240 views | 85 likes | 4 comments | 2023-06-23~2023-06-23
+#270 Sandiaga Uno [Artist] 1 videos | 3,165 views | 143 likes | 9 comments | 2023-03-28~2023-03-28
+#271 Punch Monkey [Other] 1 videos | 3,163 views | 29 likes | 1 comments | 2026-03-13~2026-03-13
+#272 BIGETRON [Artist] 1 videos | 3,122 views | 73 likes | 2 comments | 2023-11-21~2023-11-21
+#273 NAMIDYA MEMEY [Artist] 1 videos | 2,843 views | 52 likes | 1 comments | 2023-06-21~2023-06-21
+#274 SEI'TAN [Other] 1 videos | 2,833 views | 49 likes | 13 comments | 2022-07-26~2022-07-26
+#275 VAMPIRE ESPORTS [Other] 1 videos | 2,707 views | 61 likes | 6 comments | 2024-09-12~2024-09-12
+#276 RADIO DANGDUT [Other] 1 videos | 2,692 views | 90 likes | 3 comments | 2023-09-19~2023-09-19
+#277 BABY SHARK [Character] 1 videos | 2,653 views | 83 likes | 15 comments | 2022-05-10~2022-05-10
+#278 9Z [Artist] 1 videos | 2,643 views | 47 likes | 1 comments | 2024-09-23~2024-09-23
+#279 BANG YOYO [Artist] 1 videos | 2,607 views | 64 likes | 0 comments | 2023-05-30~2023-05-30
+#280 KEMENPAREKRAF [Other] 1 videos | 2,554 views | 52 likes | 5 comments | 2022-09-15~2022-09-15
+#281 HAYAA AND PANNAILY [Artist] 1 videos | 2,544 views | 46 likes | 0 comments | 2024-06-28~2024-06-28
+#282 GHOST BUDDY [Other] 1 videos | 2,542 views | 25 likes | 0 comments | 2025-09-27~2025-09-27
+#283 VETERNINE [Artist] 1 videos | 2,509 views | 60 likes | 0 comments | 2024-03-16~2024-03-16
+#284 HUNTER X HUNTER [Animation] 2 videos | 2,503 views | 54 likes | 3 comments | 2024-07-18~2024-11-09
+#285 PUBG PARTNER [Other] 2 videos | 2,492 views | 78 likes | 1 comments | 2024-02-10~2024-02-10
+#286 Aftermath [Game] 1 videos | 2,462 views | 68 likes | 3 comments | 2022-12-20~2022-12-20
+#287 LEVEL 100 [Other] 1 videos | 2,444 views | 64 likes | 2 comments | 2024-01-29~2024-01-29
+#288 RADIANT CITADEL [Other] 1 videos | 2,400 views | 83 likes | 2 comments | 2024-04-07~2024-04-07
+#289 POWER 4 [Other] 1 videos | 2,375 views | 67 likes | 0 comments | 2023-02-04~2023-02-04
+#290 BUTTERFLAME [Other] 1 videos | 2,369 views | 72 likes | 1 comments | 2023-10-02~2023-10-02
+#291 PULSAR [Vehicle] 1 videos | 2,364 views | 10 likes | 0 comments | 2025-07-28~2025-07-28
+#292 MCLAREN F1 [Vehicle] 2 videos | 2,349 views | 73 likes | 64 comments | 2024-11-23~2024-11-23
+#293 LOTUS [Vehicle] 1 videos | 2,333 views | 18 likes | 1 comments | 2025-09-18~2025-09-18
+#294 VOLKSWAGEN [Vehicle] 2 videos | 2,268 views | 43 likes | 0 comments | 2024-10-03~2024-10-07
+#295 SHELBY AMERICAN [Vehicle] 1 videos | 2,252 views | 40 likes | 1 comments | 2025-05-09~2025-05-09
+#296 NAZMITSU [Artist] 1 videos | 2,248 views | 33 likes | 0 comments | 2024-08-05~2024-08-05
+#297 CYBERTRON [Character] 1 videos | 2,240 views | 23 likes | 0 comments | 2025-07-13~2025-07-13
+#298 BEAT DROP [Other] 1 videos | 2,222 views | 44 likes | 11 comments | 2022-12-19~2022-12-19
+#299 PAK SANDIAGA UNO [Other] 1 videos | 2,213 views | 50 likes | 17 comments | 2022-09-15~2022-09-15
+#300 PTOPIA [Other] 1 videos | 2,104 views | 39 likes | 4 comments | 2022-06-25~2022-06-25
+#301 P.D.P [Other] 1 videos | 2,083 views | 38 likes | 0 comments | 2024-01-31~2024-01-31
+#302 DANDY GROOVSTER [Artist] 1 videos | 2,034 views | 19 likes | 0 comments | 2023-08-04~2023-08-04
+#303 MICHELLE ZIUDITH [Artist] 1 videos | 2,009 views | 41 likes | 14 comments | 2022-06-12~2022-06-12
+#304 WINGSTOP [Other] 1 videos | 1,987 views | 35 likes | 1 comments | 2022-09-08~2022-09-08
+#305 OCEAN ODYSSEY [Other] 1 videos | 1,908 views | 56 likes | 6 comments | 2024-09-11~2024-09-11
+#306 SSC [Vehicle] 1 videos | 1,902 views | 51 likes | 0 comments | 2024-05-22~2024-05-22
+#307 SKIBIDI TOILET [Character] 1 videos | 1,823 views | 12 likes | 0 comments | 2025-09-26~2025-09-26
+#308 RRQ MABAR [Artist] 1 videos | 1,813 views | 46 likes | 0 comments | 2024-06-25~2024-06-25
+#309 Artis Bela Diri Indonesia [Artist] 1 videos | 1,720 views | 39 likes | 0 comments | 2023-02-25~2023-02-25
+#310 GD YEOREOBUN [Artist] 1 videos | 1,650 views | 19 likes | 4 comments | 2025-09-20~2025-09-20
+#311 PMWC 2025 [Other] 1 videos | 1,515 views | 17 likes | 1 comments | 2025-07-23~2025-07-23
+#312 MR BEAST [Artist] 1 videos | 1,457 views | 35 likes | 1 comments | 2026-03-10~2026-03-10
+#313 TOKO KOPI MANUSIA [Other] 1 videos | 1,403 views | 13 likes | 1 comments | 2025-12-31~2025-12-31
+#314 PENGUIN NINJA [Character] 1 videos | 1,403 views | 8 likes | 0 comments | 2025-11-05~2025-11-05
+#315 DRAKE GAMING [Artist] 1 videos | 1,396 views | 8 likes | 0 comments | 2025-07-11~2025-07-11
+#316 NAGA [Game] 1 videos | 1,365 views | 40 likes | 0 comments | 2024-02-09~2024-02-09
+#317 LORD OF THE RINGS [Film] 1 videos | 1,332 views | 24 likes | 0 comments | 2024-12-15~2024-12-15
+#318 WORLD OF WONDER [Game] 1 videos | 1,248 views | 29 likes | 5 comments | 2024-03-24~2024-03-24
+#319 LUMINOUS MUSE [Other] 1 videos | 989 views | 38 likes | 2 comments | 2024-04-25~2024-04-25
 
 [YouTube LATAM] 180 partners, 364 items, 4,906,704 total views
 #1 THE KING OF FIGHTERS [Game] 3 videos | 841,532 views | 86 likes | 18 comments | 2026-01-29~2026-02-02

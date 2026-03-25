@@ -403,6 +403,20 @@
             color: var(--text-secondary); opacity: 0.7; padding: 6px 10px 2px; margin-top: 4px;
         }
         .plat-region-group-label:first-child { margin-top: 0; }
+        .plat-region-group-btn {
+            display: flex; align-items: center; gap: 6px; width: 100%;
+            font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+            color: var(--text-secondary); opacity: 0.8; padding: 7px 10px 3px; margin-top: 4px;
+            background: none; border: none; cursor: pointer; transition: all 0.15s;
+            border-radius: 6px; text-align: left;
+        }
+        .plat-region-group-btn:first-child { margin-top: 0; }
+        .plat-region-group-btn:hover { opacity: 1; color: var(--text-primary); background: var(--bg-tertiary); }
+        .plat-region-group-btn.active {
+            opacity: 1; color: var(--accent-light); background: var(--accent-bg);
+            font-weight: 800;
+        }
+        .plat-region-group-btn .region-group-flag { font-size: 0.7rem; }
         .plat-region-btn.active {
             background: var(--accent-bg);
             color: var(--accent-light);
@@ -2123,14 +2137,24 @@
                 </div>
             </section>
 
+            <!-- Compare Mode Toggle -->
+            <div id="compareModeToggle" style="display:flex;justify-content:center;margin-top:20px;gap:4px;background:rgba(255,255,255,0.04);border-radius:10px;padding:3px;width:fit-content;margin-left:auto;margin-right:auto;">
+                <button class="compare-mode-btn active" onclick="switchCompareMode('region')" data-mode="region" style="padding:8px 24px;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.2s;background:#6366f1;color:#fff;">
+                    <span data-en="By Region" data-ko="권역별" data-zh="按区域">권역별</span>
+                </button>
+                <button class="compare-mode-btn" onclick="switchCompareMode('country')" data-mode="country" style="padding:8px 24px;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.2s;background:transparent;color:#94a3b8;">
+                    <span data-en="By Country/Channel" data-ko="국가/채널별" data-zh="按国家/频道">국가/채널별</span>
+                </button>
+            </div>
+
             <!-- Charts Row -->
             <section class="charts-row" style="grid-template-columns: 1fr 1fr; margin-top: 24px;">
                 <div class="chart-card" style="padding: 24px 28px;">
-                    <h3 class="chart-title" data-en="Partners & Videos per Platform" data-ko="플랫폼별 파트너 & 영상 수" data-zh="各平台合作伙伴与视频数">플랫폼별 파트너 & 영상 수</h3>
+                    <h3 class="chart-title" id="compareVideosTitle" data-en="Partners & Videos per Region" data-ko="권역별 파트너 & 영상 수" data-zh="各区域合作伙伴与视频数">권역별 파트너 & 영상 수</h3>
                     <div style="height: 300px;"><canvas id="compareVideosChart"></canvas></div>
                 </div>
                 <div class="chart-card" style="padding: 24px 28px;">
-                    <h3 class="chart-title" data-en="Total Engagement per Platform" data-ko="플랫폼별 총 인게이지먼트" data-zh="各平台总互动量">플랫폼별 총 인게이지먼트</h3>
+                    <h3 class="chart-title" id="compareViewsTitle" data-en="Total Engagement per Region" data-ko="권역별 총 인게이지먼트" data-zh="各区域总互动量">권역별 총 인게이지먼트</h3>
                     <div style="height: 300px;"><canvas id="compareViewsChart"></canvas></div>
                 </div>
             </section>
@@ -2383,6 +2407,7 @@
         let currentTab = 'collab';
         let compareChartsInitialized = false;
         let compareCharts = [];
+        let _compareMode = 'region';
 
         function applyTheme(theme) {
             currentTheme = theme;
@@ -2436,8 +2461,18 @@
                 }
             }
         };
+        const REGION_GROUPS = {
+            east_asia:  { label: { en:'East Asia', ko:'동아시아', zh:'东亚' }, platforms: ['yt_korea','yt_japan','yt_taiwan'], flag:'🌏' },
+            sea:        { label: { en:'Southeast Asia', ko:'동남아시아', zh:'东南亚' }, platforms: ['yt_indonesia','yt_malaysia','yt_thailand'], flag:'🌏' },
+            south_asia: { label: { en:'South Asia', ko:'남아시아', zh:'南亚' }, platforms: ['yt_india','yt_pakistan'], flag:'🌏' },
+            mena:       { label: { en:'Middle East', ko:'중동', zh:'中东' }, platforms: ['yt_mena','yt_turkey'], flag:'🌍' },
+            latam:      { label: { en:'Latin America', ko:'남미', zh:'拉美' }, platforms: ['yt_latam'], flag:'🌎' },
+            cis:        { label: { en:'CIS / Eurasia', ko:'CIS / 유라시아', zh:'独联体' }, platforms: ['yt_cis'], flag:'🌍' },
+        };
+
         let currentGame = 'pubgm';
         let currentPlatform = 'youtube';
+        let currentRegionGroup = null;
 
         function getChannel() {
             const game = GAMES[currentGame];
@@ -2655,6 +2690,102 @@
             });
         }
 
+        async function loadRegionGroupData(groupId) {
+            const rg = REGION_GROUPS[groupId];
+            if (!rg) return;
+            const game = GAMES[currentGame];
+            if (!game) return;
+
+            const thisRequestId = ++loadRequestId;
+            selectedPartner = null;
+            currentCategory = 'all';
+            chartsInitialized = false;
+            clearAllUI();
+
+            const cacheBust = '?v=' + Date.now();
+            const fetches = rg.platforms.map(async pk => {
+                const plat = game.platforms[pk];
+                if (!plat) return { pk, partners: [], others: null };
+                const [partners, others] = await Promise.all([
+                    fetch(plat.dataFile + cacheBust).then(r => r.ok ? r.json() : []).catch(() => []),
+                    fetch(plat.othersFile + cacheBust).then(r => r.ok ? r.json() : null).catch(() => null),
+                ]);
+                return { pk, partners: Array.isArray(partners) ? partners : [], others };
+            });
+
+            try {
+                const results = await Promise.all(fetches);
+                if (thisRequestId !== loadRequestId) return;
+
+                const mergedMap = {};
+                for (const { pk, partners } of results) {
+                    const short = PLATFORM_SHORT[pk] || {};
+                    const regionLabel = short[currentLang] || short.en || pk;
+                    for (const p of partners) {
+                        const key = p.name.toUpperCase().trim();
+                        if (!mergedMap[key]) {
+                            mergedMap[key] = {
+                                name: p.name, category: p.category || 'Other',
+                                total_views: 0, total_likes: 0, total_comments: 0,
+                                video_count: 0, videos: [], _regions: new Set(),
+                            };
+                        }
+                        const m = mergedMap[key];
+                        m.total_views += (p.total_views || 0);
+                        m.total_likes += (p.total_likes || 0);
+                        m.total_comments += (p.total_comments || 0);
+                        m.video_count += (p.video_count || 0);
+                        if (p.videos) m.videos.push(...p.videos);
+                        m._regions.add(regionLabel);
+                    }
+                }
+                const merged = Object.values(mergedMap)
+                    .map(m => ({ ...m, _regions: [...m._regions].join(', ') }))
+                    .sort((a, b) => b.total_views - a.total_views);
+
+                let mergedOthers = null;
+                const othersArr = results.map(r => r.others).filter(Boolean);
+                if (othersArr.length > 0) {
+                    mergedOthers = { video_count: 0, content_types: [] };
+                    const ctMap = {};
+                    for (const o of othersArr) {
+                        mergedOthers.video_count += (o.video_count || 0);
+                        for (const ct of (o.content_types || [])) {
+                            const ck = ct.type || ct.name || 'Unknown';
+                            if (!ctMap[ck]) ctMap[ck] = { type: ck, name: ct.name || ck, video_count: 0, total_views: 0, videos: [] };
+                            ctMap[ck].video_count += (ct.video_count || 0);
+                            ctMap[ck].total_views += (ct.total_views || 0);
+                            if (ct.videos) ctMap[ck].videos.push(...ct.videos);
+                        }
+                    }
+                    mergedOthers.content_types = Object.values(ctMap).sort((a, b) => b.total_views - a.total_views);
+                }
+
+                partnersData = merged;
+                othersData = mergedOthers;
+                initDashboard();
+
+                const rgLabel = rg.label[currentLang] || rg.label.en;
+                document.querySelector('.logo').textContent = game.name;
+                const subtitleEl = document.querySelector('.subtitle');
+                if (subtitleEl) {
+                    const dateRanges = rg.platforms.map(pk => game.platforms[pk]?.dateRange).filter(Boolean);
+                    const dr = dateRanges.length > 0 ? dateRanges[0] : '';
+                    subtitleEl.textContent = 'YouTube ' + rgLabel + ' · ' + t(
+                        `Combined Collab Analysis (${dr})`,
+                        `콜라보 합산 분석 (${dr})`,
+                        `合作汇总分析 (${dr})`
+                    );
+                }
+                updateBreadcrumb();
+            } catch (err) {
+                partnersData = [];
+                othersData = null;
+                initDashboard();
+                showToast(t('Failed to load region data.', '권역 데이터 로드에 실패했습니다.', '区域数据加载失败。'), 'error');
+            }
+        }
+
         function showToast(msg, type = 'error', duration = 4000) {
             const el = document.getElementById('appToast');
             if (!el) return;
@@ -2721,8 +2852,14 @@
             const bcPlat = document.getElementById('bcPlatform');
             if (bcGame) bcGame.textContent = game ? game.name : currentGame;
             if (bcPlat) {
-                const pn = PLATFORM_NAMES[currentPlatform] || {};
-                bcPlat.textContent = pn[currentLang] || pn.en || currentPlatform;
+                if (currentRegionGroup && REGION_GROUPS[currentRegionGroup]) {
+                    const rg = REGION_GROUPS[currentRegionGroup];
+                    const label = rg.label[currentLang] || rg.label.en;
+                    bcPlat.textContent = 'YouTube ' + label + (currentLang === 'ko' ? ' (합산)' : currentLang === 'zh' ? ' (汇总)' : ' (Combined)');
+                } else {
+                    const pn = PLATFORM_NAMES[currentPlatform] || {};
+                    bcPlat.textContent = pn[currentLang] || pn.en || currentPlatform;
+                }
             }
             const logo = document.getElementById('sidebarLogo');
             if (logo && game) logo.textContent = game.name;
@@ -2744,7 +2881,7 @@
                 const ytActive = curIsYt ? ' active' : '';
                 html += `<button class="plat-type-btn${ytActive}" onclick="switchPlatformType('yt')" data-type="yt" style="${curIsYt ? `border-color:${gc};color:${gc};background:${gc}11;` : ''}">${PLATFORM_ICONS.youtube || ''} <span>YouTube</span></button>`;
 
-                if (ytKeys.length > 1 && curIsYt) {
+                if (ytKeys.length > 1 && (curIsYt || currentRegionGroup)) {
                     const GROUP_LABELS = {
                         global: { en:'Global', ko:'글로벌', zh:'全球' },
                         east_asia: { en:'East Asia', ko:'동아시아', zh:'东亚' },
@@ -2761,14 +2898,16 @@
                         if (grp !== lastGroup) {
                             const gl = GROUP_LABELS[grp] || GROUP_LABELS.other;
                             if (grp !== 'global') {
-                                html += `<div class="plat-region-group-label">${gl[currentLang] || gl.en}</div>`;
+                                const rgActive = currentRegionGroup === grp ? ' active' : '';
+                                const rgFlag = REGION_GROUPS[grp]?.flag || '';
+                                html += `<button class="plat-region-group-btn${rgActive}" onclick="switchToRegionGroup('${grp}')"><span class="region-group-flag">${rgFlag}</span>${gl[currentLang] || gl.en}</button>`;
                             }
                             lastGroup = grp;
                         }
                         const short = PLATFORM_SHORT[pk] || {};
                         const name = short[currentLang] || short.en || pk;
                         const flag = short.flag || '';
-                        const active = pk === currentPlatform ? ' active' : '';
+                        const active = (!currentRegionGroup && pk === currentPlatform) ? ' active' : '';
                         html += `<button class="plat-region-btn${active}" onclick="switchPlatform('${pk}')">${flag ? '<span class="region-flag">' + flag + '</span>' : ''}${name}</button>`;
                     }
                     html += `</div>`;
@@ -2869,6 +3008,7 @@
 
         function switchPlatform(platId) {
             currentPlatform = platId;
+            currentRegionGroup = null;
             if (currentTab === 'chat' || currentTab === 'search') {
                 switchTab('collab');
             }
@@ -2876,6 +3016,17 @@
             updateBreadcrumb();
             closeMobileSidebar();
             loadChannelData(currentGame + '_' + currentPlatform);
+        }
+
+        function switchToRegionGroup(groupId) {
+            currentRegionGroup = groupId;
+            if (currentTab === 'chat' || currentTab === 'search') {
+                switchTab('collab');
+            }
+            renderPlatformNav();
+            updateBreadcrumb();
+            closeMobileSidebar();
+            loadRegionGroupData(groupId);
         }
 
         // Initial render — restore from URL hash if available
@@ -3289,7 +3440,7 @@
                             ${escapeHtml(partner.name)}
                             <span class="partner-category-badge cat-${(partner.category || '').replace(/[^A-Za-z0-9_-]/g, '')}">${escapeHtml(translateCategory(partner.category))}</span>
                         </div>
-                        <div class="partner-meta">${partner.video_count} ${videosText}</div>
+                        <div class="partner-meta">${partner.video_count} ${videosText}${partner._regions ? ' · ' + escapeHtml(partner._regions) : ''}</div>
                         <div class="partner-bar-wrap"><div class="partner-bar-fill" style="width:${pct}%"></div></div>
                         <canvas class="sparkline-canvas" data-dates='${JSON.stringify(dates)}'></canvas>
                     </div>
@@ -3321,7 +3472,7 @@
             dc.style.animation = 'fadeUp 0.35s cubic-bezier(.4,0,.2,1)';
             
             document.getElementById('detailTitle').textContent = partner.name;
-            document.getElementById('detailCategory').textContent = translateCategory(partner.category);
+            document.getElementById('detailCategory').textContent = translateCategory(partner.category) + (partner._regions ? ' · ' + partner._regions : '');
             document.getElementById('detailCategory').className = 'detail-category cat-' + partner.category;
             animateValue(document.getElementById('detailVideos'), partner.video_count, 400);
             animateValue(document.getElementById('detailViews'), partner.total_views, 500);
@@ -4427,6 +4578,7 @@
         }
         let _compareCtx = {};
         let _compareMetric = 'views';
+        let _compareMode = 'region';
 
         let _compareTopN = 20;
 
@@ -4454,25 +4606,46 @@
         }
 
         function renderSharedTable() {
-            const { allKeys, perChannel, allData, shared, CHAN_COLORS, shortName } = _compareCtx;
+            const { allKeys, perChannel, allData, shared, CHAN_COLORS, shortName, regionKeys, perRegion, regionShortName, regionShared } = _compareCtx;
+            const isRegion = _compareMode === 'region';
+            const keys = isRegion ? regionKeys : allKeys;
+            const labelFn = isRegion ? regionShortName : shortName;
+            const sharedList = isRegion ? regionShared : shared;
             const metric = _compareMetric;
             const tableEl = document.getElementById('sharedPartnersTable');
-            if (!tableEl || !shared || shared.length === 0) {
+            if (!tableEl || !sharedList || sharedList.length === 0) {
                 if (tableEl) tableEl.innerHTML = `<p style="color:var(--text-muted);text-align:center;padding:24px;">${t('No shared partners found','공통 파트너가 없습니다','暂无共同合作伙伴')}</p>`;
                 return;
             }
 
-            const getPartnerMetric = (pk, name) => {
-                const p = (allData[pk].partners || []).find(x => x.name === name);
-                if (!p) return null;
-                if (metric === 'views') return p.total_views || 0;
-                if (metric === 'videos') return p.video_count || 0;
-                return (p.video_count > 0) ? Math.round((p.total_views || 0) / p.video_count) : 0;
+            const getPartnerMetric = (k, name) => {
+                if (isRegion) {
+                    const rg = REGION_GROUPS[k];
+                    const platforms = rg ? rg.platforms : [k];
+                    let total = 0, found = false;
+                    for (const pk of platforms) {
+                        if (!allData[pk]) continue;
+                        const p = (allData[pk].partners || []).find(x => x.name === name);
+                        if (p) {
+                            found = true;
+                            if (metric === 'views') total += (p.total_views || 0);
+                            else if (metric === 'videos') total += (p.video_count || 0);
+                            else total += (p.video_count > 0 ? Math.round((p.total_views || 0) / p.video_count) : 0);
+                        }
+                    }
+                    return found ? total : null;
+                } else {
+                    const p = (allData[k]?.partners || []).find(x => x.name === name);
+                    if (!p) return null;
+                    if (metric === 'views') return p.total_views || 0;
+                    if (metric === 'videos') return p.video_count || 0;
+                    return (p.video_count > 0) ? Math.round((p.total_views || 0) / p.video_count) : 0;
+                }
             };
 
-            const sortedShared = [...shared].sort((a, b) => {
-                const totalA = allKeys.reduce((s, pk) => s + (getPartnerMetric(pk, a[0]) || 0), 0);
-                const totalB = allKeys.reduce((s, pk) => s + (getPartnerMetric(pk, b[0]) || 0), 0);
+            const sortedShared = [...sharedList].sort((a, b) => {
+                const totalA = keys.reduce((s, k) => s + (getPartnerMetric(k, a[0]) || 0), 0);
+                const totalB = keys.reduce((s, k) => s + (getPartnerMetric(k, b[0]) || 0), 0);
                 return totalB - totalA;
             });
 
@@ -4480,8 +4653,8 @@
 
             let globalMax = 0;
             top.forEach(([name]) => {
-                allKeys.forEach(pk => {
-                    const v = getPartnerMetric(pk, name);
+                keys.forEach(k => {
+                    const v = getPartnerMetric(k, name);
                     if (v !== null && v > globalMax) globalMax = v;
                 });
             });
@@ -4490,9 +4663,9 @@
             tbl += `<thead><tr>`;
             tbl += `<th style="width:36px;text-align:center;">#</th>`;
             tbl += `<th style="min-width:160px;">${t('Partner','파트너','合作伙伴')}</th>`;
-            allKeys.forEach((pk, i) => {
+            keys.forEach((k, i) => {
                 const c = CHAN_COLORS[i % CHAN_COLORS.length];
-                tbl += `<th style="text-align:right;min-width:120px;white-space:nowrap;"><span class="plat-color-dot" style="background:${c};"></span><span style="color:${c};">${shortName(pk)}</span></th>`;
+                tbl += `<th style="text-align:right;min-width:120px;white-space:nowrap;"><span class="plat-color-dot" style="background:${c};"></span><span style="color:${c};">${labelFn(k)}</span></th>`;
             });
             tbl += `<th style="text-align:right;min-width:95px;">${t('Total','합계','总计')}</th>`;
             tbl += `</tr></thead><tbody>`;
@@ -4501,8 +4674,8 @@
                 const escapedName = name.replace(/'/g, "\\'");
 
                 let rowTotal = 0;
-                const rowVals = allKeys.map(pk => {
-                    const v = getPartnerMetric(pk, name);
+                const rowVals = keys.map(k => {
+                    const v = getPartnerMetric(k, name);
                     if (v !== null) rowTotal += v;
                     return v;
                 });
@@ -4513,7 +4686,7 @@
                     ? `<span style="display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;font-size:0.72rem;font-weight:700;background:${['linear-gradient(135deg,#f5af19,#f97316)','linear-gradient(135deg,#94a3b8,#cbd5e1)','linear-gradient(135deg,#d97706,#a16207)'][idx]};color:#fff;">${idx+1}</span>`
                     : `<span style="color:var(--text-muted);font-size:0.8rem;font-variant-numeric:tabular-nums;">${idx+1}</span>`;
 
-                const presenceDots = allKeys.map((pk, i) => {
+                const presenceDots = keys.map((k, i) => {
                     const c = CHAN_COLORS[i % CHAN_COLORS.length];
                     const exists = rowVals[i] !== null;
                     return `<span style="display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:2px;background:${exists ? c : 'rgba(255,255,255,0.08)'};"></span>`;
@@ -4521,9 +4694,9 @@
 
                 tbl += `<tr onclick="selectComparePartner('${escapedName}')">`;
                 tbl += `<td style="text-align:center;">${rankBadge}</td>`;
-                tbl += `<td><div style="font-weight:600;color:var(--text-primary);white-space:nowrap;margin-bottom:2px;">${name}</div><div style="display:flex;align-items:center;gap:2px;">${presenceDots}<span style="color:var(--text-muted);font-size:0.72rem;margin-left:4px;">${cnt}/${allKeys.length}</span></div></td>`;
+                tbl += `<td><div style="font-weight:600;color:var(--text-primary);white-space:nowrap;margin-bottom:2px;">${name}</div><div style="display:flex;align-items:center;gap:2px;">${presenceDots}<span style="color:var(--text-muted);font-size:0.72rem;margin-left:4px;">${cnt}/${keys.length}</span></div></td>`;
 
-                allKeys.forEach((pk, i) => {
+                keys.forEach((k, i) => {
                     const val = rowVals[i];
                     const color = CHAN_COLORS[i % CHAN_COLORS.length];
                     if (val !== null) {
@@ -4749,13 +4922,97 @@
             });
             const shared = Object.entries(nameCounts).filter(([, c]) => c >= 2).sort((a, b) => b[1] - a[1]);
 
-            _compareCtx = { allKeys, perChannel, allData, shared, CHAN_COLORS, shortName };
+            // Build region-aggregated data
+            const ytOnlyKeys = allKeys.filter(k => k === 'youtube' || k.startsWith('yt_'));
+            const regionKeys = ['youtube'];
+            const perRegion = {};
+            // Global first
+            if (perChannel['youtube']) {
+                perRegion['youtube'] = { ...perChannel['youtube'] };
+            }
+            for (const [gid, rg] of Object.entries(REGION_GROUPS)) {
+                const rgPlatforms = rg.platforms.filter(pk => allKeys.includes(pk));
+                if (rgPlatforms.length === 0) continue;
+                regionKeys.push(gid);
+                const rgNames = new Set();
+                let rgVids = 0, rgViews = 0, rgPartners = [];
+                for (const pk of rgPlatforms) {
+                    const ch = perChannel[pk];
+                    if (!ch) continue;
+                    ch.names.forEach(n => rgNames.add(n));
+                    rgVids += ch.collabVids;
+                    rgViews += ch.collabViews;
+                    rgPartners.push(...ch.partners);
+                }
+                perRegion[gid] = { names: rgNames, collabVids: rgVids, collabViews: rgViews, partnerCount: rgNames.size, partners: rgPartners };
+            }
+            // Non-YT platforms
+            const nonYtKeys = allKeys.filter(k => k !== 'youtube' && !k.startsWith('yt_'));
+            for (const pk of nonYtKeys) {
+                regionKeys.push(pk);
+                perRegion[pk] = { ...perChannel[pk] };
+            }
+
+            const regionShortName = (k) => {
+                if (REGION_GROUPS[k]) {
+                    const l = REGION_GROUPS[k].label;
+                    return (REGION_GROUPS[k].flag || '') + ' ' + (l[currentLang] || l.en);
+                }
+                return shortName(k);
+            };
+
+            // Region shared partners
+            const regionNameCounts = {};
+            regionKeys.forEach(rk => {
+                if (perRegion[rk]) perRegion[rk].names.forEach(n => { regionNameCounts[n] = (regionNameCounts[n] || 0) + 1; });
+            });
+            const regionShared = Object.entries(regionNameCounts).filter(([, c]) => c >= 2).sort((a, b) => b[1] - a[1]);
+
+            _compareCtx = { allKeys, perChannel, allData, shared, CHAN_COLORS, shortName, regionKeys, perRegion, regionShortName, regionShared };
+
+            renderCompareCharts();
+
+            const sortedByViews = shared.map(([name]) => {
+                const totalViews = allKeys.reduce((s, pk) => {
+                    const p = (allData[pk].partners || []).find(x => x.name === name);
+                    return s + (p ? (p.total_views || 0) : 0);
+                }, 0);
+                return { name, totalViews };
+            }).sort((a, b) => b.totalViews - a.totalViews);
+
+            _comparePartnerList = sortedByViews;
+            initPartnerSearch();
+
+            const chartsEl = document.getElementById('partnerCompareCharts');
+            const partnerEmptyEl = document.getElementById('partnerCompareEmpty');
+            if (chartsEl) chartsEl.style.display = 'none';
+            if (partnerEmptyEl) partnerEmptyEl.style.display = '';
+            _partnerCharts.forEach(c => c.destroy());
+            _partnerCharts = [];
+
+            _compareMetric = 'views';
+            renderSharedTable();
+            compareChartsInitialized = true;
+        }
+
+        function renderCompareCharts() {
+            const { allKeys, perChannel, CHAN_COLORS, shortName, regionKeys, perRegion, regionShortName } = _compareCtx;
+            if (!allKeys) return;
+
+            const isRegion = _compareMode === 'region';
+            const keys = isRegion ? regionKeys : allKeys;
+            const data = isRegion ? perRegion : perChannel;
+            const labelFn = isRegion ? regionShortName : shortName;
 
             const setVal = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
-            setVal('compareChannels', allKeys.length);
-            setVal('compareShared', shared.length);
-            setVal('compareTotalVideos', formatNumber(allKeys.reduce((s, pk) => s + perChannel[pk].collabVids, 0)));
-            setVal('compareTotalPartners', allPartnerNames.size);
+            const allNames = new Set();
+            keys.forEach(k => { if (data[k]) data[k].names.forEach(n => allNames.add(n)); });
+            setVal('compareChannels', keys.length);
+            const nc = {};
+            keys.forEach(k => { if (data[k]) data[k].names.forEach(n => { nc[n] = (nc[n]||0)+1; }); });
+            setVal('compareShared', Object.values(nc).filter(c => c >= 2).length);
+            setVal('compareTotalVideos', formatNumber(keys.reduce((s, k) => s + (data[k]?.collabVids || 0), 0)));
+            setVal('compareTotalPartners', allNames.size);
 
             compareCharts.forEach(c => c.destroy());
             compareCharts = [];
@@ -4769,16 +5026,16 @@
                 compareCharts.push(new Chart(ctx1, {
                     type: 'bar',
                     data: {
-                        labels: allKeys.map(shortName),
+                        labels: keys.map(labelFn),
                         datasets: [{
                             label: t('Collab Partners', '콜라보 파트너', '合作伙伴'),
-                            data: allKeys.map(pk => perChannel[pk].partnerCount),
-                            backgroundColor: allKeys.map((_, i) => CHAN_COLORS[i % CHAN_COLORS.length] + 'cc'),
+                            data: keys.map(k => data[k]?.partnerCount || 0),
+                            backgroundColor: keys.map((_, i) => CHAN_COLORS[i % CHAN_COLORS.length] + 'cc'),
                             borderRadius: 6,
                         }, {
                             label: t('Collab Videos', '콜라보 영상', '合作视频'),
-                            data: allKeys.map(pk => perChannel[pk].collabVids),
-                            backgroundColor: allKeys.map((_, i) => CHAN_COLORS[i % CHAN_COLORS.length] + '66'),
+                            data: keys.map(k => data[k]?.collabVids || 0),
+                            backgroundColor: keys.map((_, i) => CHAN_COLORS[i % CHAN_COLORS.length] + '66'),
                             borderRadius: 6,
                         }]
                     },
@@ -4788,10 +5045,9 @@
                         plugins: {
                             legend: { position: 'top', labels: { color: txtSec, boxWidth: 12, padding: 16, font: { size: 12 } } },
                             datalabels: {
-                                display: true,
-                                anchor: 'end', align: 'right', offset: 4,
+                                display: true, anchor: 'end', align: 'right', offset: 4,
                                 font: { size: 11, weight: '600' },
-                                color: (ctx) => ctx.dataset.backgroundColor[ctx.dataIndex].replace(/[0-9a-f]{2}$/i, 'ff'),
+                                color: (c) => c.dataset.backgroundColor[c.dataIndex].replace(/[0-9a-f]{2}$/i, 'ff'),
                                 formatter: (v) => v > 0 ? fmtKC(v) : '',
                             }
                         },
@@ -4808,11 +5064,11 @@
                 compareCharts.push(new Chart(ctx2, {
                     type: 'bar',
                     data: {
-                        labels: allKeys.map(shortName),
+                        labels: keys.map(labelFn),
                         datasets: [{
                             label: t('Total Engagement', '총 인게이지먼트', '总互动量'),
-                            data: allKeys.map(pk => perChannel[pk].collabViews),
-                            backgroundColor: allKeys.map((_, i) => CHAN_COLORS[i % CHAN_COLORS.length] + 'cc'),
+                            data: keys.map(k => data[k]?.collabViews || 0),
+                            backgroundColor: keys.map((_, i) => CHAN_COLORS[i % CHAN_COLORS.length] + 'cc'),
                             borderRadius: 6,
                         }]
                     },
@@ -4821,50 +5077,35 @@
                         responsive: true, maintainAspectRatio: false,
                         plugins: {
                             legend: { display: false },
-                            tooltip: { callbacks: { label: (ctx) => fmtKC(ctx.raw) } },
+                            tooltip: { callbacks: { label: (c) => fmtKC(c.raw) } },
                             datalabels: {
-                                display: true,
-                                anchor: 'end', align: 'right', offset: 4,
+                                display: true, anchor: 'end', align: 'right', offset: 4,
                                 font: { size: 12, weight: '700' },
-                                color: (ctx) => CHAN_COLORS[ctx.dataIndex % CHAN_COLORS.length],
+                                color: (c) => CHAN_COLORS[c.dataIndex % CHAN_COLORS.length],
                                 formatter: (v) => v > 0 ? fmtKC(v) : '',
                             }
                         },
                         scales: {
                             y: { grid: { display: false }, ticks: { color: txtSec, font: { size: 12, weight: '600' } } },
-                            x: {
-                                grid: { color: chartGrid },
-                                ticks: { color: txtSec, font: { size: 11 }, callback: v => fmtKC(v) },
-                                border: { display: false }
-                            }
+                            x: { grid: { color: chartGrid }, ticks: { color: txtSec, font: { size: 11 }, callback: v => fmtKC(v) }, border: { display: false } }
                         }
                     }
                 }));
             }
+        }
 
-            // Build partner search data
-            const sortedByViews = shared.map(([name]) => {
-                const totalViews = allKeys.reduce((s, pk) => {
-                    const p = (allData[pk].partners || []).find(x => x.name === name);
-                    return s + (p ? (p.total_views || 0) : 0);
-                }, 0);
-                return { name, totalViews };
-            }).sort((a, b) => b.totalViews - a.totalViews);
-
-            _comparePartnerList = sortedByViews;
-            initPartnerSearch();
-
-            // Reset partner detail chart
-            const chartsEl = document.getElementById('partnerCompareCharts');
-            const partnerEmptyEl = document.getElementById('partnerCompareEmpty');
-            if (chartsEl) chartsEl.style.display = 'none';
-            if (partnerEmptyEl) partnerEmptyEl.style.display = '';
-            _partnerCharts.forEach(c => c.destroy());
-            _partnerCharts = [];
-
-            _compareMetric = 'views';
-            renderSharedTable();
-            compareChartsInitialized = true;
+        function switchCompareMode(mode) {
+            _compareMode = mode;
+            document.querySelectorAll('.compare-mode-btn').forEach(btn => {
+                const isActive = btn.dataset.mode === mode;
+                btn.classList.toggle('active', isActive);
+                btn.style.background = isActive ? '#6366f1' : 'transparent';
+                btn.style.color = isActive ? '#fff' : '#94a3b8';
+            });
+            if (_compareCtx.allKeys) {
+                renderCompareCharts();
+                renderSharedTable();
+            }
         }
 
         /* ===== Partner Search in Compare Tab ===== */

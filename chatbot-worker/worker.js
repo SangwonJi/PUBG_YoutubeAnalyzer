@@ -43,7 +43,6 @@ const PARTNER_ALIASES = {
 
 const REGION_ALIASES = {
   '글로벌': 'Global', 'global': 'Global', '전체': 'Global',
-  '중동': 'MENA', 'mena': 'MENA', '아랍': 'MENA',
   '인도': 'India', 'india': 'India',
   '인도네시아': 'Indonesia', 'indonesia': 'Indonesia', '인니': 'Indonesia',
   '라틴': 'LATAM', 'latam': 'LATAM', '중남미': 'LATAM', '남미': 'LATAM',
@@ -58,7 +57,10 @@ const REGION_ALIASES = {
   '인스타': 'Instagram', 'instagram': 'Instagram', '인스타그램': 'Instagram',
   '웨이보': 'Weibo', 'weibo': 'Weibo', '중국': 'Weibo', '차이나': 'Weibo',
   '프리파이어': 'Free Fire', 'freefire': 'Free Fire', 'free fire': 'Free Fire',
-  '동남아': 'SEA', '남아시아': 'SouthAsia',
+  '동남아': 'SEA', '동남아시아': 'SEA',
+  '남아시아': 'SouthAsia',
+  '동아시아': 'EastAsia', '동북아': 'EastAsia', '동북아시아': 'EastAsia',
+  '중동': 'MiddleEast', '아랍': 'MiddleEast', 'mena': 'MENA',
 };
 
 const CATEGORY_ALIASES = {
@@ -108,7 +110,12 @@ function analyzeQuery(messages) {
     if (allText.includes(alias)) categories.add(canonical);
   }
 
-  const regionGroups = { SEA: ['Indonesia', 'Malaysia', 'Thailand'], SouthAsia: ['India', 'Pakistan'] };
+  const regionGroups = {
+    SEA: ['Indonesia', 'Malaysia', 'Thailand'],
+    SouthAsia: ['India', 'Pakistan'],
+    EastAsia: ['Korea', 'Japan', 'Taiwan'],
+    MiddleEast: ['MENA', 'Turkey'],
+  };
   for (const [group, list] of Object.entries(regionGroups)) {
     if (regions.has(group)) {
       regions.delete(group);
@@ -270,7 +277,16 @@ Each section is labeled [YouTube Global], [YouTube MENA], etc. The system pre-fi
 
 CATEGORY SYSTEM: Animation(애니), Artist(아티스트), Character(캐릭터), Fashion(패션), Film(영화), Game(게임), Vehicle(자동차), Other(기타)
 
-REGION ALIASES: 글로벌=Global, 중동=MENA, 동남아=Indonesia+Malaysia+Thailand, 남아시아=India+Pakistan, 중남미=LATAM, 대만=Taiwan, 터키=Turkey, 러시아=CIS, 중국=Weibo, 인스타=Instagram, 프리파이어=Free Fire, 한국=Korea, 일본=Japan
+REGION GROUPING (권역 vs 국가):
+- 동아시아(East Asia) = Korea + Japan + Taiwan
+- 동남아시아(Southeast Asia) = Indonesia + Malaysia + Thailand
+- 남아시아(South Asia) = India + Pakistan
+- 중동(Middle East) = MENA + Turkey
+- 남미(Latin America) = LATAM
+- CIS/유라시아 = CIS
+When user asks about a region group (e.g., "동아시아"), aggregate data from ALL constituent countries. When comparing, do NOT mix region-level (동아시아, 동남아) with country-level (한국, 일본) in the same table. Use consistent granularity.
+
+REGION ALIASES: 글로벌=Global, 중동=MENA+Turkey, 동남아=Indonesia+Malaysia+Thailand, 남아시아=India+Pakistan, 동아시아=Korea+Japan+Taiwan, 중남미=LATAM, 대만=Taiwan, 터키=Turkey, 러시아=CIS, 중국=Weibo, 인스타=Instagram, 프리파이어=Free Fire, 한국=Korea, 일본=Japan
 
 PARTNER ALIASES (Korean→English): 주술회전/JJK=JUJUTSU KAISEN, 드래곤볼=DRAGON BALL SUPER, 진격의거인=ATTACK ON TITAN, 블랙핑크=BLACKPINK, 베이비몬스터=BABYMONSTER, 고질라=GODZILLA, 스파이더맨=SPIDER-MAN, 트랜스포머=TRANSFORMERS, 부가티=BUGATTI, 포르쉐=PORSCHE, 메시=LIONEL MESSI, 소닉=SONIC, 아케인=ARCANE, 맥라렌=MCLAREN, 브루스리/이소룡=BRUCE LEE, 발렌시아가=BALENCIAGA, 알란워커=ALAN WALKER, 카이주넘버8=KAIJU NO.8, 원펀맨=ONE-PUNCH MAN, 나루토=NARUTO
 
@@ -283,6 +299,7 @@ CRITICAL RULES:
 6. If data doesn't exist, say so explicitly.
 7. Respond in Korean unless user writes in English/Chinese.
 9. **CATEGORY COMPLETENESS**: When user asks about a specific category (e.g., "Vehicle"), list ALL partners in that category from the provided data. NEVER skip partners. If data has 20 Vehicle partners, show all 20 in the table. Count them before responding.
+10. **REGION vs COUNTRY CONSISTENCY**: In comparison tables, NEVER mix region-level labels (동아시아, 동남아시아, 중동) with country-level labels (한국, 일본, 터키) in the same table. If user asks to compare regions, aggregate country data into region totals. If user asks to compare countries, use country-level data only.
 8. **NUMBERS — ABSOLUTE RULE**: Every number MUST be copied character-by-character from the data. NEVER drop leading digits.
    - Data: "23,001,580 views" → Write: "23,001,580" (CORRECT)
    - WRONG: ",001,580" or "3,001,580" (leading digits dropped!)
