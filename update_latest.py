@@ -417,6 +417,76 @@ def _rebuild_global_json(conn):
     log.info(f"  Global: {len(data_list)} 파트너, {collab_count} 콜라보, {len(noncollab_posts)} 일반")
 
 
+def _rebuild_region_json(conn, region):
+    """리전 JSON을 DB에서 전체 재생성 (재분류 후 사용)."""
+    rk = region.lower()
+    data_file = DOCS / f'yt_{rk}_data.json'
+    others_file = DOCS / f'yt_{rk}_others.json'
+
+    rows = conn.execute("""
+        SELECT video_id, title, published_at, thumbnail_url,
+               view_count, like_count, comment_count,
+               is_collab, collab_partner, collab_category, content_category
+        FROM videos WHERE region = ?
+    """, (region,)).fetchall()
+
+    collab_partners = defaultdict(list)
+    noncollab_posts = []
+
+    for r in rows:
+        post = {
+            'video_id': r[0], 'url': f"https://www.youtube.com/watch?v={r[0]}",
+            'title': (r[1] or '')[:120], 'published_at': (r[2] or '')[:10],
+            'view_count': r[4] or 0, 'like_count': r[5] or 0,
+            'comment_count': r[6] or 0, 'thumbnail': r[3] or '',
+        }
+        if r[7] == 1 and r[8]:
+            collab_partners[r[8]].append({**post, 'category': r[9] or 'Other'})
+        else:
+            post['content_category'] = r[10] or 'Other'
+            noncollab_posts.append(post)
+
+    data_list = []
+    for partner, posts in collab_partners.items():
+        cat = posts[0].get('category', 'Other')
+        data_list.append({
+            'name': partner, 'category': cat,
+            'post_count': len(posts), 'video_count': len(posts),
+            'total_views': sum(p['view_count'] for p in posts),
+            'total_likes': sum(p['like_count'] for p in posts),
+            'total_comments': sum(p['comment_count'] for p in posts),
+            'first_collab': min((p['published_at'] for p in posts if p['published_at']), default=''),
+            'videos': sorted(posts, key=lambda x: x.get('view_count', 0), reverse=True),
+        })
+    data_list.sort(key=lambda x: x['total_views'], reverse=True)
+
+    cat_groups = defaultdict(list)
+    for p in noncollab_posts:
+        cat_groups[p.get('content_category', 'Other')].append(p)
+    content_types = []
+    for cat, videos in sorted(cat_groups.items(), key=lambda x: -len(x[1])):
+        content_types.append({
+            'name': cat, 'video_count': len(videos),
+            'total_views': sum(v['view_count'] for v in videos),
+            'videos': sorted(videos, key=lambda x: x.get('view_count', 0), reverse=True),
+        })
+    others = {
+        'video_count': len(noncollab_posts),
+        'total_views': sum(p['view_count'] for p in noncollab_posts),
+        'total_likes': sum(p['like_count'] for p in noncollab_posts),
+        'total_comments': sum(p['comment_count'] for p in noncollab_posts),
+        'content_types': content_types,
+    }
+
+    with open(data_file, 'w', encoding='utf-8') as f:
+        json.dump(data_list, f, ensure_ascii=False)
+    with open(others_file, 'w', encoding='utf-8') as f:
+        json.dump(others, f, ensure_ascii=False)
+
+    collab_count = sum(p['video_count'] for p in data_list)
+    log.info(f"  {region}: {len(data_list)} 파트너, {collab_count} 콜라보, {len(noncollab_posts)} 일반")
+
+
 def _merge_region_json(conn, region):
     """리전은 기존 JSON에 신규 GPT 분류 영상만 병합."""
     rk = region.lower()
@@ -513,14 +583,17 @@ def _merge_region_json(conn, region):
     log.info(f"  {region}: {len(partners)} 파트너, {collab_count} 콜라보, {nc_count} 일반 (+{added} new)")
 
 
-def regenerate_json(conn):
-    """Global은 DB에서 재생성, 리전은 기존 JSON에 병합."""
+def regenerate_json(conn, full_rebuild=False):
+    """Global은 DB에서 재생성, 리전은 기존 JSON에 병합 (또는 전체 재생성)."""
     log.info("JSON 재생성 중...")
     _rebuild_global_json(conn)
     for region in REGION_META:
         if region == 'Global':
             continue
-        _merge_region_json(conn, region)
+        if full_rebuild:
+            _rebuild_region_json(conn, region)
+        else:
+            _merge_region_json(conn, region)
 
 
 # ═══════════════════════════════════════════════
@@ -640,7 +713,7 @@ def main():
     seed_missing_regions_from_csv(conn)
 
     if args.json_only:
-        regenerate_json(conn)
+        regenerate_json(conn, full_rebuild=True)
         regenerate_csv(conn)
         conn.close()
         log.info("완료!")
