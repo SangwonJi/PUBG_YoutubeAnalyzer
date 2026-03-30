@@ -51,6 +51,8 @@ CHANNELS = {
     "Pakistan":  "@PUBGMOBILEPakistan",
     "Taiwan":    "@PUBGMOBILEMTW",
     "Thailand":  "@pubgmth",
+    "Korea":     "@pubgm_kr",
+    "Japan":     "@pubgmobile_japan",
 }
 
 REGION_META = {
@@ -65,6 +67,8 @@ REGION_META = {
     'Pakistan':  {'name': 'PUBG MOBILE Pakistan',    'dateRange': '2020 - 2026'},
     'Taiwan':    {'name': 'PUBG MOBILE Taiwan',      'dateRange': '2019 - 2026'},
     'Thailand':  {'name': 'PUBG MOBILE Thailand',    'dateRange': '2019 - 2026'},
+    'Korea':     {'name': 'PUBG MOBILE Korea',       'dateRange': '2018 - 2026'},
+    'Japan':     {'name': 'PUBG MOBILE Japan',       'dateRange': '2018 - 2026'},
 }
 
 
@@ -552,6 +556,68 @@ def regenerate_csv(conn):
 
 
 # ═══════════════════════════════════════════════
+# STEP 6: CSV → DB 시드 (Korea/Japan 등 DB에 없는 리전)
+# ═══════════════════════════════════════════════
+
+def seed_missing_regions_from_csv(conn):
+    """CSV에는 있지만 DB에 없는 리전의 영상을 DB에 시드."""
+    import csv as csv_mod
+
+    if not CSV_OUT.exists():
+        log.warning(f"CSV 파일 없음: {CSV_OUT}")
+        return 0
+
+    db_regions = {r[0] for r in conn.execute("SELECT DISTINCT region FROM videos").fetchall()}
+    log.info(f"  DB 기존 리전: {sorted(db_regions)}")
+
+    with open(CSV_OUT, "r", encoding="utf-8-sig") as f:
+        rows = list(csv_mod.DictReader(f))
+
+    missing_rows = [r for r in rows if r["region"] not in db_regions]
+    if not missing_rows:
+        log.info("  CSV → DB 시드: 해당 없음 (모든 리전이 DB에 존재)")
+        return 0
+
+    missing_regions = sorted({r["region"] for r in missing_rows})
+    log.info(f"  DB에 없는 리전 발견: {missing_regions}")
+
+    now = datetime.now(timezone.utc).isoformat()
+    seeded = 0
+    for r in missing_rows:
+        conn.execute("""
+            INSERT OR IGNORE INTO videos (
+                video_id, channel_id, region, title, description,
+                published_at, thumbnail_url, duration,
+                view_count, like_count, comment_count, tags,
+                fetched_at, updated_at,
+                is_collab, collab_partner, collab_category, content_category, classified_by
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (
+            r["video_id"], "", r["region"], r["title"],
+            r.get("description_preview", ""),
+            r["published_at"], r.get("thumbnail_url", ""), r.get("duration", ""),
+            int(r.get("views", 0) or 0),
+            int(r.get("likes", 0) or 0),
+            int(r.get("comments", 0) or 0),
+            "", now, now,
+            int(r.get("is_collab", 0) or 0),
+            r.get("partner", ""),
+            r.get("collab_category", ""),
+            r.get("content_category", ""),
+            "csv_seed" if (r.get("is_collab") == "1" or r.get("content_category")) else None,
+        ))
+        seeded += 1
+    conn.commit()
+
+    for region in missing_regions:
+        count = sum(1 for r in missing_rows if r["region"] == region)
+        log.info(f"    {region}: {count}개 시드 완료")
+
+    log.info(f"  총 {seeded}개 시드 완료")
+    return seeded
+
+
+# ═══════════════════════════════════════════════
 # MAIN
 # ═══════════════════════════════════════════════
 
@@ -569,6 +635,9 @@ def main():
 
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
+
+    # DB에 없는 리전(Korea/Japan 등)을 CSV에서 시드
+    seed_missing_regions_from_csv(conn)
 
     if args.json_only:
         regenerate_json(conn)

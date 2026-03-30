@@ -7,8 +7,13 @@ import sqlite3
 import json
 import sys
 from datetime import datetime
+from pathlib import Path
 
 sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+DOCS_DIR = SCRIPT_DIR.parent / "docs"
+DB_PATH = SCRIPT_DIR / "data" / "pubg_collab.db"
 
 # Channel configurations
 CHANNELS = {
@@ -24,7 +29,7 @@ CHANNELS = {
     }
 }
 
-conn = sqlite3.connect('data/pubg_collab.db')
+conn = sqlite3.connect(str(DB_PATH))
 cursor = conn.cursor()
 
 print("Exporting data for web dashboard...\n")
@@ -108,7 +113,7 @@ for channel_id, channel_info in CHANNELS.items():
             'videos': videos
         })
     
-    with open(f'docs/{channel_info["data_file"]}', 'w', encoding='utf-8') as f:
+    with open(DOCS_DIR / channel_info["data_file"], 'w', encoding='utf-8') as f:
         json.dump(partners, f, ensure_ascii=False, indent=2)
     
     print(f"  Exported {len(partners)} partners to docs/{channel_info['data_file']}")
@@ -201,7 +206,7 @@ for channel_id, channel_info in CHANNELS.items():
         'videos': top_others
     }
     
-    with open(f'docs/{channel_info["others_file"]}', 'w', encoding='utf-8') as f:
+    with open(DOCS_DIR / channel_info["others_file"], 'w', encoding='utf-8') as f:
         json.dump(others_data, f, ensure_ascii=False, indent=2)
     
     print(f"  Exported {len(content_types)} content types to docs/{channel_info['others_file']}")
@@ -268,7 +273,7 @@ for row in cursor.fetchall():
         'videos': videos
     })
 
-with open('docs/data.json', 'w', encoding='utf-8') as f:
+with open(DOCS_DIR / 'data.json', 'w', encoding='utf-8') as f:
     json.dump(partners, f, ensure_ascii=False, indent=2)
 
 print(f"  Exported combined {len(partners)} partners to docs/data.json")
