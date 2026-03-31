@@ -671,6 +671,7 @@
         .filter-btn.cat-Movie { background: rgba(245,158,11,0.18); border-color: rgba(245,158,11,0.4); color: #fcd34d; }
         .filter-btn.cat-Game { background: rgba(16,185,129,0.18); border-color: rgba(16,185,129,0.4); color: #6ee7b7; }
         .filter-btn.cat-Sports { background: rgba(34,197,94,0.18); border-color: rgba(34,197,94,0.4); color: #86efac; }
+        .filter-btn.cat-Character { background: rgba(192,132,252,0.18); border-color: rgba(192,132,252,0.4); color: #d8b4fe; }
         .filter-btn.cat-Other { background: rgba(100,116,139,0.18); border-color: rgba(100,116,139,0.4); color: #cbd5e1; }
 
         .filter-btn.cat-Anime.active { background: #ec4899; border-color: #ec4899; color: #fff; }
@@ -680,6 +681,7 @@
         .filter-btn.cat-Movie.active { background: #f59e0b; border-color: #f59e0b; color: #fff; }
         .filter-btn.cat-Game.active { background: #10b981; border-color: #10b981; color: #fff; }
         .filter-btn.cat-Sports.active { background: #22c55e; border-color: #22c55e; color: #fff; }
+        .filter-btn.cat-Character.active { background: #c084fc; border-color: #c084fc; color: #fff; }
         .filter-btn.cat-Other.active { background: #64748b; border-color: #64748b; color: #fff; }
 
         [data-theme="light"] .filter-btn.cat-Anime { background: rgba(236,72,153,0.12); color: #db2777; }
@@ -689,6 +691,7 @@
         [data-theme="light"] .filter-btn.cat-Movie { background: rgba(245,158,11,0.12); color: #d97706; }
         [data-theme="light"] .filter-btn.cat-Game { background: rgba(16,185,129,0.12); color: #059669; }
         [data-theme="light"] .filter-btn.cat-Sports { background: rgba(34,197,94,0.12); color: #15803d; }
+        [data-theme="light"] .filter-btn.cat-Character { background: rgba(192,132,252,0.12); color: #7c3aed; }
         [data-theme="light"] .filter-btn.cat-Other { background: rgba(100,116,139,0.12); color: #475569; }
 
         /* ===== Main Layout ===== */
@@ -833,7 +836,8 @@
         .cat-Anime { background: #ec4899; } .cat-Artist { background: #8b5cf6; }
         .cat-Brand { background: #0ea5e9; } .cat-Creator { background: #f97316; }
         .cat-Movie { background: #f59e0b; } .cat-Game { background: #10b981; }
-        .cat-Sports { background: #22c55e; } .cat-Other { background: #64748b; }
+        .cat-Sports { background: #22c55e; } .cat-Character { background: #c084fc; }
+        .cat-Other { background: #64748b; }
 
         .detail-stats { display: flex; gap: 12px; flex-wrap: wrap; }
         .detail-stat {
@@ -2499,7 +2503,7 @@
             'Content': { types: ['Shorts', 'Chicko', 'Story', 'Music', 'Livestream'], ko: '콘텐츠', zh: '内容' },
             'Features': { types: ['Mode', 'Map', 'Event', 'Skin', 'Weapon', 'Vehicle', 'Festive'], ko: '게임 기능', zh: '游戏功能' },
             'Promotion & Community': { types: ['Promotion', 'Tutorial', 'Community'], ko: '프로모션 & 커뮤니티', zh: '推广 & 社区' },
-            'Special': { types: ['WOW', 'Craftland', 'Other'], ko: '스페셜', zh: '特别' }
+            'Special': { types: ['WOW', 'Craftland', 'Gameplay', 'Documentary', 'Podcast', 'Character', 'New Character', 'Announcement', 'Other'], ko: '스페셜', zh: '特别' }
         };
         
         const WEIBO_CONTENT_GROUPS = {
@@ -2516,7 +2520,7 @@
             'Features': { types: ['Mode', 'Map', 'Skin', 'Pass', 'Weapon', 'Vehicle'], ko: '게임 기능', zh: '游戏功能' },
             'Content': { types: ['Shorts', 'Chicko', 'Story', 'Music', 'Livestream'], ko: '콘텐츠', zh: '内容' },
             'Promotion & Community': { types: ['Promotion', 'Tutorial', 'Community'], ko: '프로모션 & 커뮤니티', zh: '推广 & 社区' },
-            'Special': { types: ['WOW', 'Craftland', 'Other'], ko: '스페셜', zh: '特别' }
+            'Special': { types: ['WOW', 'Craftland', 'Gameplay', 'Documentary', 'Podcast', 'Character', 'New Character', 'Announcement', 'Other'], ko: '스페셜', zh: '特别' }
         };
         
         const ICON_YOUTUBE = '<svg viewBox="0 0 24 24" width="22" height="22" style="vertical-align:middle;margin-left:4px;"><path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>';
@@ -2525,7 +2529,7 @@
         const CATEGORY_KO = {
             'Anime': '애니메이션', 'Artist': '아티스트', 'Brand': '브랜드',
             'Creator': '크리에이터', 'Movie': '영화', 'Game': '게임',
-            'Sports': '스포츠', 'Other': '기타',
+            'Sports': '스포츠', 'Character': '캐릭터', 'Other': '기타',
             'Event': '인게임 이벤트', 'Creative': '창작/UGC', 'Giveaway': '복리/추첨',
             'Esports': '이스포츠', 'Announcement': '공지', 'Update': '버전 업데이트',
             'Promotion': '프로모션', 'Festive': '명절/시즌', 'Livestream': '라이브',
@@ -2539,7 +2543,7 @@
         const CATEGORY_ZH = {
             'Anime': '动漫', 'Artist': '艺人', 'Brand': '品牌',
             'Creator': '创作者', 'Movie': '电影', 'Game': '游戏',
-            'Sports': '体育', 'Other': '其他',
+            'Sports': '体育', 'Character': '角色', 'Other': '其他',
             'Event': '游戏活动', 'Creative': '创作/UGC', 'Giveaway': '福利/抽奖',
             'Esports': '电竞', 'Announcement': '公告', 'Update': '版本更新',
             'Promotion': '推广', 'Festive': '节日/赛季', 'Livestream': '直播',
