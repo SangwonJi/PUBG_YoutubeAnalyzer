@@ -1,8 +1,8 @@
 {
-  "video_count": 4060,
-  "total_views": 2072280571,
-  "total_likes": 8878829,
-  "total_comments": 464274,
+  "video_count": 4062,
+  "total_views": 2072309234,
+  "total_likes": 8880956,
+  "total_comments": 464391,
   "content_types": [
     {
       "name": "Promotion",
@@ -3678,10 +3678,10 @@
     },
     {
       "name": "Other",
-      "video_count": 222,
-      "total_views": 78869506,
-      "total_likes": 546758,
-      "total_comments": 18446,
+      "video_count": 224,
+      "total_views": 78898169,
+      "total_likes": 548885,
+      "total_comments": 18563,
       "videos": [
         {
           "video_id": "lN0a5AcAKZo",
