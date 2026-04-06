@@ -1487,12 +1487,12 @@
   {
     "name": "BUGATTI",
     "category": "Brand",
-    "video_count": 10,
-    "total_views": 20810884,
-    "total_likes": 6777,
-    "total_comments": 455,
+    "video_count": 7,
+    "total_views": 19579525,
+    "total_likes": 5531,
+    "total_comments": 420,
     "first_collab": "2023-03-14",
-    "last_collab": "2025-04-14",
+    "last_collab": "2025-03-31",
     "videos": [
       {
         "video_id": "FkeAon1JQU0",
@@ -1522,24 +1522,6 @@
         "url": "https://www.youtube.com/watch?v=6rH3R0yBHPE"
       },
       {
-        "video_id": "FdTlCEnXEIQ",
-        "title": "PUBG MOBILE x BUGATTI | Become Luxury With The Anukhra X-Suit and Bugatti Bolide",
-        "published_at": "2025-04-12",
-        "view_count": 1176100,
-        "like_count": 252,
-        "comment_count": 13,
-        "url": "https://www.youtube.com/watch?v=FdTlCEnXEIQ"
-      },
-      {
-        "video_id": "ihE8u7F3oB8",
-        "title": "[EN] 2025 PMGO Uzbekistan Main Event | Day 2 | PUBG MOBILE Global Open Uzbekistan",
-        "published_at": "2025-04-13",
-        "view_count": 51904,
-        "like_count": 885,
-        "comment_count": 10,
-        "url": "https://www.youtube.com/watch?v=ihE8u7F3oB8"
-      },
-      {
         "video_id": "VGyKPl3M9xY",
         "title": "PUBG MOBILE X BUGATTI | Drift Together With BUGATTI",
         "published_at": "2025-03-31",
@@ -1565,15 +1547,6 @@
         "like_count": 138,
         "comment_count": 23,
         "url": "https://www.youtube.com/watch?v=GCFgCL3FkOQ"
-      },
-      {
-        "video_id": "Gxtfv5l_L1Y",
-        "title": "PUBG MOBILE | Rondo Strategy - Landing Spots (Part 1)",
-        "published_at": "2025-04-14",
-        "view_count": 3355,
-        "like_count": 109,
-        "comment_count": 12,
-        "url": "https://www.youtube.com/watch?v=Gxtfv5l_L1Y"
       },
       {
         "video_id": "GeX0LPHaSjY",
@@ -2643,6 +2616,117 @@
     ]
   },
   {
+    "name": "Bugatti",
+    "category": "Brand",
+    "video_count": 11,
+    "total_views": 8227152,
+    "total_likes": 12076,
+    "total_comments": 389,
+    "first_collab": "2025-03-12",
+    "last_collab": "2025-04-14",
+    "videos": [
+      {
+        "video_id": "DOWGpEWfxOc",
+        "title": "PUBG MOBILE x BUGATTI | Own The Dream!",
+        "published_at": "2025-03-14",
+        "view_count": 2496439,
+        "like_count": 718,
+        "comment_count": 50,
+        "url": "https://www.youtube.com/watch?v=DOWGpEWfxOc"
+      },
+      {
+        "video_id": "3X1m2VxbRMg",
+        "title": "PUBG MOBILE x BUGATTI | Collect Bugatti Models to Unlock Rewards",
+        "published_at": "2025-03-29",
+        "view_count": 1849774,
+        "like_count": 6251,
+        "comment_count": 42,
+        "url": "https://www.youtube.com/watch?v=3X1m2VxbRMg"
+      },
+      {
+        "video_id": "FdTlCEnXEIQ",
+        "title": "PUBG MOBILE x BUGATTI | Become Luxury With The Anukhra X-Suit and Bugatti Bolide",
+        "published_at": "2025-04-12",
+        "view_count": 1176100,
+        "like_count": 252,
+        "comment_count": 13,
+        "url": "https://www.youtube.com/watch?v=FdTlCEnXEIQ"
+      },
+      {
+        "video_id": "4iHg1lfIg6k",
+        "title": "PUBG MOBILE x BUGATTI | The Elegance Of The Golden Pharaoh X-Suit and Bugatti La Voiture Noire",
+        "published_at": "2025-04-14",
+        "view_count": 1025283,
+        "like_count": 471,
+        "comment_count": 15,
+        "url": "https://www.youtube.com/watch?v=4iHg1lfIg6k"
+      },
+      {
+        "video_id": "slY8drYnZ1M",
+        "title": "PUBG MOBILE x BUGATTI | Impress With The Iridescence X-Suit and Bugatti Veyron",
+        "published_at": "2025-04-12",
+        "view_count": 856922,
+        "like_count": 410,
+        "comment_count": 15,
+        "url": "https://www.youtube.com/watch?v=slY8drYnZ1M"
+      },
+      {
+        "video_id": "i56ngfFl7uA",
+        "title": "PUBG MOBILE x BUGATTI",
+        "published_at": "2025-03-21",
+        "view_count": 741313,
+        "like_count": 233,
+        "comment_count": 13,
+        "url": "https://www.youtube.com/watch?v=i56ngfFl7uA"
+      },
+      {
+        "video_id": "ihE8u7F3oB8",
+        "title": "[EN] 2025 PMGO Uzbekistan Main Event | Day 2 | PUBG MOBILE Global Open Uzbekistan",
+        "published_at": "2025-04-13",
+        "view_count": 51904,
+        "like_count": 885,
+        "comment_count": 10,
+        "url": "https://www.youtube.com/watch?v=ihE8u7F3oB8"
+      },
+      {
+        "video_id": "7YCAn-mnWdY",
+        "title": "PUBG MOBILE x Alan Walker",
+        "published_at": "2025-03-12",
+        "view_count": 16458,
+        "like_count": 1752,
+        "comment_count": 40,
+        "url": "https://www.youtube.com/watch?v=7YCAn-mnWdY"
+      },
+      {
+        "video_id": "NSILFJ4ziO8",
+        "title": "PUBG MOBILE x Bugatti",
+        "published_at": "2025-03-13",
+        "view_count": 7427,
+        "like_count": 916,
+        "comment_count": 161,
+        "url": "https://www.youtube.com/watch?v=NSILFJ4ziO8"
+      },
+      {
+        "video_id": "Gxtfv5l_L1Y",
+        "title": "PUBG MOBILE | Rondo Strategy - Landing Spots (Part 1)",
+        "published_at": "2025-04-14",
+        "view_count": 3355,
+        "like_count": 109,
+        "comment_count": 12,
+        "url": "https://www.youtube.com/watch?v=Gxtfv5l_L1Y"
+      },
+      {
+        "video_id": "G5pcK7WejFg",
+        "title": "PUBG MOBILE | Fortune Favors the Brave",
+        "published_at": "2025-03-13",
+        "view_count": 2177,
+        "like_count": 79,
+        "comment_count": 18,
+        "url": "https://www.youtube.com/watch?v=G5pcK7WejFg"
+      }
+    ]
+  },
+  {
     "name": "Alan Walker",
     "category": "Artist",
     "video_count": 25,
@@ -3363,96 +3447,12 @@
     ]
   },
   {
-    "name": "Bugatti",
-    "category": "Brand",
-    "video_count": 8,
-    "total_views": 6995793,
-    "total_likes": 10830,
-    "total_comments": 354,
-    "first_collab": "2025-03-12",
-    "last_collab": "2025-04-14",
-    "videos": [
-      {
-        "video_id": "DOWGpEWfxOc",
-        "title": "PUBG MOBILE x BUGATTI | Own The Dream!",
-        "published_at": "2025-03-14",
-        "view_count": 2496439,
-        "like_count": 718,
-        "comment_count": 50,
-        "url": "https://www.youtube.com/watch?v=DOWGpEWfxOc"
-      },
-      {
-        "video_id": "3X1m2VxbRMg",
-        "title": "PUBG MOBILE x BUGATTI | Collect Bugatti Models to Unlock Rewards",
-        "published_at": "2025-03-29",
-        "view_count": 1849774,
-        "like_count": 6251,
-        "comment_count": 42,
-        "url": "https://www.youtube.com/watch?v=3X1m2VxbRMg"
-      },
-      {
-        "video_id": "4iHg1lfIg6k",
-        "title": "PUBG MOBILE x BUGATTI | The Elegance Of The Golden Pharaoh X-Suit and Bugatti La Voiture Noire",
-        "published_at": "2025-04-14",
-        "view_count": 1025283,
-        "like_count": 471,
-        "comment_count": 15,
-        "url": "https://www.youtube.com/watch?v=4iHg1lfIg6k"
-      },
-      {
-        "video_id": "slY8drYnZ1M",
-        "title": "PUBG MOBILE x BUGATTI | Impress With The Iridescence X-Suit and Bugatti Veyron",
-        "published_at": "2025-04-12",
-        "view_count": 856922,
-        "like_count": 410,
-        "comment_count": 15,
-        "url": "https://www.youtube.com/watch?v=slY8drYnZ1M"
-      },
-      {
-        "video_id": "i56ngfFl7uA",
-        "title": "PUBG MOBILE x BUGATTI",
-        "published_at": "2025-03-21",
-        "view_count": 741313,
-        "like_count": 233,
-        "comment_count": 13,
-        "url": "https://www.youtube.com/watch?v=i56ngfFl7uA"
-      },
-      {
-        "video_id": "7YCAn-mnWdY",
-        "title": "PUBG MOBILE x Alan Walker",
-        "published_at": "2025-03-12",
-        "view_count": 16458,
-        "like_count": 1752,
-        "comment_count": 40,
-        "url": "https://www.youtube.com/watch?v=7YCAn-mnWdY"
-      },
-      {
-        "video_id": "NSILFJ4ziO8",
-        "title": "PUBG MOBILE x Bugatti",
-        "published_at": "2025-03-13",
-        "view_count": 7427,
-        "like_count": 916,
-        "comment_count": 161,
-        "url": "https://www.youtube.com/watch?v=NSILFJ4ziO8"
-      },
-      {
-        "video_id": "G5pcK7WejFg",
-        "title": "PUBG MOBILE | Fortune Favors the Brave",
-        "published_at": "2025-03-13",
-        "view_count": 2177,
-        "like_count": 79,
-        "comment_count": 18,
-        "url": "https://www.youtube.com/watch?v=G5pcK7WejFg"
-      }
-    ]
-  },
-  {
-    "name": "Attack On Titan",
+    "name": "Attack on Titan",
     "category": "Anime",
-    "video_count": 26,
-    "total_views": 6758679,
-    "total_likes": 38651,
-    "total_comments": 1432,
+    "video_count": 30,
+    "total_views": 6818964,
+    "total_likes": 39816,
+    "total_comments": 1476,
     "first_collab": "2025-04-29",
     "last_collab": "2025-06-24",
     "videos": [
@@ -3610,6 +3610,15 @@
         "url": "https://www.youtube.com/watch?v=3Hf17Y4VxNQ"
       },
       {
+        "video_id": "mj6Sq0mUWVI",
+        "title": "PUBG MOBILE | Gilt Set Bloodbane Vesper Coming Soon",
+        "published_at": "2025-05-24",
+        "view_count": 44241,
+        "like_count": 659,
+        "comment_count": 13,
+        "url": "https://www.youtube.com/watch?v=mj6Sq0mUWVI"
+      },
+      {
         "video_id": "MTRtClIy2os",
         "title": "PUBG MOBILE | Version 3.8 Themed Mode Preview",
         "published_at": "2025-05-01",
@@ -3644,6 +3653,15 @@
         "like_count": 848,
         "comment_count": 23,
         "url": "https://www.youtube.com/watch?v=2pZ8c-VOhuE"
+      },
+      {
+        "video_id": "CfIWKd-1Kvc",
+        "title": "PUBG MOBILE | Begin the Crimson Hunt with Bloodbane Parasite - DP-28",
+        "published_at": "2025-05-25",
+        "view_count": 12369,
+        "like_count": 442,
+        "comment_count": 10,
+        "url": "https://www.youtube.com/watch?v=CfIWKd-1Kvc"
       },
       {
         "video_id": "DgQKk-tMtVI",
@@ -3689,6 +3707,24 @@
         "like_count": 228,
         "comment_count": 26,
         "url": "https://www.youtube.com/watch?v=dOJ7lDcihrw"
+      },
+      {
+        "video_id": "yMsBWp75xHk",
+        "title": "PUBG MOBILE | WOW STAR SHOW - 3AMERCO",
+        "published_at": "2025-05-28",
+        "view_count": 2148,
+        "like_count": 35,
+        "comment_count": 16,
+        "url": "https://www.youtube.com/watch?v=yMsBWp75xHk"
+      },
+      {
+        "video_id": "OJKqddUbz8U",
+        "title": "PUBG MOBILE | WOW STAR SHOW - Hussein Ayoub",
+        "published_at": "2025-05-27",
+        "view_count": 1527,
+        "like_count": 29,
+        "comment_count": 5,
+        "url": "https://www.youtube.com/watch?v=OJKqddUbz8U"
       }
     ]
   },
@@ -6020,12 +6056,12 @@
   {
     "name": "Metro Royale",
     "category": "Game",
-    "video_count": 5,
-    "total_views": 2601002,
-    "total_likes": 1958,
-    "total_comments": 85,
+    "video_count": 4,
+    "total_views": 2597811,
+    "total_likes": 1895,
+    "total_comments": 79,
     "first_collab": "2025-01-21",
-    "last_collab": "2025-09-10",
+    "last_collab": "2025-03-18",
     "videos": [
       {
         "video_id": "Zwu2kh1Wz_8",
@@ -6053,15 +6089,6 @@
         "like_count": 506,
         "comment_count": 5,
         "url": "https://www.youtube.com/watch?v=Jn4nlpIoyBE"
-      },
-      {
-        "video_id": "SH0Zy_dqhxE",
-        "title": "PUBG MOBILE | Metro Royale Advanced Tips - Survival Drop",
-        "published_at": "2025-09-10",
-        "view_count": 3191,
-        "like_count": 63,
-        "comment_count": 6,
-        "url": "https://www.youtube.com/watch?v=SH0Zy_dqhxE"
       },
       {
         "video_id": "NpVbfXzbjgc",
@@ -7475,12 +7502,12 @@
   {
     "name": "Metro Exodus",
     "category": "Game",
-    "video_count": 1,
-    "total_views": 673634,
-    "total_likes": 19702,
-    "total_comments": 724,
+    "video_count": 2,
+    "total_views": 676825,
+    "total_likes": 19765,
+    "total_comments": 730,
     "first_collab": "2020-11-06",
-    "last_collab": "2020-11-06",
+    "last_collab": "2025-09-10",
     "videos": [
       {
         "video_id": "9UFbqUDFi20",
@@ -7490,6 +7517,15 @@
         "like_count": 19702,
         "comment_count": 724,
         "url": "https://www.youtube.com/watch?v=9UFbqUDFi20"
+      },
+      {
+        "video_id": "SH0Zy_dqhxE",
+        "title": "PUBG MOBILE | Metro Royale Advanced Tips - Survival Drop",
+        "published_at": "2025-09-10",
+        "view_count": 3191,
+        "like_count": 63,
+        "comment_count": 6,
+        "url": "https://www.youtube.com/watch?v=SH0Zy_dqhxE"
       }
     ]
   },
@@ -9177,54 +9213,6 @@
     ]
   },
   {
-    "name": "Attack on Titan",
-    "category": "Anime",
-    "video_count": 4,
-    "total_views": 60285,
-    "total_likes": 1165,
-    "total_comments": 44,
-    "first_collab": "2025-05-24",
-    "last_collab": "2025-05-28",
-    "videos": [
-      {
-        "video_id": "mj6Sq0mUWVI",
-        "title": "PUBG MOBILE | Gilt Set Bloodbane Vesper Coming Soon",
-        "published_at": "2025-05-24",
-        "view_count": 44241,
-        "like_count": 659,
-        "comment_count": 13,
-        "url": "https://www.youtube.com/watch?v=mj6Sq0mUWVI"
-      },
-      {
-        "video_id": "CfIWKd-1Kvc",
-        "title": "PUBG MOBILE | Begin the Crimson Hunt with Bloodbane Parasite - DP-28",
-        "published_at": "2025-05-25",
-        "view_count": 12369,
-        "like_count": 442,
-        "comment_count": 10,
-        "url": "https://www.youtube.com/watch?v=CfIWKd-1Kvc"
-      },
-      {
-        "video_id": "yMsBWp75xHk",
-        "title": "PUBG MOBILE | WOW STAR SHOW - 3AMERCO",
-        "published_at": "2025-05-28",
-        "view_count": 2148,
-        "like_count": 35,
-        "comment_count": 16,
-        "url": "https://www.youtube.com/watch?v=yMsBWp75xHk"
-      },
-      {
-        "video_id": "OJKqddUbz8U",
-        "title": "PUBG MOBILE | WOW STAR SHOW - Hussein Ayoub",
-        "published_at": "2025-05-27",
-        "view_count": 1527,
-        "like_count": 29,
-        "comment_count": 5,
-        "url": "https://www.youtube.com/watch?v=OJKqddUbz8U"
-      }
-    ]
-  },
-  {
     "name": "ECHO Gaming",
     "category": "Creator",
     "video_count": 1,
@@ -10160,6 +10148,27 @@
         "like_count": 109,
         "comment_count": 31,
         "url": "https://www.youtube.com/watch?v=U62jiEt1Uls"
+      }
+    ]
+  },
+  {
+    "name": "T STAR",
+    "category": "IP",
+    "video_count": 1,
+    "total_views": 6224,
+    "total_likes": 200,
+    "total_comments": 36,
+    "first_collab": "2026-04-05",
+    "last_collab": "2026-04-05",
+    "videos": [
+      {
+        "video_id": "8G_rvGZb3EE",
+        "title": "PUBG MOBILE NEXT STAR | WOW & METRO ROYALE CATEGORY EVOLVED",
+        "published_at": "2026-04-05",
+        "view_count": 6224,
+        "like_count": 200,
+        "comment_count": 36,
+        "url": "https://www.youtube.com/watch?v=8G_rvGZb3EE"
       }
     ]
   },
