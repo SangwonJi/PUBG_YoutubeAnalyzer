@@ -1,15 +1,474 @@
 {
-  "video_count": 3830,
-  "total_views": 1690280448,
-  "total_likes": 7691649,
-  "total_comments": 423073,
+  "video_count": 3831,
+  "total_views": 1727028764,
+  "total_likes": 7703192,
+  "total_comments": 423416,
   "content_types": [
+    {
+      "name": "Event",
+      "video_count": 486,
+      "total_views": 298169271,
+      "total_likes": 750269,
+      "total_comments": 29291,
+      "videos": [
+        {
+          "video_id": "z2HE_the-A0",
+          "title": "PUBG MOBILE: The Growth",
+          "published_at": "2021-03-10",
+          "view_count": 79036613,
+          "like_count": 41163,
+          "comment_count": 1704,
+          "url": "https://www.youtube.com/watch?v=z2HE_the-A0"
+        },
+        {
+          "video_id": "lN0a5AcAKZo",
+          "title": "PUBG MOBILE ｜ Drop in celebrations now!",
+          "published_at": "2026-03-24",
+          "view_count": 13590943,
+          "like_count": 1755,
+          "comment_count": 28,
+          "url": "https://www.youtube.com/watch?v=lN0a5AcAKZo"
+        },
+        {
+          "video_id": "pfTBqlarKwk",
+          "title": "PUBG MOBILE | Special Message from NUSA Commissioner, Ho Yeon!",
+          "published_at": "2022-09-23",
+          "view_count": 12653964,
+          "like_count": 1137,
+          "comment_count": 73,
+          "url": "https://www.youtube.com/watch?v=pfTBqlarKwk"
+        },
+        {
+          "video_id": "aCuif-uQpMQ",
+          "title": "PUBG MOBILE | #MISSIONIGNITION Event - Win a Permanent Hooligan Set During Session 1!",
+          "published_at": "2021-07-12",
+          "view_count": 8036664,
+          "like_count": 2816,
+          "comment_count": 138,
+          "url": "https://www.youtube.com/watch?v=aCuif-uQpMQ"
+        },
+        {
+          "video_id": "I8xZigkfu30",
+          "title": "Worldwide Birthday Wishes!",
+          "published_at": "2026-03-25",
+          "view_count": 5674533,
+          "like_count": 1512,
+          "comment_count": 42,
+          "url": "https://www.youtube.com/watch?v=I8xZigkfu30"
+        },
+        {
+          "video_id": "siB0pZJPFz8",
+          "title": "PUBG MOBILE | Power Up Your Ki - Battle Royale: Dragon Ball Super until Sept. 4th",
+          "published_at": "2023-08-30",
+          "view_count": 5137815,
+          "like_count": 4292,
+          "comment_count": 31,
+          "url": "https://www.youtube.com/watch?v=siB0pZJPFz8"
+        },
+        {
+          "video_id": "Zz1fBst6hW0",
+          "title": "PUBG MOBILE | 410 Metro Royale patch note",
+          "published_at": "2025-10-31",
+          "view_count": 4581407,
+          "like_count": 100,
+          "comment_count": 18,
+          "url": "https://www.youtube.com/watch?v=Zz1fBst6hW0"
+        },
+        {
+          "video_id": "bcbNEQtnBbg",
+          "title": "PUBG MOBILE | 410 NEW YEAR EVENT MINI PV",
+          "published_at": "2026-01-01",
+          "view_count": 4444044,
+          "like_count": 17331,
+          "comment_count": 104,
+          "url": "https://www.youtube.com/watch?v=bcbNEQtnBbg"
+        },
+        {
+          "video_id": "ldymjsHtFmU",
+          "title": "PUBG MOBILE | 2025 Frost Festival",
+          "published_at": "2025-12-15",
+          "view_count": 4024834,
+          "like_count": 202,
+          "comment_count": 16,
+          "url": "https://www.youtube.com/watch?v=ldymjsHtFmU"
+        },
+        {
+          "video_id": "_Br0lD5nsn0",
+          "title": "PUBG MOBILE | Frost Festival Guide! ❄️🤩",
+          "published_at": "2022-12-17",
+          "view_count": 3852123,
+          "like_count": 702,
+          "comment_count": 88,
+          "url": "https://www.youtube.com/watch?v=_Br0lD5nsn0"
+        },
+        {
+          "video_id": "eFqhJ6BGQ6M",
+          "title": "PUBG MOBILE | 410 NEW YEAR EVENT COUNT DOWN POSTER 3",
+          "published_at": "2025-12-31",
+          "view_count": 3793185,
+          "like_count": 408,
+          "comment_count": 10,
+          "url": "https://www.youtube.com/watch?v=eFqhJ6BGQ6M"
+        },
+        {
+          "video_id": "4hVQUPbZnDs",
+          "title": "PUBG MOBILE | 410 NEW YEAR EVENT COUNT DOWN",
+          "published_at": "2025-12-29",
+          "view_count": 3733176,
+          "like_count": 308,
+          "comment_count": 15,
+          "url": "https://www.youtube.com/watch?v=4hVQUPbZnDs"
+        },
+        {
+          "video_id": "s-P18xp-afQ",
+          "title": "PUBG MOBILE | Zombie's Edge is available NOW!  #pubgmobile #pubgm",
+          "published_at": "2023-09-07",
+          "view_count": 3517647,
+          "like_count": 1070,
+          "comment_count": 90,
+          "url": "https://www.youtube.com/watch?v=s-P18xp-afQ"
+        },
+        {
+          "video_id": "6cyYG9_xfD4",
+          "title": "PUBG MOBILE | KFC Royale Restaurants and Themed Items / Sets are HERE!",
+          "published_at": "2023-10-14",
+          "view_count": 3499676,
+          "like_count": 10087,
+          "comment_count": 53,
+          "url": "https://www.youtube.com/watch?v=6cyYG9_xfD4"
+        },
+        {
+          "video_id": "CyRtVRhHOUc",
+          "title": "PUBG MOBILE | BRAMBLEWOOD SCORPION GUIDE",
+          "published_at": "2026-01-13",
+          "view_count": 3445188,
+          "like_count": 259,
+          "comment_count": 35,
+          "url": "https://www.youtube.com/watch?v=CyRtVRhHOUc"
+        },
+        {
+          "video_id": "lauJGaa93rI",
+          "title": "PUBG MOBILE | The Majestic Cavalry ultimate set is now available!",
+          "published_at": "2022-06-16",
+          "view_count": 3412072,
+          "like_count": 555,
+          "comment_count": 86,
+          "url": "https://www.youtube.com/watch?v=lauJGaa93rI"
+        },
+        {
+          "video_id": "OygtobxtMqs",
+          "title": "PUBG MOBILE | Air Drop Carnival with Alan Walker!",
+          "published_at": "2023-08-04",
+          "view_count": 3231540,
+          "like_count": 641,
+          "comment_count": 42,
+          "url": "https://www.youtube.com/watch?v=OygtobxtMqs"
+        },
+        {
+          "video_id": "ZMxaKxLyVDE",
+          "title": "PUBG MOBILE | Let‘s enjoy Peaky Blinders Style!",
+          "published_at": "2026-01-14",
+          "view_count": 3114660,
+          "like_count": 1937,
+          "comment_count": 48,
+          "url": "https://www.youtube.com/watch?v=ZMxaKxLyVDE"
+        },
+        {
+          "video_id": "E3pJV16STvo",
+          "title": "PUBG MOBILE | Godzilla: Awaken The Mighty",
+          "published_at": "2025-03-28",
+          "view_count": 2921760,
+          "like_count": 11069,
+          "comment_count": 916,
+          "url": "https://www.youtube.com/watch?v=E3pJV16STvo"
+        },
+        {
+          "video_id": "sQCczJ9h9CQ",
+          "title": "PUBG MOBILE | Battle Royale: Dragon Ball Super gameplay guide",
+          "published_at": "2023-07-20",
+          "view_count": 2750227,
+          "like_count": 488,
+          "comment_count": 39,
+          "url": "https://www.youtube.com/watch?v=sQCczJ9h9CQ"
+        },
+        {
+          "video_id": "v2RvfmXfR4A",
+          "title": "PUBG MOBILE | PMGC Love Connects",
+          "published_at": "2025-12-16",
+          "view_count": 2607969,
+          "like_count": 131,
+          "comment_count": 18,
+          "url": "https://www.youtube.com/watch?v=v2RvfmXfR4A"
+        },
+        {
+          "video_id": "314ydBxWXYM",
+          "title": "PUBG MOBILE | 8 years still here",
+          "published_at": "2026-03-27",
+          "view_count": 2422349,
+          "like_count": 630,
+          "comment_count": 38,
+          "url": "https://www.youtube.com/watch?v=314ydBxWXYM"
+        },
+        {
+          "video_id": "zl49CqqRa7o",
+          "title": "PUBG MOBILE | The Mummies are Back!",
+          "published_at": "2025-07-11",
+          "view_count": 2408459,
+          "like_count": 35269,
+          "comment_count": 59,
+          "url": "https://www.youtube.com/watch?v=zl49CqqRa7o"
+        },
+        {
+          "video_id": "z7ZElu2baVw",
+          "title": "PUBG MOBILE | Core Circle Gameplay Teaser",
+          "published_at": "2022-05-20",
+          "view_count": 2227792,
+          "like_count": 734,
+          "comment_count": 152,
+          "url": "https://www.youtube.com/watch?v=z7ZElu2baVw"
+        },
+        {
+          "video_id": "X0KFXvtnrOc",
+          "title": "PUBG MOBILE | 410 Monetization preheat 1",
+          "published_at": "2025-10-31",
+          "view_count": 2191695,
+          "like_count": 160,
+          "comment_count": 9,
+          "url": "https://www.youtube.com/watch?v=X0KFXvtnrOc"
+        },
+        {
+          "video_id": "UnPNAkjNZGE",
+          "title": "PUBG MOBILE | New RP A17 & victory dance available now!",
+          "published_at": "2026-01-11",
+          "view_count": 2150803,
+          "like_count": 295,
+          "comment_count": 46,
+          "url": "https://www.youtube.com/watch?v=UnPNAkjNZGE"
+        },
+        {
+          "video_id": "t8TeZYLvV4Y",
+          "title": "PUBG MOBILE | WOW Summer 2.7 Updates",
+          "published_at": "2023-07-15",
+          "view_count": 2091136,
+          "like_count": 408,
+          "comment_count": 39,
+          "url": "https://www.youtube.com/watch?v=t8TeZYLvV4Y"
+        },
+        {
+          "video_id": "blg2RF6Gtto",
+          "title": "PUBG MOBILE | Ban Pan Sword & Shield Ep 2",
+          "published_at": "2022-02-07",
+          "view_count": 2087216,
+          "like_count": 943,
+          "comment_count": 94,
+          "url": "https://www.youtube.com/watch?v=blg2RF6Gtto"
+        },
+        {
+          "video_id": "mcRjfaaBGEA",
+          "title": "PUBG MOBILE | GIFTS FOR EVERY #1",
+          "published_at": "2026-03-27",
+          "view_count": 2085688,
+          "like_count": 1803,
+          "comment_count": 46,
+          "url": "https://www.youtube.com/watch?v=mcRjfaaBGEA"
+        },
+        {
+          "video_id": "I8nshtv05SE",
+          "title": "PUBG MOBILE | Ready for our carnival in Egypt?",
+          "published_at": "2026-03-27",
+          "view_count": 2043983,
+          "like_count": 306,
+          "comment_count": 26,
+          "url": "https://www.youtube.com/watch?v=I8nshtv05SE"
+        },
+        {
+          "video_id": "EVkqWkAH0BE",
+          "title": "PUBG MOBILE | GALATA TOWER 3D MAPPING SHOW",
+          "published_at": "2026-03-28",
+          "view_count": 1996337,
+          "like_count": 1251,
+          "comment_count": 18,
+          "url": "https://www.youtube.com/watch?v=EVkqWkAH0BE"
+        },
+        {
+          "video_id": "fC0OwDHAxns",
+          "title": "PUBG MOBILE | NEXT STAR Program 2025 recap",
+          "published_at": "2026-03-25",
+          "view_count": 1985549,
+          "like_count": 116,
+          "comment_count": 17,
+          "url": "https://www.youtube.com/watch?v=fC0OwDHAxns"
+        },
+        {
+          "video_id": "cdNSLKl4Vuw",
+          "title": "PUBG MOBILE | 📍 Surabaya, Indonesia",
+          "published_at": "2026-03-26",
+          "view_count": 1966640,
+          "like_count": 664,
+          "comment_count": 10,
+          "url": "https://www.youtube.com/watch?v=cdNSLKl4Vuw"
+        },
+        {
+          "video_id": "ou6LQzA5R1o",
+          "title": "PUBG MOBILE | 410 THEMED GAMEPLAY TEASER VIDEO 2",
+          "published_at": "2025-11-01",
+          "view_count": 1943047,
+          "like_count": 171,
+          "comment_count": 19,
+          "url": "https://www.youtube.com/watch?v=ou6LQzA5R1o"
+        },
+        {
+          "video_id": "_V0CPkUdrPU",
+          "title": "PUBG MOBILE | 420 Friend Fest PV: Lonely",
+          "published_at": "2026-02-14",
+          "view_count": 1941836,
+          "like_count": 168,
+          "comment_count": 24,
+          "url": "https://www.youtube.com/watch?v=_V0CPkUdrPU"
+        },
+        {
+          "video_id": "EdyCgBYtams",
+          "title": "PUBG MOBILE｜Let’s get lost in Cairo!",
+          "published_at": "2026-03-27",
+          "view_count": 1892138,
+          "like_count": 565,
+          "comment_count": 12,
+          "url": "https://www.youtube.com/watch?v=EdyCgBYtams"
+        },
+        {
+          "video_id": "9lEKvrB3sUA",
+          "title": "PUBG MOBILE | Carnival in Egypt",
+          "published_at": "2026-03-29",
+          "view_count": 1859404,
+          "like_count": 1282,
+          "comment_count": 31,
+          "url": "https://www.youtube.com/watch?v=9lEKvrB3sUA"
+        },
+        {
+          "video_id": "ZM07fn54QKw",
+          "title": "PUBG MOBILE | Drone Show",
+          "published_at": "2026-03-29",
+          "view_count": 1804437,
+          "like_count": 1808,
+          "comment_count": 15,
+          "url": "https://www.youtube.com/watch?v=ZM07fn54QKw"
+        },
+        {
+          "video_id": "73rISV7Fjco",
+          "title": "PUBG MOBILE | 2023 💥🍳 Ban Pan Recap",
+          "published_at": "2024-03-22",
+          "view_count": 1802408,
+          "like_count": 686,
+          "comment_count": 25,
+          "url": "https://www.youtube.com/watch?v=73rISV7Fjco"
+        },
+        {
+          "video_id": "waHoynDOM4Y",
+          "title": "PUBG MOBILE | Champions Moment",
+          "published_at": "2025-12-14",
+          "view_count": 1789030,
+          "like_count": 95,
+          "comment_count": 10,
+          "url": "https://www.youtube.com/watch?v=waHoynDOM4Y"
+        },
+        {
+          "video_id": "wK3Dpyc5kkY",
+          "title": "PUBG MOBILE | Chicko with Maid Café girls",
+          "published_at": "2025-12-17",
+          "view_count": 1780451,
+          "like_count": 282,
+          "comment_count": 9,
+          "url": "https://www.youtube.com/watch?v=wK3Dpyc5kkY"
+        },
+        {
+          "video_id": "P4EnwCqRUzo",
+          "title": "PUBG MOBILE | Single Chicko",
+          "published_at": "2025-12-25",
+          "view_count": 1752712,
+          "like_count": 3438,
+          "comment_count": 35,
+          "url": "https://www.youtube.com/watch?v=P4EnwCqRUzo"
+        },
+        {
+          "video_id": "XKFdxaL1uqA",
+          "title": "PUBG MOBILE | NEW ACE32 Weapon Guide",
+          "published_at": "2023-07-17",
+          "view_count": 1704515,
+          "like_count": 666,
+          "comment_count": 50,
+          "url": "https://www.youtube.com/watch?v=XKFdxaL1uqA"
+        },
+        {
+          "video_id": "fUgApfizxf0",
+          "title": "PUBG MOBILE | The new  🌴  Beach &  🌊  Pool Party Themed RP A2 is here",
+          "published_at": "2023-07-20",
+          "view_count": 1678769,
+          "like_count": 1387,
+          "comment_count": 38,
+          "url": "https://www.youtube.com/watch?v=fUgApfizxf0"
+        },
+        {
+          "video_id": "EEs1W83JT8E",
+          "title": "PUBG MOBILE | ⚽️ The Kick-off of Football Mania is almost here! 🥅",
+          "published_at": "2022-11-11",
+          "view_count": 1657086,
+          "like_count": 966,
+          "comment_count": 104,
+          "url": "https://www.youtube.com/watch?v=EEs1W83JT8E"
+        },
+        {
+          "video_id": "RUSm-FdsLTU",
+          "title": "PUBG MOBILE | Football Carnival Special Training",
+          "published_at": "2022-11-26",
+          "view_count": 1566292,
+          "like_count": 312,
+          "comment_count": 21,
+          "url": "https://www.youtube.com/watch?v=RUSm-FdsLTU"
+        },
+        {
+          "video_id": "oVBcbU025Vw",
+          "title": "PUBG MOBILE | Venture Below! A New Realm Awaits, Along With Tower Defense Challenges!",
+          "published_at": "2024-07-12",
+          "view_count": 1537199,
+          "like_count": 171,
+          "comment_count": 22,
+          "url": "https://www.youtube.com/watch?v=oVBcbU025Vw"
+        },
+        {
+          "video_id": "gf4Jw8ctyJ8",
+          "title": "PUBG MOBILE | Unite for One Goal Event Guide",
+          "published_at": "2022-11-20",
+          "view_count": 1454493,
+          "like_count": 197,
+          "comment_count": 34,
+          "url": "https://www.youtube.com/watch?v=gf4Jw8ctyJ8"
+        },
+        {
+          "video_id": "lhHIb2RJaxY",
+          "title": "PUBG MOBILE | Trendy Power Enters the Stage",
+          "published_at": "2022-02-04",
+          "view_count": 1399638,
+          "like_count": 1413,
+          "comment_count": 72,
+          "url": "https://www.youtube.com/watch?v=lhHIb2RJaxY"
+        },
+        {
+          "video_id": "ztfDdEy7xHc",
+          "title": "PUBG MOBILE | RPA17 Victory Dance live now!",
+          "published_at": "2026-01-13",
+          "view_count": 1357103,
+          "like_count": 746,
+          "comment_count": 26,
+          "url": "https://www.youtube.com/watch?v=ztfDdEy7xHc"
+        }
+      ]
+    },
     {
       "name": "Update",
       "video_count": 460,
-      "total_views": 289182217,
-      "total_likes": 915492,
-      "total_comments": 62606,
+      "total_views": 289443580,
+      "total_likes": 915655,
+      "total_comments": 62607,
       "videos": [
         {
           "video_id": "74X9h-4veZE",
@@ -460,465 +919,6 @@
           "like_count": 1044,
           "comment_count": 100,
           "url": "https://www.youtube.com/watch?v=Mba3yFDmQYU"
-        }
-      ]
-    },
-    {
-      "name": "Event",
-      "video_count": 486,
-      "total_views": 273780923,
-      "total_likes": 742376,
-      "total_comments": 29102,
-      "videos": [
-        {
-          "video_id": "z2HE_the-A0",
-          "title": "PUBG MOBILE: The Growth",
-          "published_at": "2021-03-10",
-          "view_count": 79036613,
-          "like_count": 41163,
-          "comment_count": 1704,
-          "url": "https://www.youtube.com/watch?v=z2HE_the-A0"
-        },
-        {
-          "video_id": "pfTBqlarKwk",
-          "title": "PUBG MOBILE | Special Message from NUSA Commissioner, Ho Yeon!",
-          "published_at": "2022-09-23",
-          "view_count": 12653964,
-          "like_count": 1137,
-          "comment_count": 73,
-          "url": "https://www.youtube.com/watch?v=pfTBqlarKwk"
-        },
-        {
-          "video_id": "aCuif-uQpMQ",
-          "title": "PUBG MOBILE | #MISSIONIGNITION Event - Win a Permanent Hooligan Set During Session 1!",
-          "published_at": "2021-07-12",
-          "view_count": 8036664,
-          "like_count": 2816,
-          "comment_count": 138,
-          "url": "https://www.youtube.com/watch?v=aCuif-uQpMQ"
-        },
-        {
-          "video_id": "lN0a5AcAKZo",
-          "title": "PUBG MOBILE ｜ Drop in celebrations now!",
-          "published_at": "2026-03-24",
-          "view_count": 5490947,
-          "like_count": 739,
-          "comment_count": 28,
-          "url": "https://www.youtube.com/watch?v=lN0a5AcAKZo"
-        },
-        {
-          "video_id": "siB0pZJPFz8",
-          "title": "PUBG MOBILE | Power Up Your Ki - Battle Royale: Dragon Ball Super until Sept. 4th",
-          "published_at": "2023-08-30",
-          "view_count": 5137815,
-          "like_count": 4292,
-          "comment_count": 31,
-          "url": "https://www.youtube.com/watch?v=siB0pZJPFz8"
-        },
-        {
-          "video_id": "Zz1fBst6hW0",
-          "title": "PUBG MOBILE | 410 Metro Royale patch note",
-          "published_at": "2025-10-31",
-          "view_count": 4581407,
-          "like_count": 100,
-          "comment_count": 18,
-          "url": "https://www.youtube.com/watch?v=Zz1fBst6hW0"
-        },
-        {
-          "video_id": "bcbNEQtnBbg",
-          "title": "PUBG MOBILE | 410 NEW YEAR EVENT MINI PV",
-          "published_at": "2026-01-01",
-          "view_count": 4444044,
-          "like_count": 17331,
-          "comment_count": 104,
-          "url": "https://www.youtube.com/watch?v=bcbNEQtnBbg"
-        },
-        {
-          "video_id": "ldymjsHtFmU",
-          "title": "PUBG MOBILE | 2025 Frost Festival",
-          "published_at": "2025-12-15",
-          "view_count": 4024834,
-          "like_count": 202,
-          "comment_count": 16,
-          "url": "https://www.youtube.com/watch?v=ldymjsHtFmU"
-        },
-        {
-          "video_id": "_Br0lD5nsn0",
-          "title": "PUBG MOBILE | Frost Festival Guide! ❄️🤩",
-          "published_at": "2022-12-17",
-          "view_count": 3852123,
-          "like_count": 702,
-          "comment_count": 88,
-          "url": "https://www.youtube.com/watch?v=_Br0lD5nsn0"
-        },
-        {
-          "video_id": "eFqhJ6BGQ6M",
-          "title": "PUBG MOBILE | 410 NEW YEAR EVENT COUNT DOWN POSTER 3",
-          "published_at": "2025-12-31",
-          "view_count": 3793185,
-          "like_count": 408,
-          "comment_count": 10,
-          "url": "https://www.youtube.com/watch?v=eFqhJ6BGQ6M"
-        },
-        {
-          "video_id": "4hVQUPbZnDs",
-          "title": "PUBG MOBILE | 410 NEW YEAR EVENT COUNT DOWN",
-          "published_at": "2025-12-29",
-          "view_count": 3733176,
-          "like_count": 308,
-          "comment_count": 15,
-          "url": "https://www.youtube.com/watch?v=4hVQUPbZnDs"
-        },
-        {
-          "video_id": "s-P18xp-afQ",
-          "title": "PUBG MOBILE | Zombie's Edge is available NOW!  #pubgmobile #pubgm",
-          "published_at": "2023-09-07",
-          "view_count": 3517647,
-          "like_count": 1070,
-          "comment_count": 90,
-          "url": "https://www.youtube.com/watch?v=s-P18xp-afQ"
-        },
-        {
-          "video_id": "6cyYG9_xfD4",
-          "title": "PUBG MOBILE | KFC Royale Restaurants and Themed Items / Sets are HERE!",
-          "published_at": "2023-10-14",
-          "view_count": 3499676,
-          "like_count": 10087,
-          "comment_count": 53,
-          "url": "https://www.youtube.com/watch?v=6cyYG9_xfD4"
-        },
-        {
-          "video_id": "I8xZigkfu30",
-          "title": "Worldwide Birthday Wishes!",
-          "published_at": "2026-03-25",
-          "view_count": 3448800,
-          "like_count": 1401,
-          "comment_count": 40,
-          "url": "https://www.youtube.com/watch?v=I8xZigkfu30"
-        },
-        {
-          "video_id": "CyRtVRhHOUc",
-          "title": "PUBG MOBILE | BRAMBLEWOOD SCORPION GUIDE",
-          "published_at": "2026-01-13",
-          "view_count": 3445188,
-          "like_count": 259,
-          "comment_count": 35,
-          "url": "https://www.youtube.com/watch?v=CyRtVRhHOUc"
-        },
-        {
-          "video_id": "lauJGaa93rI",
-          "title": "PUBG MOBILE | The Majestic Cavalry ultimate set is now available!",
-          "published_at": "2022-06-16",
-          "view_count": 3412072,
-          "like_count": 555,
-          "comment_count": 86,
-          "url": "https://www.youtube.com/watch?v=lauJGaa93rI"
-        },
-        {
-          "video_id": "OygtobxtMqs",
-          "title": "PUBG MOBILE | Air Drop Carnival with Alan Walker!",
-          "published_at": "2023-08-04",
-          "view_count": 3231540,
-          "like_count": 641,
-          "comment_count": 42,
-          "url": "https://www.youtube.com/watch?v=OygtobxtMqs"
-        },
-        {
-          "video_id": "ZMxaKxLyVDE",
-          "title": "PUBG MOBILE | Let‘s enjoy Peaky Blinders Style!",
-          "published_at": "2026-01-14",
-          "view_count": 3114660,
-          "like_count": 1937,
-          "comment_count": 48,
-          "url": "https://www.youtube.com/watch?v=ZMxaKxLyVDE"
-        },
-        {
-          "video_id": "E3pJV16STvo",
-          "title": "PUBG MOBILE | Godzilla: Awaken The Mighty",
-          "published_at": "2025-03-28",
-          "view_count": 2921760,
-          "like_count": 11069,
-          "comment_count": 916,
-          "url": "https://www.youtube.com/watch?v=E3pJV16STvo"
-        },
-        {
-          "video_id": "sQCczJ9h9CQ",
-          "title": "PUBG MOBILE | Battle Royale: Dragon Ball Super gameplay guide",
-          "published_at": "2023-07-20",
-          "view_count": 2750227,
-          "like_count": 488,
-          "comment_count": 39,
-          "url": "https://www.youtube.com/watch?v=sQCczJ9h9CQ"
-        },
-        {
-          "video_id": "v2RvfmXfR4A",
-          "title": "PUBG MOBILE | PMGC Love Connects",
-          "published_at": "2025-12-16",
-          "view_count": 2607969,
-          "like_count": 131,
-          "comment_count": 18,
-          "url": "https://www.youtube.com/watch?v=v2RvfmXfR4A"
-        },
-        {
-          "video_id": "zl49CqqRa7o",
-          "title": "PUBG MOBILE | The Mummies are Back!",
-          "published_at": "2025-07-11",
-          "view_count": 2408459,
-          "like_count": 35269,
-          "comment_count": 59,
-          "url": "https://www.youtube.com/watch?v=zl49CqqRa7o"
-        },
-        {
-          "video_id": "z7ZElu2baVw",
-          "title": "PUBG MOBILE | Core Circle Gameplay Teaser",
-          "published_at": "2022-05-20",
-          "view_count": 2227792,
-          "like_count": 734,
-          "comment_count": 152,
-          "url": "https://www.youtube.com/watch?v=z7ZElu2baVw"
-        },
-        {
-          "video_id": "X0KFXvtnrOc",
-          "title": "PUBG MOBILE | 410 Monetization preheat 1",
-          "published_at": "2025-10-31",
-          "view_count": 2191695,
-          "like_count": 160,
-          "comment_count": 9,
-          "url": "https://www.youtube.com/watch?v=X0KFXvtnrOc"
-        },
-        {
-          "video_id": "UnPNAkjNZGE",
-          "title": "PUBG MOBILE | New RP A17 & victory dance available now!",
-          "published_at": "2026-01-11",
-          "view_count": 2150803,
-          "like_count": 295,
-          "comment_count": 46,
-          "url": "https://www.youtube.com/watch?v=UnPNAkjNZGE"
-        },
-        {
-          "video_id": "t8TeZYLvV4Y",
-          "title": "PUBG MOBILE | WOW Summer 2.7 Updates",
-          "published_at": "2023-07-15",
-          "view_count": 2091136,
-          "like_count": 408,
-          "comment_count": 39,
-          "url": "https://www.youtube.com/watch?v=t8TeZYLvV4Y"
-        },
-        {
-          "video_id": "blg2RF6Gtto",
-          "title": "PUBG MOBILE | Ban Pan Sword & Shield Ep 2",
-          "published_at": "2022-02-07",
-          "view_count": 2087216,
-          "like_count": 943,
-          "comment_count": 94,
-          "url": "https://www.youtube.com/watch?v=blg2RF6Gtto"
-        },
-        {
-          "video_id": "ou6LQzA5R1o",
-          "title": "PUBG MOBILE | 410 THEMED GAMEPLAY TEASER VIDEO 2",
-          "published_at": "2025-11-01",
-          "view_count": 1943047,
-          "like_count": 171,
-          "comment_count": 19,
-          "url": "https://www.youtube.com/watch?v=ou6LQzA5R1o"
-        },
-        {
-          "video_id": "_V0CPkUdrPU",
-          "title": "PUBG MOBILE | 420 Friend Fest PV: Lonely",
-          "published_at": "2026-02-14",
-          "view_count": 1941836,
-          "like_count": 168,
-          "comment_count": 24,
-          "url": "https://www.youtube.com/watch?v=_V0CPkUdrPU"
-        },
-        {
-          "video_id": "73rISV7Fjco",
-          "title": "PUBG MOBILE | 2023 💥🍳 Ban Pan Recap",
-          "published_at": "2024-03-22",
-          "view_count": 1802408,
-          "like_count": 686,
-          "comment_count": 25,
-          "url": "https://www.youtube.com/watch?v=73rISV7Fjco"
-        },
-        {
-          "video_id": "waHoynDOM4Y",
-          "title": "PUBG MOBILE | Champions Moment",
-          "published_at": "2025-12-14",
-          "view_count": 1789030,
-          "like_count": 95,
-          "comment_count": 10,
-          "url": "https://www.youtube.com/watch?v=waHoynDOM4Y"
-        },
-        {
-          "video_id": "wK3Dpyc5kkY",
-          "title": "PUBG MOBILE | Chicko with Maid Café girls",
-          "published_at": "2025-12-17",
-          "view_count": 1780451,
-          "like_count": 282,
-          "comment_count": 9,
-          "url": "https://www.youtube.com/watch?v=wK3Dpyc5kkY"
-        },
-        {
-          "video_id": "P4EnwCqRUzo",
-          "title": "PUBG MOBILE | Single Chicko",
-          "published_at": "2025-12-25",
-          "view_count": 1752712,
-          "like_count": 3438,
-          "comment_count": 35,
-          "url": "https://www.youtube.com/watch?v=P4EnwCqRUzo"
-        },
-        {
-          "video_id": "XKFdxaL1uqA",
-          "title": "PUBG MOBILE | NEW ACE32 Weapon Guide",
-          "published_at": "2023-07-17",
-          "view_count": 1704515,
-          "like_count": 666,
-          "comment_count": 50,
-          "url": "https://www.youtube.com/watch?v=XKFdxaL1uqA"
-        },
-        {
-          "video_id": "fUgApfizxf0",
-          "title": "PUBG MOBILE | The new  🌴  Beach &  🌊  Pool Party Themed RP A2 is here",
-          "published_at": "2023-07-20",
-          "view_count": 1678769,
-          "like_count": 1387,
-          "comment_count": 38,
-          "url": "https://www.youtube.com/watch?v=fUgApfizxf0"
-        },
-        {
-          "video_id": "EEs1W83JT8E",
-          "title": "PUBG MOBILE | ⚽️ The Kick-off of Football Mania is almost here! 🥅",
-          "published_at": "2022-11-11",
-          "view_count": 1657086,
-          "like_count": 966,
-          "comment_count": 104,
-          "url": "https://www.youtube.com/watch?v=EEs1W83JT8E"
-        },
-        {
-          "video_id": "RUSm-FdsLTU",
-          "title": "PUBG MOBILE | Football Carnival Special Training",
-          "published_at": "2022-11-26",
-          "view_count": 1566292,
-          "like_count": 312,
-          "comment_count": 21,
-          "url": "https://www.youtube.com/watch?v=RUSm-FdsLTU"
-        },
-        {
-          "video_id": "oVBcbU025Vw",
-          "title": "PUBG MOBILE | Venture Below! A New Realm Awaits, Along With Tower Defense Challenges!",
-          "published_at": "2024-07-12",
-          "view_count": 1537199,
-          "like_count": 171,
-          "comment_count": 22,
-          "url": "https://www.youtube.com/watch?v=oVBcbU025Vw"
-        },
-        {
-          "video_id": "gf4Jw8ctyJ8",
-          "title": "PUBG MOBILE | Unite for One Goal Event Guide",
-          "published_at": "2022-11-20",
-          "view_count": 1454493,
-          "like_count": 197,
-          "comment_count": 34,
-          "url": "https://www.youtube.com/watch?v=gf4Jw8ctyJ8"
-        },
-        {
-          "video_id": "lhHIb2RJaxY",
-          "title": "PUBG MOBILE | Trendy Power Enters the Stage",
-          "published_at": "2022-02-04",
-          "view_count": 1399638,
-          "like_count": 1413,
-          "comment_count": 72,
-          "url": "https://www.youtube.com/watch?v=lhHIb2RJaxY"
-        },
-        {
-          "video_id": "ztfDdEy7xHc",
-          "title": "PUBG MOBILE | RPA17 Victory Dance live now!",
-          "published_at": "2026-01-13",
-          "view_count": 1357103,
-          "like_count": 746,
-          "comment_count": 26,
-          "url": "https://www.youtube.com/watch?v=ztfDdEy7xHc"
-        },
-        {
-          "video_id": "GT88dSzbia0",
-          "title": "PUBG MOBILE | Noctum Sunder Ultimate Set Skydiving Challenge with Roberta Mancino",
-          "published_at": "2023-07-15",
-          "view_count": 1354127,
-          "like_count": 233,
-          "comment_count": 14,
-          "url": "https://www.youtube.com/watch?v=GT88dSzbia0"
-        },
-        {
-          "video_id": "TPRfba39Xh0",
-          "title": "PUBG MOBILE | Team up with Friends on Crazy Chicken Day",
-          "published_at": "2025-09-27",
-          "view_count": 1351533,
-          "like_count": 380,
-          "comment_count": 15,
-          "url": "https://www.youtube.com/watch?v=TPRfba39Xh0"
-        },
-        {
-          "video_id": "7bbrDb3WHms",
-          "title": "PUBG MOBILE | RPM11: Hidden Hunters Style Overview",
-          "published_at": "2022-05-27",
-          "view_count": 1304768,
-          "like_count": 509,
-          "comment_count": 72,
-          "url": "https://www.youtube.com/watch?v=7bbrDb3WHms"
-        },
-        {
-          "video_id": "mQtLf4fbJCA",
-          "title": "PUBG MOBILE | Cheer Park New Features!",
-          "published_at": "2022-05-27",
-          "view_count": 1276740,
-          "like_count": 471,
-          "comment_count": 60,
-          "url": "https://www.youtube.com/watch?v=mQtLf4fbJCA"
-        },
-        {
-          "video_id": "fS87Dl8E6LM",
-          "title": "PUBG MOBILE | KFC Royale Restaurant doors are now open!",
-          "published_at": "2023-10-05",
-          "view_count": 1265330,
-          "like_count": 3870,
-          "comment_count": 25,
-          "url": "https://www.youtube.com/watch?v=fS87Dl8E6LM"
-        },
-        {
-          "video_id": "314ydBxWXYM",
-          "title": "PUBG MOBILE | 8 years still here",
-          "published_at": "2026-03-27",
-          "view_count": 1223860,
-          "like_count": 531,
-          "comment_count": 39,
-          "url": "https://www.youtube.com/watch?v=314ydBxWXYM"
-        },
-        {
-          "video_id": "_UoBcEj8GLE",
-          "title": "PUBG MOBILE | 410 Popularity Annual Gala Result PV",
-          "published_at": "2025-12-19",
-          "view_count": 1218669,
-          "like_count": 489,
-          "comment_count": 33,
-          "url": "https://www.youtube.com/watch?v=_UoBcEj8GLE"
-        },
-        {
-          "video_id": "Vq6tSZ3WosQ",
-          "title": "PUBG MOBILE | Soar high in a Frosty Fight",
-          "published_at": "2023-12-24",
-          "view_count": 1190759,
-          "like_count": 778,
-          "comment_count": 15,
-          "url": "https://www.youtube.com/watch?v=Vq6tSZ3WosQ"
-        },
-        {
-          "video_id": "pMsQJ-ECkx0",
-          "title": "PUBG MOBILE | New Gilt Set with matching advanced upgradable M416 coming at 2/20",
-          "published_at": "2026-02-19",
-          "view_count": 1172136,
-          "like_count": 558,
-          "comment_count": 85,
-          "url": "https://www.youtube.com/watch?v=pMsQJ-ECkx0"
         }
       ]
     },
@@ -1384,9 +1384,9 @@
     {
       "name": "Promotion",
       "video_count": 222,
-      "total_views": 150340863,
-      "total_likes": 807949,
-      "total_comments": 45881,
+      "total_views": 152744299,
+      "total_likes": 808333,
+      "total_comments": 45887,
       "videos": [
         {
           "video_id": "uCd6tbUAy6o",
@@ -1468,6 +1468,15 @@
           "like_count": 489,
           "comment_count": 12,
           "url": "https://www.youtube.com/watch?v=uDSX9RbNqdo"
+        },
+        {
+          "video_id": "BL96JbIajX8",
+          "title": "More Than a Game — Eight Years, Million of Stories | Official Video",
+          "published_at": "2026-03-26",
+          "view_count": 2957235,
+          "like_count": 714,
+          "comment_count": 36,
+          "url": "https://www.youtube.com/watch?v=BL96JbIajX8"
         },
         {
           "video_id": "ed6t0mGwYGc",
@@ -1653,7 +1662,7 @@
           "video_id": "9MhxZpq0FPw",
           "title": "Chicko Said “Save This” — PUBG MOBILE’s Best Memes of All Time 🐔❤️",
           "published_at": "2026-03-24",
-          "view_count": 1440543,
+          "view_count": 1440392,
           "like_count": 157,
           "comment_count": 20,
           "url": "https://www.youtube.com/watch?v=9MhxZpq0FPw"
@@ -1767,6 +1776,15 @@
           "url": "https://www.youtube.com/watch?v=ilIp25r_aYc"
         },
         {
+          "video_id": "Q5k20nwD5ZA",
+          "title": "More Than a Game — Eight Years, Millions of Stories | Teaser",
+          "published_at": "2026-03-26",
+          "view_count": 1051274,
+          "like_count": 79,
+          "comment_count": 14,
+          "url": "https://www.youtube.com/watch?v=Q5k20nwD5ZA"
+        },
+        {
           "video_id": "lpGQNYx0jMg",
           "title": "PUBG MOBILE | SUPERSTAR UNITE HIGHLIGHT OFFICIAL VIDEO",
           "published_at": "2025-12-27",
@@ -1812,15 +1830,6 @@
           "url": "https://www.youtube.com/watch?v=vlZT-b_Lojs"
         },
         {
-          "video_id": "BL96JbIajX8",
-          "title": "More Than a Game — Eight Years, Million of Stories | Official Video",
-          "published_at": "2026-03-26",
-          "view_count": 915743,
-          "like_count": 334,
-          "comment_count": 30,
-          "url": "https://www.youtube.com/watch?v=BL96JbIajX8"
-        },
-        {
           "video_id": "vkeVxhR2Y9g",
           "title": "PUBG MOBILE ｜ Destroy and Conquer!",
           "published_at": "2024-11-26",
@@ -1828,15 +1837,6 @@
           "like_count": 90,
           "comment_count": 29,
           "url": "https://www.youtube.com/watch?v=vkeVxhR2Y9g"
-        },
-        {
-          "video_id": "b1nTXv_kQnw",
-          "title": "PUBG MOBILE | DAY OF GATHERING PLAYER STORY TVC",
-          "published_at": "2025-10-26",
-          "view_count": 889694,
-          "like_count": 925,
-          "comment_count": 29,
-          "url": "https://www.youtube.com/watch?v=b1nTXv_kQnw"
         }
       ]
     },
@@ -2301,10 +2301,10 @@
     },
     {
       "name": "Skin",
-      "video_count": 293,
-      "total_views": 99902476,
-      "total_likes": 447988,
-      "total_comments": 16016,
+      "video_count": 294,
+      "total_views": 100915180,
+      "total_likes": 448757,
+      "total_comments": 16125,
       "videos": [
         {
           "video_id": "kgcSbcw18B4",
@@ -2640,6 +2640,15 @@
           "url": "https://www.youtube.com/watch?v=BnxlCbL_8-w"
         },
         {
+          "video_id": "KcFwQdezw4o",
+          "title": "PUBG MOBILE | New X-Suit Phoenixtra X-Suit coming at 4/3",
+          "published_at": "2026-03-30",
+          "view_count": 1011795,
+          "like_count": 758,
+          "comment_count": 109,
+          "url": "https://www.youtube.com/watch?v=KcFwQdezw4o"
+        },
+        {
           "video_id": "QDhCchckcZk",
           "title": "PUBG MOBILE | New Upgrades to Erangel LIVE NOW!",
           "published_at": "2022-09-16",
@@ -2679,8 +2688,8 @@
           "video_id": "Dr9nB0SxxTQ",
           "title": "PUBG MOBILE | New X-Suit Phoenixtra X-Suit available now",
           "published_at": "2026-04-03",
-          "view_count": 855914,
-          "like_count": 1406,
+          "view_count": 856330,
+          "like_count": 1416,
           "comment_count": 47,
           "url": "https://www.youtube.com/watch?v=Dr9nB0SxxTQ"
         },
@@ -2746,15 +2755,6 @@
           "like_count": 11789,
           "comment_count": 241,
           "url": "https://www.youtube.com/watch?v=w2Ths5GJimc"
-        },
-        {
-          "video_id": "pf-cmCDgYeM",
-          "title": "PUBG MOBILE | Bronzework Bastion Items Available in Home",
-          "published_at": "2025-05-13",
-          "view_count": 658540,
-          "like_count": 454,
-          "comment_count": 17,
-          "url": "https://www.youtube.com/watch?v=pf-cmCDgYeM"
         }
       ]
     },
@@ -3220,9 +3220,9 @@
     {
       "name": "Map",
       "video_count": 176,
-      "total_views": 69383260,
-      "total_likes": 355308,
-      "total_comments": 28446,
+      "total_views": 69819882,
+      "total_likes": 355543,
+      "total_comments": 28449,
       "videos": [
         {
           "video_id": "vfnHQSYjXZk",
@@ -3324,6 +3324,15 @@
           "url": "https://www.youtube.com/watch?v=tuQj_2MYKSM"
         },
         {
+          "video_id": "4pis8-tI6Ws",
+          "title": "PUBG MOBILE | 📍Türkiye ，Istanbul",
+          "published_at": "2026-03-25",
+          "view_count": 2004361,
+          "like_count": 2021,
+          "comment_count": 28,
+          "url": "https://www.youtube.com/watch?v=4pis8-tI6Ws"
+        },
+        {
           "video_id": "N2mffTypX9M",
           "title": "PUBG MOBILE | Dragon Ball Super themed mode map guide",
           "published_at": "2023-07-23",
@@ -3349,15 +3358,6 @@
           "like_count": 10300,
           "comment_count": 1369,
           "url": "https://www.youtube.com/watch?v=hgPYWyS_Dzg"
-        },
-        {
-          "video_id": "4pis8-tI6Ws",
-          "title": "PUBG MOBILE | 📍Türkiye ，Istanbul",
-          "published_at": "2026-03-25",
-          "view_count": 1567739,
-          "like_count": 1786,
-          "comment_count": 25,
-          "url": "https://www.youtube.com/watch?v=4pis8-tI6Ws"
         },
         {
           "video_id": "3wa1JE0ff4Y",
@@ -3679,8 +3679,8 @@
     {
       "name": "Pass",
       "video_count": 199,
-      "total_views": 59706455,
-      "total_likes": 332481,
+      "total_views": 59706714,
+      "total_likes": 332484,
       "total_comments": 31534,
       "videos": [
         {
@@ -4597,9 +4597,9 @@
     {
       "name": "Anniversary",
       "video_count": 42,
-      "total_views": 48789282,
-      "total_likes": 148129,
-      "total_comments": 10040,
+      "total_views": 49508621,
+      "total_likes": 148555,
+      "total_comments": 10044,
       "videos": [
         {
           "video_id": "VPeM74-loiA",
@@ -4683,6 +4683,15 @@
           "url": "https://www.youtube.com/watch?v=Atpb_cawfD0"
         },
         {
+          "video_id": "xQ141MzYsUM",
+          "title": "PUBG MOBILE | Happy 8th Anniversary!",
+          "published_at": "2026-03-27",
+          "view_count": 1217039,
+          "like_count": 732,
+          "comment_count": 25,
+          "url": "https://www.youtube.com/watch?v=xQ141MzYsUM"
+        },
+        {
           "video_id": "92qVjiI-s48",
           "title": "PUBG MOBILE | Here’s to 8 more years with you.",
           "published_at": "2026-04-02",
@@ -4717,15 +4726,6 @@
           "like_count": 207,
           "comment_count": 12,
           "url": "https://www.youtube.com/watch?v=eWuaxmkCn3g"
-        },
-        {
-          "video_id": "xQ141MzYsUM",
-          "title": "PUBG MOBILE | Happy 8th Anniversary!",
-          "published_at": "2026-03-27",
-          "view_count": 497700,
-          "like_count": 306,
-          "comment_count": 21,
-          "url": "https://www.youtube.com/watch?v=xQ141MzYsUM"
         },
         {
           "video_id": "qy9GzVeAun4",
@@ -6361,9 +6361,9 @@
     {
       "name": "Music",
       "video_count": 35,
-      "total_views": 38328641,
-      "total_likes": 652644,
-      "total_comments": 24929,
+      "total_views": 39647358,
+      "total_likes": 653125,
+      "total_comments": 24931,
       "videos": [
         {
           "video_id": "7asP7Xw9emQ",
@@ -6438,6 +6438,15 @@
           "url": "https://www.youtube.com/watch?v=qw3NWLireSM"
         },
         {
+          "video_id": "F23O5rHg-KA",
+          "title": "PUBG MOBILE｜ EGYPT MUSIC CARNIVAL",
+          "published_at": "2026-03-28",
+          "view_count": 1446980,
+          "like_count": 709,
+          "comment_count": 23,
+          "url": "https://www.youtube.com/watch?v=F23O5rHg-KA"
+        },
+        {
           "video_id": "008AgXnQQh8",
           "title": "PUBG MOBILE | Let's Dance!🐔🕺🎶",
           "published_at": "2025-11-16",
@@ -6499,15 +6508,6 @@
           "like_count": 1407,
           "comment_count": 11,
           "url": "https://www.youtube.com/watch?v=hj95PZEOc0c"
-        },
-        {
-          "video_id": "F23O5rHg-KA",
-          "title": "PUBG MOBILE｜ EGYPT MUSIC CARNIVAL",
-          "published_at": "2026-03-28",
-          "view_count": 128263,
-          "like_count": 228,
-          "comment_count": 21,
-          "url": "https://www.youtube.com/watch?v=F23O5rHg-KA"
         },
         {
           "video_id": "zE5tANXyNfc",
@@ -6685,9 +6685,9 @@
     {
       "name": "Other",
       "video_count": 96,
-      "total_views": 27965401,
-      "total_likes": 152163,
-      "total_comments": 5345,
+      "total_views": 28787951,
+      "total_likes": 152200,
+      "total_comments": 5349,
       "videos": [
         {
           "video_id": "YX2cURcx4XA",
@@ -6717,6 +6717,15 @@
           "url": "https://www.youtube.com/watch?v=5T0Ye7cK_Yo"
         },
         {
+          "video_id": "XcknhL4shTw",
+          "title": "PUBG MOBILE｜I AM THE #1",
+          "published_at": "2026-03-27",
+          "view_count": 2118097,
+          "like_count": 129,
+          "comment_count": 33,
+          "url": "https://www.youtube.com/watch?v=XcknhL4shTw"
+        },
+        {
           "video_id": "4K8Bt6v7RWw",
           "title": "PUBG MOBILE | This is friendship",
           "published_at": "2026-02-13",
@@ -6742,15 +6751,6 @@
           "like_count": 5109,
           "comment_count": 92,
           "url": "https://www.youtube.com/watch?v=NvgDkyYK-oM"
-        },
-        {
-          "video_id": "XcknhL4shTw",
-          "title": "PUBG MOBILE｜I AM THE #1",
-          "published_at": "2026-03-27",
-          "view_count": 1298754,
-          "like_count": 97,
-          "comment_count": 29,
-          "url": "https://www.youtube.com/watch?v=XcknhL4shTw"
         },
         {
           "video_id": "HpThiffCgro",
@@ -6810,8 +6810,8 @@
           "video_id": "7TXfi1BqUBM",
           "title": "PUBG MOBILE | Alien Attack!",
           "published_at": "2026-03-31",
-          "view_count": 946549,
-          "like_count": 1587,
+          "view_count": 949756,
+          "like_count": 1592,
           "comment_count": 30,
           "url": "https://www.youtube.com/watch?v=7TXfi1BqUBM"
         },
@@ -8062,9 +8062,9 @@
     {
       "name": "Season",
       "video_count": 30,
-      "total_views": 13723231,
-      "total_likes": 119489,
-      "total_comments": 10129,
+      "total_views": 16403824,
+      "total_likes": 119590,
+      "total_comments": 10132,
       "videos": [
         {
           "video_id": "Lto5NpQI9qo",
@@ -8079,9 +8079,9 @@
           "video_id": "q9gmbqsA2LQ",
           "title": "PUBG MOBILE | Time to celebrate our 8th Anniversary!",
           "published_at": "2026-03-27",
-          "view_count": 1632744,
-          "like_count": 72,
-          "comment_count": 10,
+          "view_count": 4216507,
+          "like_count": 106,
+          "comment_count": 13,
           "url": "https://www.youtube.com/watch?v=q9gmbqsA2LQ"
         },
         {
@@ -8106,8 +8106,8 @@
           "video_id": "mQyUAWEURXo",
           "title": "PUBG MOBILE | 2 DAYS TO GO! ⏳",
           "published_at": "2026-03-25",
-          "view_count": 1169771,
-          "like_count": 3062,
+          "view_count": 1252391,
+          "like_count": 3092,
           "comment_count": 26,
           "url": "https://www.youtube.com/watch?v=mQyUAWEURXo"
         },
@@ -8175,6 +8175,15 @@
           "url": "https://www.youtube.com/watch?v=iXnk_hDEKmg"
         },
         {
+          "video_id": "amyKPdNak4k",
+          "title": "PUBG MOBILE | 1 DAY TO GO!",
+          "published_at": "2026-03-26",
+          "view_count": 65502,
+          "like_count": 443,
+          "comment_count": 9,
+          "url": "https://www.youtube.com/watch?v=amyKPdNak4k"
+        },
+        {
           "video_id": "5NxJ5s9TRwI",
           "title": "PUBG MOBILE Season 5 Recap",
           "published_at": "2019-04-04",
@@ -8182,15 +8191,6 @@
           "like_count": 3407,
           "comment_count": 311,
           "url": "https://www.youtube.com/watch?v=5NxJ5s9TRwI"
-        },
-        {
-          "video_id": "amyKPdNak4k",
-          "title": "PUBG MOBILE | 1 DAY TO GO!",
-          "published_at": "2026-03-26",
-          "view_count": 51292,
-          "like_count": 406,
-          "comment_count": 9,
-          "url": "https://www.youtube.com/watch?v=amyKPdNak4k"
         },
         {
           "video_id": "ToWxP-TitNI",
@@ -8341,9 +8341,9 @@
     {
       "name": "Vehicle",
       "video_count": 41,
-      "total_views": 11109309,
-      "total_likes": 67926,
-      "total_comments": 2668,
+      "total_views": 12175800,
+      "total_likes": 68397,
+      "total_comments": 2671,
       "videos": [
         {
           "video_id": "pK_ElxeD994",
@@ -8380,6 +8380,15 @@
           "like_count": 1883,
           "comment_count": 34,
           "url": "https://www.youtube.com/watch?v=fYit5oI_Uyo"
+        },
+        {
+          "video_id": "Y4jOsBuDjHQ",
+          "title": "PUBG MOBILE | AIRDROP BOAT TOUR",
+          "published_at": "2026-03-27",
+          "view_count": 1169767,
+          "like_count": 692,
+          "comment_count": 11,
+          "url": "https://www.youtube.com/watch?v=Y4jOsBuDjHQ"
         },
         {
           "video_id": "MCabswzVYhY",
@@ -8443,15 +8452,6 @@
           "like_count": 2281,
           "comment_count": 177,
           "url": "https://www.youtube.com/watch?v=PRqgH7aicIQ"
-        },
-        {
-          "video_id": "Y4jOsBuDjHQ",
-          "title": "PUBG MOBILE | AIRDROP BOAT TOUR",
-          "published_at": "2026-03-27",
-          "view_count": 103276,
-          "like_count": 221,
-          "comment_count": 8,
-          "url": "https://www.youtube.com/watch?v=Y4jOsBuDjHQ"
         },
         {
           "video_id": "o6Rl5GLIhRg",
@@ -8717,470 +8717,11 @@
       ]
     },
     {
-      "name": "Livestream",
-      "video_count": 57,
-      "total_views": 11106732,
-      "total_likes": 88246,
-      "total_comments": 3460,
-      "videos": [
-        {
-          "video_id": "yt_gY6RKMH4",
-          "title": "Apollo Supercars Live​ on 03/20",
-          "published_at": "2026-03-18",
-          "view_count": 4657115,
-          "like_count": 386,
-          "comment_count": 58,
-          "url": "https://www.youtube.com/watch?v=yt_gY6RKMH4"
-        },
-        {
-          "video_id": "zLI2GgVNVF0",
-          "title": "PUBG MOBILE | RPA18 Victory Dance live now!",
-          "published_at": "2026-03-17",
-          "view_count": 1222035,
-          "like_count": 282,
-          "comment_count": 17,
-          "url": "https://www.youtube.com/watch?v=zLI2GgVNVF0"
-        },
-        {
-          "video_id": "d1btrEWtrRs",
-          "title": "PUBG MOBILE | INTO THE AFTERMATH",
-          "published_at": "2022-02-03",
-          "view_count": 1036344,
-          "like_count": 2097,
-          "comment_count": 29,
-          "url": "https://www.youtube.com/watch?v=d1btrEWtrRs"
-        },
-        {
-          "video_id": "NVuYqMNxfU4",
-          "title": "PUBG MOBILE | SPYxFAMILY Prize Path Event LIVE Now!",
-          "published_at": "2024-04-13",
-          "view_count": 833862,
-          "like_count": 2726,
-          "comment_count": 58,
-          "url": "https://www.youtube.com/watch?v=NVuYqMNxfU4"
-        },
-        {
-          "video_id": "KnXCcMQ7mSY",
-          "title": "PUBG MOBILE | The portal has opened! 🌀 All-new Fool's Blessing Spin has arrived!",
-          "published_at": "2023-10-07",
-          "view_count": 786058,
-          "like_count": 7272,
-          "comment_count": 42,
-          "url": "https://www.youtube.com/watch?v=KnXCcMQ7mSY"
-        },
-        {
-          "video_id": "G6H_QXBoI1Y",
-          "title": "BLACKPINK IN YOUR AREA! ✨The FUN MATCH Gamplay Show is almost here!",
-          "published_at": "2020-11-10",
-          "view_count": 443648,
-          "like_count": 7225,
-          "comment_count": 198,
-          "url": "https://www.youtube.com/watch?v=G6H_QXBoI1Y"
-        },
-        {
-          "video_id": "zBx2b_cFgZk",
-          "title": "PUBG MOBILE | Let‘s hear the voices from the WOW community.",
-          "published_at": "2026-03-25",
-          "view_count": 442924,
-          "like_count": 66,
-          "comment_count": 8,
-          "url": "https://www.youtube.com/watch?v=zBx2b_cFgZk"
-        },
-        {
-          "video_id": "KoqrcDQewlA",
-          "title": "PUBG MOBILE | 6th Anniversary Skydiving with Jeb Corliss!",
-          "published_at": "2024-03-22",
-          "view_count": 366036,
-          "like_count": 12623,
-          "comment_count": 24,
-          "url": "https://www.youtube.com/watch?v=KoqrcDQewlA"
-        },
-        {
-          "video_id": "f-esWAyn49I",
-          "title": "PUBG MOBILE | Golden Dynasty: Layla's Memories",
-          "published_at": "2025-03-20",
-          "view_count": 317935,
-          "like_count": 1040,
-          "comment_count": 91,
-          "url": "https://www.youtube.com/watch?v=f-esWAyn49I"
-        },
-        {
-          "video_id": "rmTyemvYVg8",
-          "title": "PUBG MOBILE - The Sandstorm Livestream - Easter Eggs",
-          "published_at": "2020-05-13",
-          "view_count": 70711,
-          "like_count": 3013,
-          "comment_count": 272,
-          "url": "https://www.youtube.com/watch?v=rmTyemvYVg8"
-        },
-        {
-          "video_id": "QJO1dkctX7o",
-          "title": "PUBG MOBILE | Royale Pass Month 4: Temporal Warrior",
-          "published_at": "2021-10-18",
-          "view_count": 59704,
-          "like_count": 1428,
-          "comment_count": 157,
-          "url": "https://www.youtube.com/watch?v=QJO1dkctX7o"
-        },
-        {
-          "video_id": "CXOvmi3bSrc",
-          "title": "PMSC Global Finals Day 1 [RUSSIAN] | Galaxy Note9 PUBG MOBILE STAR CHALLENGE- Global Finals",
-          "published_at": "2018-11-29",
-          "view_count": 58372,
-          "like_count": 1512,
-          "comment_count": 42,
-          "url": "https://www.youtube.com/watch?v=CXOvmi3bSrc"
-        },
-        {
-          "video_id": "xsrKQ7z9iTU",
-          "title": "PMSC Global Finals Day 1 [RUSSIAN] | Galaxy Note9 PUBG MOBILE STAR CHALLENGE- Global Finals",
-          "published_at": "2018-11-29",
-          "view_count": 53283,
-          "like_count": 1197,
-          "comment_count": 31,
-          "url": "https://www.youtube.com/watch?v=xsrKQ7z9iTU"
-        },
-        {
-          "video_id": "4H_hUCBBYwc",
-          "title": "Prepare for the “FUN MATCH” Gameplay Show of the Century!",
-          "published_at": "2020-11-09",
-          "view_count": 52747,
-          "like_count": 6551,
-          "comment_count": 238,
-          "url": "https://www.youtube.com/watch?v=4H_hUCBBYwc"
-        },
-        {
-          "video_id": "X7ciOtt7dNw",
-          "title": "The Ultimate guide to Bridge Camping in PUBG MOBILE",
-          "published_at": "2018-06-07",
-          "view_count": 50522,
-          "like_count": 1865,
-          "comment_count": 225,
-          "url": "https://www.youtube.com/watch?v=X7ciOtt7dNw"
-        },
-        {
-          "video_id": "CETKWDWViCY",
-          "title": "SPARK THE FLAME - A Live PUBG MOBILE Livik Celebration",
-          "published_at": "2020-07-28",
-          "view_count": 41558,
-          "like_count": 3201,
-          "comment_count": 92,
-          "url": "https://www.youtube.com/watch?v=CETKWDWViCY"
-        },
-        {
-          "video_id": "WPvFfch8n9Q",
-          "title": "Global Finals are finally here in Dubai! Watch LIVE to see which team wins #thefinalcircle",
-          "published_at": "2018-11-29",
-          "view_count": 35930,
-          "like_count": 1637,
-          "comment_count": 326,
-          "url": "https://www.youtube.com/watch?v=WPvFfch8n9Q"
-        },
-        {
-          "video_id": "lRc6OqF5MJw",
-          "title": "PUBGM The Arena | Gladiator's Odyssey",
-          "published_at": "2021-09-26",
-          "view_count": 35030,
-          "like_count": 2970,
-          "comment_count": 156,
-          "url": "https://www.youtube.com/watch?v=lRc6OqF5MJw"
-        },
-        {
-          "video_id": "D9PFM74TXqU",
-          "title": "PUBG Mobile Training Grounds - Powerbang & 7WG",
-          "published_at": "2018-08-17",
-          "view_count": 34276,
-          "like_count": 1080,
-          "comment_count": 38,
-          "url": "https://www.youtube.com/watch?v=D9PFM74TXqU"
-        },
-        {
-          "video_id": "OzgehZj8CC4",
-          "title": "PMSC Global Finals Day 1 [SPANISH] | Galaxy Note9 PUBG MOBILE STAR CHALLENGE- Global Finals",
-          "published_at": "2018-11-29",
-          "view_count": 33592,
-          "like_count": 736,
-          "comment_count": 24,
-          "url": "https://www.youtube.com/watch?v=OzgehZj8CC4"
-        },
-        {
-          "video_id": "YZsEtVLiNF4",
-          "title": "PUBG MOBILE VIP of the Month Stream! | April",
-          "published_at": "2021-04-28",
-          "view_count": 25682,
-          "like_count": 1280,
-          "comment_count": 71,
-          "url": "https://www.youtube.com/watch?v=YZsEtVLiNF4"
-        },
-        {
-          "video_id": "7hAZopmCHUA",
-          "title": "PUBG MOBILE VIP OF THE MONTH STREAM! | AUGUST",
-          "published_at": "2021-08-25",
-          "view_count": 24968,
-          "like_count": 2777,
-          "comment_count": 53,
-          "url": "https://www.youtube.com/watch?v=7hAZopmCHUA"
-        },
-        {
-          "video_id": "8jl99IkCDAQ",
-          "title": "PUBG MOBILE's 13 Days of Halloween - Livestream #7 Hosted by Her Gaming",
-          "published_at": "2021-10-26",
-          "view_count": 24327,
-          "like_count": 1619,
-          "comment_count": 21,
-          "url": "https://www.youtube.com/watch?v=8jl99IkCDAQ"
-        },
-        {
-          "video_id": "n62MoDZwQuU",
-          "title": "Minor Leagues Division A Custom Tournament ft. Wicked Gaming",
-          "published_at": "2018-06-28",
-          "view_count": 23743,
-          "like_count": 847,
-          "comment_count": 23,
-          "url": "https://www.youtube.com/watch?v=n62MoDZwQuU"
-        },
-        {
-          "video_id": "uocpj5hv2tE",
-          "title": "PMSC Global Finals Day 1 [ARABIC] | Galaxy Note9 PUBG MOBILE STAR CHALLENGE- Global Finals",
-          "published_at": "2018-11-29",
-          "view_count": 23328,
-          "like_count": 731,
-          "comment_count": 11,
-          "url": "https://www.youtube.com/watch?v=uocpj5hv2tE"
-        },
-        {
-          "video_id": "X_ouLhI8TuA",
-          "title": "PUBG MOBILE's 13 Days of Halloween - Livestream #1 Hosted by Medalcore",
-          "published_at": "2021-10-20",
-          "view_count": 23185,
-          "like_count": 1595,
-          "comment_count": 36,
-          "url": "https://www.youtube.com/watch?v=X_ouLhI8TuA"
-        },
-        {
-          "video_id": "KbvhFNx-4xI",
-          "title": "PUBG MOBILE | Trip To The Past YouTube Challenge",
-          "published_at": "2021-10-19",
-          "view_count": 22567,
-          "like_count": 1540,
-          "comment_count": 265,
-          "url": "https://www.youtube.com/watch?v=KbvhFNx-4xI"
-        },
-        {
-          "video_id": "KegUt5rbN-M",
-          "title": "PUBG MOBILE's 13 Days of Halloween - Livestream #8 Hosted by Rollexxx",
-          "published_at": "2021-10-27",
-          "view_count": 22564,
-          "like_count": 1299,
-          "comment_count": 24,
-          "url": "https://www.youtube.com/watch?v=KegUt5rbN-M"
-        },
-        {
-          "video_id": "O5Xx1LeCr6M",
-          "title": "PUBG MOBILE VIP OF THE MONTH STREAM! | JULY",
-          "published_at": "2021-07-28",
-          "view_count": 21237,
-          "like_count": 2076,
-          "comment_count": 31,
-          "url": "https://www.youtube.com/watch?v=O5Xx1LeCr6M"
-        },
-        {
-          "video_id": "0Z0vft6xKDg",
-          "title": "PUBG MOBILE's 13 Days of Halloween - Livestream #2 Hosted by Jacob Gaming",
-          "published_at": "2021-10-21",
-          "view_count": 20520,
-          "like_count": 1513,
-          "comment_count": 26,
-          "url": "https://www.youtube.com/watch?v=0Z0vft6xKDg"
-        },
-        {
-          "video_id": "yS9pvC9joeA",
-          "title": "PUBG MOBILE’s 13 Days of Halloween: Creator Livestream Takeovers!",
-          "published_at": "2021-10-18",
-          "view_count": 20519,
-          "like_count": 1170,
-          "comment_count": 72,
-          "url": "https://www.youtube.com/watch?v=yS9pvC9joeA"
-        },
-        {
-          "video_id": "d5m2fCSu040",
-          "title": "PUBG MOBILE's 13 Days of Halloween - Livestream #6 Hosted by BellaFox",
-          "published_at": "2021-10-25",
-          "view_count": 20249,
-          "like_count": 1342,
-          "comment_count": 22,
-          "url": "https://www.youtube.com/watch?v=d5m2fCSu040"
-        },
-        {
-          "video_id": "DWxRSHYF4PM",
-          "title": "PUBG MOBILE VIP OF THE MONTH STREAM! | JUNE",
-          "published_at": "2021-06-23",
-          "view_count": 19443,
-          "like_count": 2465,
-          "comment_count": 40,
-          "url": "https://www.youtube.com/watch?v=DWxRSHYF4PM"
-        },
-        {
-          "video_id": "myGTaMYpEac",
-          "title": "PUBG MOBILE | Esports Weekly Funny Moments",
-          "published_at": "2021-10-19",
-          "view_count": 15805,
-          "like_count": 876,
-          "comment_count": 54,
-          "url": "https://www.youtube.com/watch?v=myGTaMYpEac"
-        },
-        {
-          "video_id": "w0zbQu6ImQs",
-          "title": "AERIAL GAME MODES ARE BACK",
-          "published_at": "2021-10-25",
-          "view_count": 14925,
-          "like_count": 1200,
-          "comment_count": 100,
-          "url": "https://www.youtube.com/watch?v=w0zbQu6ImQs"
-        },
-        {
-          "video_id": "LmkJyTVjdHg",
-          "title": "PUBG MOBILE: Holiday Hangout | Live NOW w/ $10K USD Prize Bundle Sweepstakes & Massive UC Giveaway!",
-          "published_at": "2024-12-20",
-          "view_count": 13607,
-          "like_count": 620,
-          "comment_count": 29,
-          "url": "https://www.youtube.com/watch?v=LmkJyTVjdHg"
-        },
-        {
-          "video_id": "IzoHd5KVhjA",
-          "title": "POWER 4 RETURNS",
-          "published_at": "2021-10-23",
-          "view_count": 13386,
-          "like_count": 1218,
-          "comment_count": 109,
-          "url": "https://www.youtube.com/watch?v=IzoHd5KVhjA"
-        },
-        {
-          "video_id": "-NhWs4Tad2M",
-          "title": "PMSC Global Finals Day 1 [ARABIC] | Galaxy Note9 PUBG MOBILE STAR CHALLENGE- Global Finals",
-          "published_at": "2018-11-29",
-          "view_count": 13133,
-          "like_count": 180,
-          "comment_count": 2,
-          "url": "https://www.youtube.com/watch?v=-NhWs4Tad2M"
-        },
-        {
-          "video_id": "QMWof1daR7U",
-          "title": "PUBG MOBILE | LIVE 🏖️ Bali Air Drop Event Highlights",
-          "published_at": "2023-08-23",
-          "view_count": 11929,
-          "like_count": 295,
-          "comment_count": 21,
-          "url": "https://www.youtube.com/watch?v=QMWof1daR7U"
-        },
-        {
-          "video_id": "qLVWTkKxafQ",
-          "title": "PMSC Global Finals Day 1 [Cantonese] | Galaxy Note9 PUBG MOBILE STAR CHALLENGE- Global Finals",
-          "published_at": "2018-11-29",
-          "view_count": 11600,
-          "like_count": 337,
-          "comment_count": 3,
-          "url": "https://www.youtube.com/watch?v=qLVWTkKxafQ"
-        },
-        {
-          "video_id": "Ia4yofmnwcQ",
-          "title": "Custom Rooms with the Bushka's!",
-          "published_at": "2018-08-01",
-          "view_count": 11193,
-          "like_count": 537,
-          "comment_count": 21,
-          "url": "https://www.youtube.com/watch?v=Ia4yofmnwcQ"
-        },
-        {
-          "video_id": "s9_U5D808H0",
-          "title": "PUBG MOBILE VIP of the Month Stream! | OCTOBER",
-          "published_at": "2021-10-29",
-          "view_count": 8961,
-          "like_count": 688,
-          "comment_count": 14,
-          "url": "https://www.youtube.com/watch?v=s9_U5D808H0"
-        },
-        {
-          "video_id": "3iNgzZVQqoE",
-          "title": "PUBG MOBILE VIP of the Month Stream! | NOVEMBER",
-          "published_at": "2021-11-30",
-          "view_count": 7044,
-          "like_count": 544,
-          "comment_count": 7,
-          "url": "https://www.youtube.com/watch?v=3iNgzZVQqoE"
-        },
-        {
-          "video_id": "mOyjkPvPsRo",
-          "title": "PUBG MOBILE | RPA Live Commerce",
-          "published_at": "2023-05-25",
-          "view_count": 6858,
-          "like_count": 241,
-          "comment_count": 37,
-          "url": "https://www.youtube.com/watch?v=mOyjkPvPsRo"
-        },
-        {
-          "video_id": "2H0iAbkMQKw",
-          "title": "PUBG MOBILE VIP: Victory 7 Takeover w/ @byMedalcore!",
-          "published_at": "2025-04-06",
-          "view_count": 6434,
-          "like_count": 141,
-          "comment_count": 6,
-          "url": "https://www.youtube.com/watch?v=2H0iAbkMQKw"
-        },
-        {
-          "video_id": "-DfVEdB7wIM",
-          "title": "PUBG MOBILE | Meet our October VIPS of the Month!",
-          "published_at": "2021-10-26",
-          "view_count": 5544,
-          "like_count": 462,
-          "comment_count": 49,
-          "url": "https://www.youtube.com/watch?v=-DfVEdB7wIM"
-        },
-        {
-          "video_id": "3rmfezDQghU",
-          "title": "PUBG MOBILE | Meet your September VIPS of the Month!",
-          "published_at": "2021-09-27",
-          "view_count": 5300,
-          "like_count": 360,
-          "comment_count": 50,
-          "url": "https://www.youtube.com/watch?v=3rmfezDQghU"
-        },
-        {
-          "video_id": "HY9bhL5m4P0",
-          "title": "PUBG MOBILE VIP: Victory 7 Takeover w/ @Wynnsanity!",
-          "published_at": "2025-04-07",
-          "view_count": 4380,
-          "like_count": 191,
-          "comment_count": 5,
-          "url": "https://www.youtube.com/watch?v=HY9bhL5m4P0"
-        },
-        {
-          "video_id": "UZ408_55g_w",
-          "title": "PUBG MOBILE | Check Out The Royale Pass Activation Streak Perks",
-          "published_at": "2025-03-18",
-          "view_count": 4368,
-          "like_count": 91,
-          "comment_count": 20,
-          "url": "https://www.youtube.com/watch?v=UZ408_55g_w"
-        },
-        {
-          "video_id": "bN7MSXQozJs",
-          "title": "PUBG MOBILE VIP STREAM ‘N SCREAM DAY 2",
-          "published_at": "2023-10-27",
-          "view_count": 4148,
-          "like_count": 146,
-          "comment_count": 7,
-          "url": "https://www.youtube.com/watch?v=bN7MSXQozJs"
-        }
-      ]
-    },
-    {
       "name": "Community",
       "video_count": 48,
-      "total_views": 10334979,
-      "total_likes": 49354,
-      "total_comments": 2795,
+      "total_views": 11930971,
+      "total_likes": 49932,
+      "total_comments": 2814,
       "videos": [
         {
           "video_id": "K1UeNHMD6qY",
@@ -9190,6 +8731,15 @@
           "like_count": 1374,
           "comment_count": 90,
           "url": "https://www.youtube.com/watch?v=K1UeNHMD6qY"
+        },
+        {
+          "video_id": "UITCkrj_sFw",
+          "title": "PUBG MOBILE | A LETTER TO OUR PUBG MOBILE COMMUNITY",
+          "published_at": "2026-03-27",
+          "view_count": 2376698,
+          "like_count": 1074,
+          "comment_count": 54,
+          "url": "https://www.youtube.com/watch?v=UITCkrj_sFw"
         },
         {
           "video_id": "w0df4Hbe-v8",
@@ -9208,15 +8758,6 @@
           "like_count": 2789,
           "comment_count": 259,
           "url": "https://www.youtube.com/watch?v=1v2evH06-Xk"
-        },
-        {
-          "video_id": "UITCkrj_sFw",
-          "title": "PUBG MOBILE | A LETTER TO OUR PUBG MOBILE COMMUNITY",
-          "published_at": "2026-03-27",
-          "view_count": 780706,
-          "like_count": 496,
-          "comment_count": 35,
-          "url": "https://www.youtube.com/watch?v=UITCkrj_sFw"
         },
         {
           "video_id": "42007o1LTV4",
@@ -9617,6 +9158,465 @@
       ]
     },
     {
+      "name": "Livestream",
+      "video_count": 57,
+      "total_views": 11148634,
+      "total_likes": 88248,
+      "total_comments": 3460,
+      "videos": [
+        {
+          "video_id": "yt_gY6RKMH4",
+          "title": "Apollo Supercars Live​ on 03/20",
+          "published_at": "2026-03-18",
+          "view_count": 4657115,
+          "like_count": 386,
+          "comment_count": 58,
+          "url": "https://www.youtube.com/watch?v=yt_gY6RKMH4"
+        },
+        {
+          "video_id": "zLI2GgVNVF0",
+          "title": "PUBG MOBILE | RPA18 Victory Dance live now!",
+          "published_at": "2026-03-17",
+          "view_count": 1222035,
+          "like_count": 282,
+          "comment_count": 17,
+          "url": "https://www.youtube.com/watch?v=zLI2GgVNVF0"
+        },
+        {
+          "video_id": "d1btrEWtrRs",
+          "title": "PUBG MOBILE | INTO THE AFTERMATH",
+          "published_at": "2022-02-03",
+          "view_count": 1036344,
+          "like_count": 2097,
+          "comment_count": 29,
+          "url": "https://www.youtube.com/watch?v=d1btrEWtrRs"
+        },
+        {
+          "video_id": "NVuYqMNxfU4",
+          "title": "PUBG MOBILE | SPYxFAMILY Prize Path Event LIVE Now!",
+          "published_at": "2024-04-13",
+          "view_count": 833862,
+          "like_count": 2726,
+          "comment_count": 58,
+          "url": "https://www.youtube.com/watch?v=NVuYqMNxfU4"
+        },
+        {
+          "video_id": "KnXCcMQ7mSY",
+          "title": "PUBG MOBILE | The portal has opened! 🌀 All-new Fool's Blessing Spin has arrived!",
+          "published_at": "2023-10-07",
+          "view_count": 786058,
+          "like_count": 7272,
+          "comment_count": 42,
+          "url": "https://www.youtube.com/watch?v=KnXCcMQ7mSY"
+        },
+        {
+          "video_id": "zBx2b_cFgZk",
+          "title": "PUBG MOBILE | Let‘s hear the voices from the WOW community.",
+          "published_at": "2026-03-25",
+          "view_count": 484826,
+          "like_count": 68,
+          "comment_count": 8,
+          "url": "https://www.youtube.com/watch?v=zBx2b_cFgZk"
+        },
+        {
+          "video_id": "G6H_QXBoI1Y",
+          "title": "BLACKPINK IN YOUR AREA! ✨The FUN MATCH Gamplay Show is almost here!",
+          "published_at": "2020-11-10",
+          "view_count": 443648,
+          "like_count": 7225,
+          "comment_count": 198,
+          "url": "https://www.youtube.com/watch?v=G6H_QXBoI1Y"
+        },
+        {
+          "video_id": "KoqrcDQewlA",
+          "title": "PUBG MOBILE | 6th Anniversary Skydiving with Jeb Corliss!",
+          "published_at": "2024-03-22",
+          "view_count": 366036,
+          "like_count": 12623,
+          "comment_count": 24,
+          "url": "https://www.youtube.com/watch?v=KoqrcDQewlA"
+        },
+        {
+          "video_id": "f-esWAyn49I",
+          "title": "PUBG MOBILE | Golden Dynasty: Layla's Memories",
+          "published_at": "2025-03-20",
+          "view_count": 317935,
+          "like_count": 1040,
+          "comment_count": 91,
+          "url": "https://www.youtube.com/watch?v=f-esWAyn49I"
+        },
+        {
+          "video_id": "rmTyemvYVg8",
+          "title": "PUBG MOBILE - The Sandstorm Livestream - Easter Eggs",
+          "published_at": "2020-05-13",
+          "view_count": 70711,
+          "like_count": 3013,
+          "comment_count": 272,
+          "url": "https://www.youtube.com/watch?v=rmTyemvYVg8"
+        },
+        {
+          "video_id": "QJO1dkctX7o",
+          "title": "PUBG MOBILE | Royale Pass Month 4: Temporal Warrior",
+          "published_at": "2021-10-18",
+          "view_count": 59704,
+          "like_count": 1428,
+          "comment_count": 157,
+          "url": "https://www.youtube.com/watch?v=QJO1dkctX7o"
+        },
+        {
+          "video_id": "CXOvmi3bSrc",
+          "title": "PMSC Global Finals Day 1 [RUSSIAN] | Galaxy Note9 PUBG MOBILE STAR CHALLENGE- Global Finals",
+          "published_at": "2018-11-29",
+          "view_count": 58372,
+          "like_count": 1512,
+          "comment_count": 42,
+          "url": "https://www.youtube.com/watch?v=CXOvmi3bSrc"
+        },
+        {
+          "video_id": "xsrKQ7z9iTU",
+          "title": "PMSC Global Finals Day 1 [RUSSIAN] | Galaxy Note9 PUBG MOBILE STAR CHALLENGE- Global Finals",
+          "published_at": "2018-11-29",
+          "view_count": 53283,
+          "like_count": 1197,
+          "comment_count": 31,
+          "url": "https://www.youtube.com/watch?v=xsrKQ7z9iTU"
+        },
+        {
+          "video_id": "4H_hUCBBYwc",
+          "title": "Prepare for the “FUN MATCH” Gameplay Show of the Century!",
+          "published_at": "2020-11-09",
+          "view_count": 52747,
+          "like_count": 6551,
+          "comment_count": 238,
+          "url": "https://www.youtube.com/watch?v=4H_hUCBBYwc"
+        },
+        {
+          "video_id": "X7ciOtt7dNw",
+          "title": "The Ultimate guide to Bridge Camping in PUBG MOBILE",
+          "published_at": "2018-06-07",
+          "view_count": 50522,
+          "like_count": 1865,
+          "comment_count": 225,
+          "url": "https://www.youtube.com/watch?v=X7ciOtt7dNw"
+        },
+        {
+          "video_id": "CETKWDWViCY",
+          "title": "SPARK THE FLAME - A Live PUBG MOBILE Livik Celebration",
+          "published_at": "2020-07-28",
+          "view_count": 41558,
+          "like_count": 3201,
+          "comment_count": 92,
+          "url": "https://www.youtube.com/watch?v=CETKWDWViCY"
+        },
+        {
+          "video_id": "WPvFfch8n9Q",
+          "title": "Global Finals are finally here in Dubai! Watch LIVE to see which team wins #thefinalcircle",
+          "published_at": "2018-11-29",
+          "view_count": 35930,
+          "like_count": 1637,
+          "comment_count": 326,
+          "url": "https://www.youtube.com/watch?v=WPvFfch8n9Q"
+        },
+        {
+          "video_id": "lRc6OqF5MJw",
+          "title": "PUBGM The Arena | Gladiator's Odyssey",
+          "published_at": "2021-09-26",
+          "view_count": 35030,
+          "like_count": 2970,
+          "comment_count": 156,
+          "url": "https://www.youtube.com/watch?v=lRc6OqF5MJw"
+        },
+        {
+          "video_id": "D9PFM74TXqU",
+          "title": "PUBG Mobile Training Grounds - Powerbang & 7WG",
+          "published_at": "2018-08-17",
+          "view_count": 34276,
+          "like_count": 1080,
+          "comment_count": 38,
+          "url": "https://www.youtube.com/watch?v=D9PFM74TXqU"
+        },
+        {
+          "video_id": "OzgehZj8CC4",
+          "title": "PMSC Global Finals Day 1 [SPANISH] | Galaxy Note9 PUBG MOBILE STAR CHALLENGE- Global Finals",
+          "published_at": "2018-11-29",
+          "view_count": 33592,
+          "like_count": 736,
+          "comment_count": 24,
+          "url": "https://www.youtube.com/watch?v=OzgehZj8CC4"
+        },
+        {
+          "video_id": "YZsEtVLiNF4",
+          "title": "PUBG MOBILE VIP of the Month Stream! | April",
+          "published_at": "2021-04-28",
+          "view_count": 25682,
+          "like_count": 1280,
+          "comment_count": 71,
+          "url": "https://www.youtube.com/watch?v=YZsEtVLiNF4"
+        },
+        {
+          "video_id": "7hAZopmCHUA",
+          "title": "PUBG MOBILE VIP OF THE MONTH STREAM! | AUGUST",
+          "published_at": "2021-08-25",
+          "view_count": 24968,
+          "like_count": 2777,
+          "comment_count": 53,
+          "url": "https://www.youtube.com/watch?v=7hAZopmCHUA"
+        },
+        {
+          "video_id": "8jl99IkCDAQ",
+          "title": "PUBG MOBILE's 13 Days of Halloween - Livestream #7 Hosted by Her Gaming",
+          "published_at": "2021-10-26",
+          "view_count": 24327,
+          "like_count": 1619,
+          "comment_count": 21,
+          "url": "https://www.youtube.com/watch?v=8jl99IkCDAQ"
+        },
+        {
+          "video_id": "n62MoDZwQuU",
+          "title": "Minor Leagues Division A Custom Tournament ft. Wicked Gaming",
+          "published_at": "2018-06-28",
+          "view_count": 23743,
+          "like_count": 847,
+          "comment_count": 23,
+          "url": "https://www.youtube.com/watch?v=n62MoDZwQuU"
+        },
+        {
+          "video_id": "uocpj5hv2tE",
+          "title": "PMSC Global Finals Day 1 [ARABIC] | Galaxy Note9 PUBG MOBILE STAR CHALLENGE- Global Finals",
+          "published_at": "2018-11-29",
+          "view_count": 23328,
+          "like_count": 731,
+          "comment_count": 11,
+          "url": "https://www.youtube.com/watch?v=uocpj5hv2tE"
+        },
+        {
+          "video_id": "X_ouLhI8TuA",
+          "title": "PUBG MOBILE's 13 Days of Halloween - Livestream #1 Hosted by Medalcore",
+          "published_at": "2021-10-20",
+          "view_count": 23185,
+          "like_count": 1595,
+          "comment_count": 36,
+          "url": "https://www.youtube.com/watch?v=X_ouLhI8TuA"
+        },
+        {
+          "video_id": "KbvhFNx-4xI",
+          "title": "PUBG MOBILE | Trip To The Past YouTube Challenge",
+          "published_at": "2021-10-19",
+          "view_count": 22567,
+          "like_count": 1540,
+          "comment_count": 265,
+          "url": "https://www.youtube.com/watch?v=KbvhFNx-4xI"
+        },
+        {
+          "video_id": "KegUt5rbN-M",
+          "title": "PUBG MOBILE's 13 Days of Halloween - Livestream #8 Hosted by Rollexxx",
+          "published_at": "2021-10-27",
+          "view_count": 22564,
+          "like_count": 1299,
+          "comment_count": 24,
+          "url": "https://www.youtube.com/watch?v=KegUt5rbN-M"
+        },
+        {
+          "video_id": "O5Xx1LeCr6M",
+          "title": "PUBG MOBILE VIP OF THE MONTH STREAM! | JULY",
+          "published_at": "2021-07-28",
+          "view_count": 21237,
+          "like_count": 2076,
+          "comment_count": 31,
+          "url": "https://www.youtube.com/watch?v=O5Xx1LeCr6M"
+        },
+        {
+          "video_id": "0Z0vft6xKDg",
+          "title": "PUBG MOBILE's 13 Days of Halloween - Livestream #2 Hosted by Jacob Gaming",
+          "published_at": "2021-10-21",
+          "view_count": 20520,
+          "like_count": 1513,
+          "comment_count": 26,
+          "url": "https://www.youtube.com/watch?v=0Z0vft6xKDg"
+        },
+        {
+          "video_id": "yS9pvC9joeA",
+          "title": "PUBG MOBILE’s 13 Days of Halloween: Creator Livestream Takeovers!",
+          "published_at": "2021-10-18",
+          "view_count": 20519,
+          "like_count": 1170,
+          "comment_count": 72,
+          "url": "https://www.youtube.com/watch?v=yS9pvC9joeA"
+        },
+        {
+          "video_id": "d5m2fCSu040",
+          "title": "PUBG MOBILE's 13 Days of Halloween - Livestream #6 Hosted by BellaFox",
+          "published_at": "2021-10-25",
+          "view_count": 20249,
+          "like_count": 1342,
+          "comment_count": 22,
+          "url": "https://www.youtube.com/watch?v=d5m2fCSu040"
+        },
+        {
+          "video_id": "DWxRSHYF4PM",
+          "title": "PUBG MOBILE VIP OF THE MONTH STREAM! | JUNE",
+          "published_at": "2021-06-23",
+          "view_count": 19443,
+          "like_count": 2465,
+          "comment_count": 40,
+          "url": "https://www.youtube.com/watch?v=DWxRSHYF4PM"
+        },
+        {
+          "video_id": "myGTaMYpEac",
+          "title": "PUBG MOBILE | Esports Weekly Funny Moments",
+          "published_at": "2021-10-19",
+          "view_count": 15805,
+          "like_count": 876,
+          "comment_count": 54,
+          "url": "https://www.youtube.com/watch?v=myGTaMYpEac"
+        },
+        {
+          "video_id": "w0zbQu6ImQs",
+          "title": "AERIAL GAME MODES ARE BACK",
+          "published_at": "2021-10-25",
+          "view_count": 14925,
+          "like_count": 1200,
+          "comment_count": 100,
+          "url": "https://www.youtube.com/watch?v=w0zbQu6ImQs"
+        },
+        {
+          "video_id": "LmkJyTVjdHg",
+          "title": "PUBG MOBILE: Holiday Hangout | Live NOW w/ $10K USD Prize Bundle Sweepstakes & Massive UC Giveaway!",
+          "published_at": "2024-12-20",
+          "view_count": 13607,
+          "like_count": 620,
+          "comment_count": 29,
+          "url": "https://www.youtube.com/watch?v=LmkJyTVjdHg"
+        },
+        {
+          "video_id": "IzoHd5KVhjA",
+          "title": "POWER 4 RETURNS",
+          "published_at": "2021-10-23",
+          "view_count": 13386,
+          "like_count": 1218,
+          "comment_count": 109,
+          "url": "https://www.youtube.com/watch?v=IzoHd5KVhjA"
+        },
+        {
+          "video_id": "-NhWs4Tad2M",
+          "title": "PMSC Global Finals Day 1 [ARABIC] | Galaxy Note9 PUBG MOBILE STAR CHALLENGE- Global Finals",
+          "published_at": "2018-11-29",
+          "view_count": 13133,
+          "like_count": 180,
+          "comment_count": 2,
+          "url": "https://www.youtube.com/watch?v=-NhWs4Tad2M"
+        },
+        {
+          "video_id": "QMWof1daR7U",
+          "title": "PUBG MOBILE | LIVE 🏖️ Bali Air Drop Event Highlights",
+          "published_at": "2023-08-23",
+          "view_count": 11929,
+          "like_count": 295,
+          "comment_count": 21,
+          "url": "https://www.youtube.com/watch?v=QMWof1daR7U"
+        },
+        {
+          "video_id": "qLVWTkKxafQ",
+          "title": "PMSC Global Finals Day 1 [Cantonese] | Galaxy Note9 PUBG MOBILE STAR CHALLENGE- Global Finals",
+          "published_at": "2018-11-29",
+          "view_count": 11600,
+          "like_count": 337,
+          "comment_count": 3,
+          "url": "https://www.youtube.com/watch?v=qLVWTkKxafQ"
+        },
+        {
+          "video_id": "Ia4yofmnwcQ",
+          "title": "Custom Rooms with the Bushka's!",
+          "published_at": "2018-08-01",
+          "view_count": 11193,
+          "like_count": 537,
+          "comment_count": 21,
+          "url": "https://www.youtube.com/watch?v=Ia4yofmnwcQ"
+        },
+        {
+          "video_id": "s9_U5D808H0",
+          "title": "PUBG MOBILE VIP of the Month Stream! | OCTOBER",
+          "published_at": "2021-10-29",
+          "view_count": 8961,
+          "like_count": 688,
+          "comment_count": 14,
+          "url": "https://www.youtube.com/watch?v=s9_U5D808H0"
+        },
+        {
+          "video_id": "3iNgzZVQqoE",
+          "title": "PUBG MOBILE VIP of the Month Stream! | NOVEMBER",
+          "published_at": "2021-11-30",
+          "view_count": 7044,
+          "like_count": 544,
+          "comment_count": 7,
+          "url": "https://www.youtube.com/watch?v=3iNgzZVQqoE"
+        },
+        {
+          "video_id": "mOyjkPvPsRo",
+          "title": "PUBG MOBILE | RPA Live Commerce",
+          "published_at": "2023-05-25",
+          "view_count": 6858,
+          "like_count": 241,
+          "comment_count": 37,
+          "url": "https://www.youtube.com/watch?v=mOyjkPvPsRo"
+        },
+        {
+          "video_id": "2H0iAbkMQKw",
+          "title": "PUBG MOBILE VIP: Victory 7 Takeover w/ @byMedalcore!",
+          "published_at": "2025-04-06",
+          "view_count": 6434,
+          "like_count": 141,
+          "comment_count": 6,
+          "url": "https://www.youtube.com/watch?v=2H0iAbkMQKw"
+        },
+        {
+          "video_id": "-DfVEdB7wIM",
+          "title": "PUBG MOBILE | Meet our October VIPS of the Month!",
+          "published_at": "2021-10-26",
+          "view_count": 5544,
+          "like_count": 462,
+          "comment_count": 49,
+          "url": "https://www.youtube.com/watch?v=-DfVEdB7wIM"
+        },
+        {
+          "video_id": "3rmfezDQghU",
+          "title": "PUBG MOBILE | Meet your September VIPS of the Month!",
+          "published_at": "2021-09-27",
+          "view_count": 5300,
+          "like_count": 360,
+          "comment_count": 50,
+          "url": "https://www.youtube.com/watch?v=3rmfezDQghU"
+        },
+        {
+          "video_id": "HY9bhL5m4P0",
+          "title": "PUBG MOBILE VIP: Victory 7 Takeover w/ @Wynnsanity!",
+          "published_at": "2025-04-07",
+          "view_count": 4380,
+          "like_count": 191,
+          "comment_count": 5,
+          "url": "https://www.youtube.com/watch?v=HY9bhL5m4P0"
+        },
+        {
+          "video_id": "UZ408_55g_w",
+          "title": "PUBG MOBILE | Check Out The Royale Pass Activation Streak Perks",
+          "published_at": "2025-03-18",
+          "view_count": 4368,
+          "like_count": 91,
+          "comment_count": 20,
+          "url": "https://www.youtube.com/watch?v=UZ408_55g_w"
+        },
+        {
+          "video_id": "bN7MSXQozJs",
+          "title": "PUBG MOBILE VIP STREAM ‘N SCREAM DAY 2",
+          "published_at": "2023-10-27",
+          "view_count": 4148,
+          "like_count": 146,
+          "comment_count": 7,
+          "url": "https://www.youtube.com/watch?v=bN7MSXQozJs"
+        }
+      ]
+    },
+    {
       "name": "Craftland",
       "video_count": 3,
       "total_views": 355674,
@@ -9721,6 +9721,16 @@
       "comment_count": 1060,
       "content_type": "Anniversary",
       "url": "https://www.youtube.com/watch?v=VPeM74-loiA"
+    },
+    {
+      "video_id": "lN0a5AcAKZo",
+      "title": "PUBG MOBILE ｜ Drop in celebrations now!",
+      "published_at": "2026-03-24",
+      "view_count": 13590943,
+      "like_count": 1755,
+      "comment_count": 28,
+      "content_type": "Event",
+      "url": "https://www.youtube.com/watch?v=lN0a5AcAKZo"
     },
     {
       "video_id": "pfTBqlarKwk",
@@ -9933,6 +9943,16 @@
       "url": "https://www.youtube.com/watch?v=VtJFD64z3xQ"
     },
     {
+      "video_id": "I8xZigkfu30",
+      "title": "Worldwide Birthday Wishes!",
+      "published_at": "2026-03-25",
+      "view_count": 5674533,
+      "like_count": 1512,
+      "comment_count": 42,
+      "content_type": "Event",
+      "url": "https://www.youtube.com/watch?v=I8xZigkfu30"
+    },
+    {
       "video_id": "hAtG4Rq7qU0",
       "title": "PUBG MOBILE | Player Stories Teaser",
       "published_at": "2022-03-19",
@@ -9961,16 +9981,6 @@
       "comment_count": 29,
       "content_type": "Update",
       "url": "https://www.youtube.com/watch?v=wPHjbuOA6SM"
-    },
-    {
-      "video_id": "lN0a5AcAKZo",
-      "title": "PUBG MOBILE ｜ Drop in celebrations now!",
-      "published_at": "2026-03-24",
-      "view_count": 5490947,
-      "like_count": 739,
-      "comment_count": 28,
-      "content_type": "Event",
-      "url": "https://www.youtube.com/watch?v=lN0a5AcAKZo"
     },
     {
       "video_id": "FYab4GvOWis",
@@ -10211,6 +10221,16 @@
       "comment_count": 24,
       "content_type": "Chicko",
       "url": "https://www.youtube.com/watch?v=AAZjrXVW6HM"
+    },
+    {
+      "video_id": "q9gmbqsA2LQ",
+      "title": "PUBG MOBILE | Time to celebrate our 8th Anniversary!",
+      "published_at": "2026-03-27",
+      "view_count": 4216507,
+      "like_count": 106,
+      "comment_count": 13,
+      "content_type": "Season",
+      "url": "https://www.youtube.com/watch?v=q9gmbqsA2LQ"
     },
     {
       "video_id": "gX1TrzODjRI",
@@ -10523,16 +10543,6 @@
       "url": "https://www.youtube.com/watch?v=LJYcDwCB56E"
     },
     {
-      "video_id": "I8xZigkfu30",
-      "title": "Worldwide Birthday Wishes!",
-      "published_at": "2026-03-25",
-      "view_count": 3448800,
-      "like_count": 1401,
-      "comment_count": 40,
-      "content_type": "Event",
-      "url": "https://www.youtube.com/watch?v=I8xZigkfu30"
-    },
-    {
       "video_id": "CyRtVRhHOUc",
       "title": "PUBG MOBILE | BRAMBLEWOOD SCORPION GUIDE",
       "published_at": "2026-01-13",
@@ -10661,16 +10671,6 @@
       "comment_count": 118,
       "content_type": "Pass",
       "url": "https://www.youtube.com/watch?v=Y5VKnHahuqk"
-    },
-    {
-      "video_id": "McmLjThdLLQ",
-      "title": "PUBG MOBILE | 410 WOW RACING PV",
-      "published_at": "2025-11-19",
-      "view_count": 3205838,
-      "like_count": 137,
-      "comment_count": 17,
-      "content_type": "WOW",
-      "url": "https://www.youtube.com/watch?v=McmLjThdLLQ"
     }
   ]
 }

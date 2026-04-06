@@ -5394,6 +5394,36 @@
     ]
   },
   {
+    "name": "OneRepublic",
+    "category": "Artist",
+    "video_count": 2,
+    "total_views": 4340058,
+    "total_likes": 5028,
+    "total_comments": 417,
+    "first_collab": "2026-03-14",
+    "last_collab": "2026-03-28",
+    "videos": [
+      {
+        "video_id": "LTrxmjhVDmU",
+        "title": "PUBG MOBILE x OneRepublic - \"LEAN (PUBG MOBILE 2026 Theme Song)\" Performance Video",
+        "published_at": "2026-03-28",
+        "view_count": 3627903,
+        "like_count": 4694,
+        "comment_count": 351,
+        "url": "https://www.youtube.com/watch?v=LTrxmjhVDmU"
+      },
+      {
+        "video_id": "5cdnksHlu0I",
+        "title": "PUBG MOBILE | Special Message from OneRepublic!",
+        "published_at": "2026-03-14",
+        "view_count": 712155,
+        "like_count": 334,
+        "comment_count": 66,
+        "url": "https://www.youtube.com/watch?v=5cdnksHlu0I"
+      }
+    ]
+  },
+  {
     "name": "TEKKEN 8",
     "category": "Game",
     "video_count": 7,
@@ -6024,6 +6054,36 @@
     ]
   },
   {
+    "name": "BamBam",
+    "category": "Artist",
+    "video_count": 2,
+    "total_views": 2653302,
+    "total_likes": 3476,
+    "total_comments": 188,
+    "first_collab": "2025-12-14",
+    "last_collab": "2026-03-27",
+    "videos": [
+      {
+        "video_id": "Rnjq26ifMVA",
+        "title": "PUBG MOBILE | Chicko Smash Moment",
+        "published_at": "2025-12-14",
+        "view_count": 1587770,
+        "like_count": 393,
+        "comment_count": 13,
+        "url": "https://www.youtube.com/watch?v=Rnjq26ifMVA"
+      },
+      {
+        "video_id": "o0wJKNCJcKc",
+        "title": "CARRY YOU - BamBam x MINNIE (Official Music Video) | PUBG MOBILE",
+        "published_at": "2026-03-27",
+        "view_count": 1065532,
+        "like_count": 3083,
+        "comment_count": 175,
+        "url": "https://www.youtube.com/watch?v=o0wJKNCJcKc"
+      }
+    ]
+  },
+  {
     "name": "Dolby Atmos",
     "category": "Other",
     "video_count": 2,
@@ -6293,36 +6353,6 @@
         "like_count": 85,
         "comment_count": 9,
         "url": "https://www.youtube.com/watch?v=ycZ1WqE-WiI"
-      }
-    ]
-  },
-  {
-    "name": "BamBam",
-    "category": "Artist",
-    "video_count": 2,
-    "total_views": 2155638,
-    "total_likes": 2605,
-    "total_comments": 158,
-    "first_collab": "2025-12-14",
-    "last_collab": "2026-03-27",
-    "videos": [
-      {
-        "video_id": "Rnjq26ifMVA",
-        "title": "PUBG MOBILE | Chicko Smash Moment",
-        "published_at": "2025-12-14",
-        "view_count": 1587770,
-        "like_count": 393,
-        "comment_count": 13,
-        "url": "https://www.youtube.com/watch?v=Rnjq26ifMVA"
-      },
-      {
-        "video_id": "o0wJKNCJcKc",
-        "title": "CARRY YOU - BamBam x MINNIE (Official Music Video) | PUBG MOBILE",
-        "published_at": "2026-03-27",
-        "view_count": 567868,
-        "like_count": 2212,
-        "comment_count": 145,
-        "url": "https://www.youtube.com/watch?v=o0wJKNCJcKc"
       }
     ]
   },
@@ -7121,36 +7151,6 @@
         "like_count": 215,
         "comment_count": 25,
         "url": "https://www.youtube.com/watch?v=ClyvyUaV15I"
-      }
-    ]
-  },
-  {
-    "name": "OneRepublic",
-    "category": "Artist",
-    "video_count": 2,
-    "total_views": 1019835,
-    "total_likes": 2111,
-    "total_comments": 217,
-    "first_collab": "2026-03-14",
-    "last_collab": "2026-03-28",
-    "videos": [
-      {
-        "video_id": "5cdnksHlu0I",
-        "title": "PUBG MOBILE | Special Message from OneRepublic!",
-        "published_at": "2026-03-14",
-        "view_count": 712155,
-        "like_count": 334,
-        "comment_count": 66,
-        "url": "https://www.youtube.com/watch?v=5cdnksHlu0I"
-      },
-      {
-        "video_id": "LTrxmjhVDmU",
-        "title": "PUBG MOBILE x OneRepublic - \"LEAN (PUBG MOBILE 2026 Theme Song)\" Performance Video",
-        "published_at": "2026-03-28",
-        "view_count": 307680,
-        "like_count": 1777,
-        "comment_count": 151,
-        "url": "https://www.youtube.com/watch?v=LTrxmjhVDmU"
       }
     ]
   },
@@ -10155,7 +10155,7 @@
     "name": "T STAR",
     "category": "IP",
     "video_count": 1,
-    "total_views": 6224,
+    "total_views": 6227,
     "total_likes": 200,
     "total_comments": 36,
     "first_collab": "2026-04-05",
@@ -10165,7 +10165,7 @@
         "video_id": "8G_rvGZb3EE",
         "title": "PUBG MOBILE NEXT STAR | WOW & METRO ROYALE CATEGORY EVOLVED",
         "published_at": "2026-04-05",
-        "view_count": 6224,
+        "view_count": 6227,
         "like_count": 200,
         "comment_count": 36,
         "url": "https://www.youtube.com/watch?v=8G_rvGZb3EE"
