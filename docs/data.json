@@ -238,13 +238,13 @@
   },
   {
     "name": "BABYMONSTER",
-    "category": "Artist",
-    "video_count": 10,
-    "total_views": 75024357,
-    "total_likes": 44643,
-    "total_comments": 1728,
+    "category": "Entertainment",
+    "video_count": 11,
+    "total_views": 75029126,
+    "total_likes": 44750,
+    "total_comments": 1735,
     "first_collab": "2025-03-20",
-    "last_collab": "2025-12-16",
+    "last_collab": "2025-12-19",
     "videos": [
       {
         "video_id": "loNIwFH3SQo",
@@ -335,16 +335,25 @@
         "like_count": 132,
         "comment_count": 23,
         "url": "https://www.youtube.com/watch?v=xl4l4qB3MCQ"
+      },
+      {
+        "video_id": "lNBqoistei8",
+        "title": "PUBG MOBILE | BABYMONSTER COLLAB IN 1 MINUTE",
+        "published_at": "2025-12-19",
+        "view_count": 4769,
+        "like_count": 107,
+        "comment_count": 7,
+        "url": "https://www.youtube.com/watch?v=lNBqoistei8"
       }
     ]
   },
   {
     "name": "NARUTO SHIPPUDEN",
     "category": "Anime",
-    "video_count": 45,
-    "total_views": 32395941,
-    "total_likes": 548183,
-    "total_comments": 19257,
+    "video_count": 47,
+    "total_views": 33167296,
+    "total_likes": 580221,
+    "total_comments": 20038,
     "first_collab": "2024-11-24",
     "last_collab": "2025-08-23",
     "videos": [
@@ -428,6 +437,15 @@
         "like_count": 11836,
         "comment_count": 1562,
         "url": "https://www.youtube.com/watch?v=S32rrgrKbXc"
+      },
+      {
+        "video_id": "BYcj_6i0ucU",
+        "title": "Finally Met Itachi!! Free Fire × NARUTO SHIPPUDEN Collab Chapter 2 is HERE! 🔥💖| Free Fire Official",
+        "published_at": "2025-08-02",
+        "view_count": 687076,
+        "like_count": 29809,
+        "comment_count": 520,
+        "url": "https://www.youtube.com/watch?v=BYcj_6i0ucU"
       },
       {
         "video_id": "eVG6w-eRtYg",
@@ -671,6 +689,15 @@
         "like_count": 1759,
         "comment_count": 248,
         "url": "https://www.youtube.com/watch?v=8uRKhenZl4E"
+      },
+      {
+        "video_id": "bzi5Zn5TSTE",
+        "title": "Minato Namikaze has entered the battle! | Free Fire × NARUTO SHIPPUDEN Collab Chapter 2 is HERE! 🔥💖",
+        "published_at": "2025-08-03",
+        "view_count": 84279,
+        "like_count": 2229,
+        "comment_count": 261,
+        "url": "https://www.youtube.com/watch?v=bzi5Zn5TSTE"
       },
       {
         "video_id": "JJ7S-FN6Bpw",
@@ -7173,6 +7200,36 @@
     ]
   },
   {
+    "name": "Balenciaga",
+    "category": "Brand",
+    "video_count": 2,
+    "total_views": 1115322,
+    "total_likes": 1807,
+    "total_comments": 21,
+    "first_collab": "2025-12-13",
+    "last_collab": "2025-12-13",
+    "videos": [
+      {
+        "video_id": "nIQXp0eTMYQ",
+        "title": "PUBG MOBILE | 410 Balenciaga Collab Bangkok Store Event Highlight Video",
+        "published_at": "2025-12-13",
+        "view_count": 733918,
+        "like_count": 84,
+        "comment_count": 8,
+        "url": "https://www.youtube.com/watch?v=nIQXp0eTMYQ"
+      },
+      {
+        "video_id": "9b-Z2zAe-7c",
+        "title": "PUBG MOBILE | Chicko photos in all City Popup event booth",
+        "published_at": "2025-12-13",
+        "view_count": 381404,
+        "like_count": 1723,
+        "comment_count": 13,
+        "url": "https://www.youtube.com/watch?v=9b-Z2zAe-7c"
+      }
+    ]
+  },
+  {
     "name": "Volkswagen Beetle",
     "category": "Brand",
     "video_count": 1,
@@ -8250,27 +8307,6 @@
     ]
   },
   {
-    "name": "Balenciaga",
-    "category": "Brand",
-    "video_count": 1,
-    "total_views": 381404,
-    "total_likes": 1723,
-    "total_comments": 13,
-    "first_collab": "2025-12-13",
-    "last_collab": "2025-12-13",
-    "videos": [
-      {
-        "video_id": "9b-Z2zAe-7c",
-        "title": "PUBG MOBILE | Chicko photos in all City Popup event booth",
-        "published_at": "2025-12-13",
-        "view_count": 381404,
-        "like_count": 1723,
-        "comment_count": 13,
-        "url": "https://www.youtube.com/watch?v=9b-Z2zAe-7c"
-      }
-    ]
-  },
-  {
     "name": "DVLM, ALOK, KSHMR",
     "category": "Artist",
     "video_count": 2,
@@ -8297,6 +8333,27 @@
         "like_count": 1447,
         "comment_count": 113,
         "url": "https://www.youtube.com/watch?v=vdAo6-58KZg"
+      }
+    ]
+  },
+  {
+    "name": "Demon Slayer",
+    "category": "Anime",
+    "video_count": 1,
+    "total_views": 372879,
+    "total_likes": 15899,
+    "total_comments": 88,
+    "first_collab": "2023-10-07",
+    "last_collab": "2023-10-07",
+    "videos": [
+      {
+        "video_id": "mzbDESy8c4k",
+        "title": "Embrace an epic journey in this limited-time #FFXDemonSlayer collab event.|Free Fire Official",
+        "published_at": "2023-10-07",
+        "view_count": 372879,
+        "like_count": 15899,
+        "comment_count": 88,
+        "url": "https://www.youtube.com/watch?v=mzbDESy8c4k"
       }
     ]
   },

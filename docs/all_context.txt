@@ -5,7 +5,7 @@ Partner: #rank NAME [category] N videos | VIEWS views | LIKES likes | COMMENTS c
 Video: "TITLE" DATE | VIEWS views | LIKES likes
 
 --- OVERVIEW ---
-  YouTube Global (PUBG MOBILE): 193 partners, 888 items, 852,232,407 views, 4,937,797 likes, 194,814 comments
+  YouTube Global (PUBG MOBILE): 194 partners, 893 items, 854,115,328 views, 4,985,925 likes, 195,698 comments
   YouTube MENA: 160 partners, 337 items, 91,527,815 views, 658,508 likes, 36,395 comments
   YouTube India: 106 partners, 148 items, 378,070,899 views, 5,480,758 likes, 243,171 comments
   YouTube Indonesia: 284 partners, 668 items, 129,946,410 views, 2,178,271 likes, 43,464 comments
@@ -20,10 +20,10 @@ Video: "TITLE" DATE | VIEWS views | LIKES likes
   YouTube Japan: 104 partners, 185 items, 1,178,676 views, 18,611 likes, 1,198 comments
   Instagram (PUBG MOBILE): 38 partners, 378 items, 11,936,158 views, 11,936,158 likes, 100,598 comments
   Weibo (和平精英/Game For Peace China): 768 partners, 2,727 items, 32,619,773 views, 11,515,941 likes, 4,570,668 comments
-  YouTube Free Fire: 60 partners, 166 items, 80,541,400 views, 2,092,278 likes, 77,889 comments
+  YouTube Free Fire: 61 partners, 169 items, 81,685,634 views, 2,140,215 likes, 78,758 comments
 
 
-[YouTube Global (PUBG MOBILE)] 193 partners, 888 items, 852,232,407 total views
+[YouTube Global (PUBG MOBILE)] 194 partners, 893 items, 854,115,328 total views
 #1 BLACKPINK [Artist] 25 videos | 137,520,000 views | 1,145,486 likes | 38,329 comments | 2020-10-24~2022-08-16
   "BLACKPINK x PUBG MOBILE - ‘Ready Fo" 2022-07-29 | 82,844,329 views | 487,806 likes
   "PUBG MOBILE X BLACKPINK FUN MATCH" 2020-11-13 | 43,078,968 views | 259,357 likes
@@ -36,7 +36,7 @@ Video: "TITLE" DATE | VIEWS views | LIKES likes
   "PUBG MOBILE | Lost Frequencies wish" 2021-03-18 | 202,467 views | 1,436 likes
   "PUBG MOBILE | Pharaoh's Cup Grand F" 2022-07-22 | 200,326 views | 1,311 likes
   (+15 more)
-#2 BABYMONSTER [Artist] 10 videos | 75,024,357 views | 44,643 likes | 1,728 comments | 2025-03-20~2025-12-16
+#2 BABYMONSTER [Entertainment] 11 videos | 75,029,126 views | 44,750 likes | 1,735 comments | 2025-03-20~2025-12-19
   "PUBG MOBILE x BABYMONSTER Live-Acti" 2025-11-22 | 40,905,172 views | 32,661 likes
   "PUBG MOBILE x BABYMONSTER | Special" 2025-11-23 | 19,962,220 views | 4,892 likes
   "PUBG MOBILE | 410 ultimate runway r" 2025-12-16 | 3,542,151 views | 217 likes
@@ -47,7 +47,8 @@ Video: "TITLE" DATE | VIEWS views | LIKES likes
   "PUBG MOBILE | 410 PDP spin PV" 2025-11-24 | 1,486,263 views | 84 likes
   "PUBG MOBILE X BABYMONSTER Collabora" 2025-03-20 | 992,131 views | 3,053 likes
   "PUBG MOBILE | You'll Never Guess Ho" 2025-03-22 | 4,787 views | 132 likes
-#3 NARUTO SHIPPUDEN [Anime] 45 videos | 32,395,941 views | 548,183 likes | 19,257 comments | 2024-11-24~2025-08-23
+  (+1 more)
+#3 NARUTO SHIPPUDEN [Anime] 47 videos | 33,167,296 views | 580,221 likes | 20,038 comments | 2024-11-24~2025-08-23
   "Akatsuki has invaded! | Free Fire x" 2025-07-31 | 8,892,958 views | 88,180 likes
   "Bugatti? Nah. Aura Farming!!😎🙏| Fre" 2025-08-08 | 7,520,740 views | 104,298 likes
   "Full Animation | Free Fire x NARUTO" 2025-01-17 | 1,804,462 views | 17,846 likes
@@ -57,8 +58,8 @@ Video: "TITLE" DATE | VIEWS views | LIKES likes
   "Obito Teaser | Lost Savior | Free F" 2025-07-25 | 904,213 views | 21,285 likes
   "Trailer | Free Fire x NARUTO SHIPPU" 2025-07-30 | 843,805 views | 29,864 likes
   "Full Animation | Free Fire x NARUTO" 2025-08-08 | 733,467 views | 11,836 likes
-  "Pain Teaser | Feel The Pain | Free " 2025-07-24 | 541,512 views | 21,120 likes
-  (+35 more)
+  "Finally Met Itachi!! Free Fire × NA" 2025-08-02 | 687,076 views | 29,809 likes
+  (+37 more)
 #4 Jujutsu Kaisen [Anime] 21 videos | 31,138,178 views | 164,445 likes | 8,494 comments | 2022-02-10~2026-03-13
   "PUBG MOBILE x JUJUTSU KAISEN | Coll" 2022-02-26 | 5,223,596 views | 17,095 likes
   "When Dad says No Gaming at night😭🎮|" 2026-01-04 | 4,720,082 views | 56,746 likes
@@ -500,153 +501,152 @@ Video: "TITLE" DATE | VIEWS views | LIKES likes
   "PUBG MOBILE | Metro Royale Advanced" 2025-09-10 | 3,191 views | 63 likes
 #87 The Boys [Movie] 1 videos | 1,181,836 views | 670 likes | 82 comments | 2022-06-01~2022-06-01
   "PUBG MOBILE | Ultimate Flamewraith " 2022-06-01 | 1,181,836 views | 670 likes
-#88 Volkswagen Beetle [Brand] 1 videos | 1,060,163 views | 215 likes | 25 comments | 2024-09-13~2024-09-13
+#88 Balenciaga [Brand] 2 videos | 1,115,322 views | 1,807 likes | 21 comments | 2025-12-13~2025-12-13
+  "PUBG MOBILE | 410 Balenciaga Collab" 2025-12-13 | 733,918 views | 84 likes
+  "PUBG MOBILE | Chicko photos in all " 2025-12-13 | 381,404 views | 1,723 likes
+#89 Volkswagen Beetle [Brand] 1 videos | 1,060,163 views | 215 likes | 25 comments | 2024-09-13~2024-09-13
   "PUBG MOBILE | World of Wonder 3.4 U" 2024-09-13 | 1,060,163 views | 215 likes
-#89 Demon Slayer: Kimetsu no Yaiba [Anime] 7 videos | 1,002,610 views | 38,140 likes | 642 comments | 2023-09-27~2023-10-08
+#90 Demon Slayer: Kimetsu no Yaiba [Anime] 7 videos | 1,002,610 views | 38,140 likes | 642 comments | 2023-09-27~2023-10-08
   "The #FFXDemonSlayer special collabo" 2023-09-30 | 362,224 views | 19,200 likes
   "#FFXDemonSlayer Live Now!! #FFXDemo" 2023-09-27 | 318,411 views | 11,832 likes
   "#FFXDemonSlayer Collaboration is in" 2023-10-08 | 162,171 views | 3,231 likes
   (+4 more)
-#90 Naruto Shippuden [Anime] 5 videos | 845,485 views | 34,751 likes | 557 comments | 2025-01-09~2025-01-29
+#91 Naruto Shippuden [Anime] 5 videos | 845,485 views | 34,751 likes | 557 comments | 2025-01-09~2025-01-29
   "🔥 Ninja Jutsu vs. Bullets! 🔥 Which " 2025-01-29 | 554,014 views | 21,061 likes
   "Ready to battle like a true Shinobi" 2025-01-28 | 148,248 views | 6,825 likes
   "Two legends, one battlefield 🔥 #FFx" 2025-01-29 | 128,348 views | 6,538 likes
   (+2 more)
-#91 The7WorldsGaming [Creator] 6 videos | 842,036 views | 23,039 likes | 2,802 comments | 2018-05-12~2018-07-26
+#92 The7WorldsGaming [Creator] 6 videos | 842,036 views | 23,039 likes | 2,802 comments | 2018-05-12~2018-07-26
   "New features in update 0.6.0 - PUBG" 2018-06-09 | 633,701 views | 15,498 likes
   "Community tournament with The7World" 2018-05-19 | 81,276 views | 3,047 likes
   "First Look: First Person Mode and 0" 2018-06-19 | 59,347 views | 1,908 likes
   (+3 more)
-#92 American Tourister [Brand] 2 videos | 778,758 views | 3,997 likes | 33 comments | 2024-11-27~2024-12-04
+#93 American Tourister [Brand] 2 videos | 778,758 views | 3,997 likes | 33 comments | 2024-11-27~2024-12-04
   "PUBG MOBILE x American Tourister | " 2024-12-04 | 775,262 views | 3,729 likes
   "PUBG MOBILE x American Tourister Co" 2024-11-27 | 3,496 views | 268 likes
-#93 Assassin's Creed [Game] 4 videos | 758,757 views | 21,749 likes | 896 comments | 2022-03-01~2022-03-04
+#94 Assassin's Creed [Game] 4 videos | 758,757 views | 21,749 likes | 896 comments | 2022-03-01~2022-03-04
   "Ignite the Darkness | Free FIre X A" 2022-03-04 | 536,068 views | 12,862 likes
   "The Creed of Fire Lyric Video | Fre" 2022-03-02 | 160,679 views | 6,502 likes
   "The Creed of Fire is coming! | Free" 2022-03-01 | 34,812 views | 1,519 likes
   (+1 more)
-#94 Digimon Adventure [Anime] 4 videos | 730,927 views | 6,956 likes | 884 comments | 2025-11-11~2025-11-21
+#95 Digimon Adventure [Anime] 4 videos | 730,927 views | 6,956 likes | 884 comments | 2025-11-11~2025-11-21
   "Full Animation | Free Fire x Digimo" 2025-11-17 | 561,046 views | 2,559 likes
   "Trailer | Free Fire x Digimon Adven" 2025-11-11 | 75,048 views | 1,821 likes
   "Why I missed my shots? Patamon's ju" 2025-11-21 | 72,562 views | 2,054 likes
   (+1 more)
-#95 WarriorMido [Creator] 1 videos | 684,538 views | 364 likes | 33 comments | 2025-01-20~2025-01-20
+#96 WarriorMido [Creator] 1 videos | 684,538 views | 364 likes | 33 comments | 2025-01-20~2025-01-20
   "PUBG MOBILE | Team 4MV 💥" 2025-01-20 | 684,538 views | 364 likes
-#96 Knight Queen [Creator] 1 videos | 671,723 views | 219 likes | 75 comments | 2025-01-20~2025-01-20
+#97 Knight Queen [Creator] 1 videos | 671,723 views | 219 likes | 75 comments | 2025-01-20~2025-01-20
   "PUBG MOBILE | Team RCB 💥" 2025-01-20 | 671,723 views | 219 likes
-#97 NAILOONG [Other] 8 videos | 667,088 views | 1,970 likes | 176 comments | 2025-08-11~2025-08-20
+#98 NAILOONG [Other] 8 videos | 667,088 views | 1,970 likes | 176 comments | 2025-08-11~2025-08-20
   "PUBG MOBILE | Version 4.0 Brings Mo" 2025-08-11 | 579,887 views | 420 likes
   "PUBG MOBILE | Relive the Hype of th" 2025-08-14 | 25,520 views | 259 likes
   "PUBG MOBILE x NAILOONG | Dance Away" 2025-08-19 | 16,724 views | 445 likes
   (+5 more)
-#98 Rockstar Energy [Brand] 4 videos | 635,211 views | 7,690 likes | 188 comments | 2023-04-25~2025-11-25
+#99 Rockstar Energy [Brand] 4 videos | 635,211 views | 7,690 likes | 188 comments | 2023-04-25~2025-11-25
   "PUBG MOBILE x Rockstar Energy - Inf" 2025-11-25 | 301,083 views | 101 likes
   "[EN] 2025 PMGC League | The Gauntle" 2025-11-25 | 199,520 views | 3,362 likes
   "Agumon, stop mimicking me!Gotcha!😤😂" 2025-11-20 | 118,369 views | 3,767 likes
   (+1 more)
-#99 BAPE [Brand] 12 videos | 633,540 views | 19,590 likes | 2,507 comments | 2018-10-06~2018-12-26
+#100 BAPE [Brand] 12 videos | 633,540 views | 19,590 likes | 2,507 comments | 2018-10-06~2018-12-26
   "PUBG MOBILE x BAPE: Reveal #2" 2018-10-09 | 87,218 views | 1,298 likes
   "PUBG MOBILE x BAPE: Reveal #1" 2018-10-09 | 82,841 views | 692 likes
   "PUBG MOBILE x BAPE: New Outfit Now " 2018-10-12 | 67,062 views | 2,942 likes
   (+9 more)
-#100 Money Heist [Movie] 7 videos | 623,467 views | 18,907 likes | 647 comments | 2020-07-26~2021-12-03
-  "Free Fire x Money Heist | Final epi" 2021-12-03 | 330,760 views | 11,103 likes
-  "Free Fire X Money Heist | Free Fire" 2020-07-29 | 124,913 views | 4,127 likes
-  "Plan Bermuda Shinobi - Free Fire x " 2020-09-04 | 89,710 views | 663 likes
-  (+4 more)
-#101 Son Tung M-TP [Artist] 2 videos | 587,554 views | 25,838 likes | 779 comments | 2021-05-11~2021-05-14
-#102 Venom: The Last Dance [Movie] 2 videos | 551,793 views | 1,071 likes | 74 comments | 2024-10-20~2024-10-21
-#103 Venom: Let There Be Carnage [Movie] 2 videos | 548,044 views | 14,740 likes | 473 comments | 2021-10-08~2021-10-10
-#104 Rollexxx [Creator] 1 videos | 538,379 views | 2,334 likes | 8 comments | 2024-12-10~2024-12-10
-#105 Resident Evil [Game] 4 videos | 530,609 views | 17,849 likes | 1,766 comments | 2018-12-02~2019-02-25
-#106 Powerbang [Creator] 3 videos | 528,667 views | 5,622 likes | 187 comments | 2018-05-25~2020-05-14
-#107 Kairos [Creator] 1 videos | 519,342 views | 21,378 likes | 262 comments | 2024-05-22~2024-05-22
-#108 Attack on Titans [Anime] 1 videos | 509,861 views | 10,508 likes | 570 comments | 2021-03-12~2021-03-12
-#109 ALOK [Creator] 2 videos | 501,839 views | 21,203 likes | 351 comments | 2023-07-09~2024-08-01
-#110 Kinjaz [Creator] 1 videos | 460,882 views | 25,668 likes | 1,679 comments | 2020-10-20~2020-10-20
-#111 Godzilla: King of the Monsters [Movie] 1 videos | 448,758 views | 17,506 likes | 1,191 comments | 2019-05-22~2019-05-22
-#112 Spider-Man [Movie] 1 videos | 443,699 views | 181 likes | 14 comments | 2023-06-02~2023-06-02
-#113 Squid Game [Other] 2 videos | 417,687 views | 8,731 likes | 496 comments | 2025-06-25~2025-07-18
-#114 Balenciaga [Brand] 1 videos | 381,404 views | 1,723 likes | 13 comments | 2025-12-13~2025-12-13
+#101 Money Heist [Movie] 7 videos | 623,467 views | 18,907 likes | 647 comments | 2020-07-26~2021-12-03
+#102 Son Tung M-TP [Artist] 2 videos | 587,554 views | 25,838 likes | 779 comments | 2021-05-11~2021-05-14
+#103 Venom: The Last Dance [Movie] 2 videos | 551,793 views | 1,071 likes | 74 comments | 2024-10-20~2024-10-21
+#104 Venom: Let There Be Carnage [Movie] 2 videos | 548,044 views | 14,740 likes | 473 comments | 2021-10-08~2021-10-10
+#105 Rollexxx [Creator] 1 videos | 538,379 views | 2,334 likes | 8 comments | 2024-12-10~2024-12-10
+#106 Resident Evil [Game] 4 videos | 530,609 views | 17,849 likes | 1,766 comments | 2018-12-02~2019-02-25
+#107 Powerbang [Creator] 3 videos | 528,667 views | 5,622 likes | 187 comments | 2018-05-25~2020-05-14
+#108 Kairos [Creator] 1 videos | 519,342 views | 21,378 likes | 262 comments | 2024-05-22~2024-05-22
+#109 Attack on Titans [Anime] 1 videos | 509,861 views | 10,508 likes | 570 comments | 2021-03-12~2021-03-12
+#110 ALOK [Creator] 2 videos | 501,839 views | 21,203 likes | 351 comments | 2023-07-09~2024-08-01
+#111 Kinjaz [Creator] 1 videos | 460,882 views | 25,668 likes | 1,679 comments | 2020-10-20~2020-10-20
+#112 Godzilla: King of the Monsters [Movie] 1 videos | 448,758 views | 17,506 likes | 1,191 comments | 2019-05-22~2019-05-22
+#113 Spider-Man [Movie] 1 videos | 443,699 views | 181 likes | 14 comments | 2023-06-02~2023-06-02
+#114 Squid Game [Other] 2 videos | 417,687 views | 8,731 likes | 496 comments | 2025-06-25~2025-07-18
 #115 DVLM, ALOK, KSHMR [Artist] 2 videos | 378,419 views | 11,023 likes | 543 comments | 2021-08-20~2021-08-25
-#116 Devil May Cry 5 [Game] 2 videos | 368,465 views | 11,761 likes | 365 comments | 2023-02-11~2023-02-11
-#117 Alok [Artist] 2 videos | 360,410 views | 15,515 likes | 91 comments | 2023-07-06~2023-07-08
-#118 Vivo [Brand] 2 videos | 346,535 views | 11,498 likes | 378 comments | 2019-07-18~2019-07-20
-#119 Digimon [Anime] 4 videos | 340,507 views | 7,696 likes | 229 comments | 2025-11-27~2025-11-28
-#120 Samsung Galaxy [Brand] 1 videos | 292,703 views | 399 likes | 9 comments | 2023-11-22~2023-11-22
-#121 Sychron Stage Vienna [Other] 1 videos | 259,767 views | 456 likes | 58 comments | 2023-04-08~2023-04-08
-#122 Isagi [Anime] 1 videos | 245,141 views | 11,248 likes | 335 comments | 2024-11-15~2024-11-15
-#123 Naruto [Anime] 1 videos | 233,749 views | 16,319 likes | 265 comments | 2025-01-04~2025-01-04
-#124 DJ Alok [Artist] 5 videos | 232,566 views | 8,119 likes | 340 comments | 2019-12-19~2020-03-20
-#125 Shelby [Brand] 2 videos | 213,171 views | 5,580 likes | 122 comments | 2025-05-10~2025-05-11
-#126 Justin Bieber [Artist] 2 videos | 205,349 views | 3,383 likes | 245 comments | 2022-09-15~2022-09-17
-#127 The Lord of The Rings: The War of the Rohirrim [Movie] 1 videos | 187,384 views | 1,449 likes | 37 comments | 2024-12-13~2024-12-13
-#128 THE KING OF FIGHTERS [Game] 1 videos | 186,369 views | 106 likes | 29 comments | 2026-02-13~2026-02-13
-#129 Razer [Brand] 2 videos | 175,899 views | 5,612 likes | 204 comments | 2018-06-23~2018-06-24
-#130 Mia Khalifa [Creator] 1 videos | 175,280 views | 4,982 likes | 421 comments | 2018-05-11~2018-05-11
-#131 Powerbang Gaming [Creator] 3 videos | 170,241 views | 4,214 likes | 137 comments | 2018-06-16~2018-07-10
-#132 Metro [Game] 6 videos | 148,251 views | 7,225 likes | 568 comments | 2020-08-07~2024-08-22
-#133 Street Fighter V [Game] 3 videos | 144,510 views | 3,767 likes | 383 comments | 2021-06-01~2021-07-02
-#134 Resident Evil 2 [Game] 1 videos | 140,312 views | 6,002 likes | 582 comments | 2019-03-07~2019-03-07
-#135 Shawarma [Brand] 1 videos | 119,751 views | 561 likes | 15 comments | 2025-03-31~2025-03-31
-#136 JR Motorsports [Other] 2 videos | 114,386 views | 2,469 likes | 104 comments | 2022-02-19~2022-02-22
-#137 BamBam x MINNIE [Artist] 1 videos | 111,121 views | 329 likes | 24 comments | 2026-03-21~2026-03-21
-#138 Butterfinger [Brand] 1 videos | 110,047 views | 3,139 likes | 235 comments | 2022-05-12~2022-05-12
-#139 YAMAHA [Brand] 1 videos | 108,037 views | 6,757 likes | 479 comments | 2020-06-30~2020-06-30
-#140 Lights Out [Creator] 2 videos | 105,709 views | 2,592 likes | 272 comments | 2019-02-08~2019-03-06
-#141 Joznez, Nyemiah Supreme, Locksmith [Artist] 1 videos | 102,504 views | 7,514 likes | 330 comments | 2021-09-17~2021-09-17
-#142 TheBushka [Creator] 3 videos | 94,884 views | 1,456 likes | 152 comments | 2018-09-30~2025-04-01
-#143 Kelly [Creator] 1 videos | 89,342 views | 1,847 likes | 353 comments | 2024-12-31~2024-12-31
-#144 Angry Birds [Game] 3 videos | 75,919 views | 2,809 likes | 115 comments | 2019-09-25~2019-12-21
-#145 Hafþór Júlíus Björnsson [Sports] 1 videos | 74,791 views | 1,378 likes | 363 comments | 2024-12-11~2024-12-11
-#146 The Bushka [Creator] 3 videos | 63,533 views | 2,524 likes | 82 comments | 2018-05-11~2018-09-30
-#147 ECHO Gaming [Creator] 1 videos | 58,320 views | 1,267 likes | 61 comments | 2018-09-30~2018-09-30
-#148 JUJUTSU KAISEN [Anime] 1 videos | 56,954 views | 2,057 likes | 92 comments | 2022-03-02~2022-03-02
-#149 POLARIS [Other] 2 videos | 56,893 views | 651 likes | 51 comments | 2022-12-12~2023-01-16
-#150 Yamaha Motor [Brand] 2 videos | 54,638 views | 2,580 likes | 167 comments | 2020-07-15~2020-07-21
-#151 Bruce Lee [Character] 3 videos | 54,235 views | 2,069 likes | 53 comments | 2023-01-06~2023-01-15
-#152 Derek G [Creator] 2 videos | 52,280 views | 1,893 likes | 65 comments | 2018-10-01~2018-10-01
-#153 Booyah Day 2024 [Other] 1 videos | 45,843 views | 1,207 likes | 311 comments | 2024-11-22~2024-11-22
-#154 Noah Gragson [Sports] 2 videos | 44,409 views | 2,430 likes | 124 comments | 2019-11-06~2019-11-06
-#155 The7WG [Creator] 1 videos | 40,956 views | 1,501 likes | 105 comments | 2018-08-15~2018-08-15
-#156 Wildcard [Creator] 1 videos | 40,581 views | 1,463 likes | 184 comments | 2018-11-07~2018-11-07
-#157 Dr Disrespect [Creator] 1 videos | 39,600 views | 3,377 likes | 65 comments | 2021-10-23~2021-10-23
-#158 Global Green [Other] 1 videos | 36,441 views | 2,967 likes | 152 comments | 2019-12-22~2019-12-22
-#159 ALAN WALKER [Artist] 1 videos | 33,494 views | 645 likes | 65 comments | 2025-03-09~2025-03-09
-#160 Megan Fox & Brian Austin Green [Creator] 1 videos | 30,578 views | 1,451 likes | 88 comments | 2019-10-29~2019-10-29
-#161 One Plus [Brand] 2 videos | 29,766 views | 1,440 likes | 70 comments | 2020-03-20~2020-03-31
-#162 Ogarno [Creator] 1 videos | 25,615 views | 264 likes | 37 comments | 2024-04-16~2024-04-16
-#163 SAMSUNG [Brand] 1 videos | 24,294 views | 1,358 likes | 24 comments | 2022-07-30~2022-07-30
-#164 Deadmau5 [Artist] 1 videos | 23,878 views | 842 likes | 145 comments | 2018-08-13~2018-08-13
-#165 R3HAB [Artist] 1 videos | 23,621 views | 1,558 likes | 54 comments | 2021-03-31~2021-03-31
-#166 Dune [Movie] 1 videos | 22,302 views | 1,445 likes | 97 comments | 2021-10-19~2021-10-19
-#167 The Great British Teddy Bear [Other] 1 videos | 22,215 views | 1,527 likes | 106 comments | 2022-06-21~2022-06-21
-#168 Official Collaboration [Other] 1 videos | 21,798 views | 1,619 likes | 117 comments | 2021-08-06~2021-08-06
-#169 Falcons Force [Creator] 1 videos | 21,459 views | 209 likes | 28 comments | 2024-07-03~2024-07-03
-#170 Krigarè [Artist] 1 videos | 18,465 views | 835 likes | 43 comments | 2020-07-10~2020-07-10
-#171 Liverpool [Other] 1 videos | 18,218 views | 1,128 likes | 74 comments | 2021-11-12~2021-11-12
-#172 Giannis Antetokounmpo [Sports] 1 videos | 18,175 views | 982 likes | 59 comments | 2019-11-29~2019-11-29
-#173 Free Fire Continental Series [Other] 1 videos | 17,364 views | 1,599 likes | 344 comments | 2020-11-26~2020-11-26
-#174 Evangelion [Anime] 1 videos | 16,860 views | 473 likes | 127 comments | 2022-05-21~2022-05-21
-#175 BUSHKA [Creator] 2 videos | 16,850 views | 594 likes | 29 comments | 2018-07-10~2018-07-10
-#176 Hotjukes [Creator] 1 videos | 16,580 views | 740 likes | 27 comments | 2020-07-03~2020-07-03
-#177 Bushka [Creator] 1 videos | 15,544 views | 526 likes | 14 comments | 2018-07-11~2018-07-11
-#178 Sychron [Other] 1 videos | 15,099 views | 290 likes | 21 comments | 2023-03-31~2023-03-31
-#179 PDP [Other] 1 videos | 14,382 views | 525 likes | 33 comments | 2025-08-22~2025-08-22
-#180 BJRNCK, Awich, Krawk, Faruz Feet [Creator] 1 videos | 12,138 views | 372 likes | 7 comments | 2020-03-20~2020-03-20
-#181 Rolex [Brand] 2 videos | 11,440 views | 378 likes | 18 comments | 2019-09-08~2019-09-08
-#182 JustMaiko [Creator] 1 videos | 11,430 views | 140 likes | 18 comments | 2024-03-01~2024-03-01
-#183 Bohemia [Creator] 2 videos | 11,293 views | 896 likes | 85 comments | 2025-02-09~2025-02-12
-#184 dabplays [Creator] 2 videos | 10,318 views | 277 likes | 42 comments | 2024-12-09~2025-04-02
-#185 Bernth Cadence [Creator] 1 videos | 6,632 views | 219 likes | 28 comments | 2023-08-14~2023-08-14
-#186 Panda Vehicle [Brand] 1 videos | 6,521 views | 109 likes | 31 comments | 2025-01-15~2025-01-15
-#187 T STAR [IP] 1 videos | 6,314 views | 201 likes | 36 comments | 2026-04-05~2026-04-05
-#188 Wynnsanity [Creator] 1 videos | 5,164 views | 260 likes | 29 comments | 2025-04-04~2025-04-04
-#189 BellaFoxGaming [Creator] 1 videos | 4,545 views | 203 likes | 5 comments | 2025-04-01~2025-04-01
-#190 AceLawrence [Creator] 1 videos | 3,172 views | 137 likes | 5 comments | 2024-12-11~2024-12-11
-#191 TheVovkaCom [Creator] 1 videos | 2,453 views | 71 likes | 3 comments | 2025-07-17~2025-07-17
-#192 B2ksamurai [Creator] 1 videos | 2,363 views | 66 likes | 54 comments | 2025-01-18~2025-01-18
-#193 drchemist [Creator] 1 videos | 1,388 views | 30 likes | 5 comments | 2024-12-11~2024-12-11
+#116 Demon Slayer [Anime] 1 videos | 372,879 views | 15,899 likes | 88 comments | 2023-10-07~2023-10-07
+#117 Devil May Cry 5 [Game] 2 videos | 368,465 views | 11,761 likes | 365 comments | 2023-02-11~2023-02-11
+#118 Alok [Artist] 2 videos | 360,410 views | 15,515 likes | 91 comments | 2023-07-06~2023-07-08
+#119 Vivo [Brand] 2 videos | 346,535 views | 11,498 likes | 378 comments | 2019-07-18~2019-07-20
+#120 Digimon [Anime] 4 videos | 340,507 views | 7,696 likes | 229 comments | 2025-11-27~2025-11-28
+#121 Samsung Galaxy [Brand] 1 videos | 292,703 views | 399 likes | 9 comments | 2023-11-22~2023-11-22
+#122 Sychron Stage Vienna [Other] 1 videos | 259,767 views | 456 likes | 58 comments | 2023-04-08~2023-04-08
+#123 Isagi [Anime] 1 videos | 245,141 views | 11,248 likes | 335 comments | 2024-11-15~2024-11-15
+#124 Naruto [Anime] 1 videos | 233,749 views | 16,319 likes | 265 comments | 2025-01-04~2025-01-04
+#125 DJ Alok [Artist] 5 videos | 232,566 views | 8,119 likes | 340 comments | 2019-12-19~2020-03-20
+#126 Shelby [Brand] 2 videos | 213,171 views | 5,580 likes | 122 comments | 2025-05-10~2025-05-11
+#127 Justin Bieber [Artist] 2 videos | 205,349 views | 3,383 likes | 245 comments | 2022-09-15~2022-09-17
+#128 The Lord of The Rings: The War of the Rohirrim [Movie] 1 videos | 187,384 views | 1,449 likes | 37 comments | 2024-12-13~2024-12-13
+#129 THE KING OF FIGHTERS [Game] 1 videos | 186,369 views | 106 likes | 29 comments | 2026-02-13~2026-02-13
+#130 Razer [Brand] 2 videos | 175,899 views | 5,612 likes | 204 comments | 2018-06-23~2018-06-24
+#131 Mia Khalifa [Creator] 1 videos | 175,280 views | 4,982 likes | 421 comments | 2018-05-11~2018-05-11
+#132 Powerbang Gaming [Creator] 3 videos | 170,241 views | 4,214 likes | 137 comments | 2018-06-16~2018-07-10
+#133 Metro [Game] 6 videos | 148,251 views | 7,225 likes | 568 comments | 2020-08-07~2024-08-22
+#134 Street Fighter V [Game] 3 videos | 144,510 views | 3,767 likes | 383 comments | 2021-06-01~2021-07-02
+#135 Resident Evil 2 [Game] 1 videos | 140,312 views | 6,002 likes | 582 comments | 2019-03-07~2019-03-07
+#136 Shawarma [Brand] 1 videos | 119,751 views | 561 likes | 15 comments | 2025-03-31~2025-03-31
+#137 JR Motorsports [Other] 2 videos | 114,386 views | 2,469 likes | 104 comments | 2022-02-19~2022-02-22
+#138 BamBam x MINNIE [Artist] 1 videos | 111,121 views | 329 likes | 24 comments | 2026-03-21~2026-03-21
+#139 Butterfinger [Brand] 1 videos | 110,047 views | 3,139 likes | 235 comments | 2022-05-12~2022-05-12
+#140 YAMAHA [Brand] 1 videos | 108,037 views | 6,757 likes | 479 comments | 2020-06-30~2020-06-30
+#141 Lights Out [Creator] 2 videos | 105,709 views | 2,592 likes | 272 comments | 2019-02-08~2019-03-06
+#142 Joznez, Nyemiah Supreme, Locksmith [Artist] 1 videos | 102,504 views | 7,514 likes | 330 comments | 2021-09-17~2021-09-17
+#143 TheBushka [Creator] 3 videos | 94,884 views | 1,456 likes | 152 comments | 2018-09-30~2025-04-01
+#144 Kelly [Creator] 1 videos | 89,342 views | 1,847 likes | 353 comments | 2024-12-31~2024-12-31
+#145 Angry Birds [Game] 3 videos | 75,919 views | 2,809 likes | 115 comments | 2019-09-25~2019-12-21
+#146 Hafþór Júlíus Björnsson [Sports] 1 videos | 74,791 views | 1,378 likes | 363 comments | 2024-12-11~2024-12-11
+#147 The Bushka [Creator] 3 videos | 63,533 views | 2,524 likes | 82 comments | 2018-05-11~2018-09-30
+#148 ECHO Gaming [Creator] 1 videos | 58,320 views | 1,267 likes | 61 comments | 2018-09-30~2018-09-30
+#149 JUJUTSU KAISEN [Anime] 1 videos | 56,954 views | 2,057 likes | 92 comments | 2022-03-02~2022-03-02
+#150 POLARIS [Other] 2 videos | 56,893 views | 651 likes | 51 comments | 2022-12-12~2023-01-16
+#151 Yamaha Motor [Brand] 2 videos | 54,638 views | 2,580 likes | 167 comments | 2020-07-15~2020-07-21
+#152 Bruce Lee [Character] 3 videos | 54,235 views | 2,069 likes | 53 comments | 2023-01-06~2023-01-15
+#153 Derek G [Creator] 2 videos | 52,280 views | 1,893 likes | 65 comments | 2018-10-01~2018-10-01
+#154 Booyah Day 2024 [Other] 1 videos | 45,843 views | 1,207 likes | 311 comments | 2024-11-22~2024-11-22
+#155 Noah Gragson [Sports] 2 videos | 44,409 views | 2,430 likes | 124 comments | 2019-11-06~2019-11-06
+#156 The7WG [Creator] 1 videos | 40,956 views | 1,501 likes | 105 comments | 2018-08-15~2018-08-15
+#157 Wildcard [Creator] 1 videos | 40,581 views | 1,463 likes | 184 comments | 2018-11-07~2018-11-07
+#158 Dr Disrespect [Creator] 1 videos | 39,600 views | 3,377 likes | 65 comments | 2021-10-23~2021-10-23
+#159 Global Green [Other] 1 videos | 36,441 views | 2,967 likes | 152 comments | 2019-12-22~2019-12-22
+#160 ALAN WALKER [Artist] 1 videos | 33,494 views | 645 likes | 65 comments | 2025-03-09~2025-03-09
+#161 Megan Fox & Brian Austin Green [Creator] 1 videos | 30,578 views | 1,451 likes | 88 comments | 2019-10-29~2019-10-29
+#162 One Plus [Brand] 2 videos | 29,766 views | 1,440 likes | 70 comments | 2020-03-20~2020-03-31
+#163 Ogarno [Creator] 1 videos | 25,615 views | 264 likes | 37 comments | 2024-04-16~2024-04-16
+#164 SAMSUNG [Brand] 1 videos | 24,294 views | 1,358 likes | 24 comments | 2022-07-30~2022-07-30
+#165 Deadmau5 [Artist] 1 videos | 23,878 views | 842 likes | 145 comments | 2018-08-13~2018-08-13
+#166 R3HAB [Artist] 1 videos | 23,621 views | 1,558 likes | 54 comments | 2021-03-31~2021-03-31
+#167 Dune [Movie] 1 videos | 22,302 views | 1,445 likes | 97 comments | 2021-10-19~2021-10-19
+#168 The Great British Teddy Bear [Other] 1 videos | 22,215 views | 1,527 likes | 106 comments | 2022-06-21~2022-06-21
+#169 Official Collaboration [Other] 1 videos | 21,798 views | 1,619 likes | 117 comments | 2021-08-06~2021-08-06
+#170 Falcons Force [Creator] 1 videos | 21,459 views | 209 likes | 28 comments | 2024-07-03~2024-07-03
+#171 Krigarè [Artist] 1 videos | 18,465 views | 835 likes | 43 comments | 2020-07-10~2020-07-10
+#172 Liverpool [Other] 1 videos | 18,218 views | 1,128 likes | 74 comments | 2021-11-12~2021-11-12
+#173 Giannis Antetokounmpo [Sports] 1 videos | 18,175 views | 982 likes | 59 comments | 2019-11-29~2019-11-29
+#174 Free Fire Continental Series [Other] 1 videos | 17,364 views | 1,599 likes | 344 comments | 2020-11-26~2020-11-26
+#175 Evangelion [Anime] 1 videos | 16,860 views | 473 likes | 127 comments | 2022-05-21~2022-05-21
+#176 BUSHKA [Creator] 2 videos | 16,850 views | 594 likes | 29 comments | 2018-07-10~2018-07-10
+#177 Hotjukes [Creator] 1 videos | 16,580 views | 740 likes | 27 comments | 2020-07-03~2020-07-03
+#178 Bushka [Creator] 1 videos | 15,544 views | 526 likes | 14 comments | 2018-07-11~2018-07-11
+#179 Sychron [Other] 1 videos | 15,099 views | 290 likes | 21 comments | 2023-03-31~2023-03-31
+#180 PDP [Other] 1 videos | 14,382 views | 525 likes | 33 comments | 2025-08-22~2025-08-22
+#181 BJRNCK, Awich, Krawk, Faruz Feet [Creator] 1 videos | 12,138 views | 372 likes | 7 comments | 2020-03-20~2020-03-20
+#182 Rolex [Brand] 2 videos | 11,440 views | 378 likes | 18 comments | 2019-09-08~2019-09-08
+#183 JustMaiko [Creator] 1 videos | 11,430 views | 140 likes | 18 comments | 2024-03-01~2024-03-01
+#184 Bohemia [Creator] 2 videos | 11,293 views | 896 likes | 85 comments | 2025-02-09~2025-02-12
+#185 dabplays [Creator] 2 videos | 10,318 views | 277 likes | 42 comments | 2024-12-09~2025-04-02
+#186 Bernth Cadence [Creator] 1 videos | 6,632 views | 219 likes | 28 comments | 2023-08-14~2023-08-14
+#187 Panda Vehicle [Brand] 1 videos | 6,521 views | 109 likes | 31 comments | 2025-01-15~2025-01-15
+#188 T STAR [IP] 1 videos | 6,314 views | 201 likes | 36 comments | 2026-04-05~2026-04-05
+#189 Wynnsanity [Creator] 1 videos | 5,164 views | 260 likes | 29 comments | 2025-04-04~2025-04-04
+#190 BellaFoxGaming [Creator] 1 videos | 4,545 views | 203 likes | 5 comments | 2025-04-01~2025-04-01
+#191 AceLawrence [Creator] 1 videos | 3,172 views | 137 likes | 5 comments | 2024-12-11~2024-12-11
+#192 TheVovkaCom [Creator] 1 videos | 2,453 views | 71 likes | 3 comments | 2025-07-17~2025-07-17
+#193 B2ksamurai [Creator] 1 videos | 2,363 views | 66 likes | 54 comments | 2025-01-18~2025-01-18
+#194 drchemist [Creator] 1 videos | 1,388 views | 30 likes | 5 comments | 2024-12-11~2024-12-11
 
 [YouTube MENA] 160 partners, 337 items, 91,527,815 total views
 #1 Henedy [Other] 2 videos | 16,036,535 views | 185,618 likes | 5,006 comments | 2021-04-16~
@@ -6739,8 +6739,8 @@ Video: "TITLE" DATE | VIEWS views | LIKES likes
 #767 TAPTAP [Other] | 11 reposts | 2 attitudes | 4 comments | 2023-04-17~2023-04-17
 #768 JD LOGISTICS [Other] | 7 reposts | 1 attitudes | 9 comments | 2025-06-20~2025-06-20
 
-[YouTube Free Fire] 60 partners, 166 items, 80,541,400 total views
-#1 NARUTO SHIPPUDEN [Anime] 34 videos | 31,083,807 views | 545,502 likes | 18,922 comments | 2024-11-24~2025-08-23
+[YouTube Free Fire] 61 partners, 169 items, 81,685,634 total views
+#1 NARUTO SHIPPUDEN [Anime] 36 videos | 31,855,162 views | 577,540 likes | 19,703 comments | 2024-11-24~2025-08-23
   "Akatsuki has invaded! | Free Fire x" 2025-07-31 | 8,892,958 views | 88,180 likes
   "Bugatti? Nah. Aura Farming!!😎🙏| Fre" 2025-08-08 | 7,520,740 views | 104,298 likes
   "Full Animation | Free Fire x NARUTO" 2025-01-17 | 1,804,462 views | 17,846 likes
@@ -6750,8 +6750,8 @@ Video: "TITLE" DATE | VIEWS views | LIKES likes
   "Obito Teaser | Lost Savior | Free F" 2025-07-25 | 904,213 views | 21,285 likes
   "Trailer | Free Fire x NARUTO SHIPPU" 2025-07-30 | 843,805 views | 29,864 likes
   "Full Animation | Free Fire x NARUTO" 2025-08-08 | 733,467 views | 11,836 likes
-  "Pain Teaser | Feel The Pain | Free " 2025-07-24 | 541,512 views | 21,120 likes
-  (+24 more)
+  "Finally Met Itachi!! Free Fire × NA" 2025-08-02 | 687,076 views | 29,809 likes
+  (+26 more)
 #2 KSHMR [Artist] 4 videos | 11,736,450 views | 359,207 likes | 20,839 comments | 2020-10-17~2020-10-31
   "Free Fire x KSHMR - One More Round " 2020-10-17 | 9,670,669 views | 284,370 likes
   "KSHMR, Jeremy Oceans - One More Rou" 2020-10-19 | 1,306,180 views | 31,197 likes
@@ -6851,88 +6851,90 @@ Video: "TITLE" DATE | VIEWS views | LIKES likes
 #25 DVLM, ALOK, KSHMR [Artist] 2 videos | 378,419 views | 11,023 likes | 543 comments | 2021-08-20~2021-08-25
   "Reunion by DVLM x ALOK x KSHMR | Fr" 2021-08-20 | 340,235 views | 9,576 likes
   "Reunion - Behind the scene  | Free " 2021-08-25 | 38,184 views | 1,447 likes
-#26 Devil May Cry 5 [Game] 2 videos | 368,465 views | 11,761 likes | 365 comments | 2023-02-11~2023-02-11
+#26 Demon Slayer [Anime] 1 videos | 372,879 views | 15,899 likes | 88 comments | 2023-10-07~2023-10-07
+  "Embrace an epic journey in this lim" 2023-10-07 | 372,879 views | 15,899 likes
+#27 Devil May Cry 5 [Game] 2 videos | 368,465 views | 11,761 likes | 365 comments | 2023-02-11~2023-02-11
   "Free Fire X Devil May Cry 5 Global " 2023-02-11 | 226,767 views | 3,801 likes
   "Free Fire X Devil May Cry 5 Global " 2023-02-11 | 141,698 views | 7,960 likes
-#27 Alok [Artist] 2 videos | 360,410 views | 15,515 likes | 91 comments | 2023-07-06~2023-07-08
+#28 Alok [Artist] 2 videos | 360,410 views | 15,515 likes | 91 comments | 2023-07-06~2023-07-08
   "Now claim free rewards in 6th anniv" 2023-07-08 | 257,344 views | 8,257 likes
   "T.R.A.P. & Alok: Watch full episode" 2023-07-06 | 103,066 views | 7,258 likes
-#28 Digimon [Anime] 4 videos | 340,507 views | 7,696 likes | 229 comments | 2025-11-27~2025-11-28
+#29 Digimon [Anime] 4 videos | 340,507 views | 7,696 likes | 229 comments | 2025-11-27~2025-11-28
   "Free Digimon wear and MetalGreymon " 2025-11-27 | 94,809 views | 2,235 likes
   "Who let the Digimons into Bermuda?!" 2025-11-28 | 90,086 views | 1,971 likes
   "Too many hearts from Patamon and Ag" 2025-11-28 | 80,442 views | 1,624 likes
   "🌐 The Digital World has opened in F" 2025-11-28 | 75,170 views | 1,866 likes
-#29 Ducati [Brand] 1 videos | 246,350 views | 3,483 likes | 229 comments | 2023-06-02~2023-06-02
+#30 Ducati [Brand] 1 videos | 246,350 views | 3,483 likes | 229 comments | 2023-06-02~2023-06-02
   "Free Fire x Spider-Man: Across the " 2023-06-02 | 246,350 views | 3,483 likes
-#30 Isagi [Anime] 1 videos | 245,141 views | 11,248 likes | 335 comments | 2024-11-15~2024-11-15
+#31 Isagi [Anime] 1 videos | 245,141 views | 11,248 likes | 335 comments | 2024-11-15~2024-11-15
   "It's time to snag the stylish Isagi" 2024-11-15 | 245,141 views | 11,248 likes
-#31 Naruto [Anime] 1 videos | 233,749 views | 16,319 likes | 265 comments | 2025-01-04~2025-01-04
+#32 Naruto [Anime] 1 videos | 233,749 views | 16,319 likes | 265 comments | 2025-01-04~2025-01-04
   "💥 Choose your ultimate Naruto look " 2025-01-04 | 233,749 views | 16,319 likes
-#32 McLaren [Brand] 8 videos | 204,911 views | 8,206 likes | 610 comments | 2021-05-16~2021-09-06
+#33 McLaren [Brand] 8 videos | 204,911 views | 8,206 likes | 610 comments | 2021-05-16~2021-09-06
   "Free Fire X McLaren | Global Announ" 2021-05-25 | 57,077 views | 1,812 likes
   "Hello, World. | Free Fire Story" 2021-09-05 | 35,528 views | 1,154 likes
   "Free Fire X McLaren - Drift To Booy" 2021-07-23 | 23,673 views | 1,176 likes
   (+5 more)
-#33 BLACKPINK [Artist] 2 videos | 203,116 views | 8,453 likes | 567 comments | 2020-12-07~2022-07-25
+#34 BLACKPINK [Artist] 2 videos | 203,116 views | 8,453 likes | 567 comments | 2020-12-07~2022-07-25
   "5th Anniversary Is Coming! | Free F" 2022-07-25 | 155,775 views | 5,061 likes
   "What's Up Free Fire S1 EP.4: Operat" 2020-12-07 | 47,341 views | 3,392 likes
-#34 DJ Alok [Artist] 4 videos | 193,286 views | 6,383 likes | 266 comments | 2020-03-20~2020-03-20
+#35 DJ Alok [Artist] 4 videos | 193,286 views | 6,383 likes | 266 comments | 2020-03-20~2020-03-20
   "Free Fire x DJ Alok - Vale Vale | M" 2020-03-20 | 114,378 views | 3,260 likes
   "Jaguar | Free Fire Official Elite P" 2020-03-20 | 32,589 views | 1,136 likes
   "Free Fire x DJ Alok | Press Confere" 2020-03-20 | 29,526 views | 1,476 likes
   (+1 more)
-#35 Sonic [Game] 1 videos | 180,011 views | 4,105 likes | 1,752 comments | 2025-09-28~2025-09-28
+#36 Sonic [Game] 1 videos | 180,011 views | 4,105 likes | 1,752 comments | 2025-09-28~2025-09-28
   "Secret Power Unlocks Free Rewards! " 2025-09-28 | 180,011 views | 4,105 likes
-#36 Dragon Ball Super [Anime] 1 videos | 172,875 views | 9,325 likes | 74 comments | 2023-07-08~2023-07-08
+#37 Dragon Ball Super [Anime] 1 videos | 172,875 views | 9,325 likes | 74 comments | 2023-07-08~2023-07-08
   "T.R.A.P. & Alok: Together celebrate" 2023-07-08 | 172,875 views | 9,325 likes
-#37 Alan Walker [Artist] 2 videos | 167,639 views | 4,122 likes | 154 comments | 2023-07-10~2023-08-05
+#38 Alan Walker [Artist] 2 videos | 167,639 views | 4,122 likes | 154 comments | 2023-07-10~2023-08-05
   "6th Anniversary: T.R.A.P. Squad Bun" 2023-07-10 | 101,607 views | 1,588 likes
   "Test your monster-fighting skills i" 2023-08-05 | 66,032 views | 2,534 likes
-#38 Street Fighter V [Game] 2 videos | 124,216 views | 2,311 likes | 209 comments | 2021-06-01~2021-07-02
+#39 Street Fighter V [Game] 2 videos | 124,216 views | 2,311 likes | 209 comments | 2021-06-01~2021-07-02
   "Free Fire X Street Fighter V | Glob" 2021-06-01 | 62,303 views | 1,292 likes
   "Free Fire X Street Fighter V | Full" 2021-07-02 | 61,913 views | 1,019 likes
-#39 Rockstar Energy [Brand] 1 videos | 118,369 views | 3,767 likes | 110 comments | 2025-11-20~2025-11-20
+#40 Rockstar Energy [Brand] 1 videos | 118,369 views | 3,767 likes | 110 comments | 2025-11-20~2025-11-20
   "Agumon, stop mimicking me!Gotcha!😤😂" 2025-11-20 | 118,369 views | 3,767 likes
-#40 SPYxFAMILY [Anime] 1 videos | 90,717 views | 3,718 likes | 57 comments | 2024-04-13~2024-04-13
+#41 SPYxFAMILY [Anime] 1 videos | 90,717 views | 3,718 likes | 57 comments | 2024-04-13~2024-04-13
   "Time to fight the Mechadrake!🐲 #sho" 2024-04-13 | 90,717 views | 3,718 likes
-#41 Kelly [Creator] 1 videos | 89,342 views | 1,847 likes | 353 comments | 2024-12-31~2024-12-31
+#42 Kelly [Creator] 1 videos | 89,342 views | 1,847 likes | 353 comments | 2024-12-31~2024-12-31
   "Meet Kelly in Real Life!🤩 | Free Fi" 2024-12-31 | 89,342 views | 1,847 likes
-#42 BE@RBRICK [Brand] 1 videos | 87,723 views | 1,653 likes | 129 comments | 2023-04-01~2023-04-01
+#43 BE@RBRICK [Brand] 1 videos | 87,723 views | 1,653 likes | 129 comments | 2023-04-01~2023-04-01
   "EXPLOSIVE SURPRISE Lyric Video | 'A" 2023-04-01 | 87,723 views | 1,653 likes
-#43 GINTAMA [Anime] 1 videos | 86,019 views | 2,142 likes | 268 comments | 2026-02-15~2026-02-15
+#44 GINTAMA [Anime] 1 videos | 86,019 views | 2,142 likes | 268 comments | 2026-02-15~2026-02-15
   "Free Fire x GINTAMA launches this A" 2026-02-15 | 86,019 views | 2,142 likes
-#44 Hafþór Júlíus Björnsson [Sports] 1 videos | 74,791 views | 1,378 likes | 363 comments | 2024-12-11~2024-12-11
+#45 Hafþór Júlíus Björnsson [Sports] 1 videos | 74,791 views | 1,378 likes | 363 comments | 2024-12-11~2024-12-11
   "Meet Koda, the New Partner from the" 2024-12-11 | 74,791 views | 1,378 likes
-#45 Lamborghini [Brand] 1 videos | 69,126 views | 1,540 likes | 82 comments | 2023-12-11~2023-12-11
+#46 Lamborghini [Brand] 1 videos | 69,126 views | 1,540 likes | 82 comments | 2023-12-11~2023-12-11
   "Free Fire x Lamborghini Global Coll" 2023-12-11 | 69,126 views | 1,540 likes
-#46 OnePlus [Brand] 1 videos | 63,814 views | 2,678 likes | 99 comments | 2020-04-29~2020-04-29
+#47 OnePlus [Brand] 1 videos | 63,814 views | 2,678 likes | 99 comments | 2020-04-29~2020-04-29
   "Forsaken Creed | Free Fire Official" 2020-04-29 | 63,814 views | 2,678 likes
-#47 Alesso [Artist] 1 videos | 51,754 views | 1,831 likes | 114 comments | 2021-03-31~2021-03-31
+#48 Alesso [Artist] 1 videos | 51,754 views | 1,831 likes | 114 comments | 2021-03-31~2021-03-31
   "Bloodwing City | Free Fire Official" 2021-03-31 | 51,754 views | 1,831 likes
-#48 Booyah Day 2024 [Other] 1 videos | 45,843 views | 1,207 likes | 311 comments | 2024-11-22~2024-11-22
+#49 Booyah Day 2024 [Other] 1 videos | 45,843 views | 1,207 likes | 311 comments | 2024-11-22~2024-11-22
   "Take the Spotlight: The Booyah Jour" 2024-11-22 | 45,843 views | 1,207 likes
-#49 Tesla [Brand] 2 videos | 41,954 views | 2,222 likes | 59 comments | 2021-07-16~2021-07-30
+#50 Tesla [Brand] 2 videos | 41,954 views | 2,222 likes | 59 comments | 2021-07-16~2021-07-30
   "Wildland Walkers | Free Fire Offici" 2021-07-30 | 27,786 views | 842 likes
   "FFWS x Jah Khalib - The Strength Wi" 2021-07-16 | 14,168 views | 1,380 likes
-#50 Justin Bieber [Artist] 1 videos | 29,777 views | 1,386 likes | 93 comments | 2022-09-17~2022-09-17
+#51 Justin Bieber [Artist] 1 videos | 29,777 views | 1,386 likes | 93 comments | 2022-09-17~2022-09-17
   "Kelly Show S03 E05: Birthday Girl |" 2022-09-17 | 29,777 views | 1,386 likes
-#51 Son Tung M-TP [Artist] 1 videos | 29,225 views | 1,602 likes | 101 comments | 2021-05-14~2021-05-14
+#52 Son Tung M-TP [Artist] 1 videos | 29,225 views | 1,602 likes | 101 comments | 2021-05-14~2021-05-14
   "Free Fire x Son Tung M-TP - Skyler " 2021-05-14 | 29,225 views | 1,602 likes
-#52 Official Collaboration [Other] 1 videos | 21,798 views | 1,619 likes | 117 comments | 2021-08-06~2021-08-06
+#53 Official Collaboration [Other] 1 videos | 21,798 views | 1,619 likes | 117 comments | 2021-08-06~2021-08-06
   "What's you expect most, will come b" 2021-08-06 | 21,798 views | 1,619 likes
-#53 Godzilla vs. Kong [Movie] 1 videos | 21,766 views | 1,541 likes | 75 comments | 2021-04-30~2021-04-30
+#54 Godzilla vs. Kong [Movie] 1 videos | 21,766 views | 1,541 likes | 75 comments | 2021-04-30~2021-04-30
   "Incubator: Safari Riot | Live Actio" 2021-04-30 | 21,766 views | 1,541 likes
-#54 Free Fire Continental Series [Other] 1 videos | 17,364 views | 1,599 likes | 344 comments | 2020-11-26~2020-11-26
+#55 Free Fire Continental Series [Other] 1 videos | 17,364 views | 1,599 likes | 344 comments | 2020-11-26~2020-11-26
   "Who's the Winner - Special Rap Batt" 2020-11-26 | 17,364 views | 1,599 likes
-#55 One Plus [Brand] 1 videos | 15,749 views | 530 likes | 8 comments | 2020-03-20~2020-03-20
+#56 One Plus [Brand] 1 videos | 15,749 views | 530 likes | 8 comments | 2020-03-20~2020-03-20
   "Kelly 'The Swift' Trailer | Free Fi" 2020-03-20 | 15,749 views | 530 likes
-#56 Mohamed Ramadan [Artist] 1 videos | 15,282 views | 825 likes | 56 comments | 2021-05-14~2021-05-14
+#57 Mohamed Ramadan [Artist] 1 videos | 15,282 views | 825 likes | 56 comments | 2021-05-14~2021-05-14
   "Free Fire x Mohamed Ramadan - Maro " 2021-05-14 | 15,282 views | 825 likes
-#57 Yamaha Motor [Brand] 1 videos | 15,233 views | 467 likes | 16 comments | 2020-07-15~2020-07-15
+#58 Yamaha Motor [Brand] 1 videos | 15,233 views | 467 likes | 16 comments | 2020-07-15~2020-07-15
   "The Vengeance Teaser | Free Fire St" 2020-07-15 | 15,233 views | 467 likes
-#58 BJRNCK, Awich, Krawk, Faruz Feet [Creator] 1 videos | 12,138 views | 372 likes | 7 comments | 2020-03-20~2020-03-20
+#59 BJRNCK, Awich, Krawk, Faruz Feet [Creator] 1 videos | 12,138 views | 372 likes | 7 comments | 2020-03-20~2020-03-20
   "Future Hunter | Free Fire Official " 2020-03-20 | 12,138 views | 372 likes
-#59 Samsung [Brand] 1 videos | 11,847 views | 325 likes | 24 comments | 2023-03-27~2023-03-27
+#60 Samsung [Brand] 1 videos | 11,847 views | 325 likes | 24 comments | 2023-03-27~2023-03-27
   "Kapella-Themed Items Showcase | Alv" 2023-03-27 | 11,847 views | 325 likes
-#60 Powerbang [Creator] 1 videos | 8,880 views | 221 likes | 6 comments | 2020-05-14~2020-05-14
+#61 Powerbang [Creator] 1 videos | 8,880 views | 221 likes | 6 comments | 2020-05-14~2020-05-14
   "Spikey Spine | Free Fire Official I" 2020-05-14 | 8,880 views | 221 likes

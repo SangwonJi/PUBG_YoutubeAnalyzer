@@ -1,8 +1,8 @@
 {
-  "video_count": 3840,
-  "total_views": 1732218799,
-  "total_likes": 7713467,
-  "total_comments": 423900,
+  "video_count": 3838,
+  "total_views": 1731480112,
+  "total_likes": 7713276,
+  "total_comments": 423885,
   "content_types": [
     {
       "name": "Event",
@@ -1383,10 +1383,10 @@
     },
     {
       "name": "Promotion",
-      "video_count": 222,
-      "total_views": 152744299,
-      "total_likes": 808333,
-      "total_comments": 45887,
+      "video_count": 220,
+      "total_views": 152005612,
+      "total_likes": 808142,
+      "total_comments": 45872,
       "videos": [
         {
           "video_id": "uCd6tbUAy6o",

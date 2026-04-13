@@ -2,10 +2,10 @@
   {
     "name": "NARUTO SHIPPUDEN",
     "category": "Anime",
-    "video_count": 34,
-    "total_views": 31083807,
-    "total_likes": 545502,
-    "total_comments": 18922,
+    "video_count": 36,
+    "total_views": 31855162,
+    "total_likes": 577540,
+    "total_comments": 19703,
     "first_collab": "2024-11-24",
     "last_collab": "2025-08-23",
     "videos": [
@@ -89,6 +89,15 @@
         "like_count": 11836,
         "comment_count": 1562,
         "url": "https://www.youtube.com/watch?v=S32rrgrKbXc"
+      },
+      {
+        "video_id": "BYcj_6i0ucU",
+        "title": "Finally Met Itachi!! Free Fire × NARUTO SHIPPUDEN Collab Chapter 2 is HERE! 🔥💖| Free Fire Official",
+        "published_at": "2025-08-02",
+        "view_count": 687076,
+        "like_count": 29809,
+        "comment_count": 520,
+        "url": "https://www.youtube.com/watch?v=BYcj_6i0ucU"
       },
       {
         "video_id": "eVG6w-eRtYg",
@@ -287,6 +296,15 @@
         "like_count": 1759,
         "comment_count": 248,
         "url": "https://www.youtube.com/watch?v=8uRKhenZl4E"
+      },
+      {
+        "video_id": "bzi5Zn5TSTE",
+        "title": "Minato Namikaze has entered the battle! | Free Fire × NARUTO SHIPPUDEN Collab Chapter 2 is HERE! 🔥💖",
+        "published_at": "2025-08-03",
+        "view_count": 84279,
+        "like_count": 2229,
+        "comment_count": 261,
+        "url": "https://www.youtube.com/watch?v=bzi5Zn5TSTE"
       },
       {
         "video_id": "JJ7S-FN6Bpw",
@@ -1304,6 +1322,27 @@
         "like_count": 1447,
         "comment_count": 113,
         "url": "https://www.youtube.com/watch?v=vdAo6-58KZg"
+      }
+    ]
+  },
+  {
+    "name": "Demon Slayer",
+    "category": "Anime",
+    "video_count": 1,
+    "total_views": 372879,
+    "total_likes": 15899,
+    "total_comments": 88,
+    "first_collab": "2023-10-07",
+    "last_collab": "2023-10-07",
+    "videos": [
+      {
+        "video_id": "mzbDESy8c4k",
+        "title": "Embrace an epic journey in this limited-time #FFXDemonSlayer collab event.|Free Fire Official",
+        "published_at": "2023-10-07",
+        "view_count": 372879,
+        "like_count": 15899,
+        "comment_count": 88,
+        "url": "https://www.youtube.com/watch?v=mzbDESy8c4k"
       }
     ]
   },
