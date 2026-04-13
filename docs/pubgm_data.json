@@ -4422,8 +4422,8 @@
     "name": "OneRepublic",
     "category": "Artist",
     "video_count": 2,
-    "total_views": 4340058,
-    "total_likes": 5028,
+    "total_views": 4340311,
+    "total_likes": 5040,
     "total_comments": 417,
     "first_collab": "2026-03-14",
     "last_collab": "2026-03-28",
@@ -4432,8 +4432,8 @@
         "video_id": "LTrxmjhVDmU",
         "title": "PUBG MOBILE x OneRepublic - \"LEAN (PUBG MOBILE 2026 Theme Song)\" Performance Video",
         "published_at": "2026-03-28",
-        "view_count": 3627903,
-        "like_count": 4694,
+        "view_count": 3628156,
+        "like_count": 4706,
         "comment_count": 351,
         "url": "https://www.youtube.com/watch?v=LTrxmjhVDmU"
       },
@@ -5100,7 +5100,7 @@
     "name": "BamBam",
     "category": "Artist",
     "video_count": 2,
-    "total_views": 2653302,
+    "total_views": 2653316,
     "total_likes": 3476,
     "total_comments": 188,
     "first_collab": "2025-12-14",
@@ -5119,7 +5119,7 @@
         "video_id": "o0wJKNCJcKc",
         "title": "CARRY YOU - BamBam x MINNIE (Official Music Video) | PUBG MOBILE",
         "published_at": "2026-03-27",
-        "view_count": 1065532,
+        "view_count": 1065546,
         "like_count": 3083,
         "comment_count": 175,
         "url": "https://www.youtube.com/watch?v=o0wJKNCJcKc"
@@ -6108,6 +6108,45 @@
     ]
   },
   {
+    "name": "Metro Exodus",
+    "category": "Game",
+    "video_count": 3,
+    "total_views": 1193695,
+    "total_likes": 23856,
+    "total_comments": 774,
+    "first_collab": "2020-11-06",
+    "last_collab": "2026-04-10",
+    "videos": [
+      {
+        "video_id": "9UFbqUDFi20",
+        "title": "PUBG MOBILE - Metro Exodus X PUBG MOBILE",
+        "published_at": "2020-11-06",
+        "view_count": 673634,
+        "like_count": 19702,
+        "comment_count": 724,
+        "url": "https://www.youtube.com/watch?v=9UFbqUDFi20"
+      },
+      {
+        "video_id": "1671ib13xb4",
+        "title": "PUBG MOBILE | Why u so obsessed with me",
+        "published_at": "2026-04-10",
+        "view_count": 516870,
+        "like_count": 4091,
+        "comment_count": 44,
+        "url": "https://www.youtube.com/watch?v=1671ib13xb4"
+      },
+      {
+        "video_id": "SH0Zy_dqhxE",
+        "title": "PUBG MOBILE | Metro Royale Advanced Tips - Survival Drop",
+        "published_at": "2025-09-10",
+        "view_count": 3191,
+        "like_count": 63,
+        "comment_count": 6,
+        "url": "https://www.youtube.com/watch?v=SH0Zy_dqhxE"
+      }
+    ]
+  },
+  {
     "name": "The Boys",
     "category": "Movie",
     "video_count": 1,
@@ -6263,36 +6302,6 @@
         "like_count": 364,
         "comment_count": 33,
         "url": "https://www.youtube.com/watch?v=7oclj2m2-Ho"
-      }
-    ]
-  },
-  {
-    "name": "Metro Exodus",
-    "category": "Game",
-    "video_count": 2,
-    "total_views": 676825,
-    "total_likes": 19765,
-    "total_comments": 730,
-    "first_collab": "2020-11-06",
-    "last_collab": "2025-09-10",
-    "videos": [
-      {
-        "video_id": "9UFbqUDFi20",
-        "title": "PUBG MOBILE - Metro Exodus X PUBG MOBILE",
-        "published_at": "2020-11-06",
-        "view_count": 673634,
-        "like_count": 19702,
-        "comment_count": 724,
-        "url": "https://www.youtube.com/watch?v=9UFbqUDFi20"
-      },
-      {
-        "video_id": "SH0Zy_dqhxE",
-        "title": "PUBG MOBILE | Metro Royale Advanced Tips - Survival Drop",
-        "published_at": "2025-09-10",
-        "view_count": 3191,
-        "like_count": 63,
-        "comment_count": 6,
-        "url": "https://www.youtube.com/watch?v=SH0Zy_dqhxE"
       }
     ]
   },
@@ -8361,8 +8370,8 @@
     "name": "T STAR",
     "category": "IP",
     "video_count": 1,
-    "total_views": 6227,
-    "total_likes": 200,
+    "total_views": 6314,
+    "total_likes": 201,
     "total_comments": 36,
     "first_collab": "2026-04-05",
     "last_collab": "2026-04-05",
@@ -8371,8 +8380,8 @@
         "video_id": "8G_rvGZb3EE",
         "title": "PUBG MOBILE NEXT STAR | WOW & METRO ROYALE CATEGORY EVOLVED",
         "published_at": "2026-04-05",
-        "view_count": 6227,
-        "like_count": 200,
+        "view_count": 6314,
+        "like_count": 201,
         "comment_count": 36,
         "url": "https://www.youtube.com/watch?v=8G_rvGZb3EE"
       }

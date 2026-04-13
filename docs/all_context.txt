@@ -5,7 +5,7 @@ Partner: #rank NAME [category] N videos | VIEWS views | LIKES likes | COMMENTS c
 Video: "TITLE" DATE | VIEWS views | LIKES likes
 
 --- OVERVIEW ---
-  YouTube Global (PUBG MOBILE): 193 partners, 887 items, 851,715,183 views, 4,933,693 likes, 194,770 comments
+  YouTube Global (PUBG MOBILE): 193 partners, 888 items, 852,232,407 views, 4,937,797 likes, 194,814 comments
   YouTube MENA: 160 partners, 337 items, 91,527,815 views, 658,508 likes, 36,395 comments
   YouTube India: 106 partners, 148 items, 378,070,899 views, 5,480,758 likes, 243,171 comments
   YouTube Indonesia: 284 partners, 668 items, 129,946,410 views, 2,178,271 likes, 43,464 comments
@@ -23,7 +23,7 @@ Video: "TITLE" DATE | VIEWS views | LIKES likes
   YouTube Free Fire: 60 partners, 166 items, 80,541,400 views, 2,092,278 likes, 77,889 comments
 
 
-[YouTube Global (PUBG MOBILE)] 193 partners, 887 items, 851,715,183 total views
+[YouTube Global (PUBG MOBILE)] 193 partners, 888 items, 852,232,407 total views
 #1 BLACKPINK [Artist] 25 videos | 137,520,000 views | 1,145,486 likes | 38,329 comments | 2020-10-24~2022-08-16
   "BLACKPINK x PUBG MOBILE - ‘Ready Fo" 2022-07-29 | 82,844,329 views | 487,806 likes
   "PUBG MOBILE X BLACKPINK FUN MATCH" 2020-11-13 | 43,078,968 views | 259,357 likes
@@ -359,8 +359,8 @@ Video: "TITLE" DATE | VIEWS views | LIKES likes
 #49 DVLM [Artist] 2 videos | 4,356,138 views | 75,543 likes | 1,832 comments | 2021-06-11~2021-06-17
   "DVLM x Free Fire: 'Rampage' | Music" 2021-06-17 | 3,878,543 views | 56,491 likes
   "DVLM x Free Fire: 'Rampage' | Theme" 2021-06-11 | 477,595 views | 19,052 likes
-#50 OneRepublic [Artist] 2 videos | 4,340,058 views | 5,028 likes | 417 comments | 2026-03-14~2026-03-28
-  "PUBG MOBILE x OneRepublic - 'LEAN (" 2026-03-28 | 3,627,903 views | 4,694 likes
+#50 OneRepublic [Artist] 2 videos | 4,340,311 views | 5,040 likes | 417 comments | 2026-03-14~2026-03-28
+  "PUBG MOBILE x OneRepublic - 'LEAN (" 2026-03-28 | 3,628,156 views | 4,706 likes
   "PUBG MOBILE | Special Message from " 2026-03-14 | 712,155 views | 334 likes
 #51 TEKKEN 8 [Game] 7 videos | 4,258,169 views | 4,719 likes | 466 comments | 2024-09-28~2024-10-18
   "PUBG MOBILE | Draco Disciple Series" 2024-10-12 | 1,495,240 views | 314 likes
@@ -420,9 +420,9 @@ Video: "TITLE" DATE | VIEWS views | LIKES likes
   "'EVOLVE' - PUBG MOBILE & TESLA Coll" 2021-08-09 | 2,844,276 views | 2,665 likes
 #65 Warframe [Game] 1 videos | 2,690,846 views | 3,533 likes | 338 comments | 2022-03-17~2022-03-17
   "PUBG MOBILE | 4th Anniversary Updat" 2022-03-17 | 2,690,846 views | 3,533 likes
-#66 BamBam [Artist] 2 videos | 2,653,302 views | 3,476 likes | 188 comments | 2025-12-14~2026-03-27
+#66 BamBam [Artist] 2 videos | 2,653,316 views | 3,476 likes | 188 comments | 2025-12-14~2026-03-27
   "PUBG MOBILE | Chicko Smash Moment" 2025-12-14 | 1,587,770 views | 393 likes
-  "CARRY YOU - BamBam x MINNIE (Offici" 2026-03-27 | 1,065,532 views | 3,083 likes
+  "CARRY YOU - BamBam x MINNIE (Offici" 2026-03-27 | 1,065,546 views | 3,083 likes
 #67 Dolby Atmos [Other] 2 videos | 2,605,655 views | 6,775 likes | 422 comments | 2023-03-17~2023-03-21
   "PUBG MOBILE | 5th Anniversary Class" 2023-03-17 | 2,466,947 views | 1,425 likes
   "PUBG MOBILE x Dolby Atmos | Announc" 2023-03-21 | 138,708 views | 5,350 likes
@@ -494,43 +494,44 @@ Video: "TITLE" DATE | VIEWS views | LIKES likes
   "PUBG MOBILE x MrBeast | Watch the l" 2026-03-08 | 1,443,535 views | 2,250 likes
 #85 Scuderia Ferrari [Brand] 1 videos | 1,330,450 views | 169 likes | 35 comments | 2025-12-12~2025-12-12
   "Special Message from Scuderia Ferra" 2025-12-12 | 1,330,450 views | 169 likes
-#86 The Boys [Movie] 1 videos | 1,181,836 views | 670 likes | 82 comments | 2022-06-01~2022-06-01
+#86 Metro Exodus [Game] 3 videos | 1,193,695 views | 23,856 likes | 774 comments | 2020-11-06~2026-04-10
+  "PUBG MOBILE - Metro Exodus X PUBG M" 2020-11-06 | 673,634 views | 19,702 likes
+  "PUBG MOBILE | Why u so obsessed wit" 2026-04-10 | 516,870 views | 4,091 likes
+  "PUBG MOBILE | Metro Royale Advanced" 2025-09-10 | 3,191 views | 63 likes
+#87 The Boys [Movie] 1 videos | 1,181,836 views | 670 likes | 82 comments | 2022-06-01~2022-06-01
   "PUBG MOBILE | Ultimate Flamewraith " 2022-06-01 | 1,181,836 views | 670 likes
-#87 Volkswagen Beetle [Brand] 1 videos | 1,060,163 views | 215 likes | 25 comments | 2024-09-13~2024-09-13
+#88 Volkswagen Beetle [Brand] 1 videos | 1,060,163 views | 215 likes | 25 comments | 2024-09-13~2024-09-13
   "PUBG MOBILE | World of Wonder 3.4 U" 2024-09-13 | 1,060,163 views | 215 likes
-#88 Demon Slayer: Kimetsu no Yaiba [Anime] 7 videos | 1,002,610 views | 38,140 likes | 642 comments | 2023-09-27~2023-10-08
+#89 Demon Slayer: Kimetsu no Yaiba [Anime] 7 videos | 1,002,610 views | 38,140 likes | 642 comments | 2023-09-27~2023-10-08
   "The #FFXDemonSlayer special collabo" 2023-09-30 | 362,224 views | 19,200 likes
   "#FFXDemonSlayer Live Now!! #FFXDemo" 2023-09-27 | 318,411 views | 11,832 likes
   "#FFXDemonSlayer Collaboration is in" 2023-10-08 | 162,171 views | 3,231 likes
   (+4 more)
-#89 Naruto Shippuden [Anime] 5 videos | 845,485 views | 34,751 likes | 557 comments | 2025-01-09~2025-01-29
+#90 Naruto Shippuden [Anime] 5 videos | 845,485 views | 34,751 likes | 557 comments | 2025-01-09~2025-01-29
   "🔥 Ninja Jutsu vs. Bullets! 🔥 Which " 2025-01-29 | 554,014 views | 21,061 likes
   "Ready to battle like a true Shinobi" 2025-01-28 | 148,248 views | 6,825 likes
   "Two legends, one battlefield 🔥 #FFx" 2025-01-29 | 128,348 views | 6,538 likes
   (+2 more)
-#90 The7WorldsGaming [Creator] 6 videos | 842,036 views | 23,039 likes | 2,802 comments | 2018-05-12~2018-07-26
+#91 The7WorldsGaming [Creator] 6 videos | 842,036 views | 23,039 likes | 2,802 comments | 2018-05-12~2018-07-26
   "New features in update 0.6.0 - PUBG" 2018-06-09 | 633,701 views | 15,498 likes
   "Community tournament with The7World" 2018-05-19 | 81,276 views | 3,047 likes
   "First Look: First Person Mode and 0" 2018-06-19 | 59,347 views | 1,908 likes
   (+3 more)
-#91 American Tourister [Brand] 2 videos | 778,758 views | 3,997 likes | 33 comments | 2024-11-27~2024-12-04
+#92 American Tourister [Brand] 2 videos | 778,758 views | 3,997 likes | 33 comments | 2024-11-27~2024-12-04
   "PUBG MOBILE x American Tourister | " 2024-12-04 | 775,262 views | 3,729 likes
   "PUBG MOBILE x American Tourister Co" 2024-11-27 | 3,496 views | 268 likes
-#92 Assassin's Creed [Game] 4 videos | 758,757 views | 21,749 likes | 896 comments | 2022-03-01~2022-03-04
+#93 Assassin's Creed [Game] 4 videos | 758,757 views | 21,749 likes | 896 comments | 2022-03-01~2022-03-04
   "Ignite the Darkness | Free FIre X A" 2022-03-04 | 536,068 views | 12,862 likes
   "The Creed of Fire Lyric Video | Fre" 2022-03-02 | 160,679 views | 6,502 likes
   "The Creed of Fire is coming! | Free" 2022-03-01 | 34,812 views | 1,519 likes
   (+1 more)
-#93 Digimon Adventure [Anime] 4 videos | 730,927 views | 6,956 likes | 884 comments | 2025-11-11~2025-11-21
+#94 Digimon Adventure [Anime] 4 videos | 730,927 views | 6,956 likes | 884 comments | 2025-11-11~2025-11-21
   "Full Animation | Free Fire x Digimo" 2025-11-17 | 561,046 views | 2,559 likes
   "Trailer | Free Fire x Digimon Adven" 2025-11-11 | 75,048 views | 1,821 likes
   "Why I missed my shots? Patamon's ju" 2025-11-21 | 72,562 views | 2,054 likes
   (+1 more)
-#94 WarriorMido [Creator] 1 videos | 684,538 views | 364 likes | 33 comments | 2025-01-20~2025-01-20
+#95 WarriorMido [Creator] 1 videos | 684,538 views | 364 likes | 33 comments | 2025-01-20~2025-01-20
   "PUBG MOBILE | Team 4MV 💥" 2025-01-20 | 684,538 views | 364 likes
-#95 Metro Exodus [Game] 2 videos | 676,825 views | 19,765 likes | 730 comments | 2020-11-06~2025-09-10
-  "PUBG MOBILE - Metro Exodus X PUBG M" 2020-11-06 | 673,634 views | 19,702 likes
-  "PUBG MOBILE | Metro Royale Advanced" 2025-09-10 | 3,191 views | 63 likes
 #96 Knight Queen [Creator] 1 videos | 671,723 views | 219 likes | 75 comments | 2025-01-20~2025-01-20
   "PUBG MOBILE | Team RCB 💥" 2025-01-20 | 671,723 views | 219 likes
 #97 NAILOONG [Other] 8 videos | 667,088 views | 1,970 likes | 176 comments | 2025-08-11~2025-08-20
@@ -639,7 +640,7 @@ Video: "TITLE" DATE | VIEWS views | LIKES likes
 #184 dabplays [Creator] 2 videos | 10,318 views | 277 likes | 42 comments | 2024-12-09~2025-04-02
 #185 Bernth Cadence [Creator] 1 videos | 6,632 views | 219 likes | 28 comments | 2023-08-14~2023-08-14
 #186 Panda Vehicle [Brand] 1 videos | 6,521 views | 109 likes | 31 comments | 2025-01-15~2025-01-15
-#187 T STAR [IP] 1 videos | 6,227 views | 200 likes | 36 comments | 2026-04-05~2026-04-05
+#187 T STAR [IP] 1 videos | 6,314 views | 201 likes | 36 comments | 2026-04-05~2026-04-05
 #188 Wynnsanity [Creator] 1 videos | 5,164 views | 260 likes | 29 comments | 2025-04-04~2025-04-04
 #189 BellaFoxGaming [Creator] 1 videos | 4,545 views | 203 likes | 5 comments | 2025-04-01~2025-04-01
 #190 AceLawrence [Creator] 1 videos | 3,172 views | 137 likes | 5 comments | 2024-12-11~2024-12-11
