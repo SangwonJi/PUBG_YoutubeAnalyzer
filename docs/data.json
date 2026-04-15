@@ -238,11 +238,11 @@
   },
   {
     "name": "BABYMONSTER",
-    "category": "Entertainment",
-    "video_count": 11,
-    "total_views": 75029126,
-    "total_likes": 44750,
-    "total_comments": 1735,
+    "category": "Artist",
+    "video_count": 13,
+    "total_views": 84259175,
+    "total_likes": 83446,
+    "total_comments": 3041,
     "first_collab": "2025-03-20",
     "last_collab": "2025-12-19",
     "videos": [
@@ -265,6 +265,15 @@
         "url": "https://www.youtube.com/watch?v=rjg_n6_3Udo"
       },
       {
+        "video_id": "jEP_3nH61h4",
+        "title": "PUBG MOBILE X BABYMONSTER Collaboration Trailer",
+        "published_at": "2025-03-21",
+        "view_count": 5064513,
+        "like_count": 31981,
+        "comment_count": 1017,
+        "url": "https://www.youtube.com/watch?v=jEP_3nH61h4"
+      },
+      {
         "video_id": "7iAfN3m0LQk",
         "title": "PUBG MOBILE | 410 ultimate runway recap",
         "published_at": "2025-12-16",
@@ -272,6 +281,15 @@
         "like_count": 217,
         "comment_count": 22,
         "url": "https://www.youtube.com/watch?v=7iAfN3m0LQk"
+      },
+      {
+        "video_id": "GurTT4S84a0",
+        "title": "Join BABYMONSTER in Celebrating PUBG MOBILE’s 7th Anniversary!",
+        "published_at": "2025-03-21",
+        "view_count": 2953895,
+        "like_count": 6775,
+        "comment_count": 309,
+        "url": "https://www.youtube.com/watch?v=GurTT4S84a0"
       },
       {
         "video_id": "Lov6rzsKpiY",
@@ -319,6 +337,15 @@
         "url": "https://www.youtube.com/watch?v=p_Ct_jr4RKQ"
       },
       {
+        "video_id": "od5c6A_4hj0",
+        "title": "PUBG MOBILE | WOW-BABYMONSTER MapRecommendation",
+        "published_at": "2025-11-28",
+        "view_count": 1216428,
+        "like_count": 72,
+        "comment_count": 3,
+        "url": "https://www.youtube.com/watch?v=od5c6A_4hj0"
+      },
+      {
         "video_id": "dnkOdWFiiYM",
         "title": "PUBG MOBILE X BABYMONSTER Collaboration Teaser",
         "published_at": "2025-03-20",
@@ -326,15 +353,6 @@
         "like_count": 3053,
         "comment_count": 161,
         "url": "https://www.youtube.com/watch?v=dnkOdWFiiYM"
-      },
-      {
-        "video_id": "xl4l4qB3MCQ",
-        "title": "PUBG MOBILE | You'll Never Guess How Voice Violations Are Detected!",
-        "published_at": "2025-03-22",
-        "view_count": 4787,
-        "like_count": 132,
-        "comment_count": 23,
-        "url": "https://www.youtube.com/watch?v=xl4l4qB3MCQ"
       },
       {
         "video_id": "lNBqoistei8",
@@ -2750,243 +2768,6 @@
         "like_count": 79,
         "comment_count": 18,
         "url": "https://www.youtube.com/watch?v=G5pcK7WejFg"
-      }
-    ]
-  },
-  {
-    "name": "Alan Walker",
-    "category": "Artist",
-    "video_count": 25,
-    "total_views": 8119207,
-    "total_likes": 88635,
-    "total_comments": 3794,
-    "first_collab": "2019-03-08",
-    "last_collab": "2025-03-22",
-    "videos": [
-      {
-        "video_id": "jEP_3nH61h4",
-        "title": "PUBG MOBILE X BABYMONSTER Collaboration Trailer",
-        "published_at": "2025-03-21",
-        "view_count": 5064513,
-        "like_count": 31981,
-        "comment_count": 1017,
-        "url": "https://www.youtube.com/watch?v=jEP_3nH61h4"
-      },
-      {
-        "video_id": "-d7DiaWy9XA",
-        "title": "PUBGM x Alan Walker 'Land Of The Heroes' Cover Contest",
-        "published_at": "2023-08-04",
-        "view_count": 671051,
-        "like_count": 341,
-        "comment_count": 27,
-        "url": "https://www.youtube.com/watch?v=-d7DiaWy9XA"
-      },
-      {
-        "video_id": "HZvPmkrmCv8",
-        "title": "PUBG MOBILE | Alan Walker is BACK with \"Land Of The Heroes\" & the Air Drop Carnival",
-        "published_at": "2023-08-03",
-        "view_count": 590231,
-        "like_count": 1116,
-        "comment_count": 81,
-        "url": "https://www.youtube.com/watch?v=HZvPmkrmCv8"
-      },
-      {
-        "video_id": "QgNClOv84ew",
-        "title": "PUBG MOBILE x Alan Walker | Join the WalkerWorld Creation Contest",
-        "published_at": "2025-03-14",
-        "view_count": 417761,
-        "like_count": 960,
-        "comment_count": 18,
-        "url": "https://www.youtube.com/watch?v=QgNClOv84ew"
-      },
-      {
-        "video_id": "6FTdjm7-C_A",
-        "title": "PUBG MOBILE x Alan Walker | “On My Way” Returns to PUBG MOBILE",
-        "published_at": "2025-03-01",
-        "view_count": 391402,
-        "like_count": 6314,
-        "comment_count": 178,
-        "url": "https://www.youtube.com/watch?v=6FTdjm7-C_A"
-      },
-      {
-        "video_id": "ilI9VTIorsw",
-        "title": "Be The One - Alan Walker X PUBG  Mobile Collaboration Interview",
-        "published_at": "2019-04-08",
-        "view_count": 141381,
-        "like_count": 8375,
-        "comment_count": 414,
-        "url": "https://www.youtube.com/watch?v=ilI9VTIorsw"
-      },
-      {
-        "video_id": "HRS1XKVWtTE",
-        "title": "PUBG MOBILE - Alan Walker Reveal",
-        "published_at": "2019-07-17",
-        "view_count": 121197,
-        "like_count": 6605,
-        "comment_count": 245,
-        "url": "https://www.youtube.com/watch?v=HRS1XKVWtTE"
-      },
-      {
-        "video_id": "CIluH5DKiw8",
-        "title": "6th Anniversary: T.R.A.P. Squad Bundles & Collection Showcase | Free Fire Official",
-        "published_at": "2023-07-10",
-        "view_count": 101607,
-        "like_count": 1588,
-        "comment_count": 129,
-        "url": "https://www.youtube.com/watch?v=CIluH5DKiw8"
-      },
-      {
-        "video_id": "fF1lo9eAr0w",
-        "title": "PUBG MOBILE | Alan Walker 'Land of The Heroes' Cover Contest",
-        "published_at": "2023-08-17",
-        "view_count": 93365,
-        "like_count": 1794,
-        "comment_count": 74,
-        "url": "https://www.youtube.com/watch?v=fF1lo9eAr0w"
-      },
-      {
-        "video_id": "nKi_--aPps8",
-        "title": "Alan Walker | Paradise Music Video - PUBG MOBILE Special Edition",
-        "published_at": "2021-10-15",
-        "view_count": 90765,
-        "like_count": 4375,
-        "comment_count": 281,
-        "url": "https://www.youtube.com/watch?v=nKi_--aPps8"
-      },
-      {
-        "video_id": "nSFdYawMXw4",
-        "title": "PUBG MOBILE Community Appreciation",
-        "published_at": "2019-03-08",
-        "view_count": 70298,
-        "like_count": 4972,
-        "comment_count": 450,
-        "url": "https://www.youtube.com/watch?v=nSFdYawMXw4"
-      },
-      {
-        "video_id": "E6RBDyJlsIw",
-        "title": "Test your monster-fighting skills in Double Evil! #shorts  #kellyshow #freefireofficial",
-        "published_at": "2023-08-05",
-        "view_count": 66032,
-        "like_count": 2534,
-        "comment_count": 25,
-        "url": "https://www.youtube.com/watch?v=E6RBDyJlsIw"
-      },
-      {
-        "video_id": "2-n_RX88DJ8",
-        "title": "LEVEL 3 HELMETS NOT INCLUDED - Summer Feast Series Premiere",
-        "published_at": "2021-09-03",
-        "view_count": 62911,
-        "like_count": 3591,
-        "comment_count": 276,
-        "url": "https://www.youtube.com/watch?v=2-n_RX88DJ8"
-      },
-      {
-        "video_id": "XRemMwXcAvE",
-        "title": "PUBG MOBILE | Enjoy Crate Day with Alan Walker!",
-        "published_at": "2023-08-18",
-        "view_count": 59102,
-        "like_count": 2212,
-        "comment_count": 23,
-        "url": "https://www.youtube.com/watch?v=XRemMwXcAvE"
-      },
-      {
-        "video_id": "oUyceyuTxKc",
-        "title": "Alan Walker x PUBG MOBILE",
-        "published_at": "2025-03-08",
-        "view_count": 44698,
-        "like_count": 2447,
-        "comment_count": 83,
-        "url": "https://www.youtube.com/watch?v=oUyceyuTxKc"
-      },
-      {
-        "video_id": "SgTIv_xtgSQ",
-        "title": "PUBG MOBILE - Anime Expo 2019",
-        "published_at": "2019-07-17",
-        "view_count": 36058,
-        "like_count": 2159,
-        "comment_count": 145,
-        "url": "https://www.youtube.com/watch?v=SgTIv_xtgSQ"
-      },
-      {
-        "video_id": "oPLPL0gxJ08",
-        "title": "PANDEMONIUM! Summer Feast Ep. 3",
-        "published_at": "2021-09-17",
-        "view_count": 26083,
-        "like_count": 1625,
-        "comment_count": 102,
-        "url": "https://www.youtube.com/watch?v=oPLPL0gxJ08"
-      },
-      {
-        "video_id": "fQ9gZXmFVak",
-        "title": "PUBG MOBILE | Alan Walker T Shirt Sweepstakes",
-        "published_at": "2023-08-13",
-        "view_count": 15722,
-        "like_count": 956,
-        "comment_count": 31,
-        "url": "https://www.youtube.com/watch?v=fQ9gZXmFVak"
-      },
-      {
-        "video_id": "c4Sbq7Z8y6s",
-        "title": "I’M ON MY WAY | PUBG MOBILE 7TH ANNIVERSARY x Alan Walker",
-        "published_at": "2025-03-22",
-        "view_count": 12738,
-        "like_count": 917,
-        "comment_count": 48,
-        "url": "https://www.youtube.com/watch?v=c4Sbq7Z8y6s"
-      },
-      {
-        "video_id": "YEcEGufg6Uk",
-        "title": "PUBGMOBILE P.D.P. x Alan Walker 'Land of the Heroes' cover contest",
-        "published_at": "2023-08-21",
-        "view_count": 12559,
-        "like_count": 1256,
-        "comment_count": 19,
-        "url": "https://www.youtube.com/watch?v=YEcEGufg6Uk"
-      },
-      {
-        "video_id": "TKJTk620oDQ",
-        "title": "PUBG MOBILE |  Get Ready for the 7th Anniversary Special Performance by Alan Walker",
-        "published_at": "2025-03-19",
-        "view_count": 9272,
-        "like_count": 410,
-        "comment_count": 45,
-        "url": "https://www.youtube.com/watch?v=TKJTk620oDQ"
-      },
-      {
-        "video_id": "euwU55D36MM",
-        "title": "PUBG MOBILE x ALAN WALKER | Join the Walker Vibes Challenge",
-        "published_at": "2025-03-16",
-        "view_count": 5855,
-        "like_count": 859,
-        "comment_count": 32,
-        "url": "https://www.youtube.com/watch?v=euwU55D36MM"
-      },
-      {
-        "video_id": "yBcROsMyyzA",
-        "title": "PUBG MOBILE | Become an Icon with the Iconic Aston Martin!",
-        "published_at": "2023-08-03",
-        "view_count": 5825,
-        "like_count": 209,
-        "comment_count": 30,
-        "url": "https://www.youtube.com/watch?v=yBcROsMyyzA"
-      },
-      {
-        "video_id": "857EjNQ5qPk",
-        "title": "PUBG MOBILE | Cadence Maestro M24 Available Now",
-        "published_at": "2023-08-01",
-        "view_count": 5109,
-        "like_count": 191,
-        "comment_count": 16,
-        "url": "https://www.youtube.com/watch?v=857EjNQ5qPk"
-      },
-      {
-        "video_id": "ten9OzT25Os",
-        "title": "PUBG MOBILE | Rondo’s Battlefield",
-        "published_at": "2025-03-12",
-        "view_count": 3672,
-        "like_count": 848,
-        "comment_count": 5,
-        "url": "https://www.youtube.com/watch?v=ten9OzT25Os"
       }
     ]
   },
@@ -5829,6 +5610,234 @@
     ]
   },
   {
+    "name": "Alan Walker",
+    "category": "Artist",
+    "video_count": 24,
+    "total_views": 3054694,
+    "total_likes": 56654,
+    "total_comments": 2777,
+    "first_collab": "2019-03-08",
+    "last_collab": "2025-03-22",
+    "videos": [
+      {
+        "video_id": "-d7DiaWy9XA",
+        "title": "PUBGM x Alan Walker 'Land Of The Heroes' Cover Contest",
+        "published_at": "2023-08-04",
+        "view_count": 671051,
+        "like_count": 341,
+        "comment_count": 27,
+        "url": "https://www.youtube.com/watch?v=-d7DiaWy9XA"
+      },
+      {
+        "video_id": "HZvPmkrmCv8",
+        "title": "PUBG MOBILE | Alan Walker is BACK with \"Land Of The Heroes\" & the Air Drop Carnival",
+        "published_at": "2023-08-03",
+        "view_count": 590231,
+        "like_count": 1116,
+        "comment_count": 81,
+        "url": "https://www.youtube.com/watch?v=HZvPmkrmCv8"
+      },
+      {
+        "video_id": "QgNClOv84ew",
+        "title": "PUBG MOBILE x Alan Walker | Join the WalkerWorld Creation Contest",
+        "published_at": "2025-03-14",
+        "view_count": 417761,
+        "like_count": 960,
+        "comment_count": 18,
+        "url": "https://www.youtube.com/watch?v=QgNClOv84ew"
+      },
+      {
+        "video_id": "6FTdjm7-C_A",
+        "title": "PUBG MOBILE x Alan Walker | “On My Way” Returns to PUBG MOBILE",
+        "published_at": "2025-03-01",
+        "view_count": 391402,
+        "like_count": 6314,
+        "comment_count": 178,
+        "url": "https://www.youtube.com/watch?v=6FTdjm7-C_A"
+      },
+      {
+        "video_id": "ilI9VTIorsw",
+        "title": "Be The One - Alan Walker X PUBG  Mobile Collaboration Interview",
+        "published_at": "2019-04-08",
+        "view_count": 141381,
+        "like_count": 8375,
+        "comment_count": 414,
+        "url": "https://www.youtube.com/watch?v=ilI9VTIorsw"
+      },
+      {
+        "video_id": "HRS1XKVWtTE",
+        "title": "PUBG MOBILE - Alan Walker Reveal",
+        "published_at": "2019-07-17",
+        "view_count": 121197,
+        "like_count": 6605,
+        "comment_count": 245,
+        "url": "https://www.youtube.com/watch?v=HRS1XKVWtTE"
+      },
+      {
+        "video_id": "CIluH5DKiw8",
+        "title": "6th Anniversary: T.R.A.P. Squad Bundles & Collection Showcase | Free Fire Official",
+        "published_at": "2023-07-10",
+        "view_count": 101607,
+        "like_count": 1588,
+        "comment_count": 129,
+        "url": "https://www.youtube.com/watch?v=CIluH5DKiw8"
+      },
+      {
+        "video_id": "fF1lo9eAr0w",
+        "title": "PUBG MOBILE | Alan Walker 'Land of The Heroes' Cover Contest",
+        "published_at": "2023-08-17",
+        "view_count": 93365,
+        "like_count": 1794,
+        "comment_count": 74,
+        "url": "https://www.youtube.com/watch?v=fF1lo9eAr0w"
+      },
+      {
+        "video_id": "nKi_--aPps8",
+        "title": "Alan Walker | Paradise Music Video - PUBG MOBILE Special Edition",
+        "published_at": "2021-10-15",
+        "view_count": 90765,
+        "like_count": 4375,
+        "comment_count": 281,
+        "url": "https://www.youtube.com/watch?v=nKi_--aPps8"
+      },
+      {
+        "video_id": "nSFdYawMXw4",
+        "title": "PUBG MOBILE Community Appreciation",
+        "published_at": "2019-03-08",
+        "view_count": 70298,
+        "like_count": 4972,
+        "comment_count": 450,
+        "url": "https://www.youtube.com/watch?v=nSFdYawMXw4"
+      },
+      {
+        "video_id": "E6RBDyJlsIw",
+        "title": "Test your monster-fighting skills in Double Evil! #shorts  #kellyshow #freefireofficial",
+        "published_at": "2023-08-05",
+        "view_count": 66032,
+        "like_count": 2534,
+        "comment_count": 25,
+        "url": "https://www.youtube.com/watch?v=E6RBDyJlsIw"
+      },
+      {
+        "video_id": "2-n_RX88DJ8",
+        "title": "LEVEL 3 HELMETS NOT INCLUDED - Summer Feast Series Premiere",
+        "published_at": "2021-09-03",
+        "view_count": 62911,
+        "like_count": 3591,
+        "comment_count": 276,
+        "url": "https://www.youtube.com/watch?v=2-n_RX88DJ8"
+      },
+      {
+        "video_id": "XRemMwXcAvE",
+        "title": "PUBG MOBILE | Enjoy Crate Day with Alan Walker!",
+        "published_at": "2023-08-18",
+        "view_count": 59102,
+        "like_count": 2212,
+        "comment_count": 23,
+        "url": "https://www.youtube.com/watch?v=XRemMwXcAvE"
+      },
+      {
+        "video_id": "oUyceyuTxKc",
+        "title": "Alan Walker x PUBG MOBILE",
+        "published_at": "2025-03-08",
+        "view_count": 44698,
+        "like_count": 2447,
+        "comment_count": 83,
+        "url": "https://www.youtube.com/watch?v=oUyceyuTxKc"
+      },
+      {
+        "video_id": "SgTIv_xtgSQ",
+        "title": "PUBG MOBILE - Anime Expo 2019",
+        "published_at": "2019-07-17",
+        "view_count": 36058,
+        "like_count": 2159,
+        "comment_count": 145,
+        "url": "https://www.youtube.com/watch?v=SgTIv_xtgSQ"
+      },
+      {
+        "video_id": "oPLPL0gxJ08",
+        "title": "PANDEMONIUM! Summer Feast Ep. 3",
+        "published_at": "2021-09-17",
+        "view_count": 26083,
+        "like_count": 1625,
+        "comment_count": 102,
+        "url": "https://www.youtube.com/watch?v=oPLPL0gxJ08"
+      },
+      {
+        "video_id": "fQ9gZXmFVak",
+        "title": "PUBG MOBILE | Alan Walker T Shirt Sweepstakes",
+        "published_at": "2023-08-13",
+        "view_count": 15722,
+        "like_count": 956,
+        "comment_count": 31,
+        "url": "https://www.youtube.com/watch?v=fQ9gZXmFVak"
+      },
+      {
+        "video_id": "c4Sbq7Z8y6s",
+        "title": "I’M ON MY WAY | PUBG MOBILE 7TH ANNIVERSARY x Alan Walker",
+        "published_at": "2025-03-22",
+        "view_count": 12738,
+        "like_count": 917,
+        "comment_count": 48,
+        "url": "https://www.youtube.com/watch?v=c4Sbq7Z8y6s"
+      },
+      {
+        "video_id": "YEcEGufg6Uk",
+        "title": "PUBGMOBILE P.D.P. x Alan Walker 'Land of the Heroes' cover contest",
+        "published_at": "2023-08-21",
+        "view_count": 12559,
+        "like_count": 1256,
+        "comment_count": 19,
+        "url": "https://www.youtube.com/watch?v=YEcEGufg6Uk"
+      },
+      {
+        "video_id": "TKJTk620oDQ",
+        "title": "PUBG MOBILE |  Get Ready for the 7th Anniversary Special Performance by Alan Walker",
+        "published_at": "2025-03-19",
+        "view_count": 9272,
+        "like_count": 410,
+        "comment_count": 45,
+        "url": "https://www.youtube.com/watch?v=TKJTk620oDQ"
+      },
+      {
+        "video_id": "euwU55D36MM",
+        "title": "PUBG MOBILE x ALAN WALKER | Join the Walker Vibes Challenge",
+        "published_at": "2025-03-16",
+        "view_count": 5855,
+        "like_count": 859,
+        "comment_count": 32,
+        "url": "https://www.youtube.com/watch?v=euwU55D36MM"
+      },
+      {
+        "video_id": "yBcROsMyyzA",
+        "title": "PUBG MOBILE | Become an Icon with the Iconic Aston Martin!",
+        "published_at": "2023-08-03",
+        "view_count": 5825,
+        "like_count": 209,
+        "comment_count": 30,
+        "url": "https://www.youtube.com/watch?v=yBcROsMyyzA"
+      },
+      {
+        "video_id": "857EjNQ5qPk",
+        "title": "PUBG MOBILE | Cadence Maestro M24 Available Now",
+        "published_at": "2023-08-01",
+        "view_count": 5109,
+        "like_count": 191,
+        "comment_count": 16,
+        "url": "https://www.youtube.com/watch?v=857EjNQ5qPk"
+      },
+      {
+        "video_id": "ten9OzT25Os",
+        "title": "PUBG MOBILE | Rondo’s Battlefield",
+        "published_at": "2025-03-12",
+        "view_count": 3672,
+        "like_count": 848,
+        "comment_count": 5,
+        "url": "https://www.youtube.com/watch?v=ten9OzT25Os"
+      }
+    ]
+  },
+  {
     "name": "Karol G",
     "category": "Artist",
     "video_count": 5,
@@ -6077,36 +6086,6 @@
         "like_count": 3533,
         "comment_count": 338,
         "url": "https://www.youtube.com/watch?v=qL4VJXo4WjQ"
-      }
-    ]
-  },
-  {
-    "name": "BamBam",
-    "category": "Artist",
-    "video_count": 2,
-    "total_views": 2653316,
-    "total_likes": 3476,
-    "total_comments": 188,
-    "first_collab": "2025-12-14",
-    "last_collab": "2026-03-27",
-    "videos": [
-      {
-        "video_id": "Rnjq26ifMVA",
-        "title": "PUBG MOBILE | Chicko Smash Moment",
-        "published_at": "2025-12-14",
-        "view_count": 1587770,
-        "like_count": 393,
-        "comment_count": 13,
-        "url": "https://www.youtube.com/watch?v=Rnjq26ifMVA"
-      },
-      {
-        "video_id": "o0wJKNCJcKc",
-        "title": "CARRY YOU - BamBam x MINNIE (Official Music Video) | PUBG MOBILE",
-        "published_at": "2026-03-27",
-        "view_count": 1065546,
-        "like_count": 3083,
-        "comment_count": 175,
-        "url": "https://www.youtube.com/watch?v=o0wJKNCJcKc"
       }
     ]
   },
@@ -6771,6 +6750,27 @@
     ]
   },
   {
+    "name": "BamBam",
+    "category": "Artist",
+    "video_count": 1,
+    "total_views": 1587770,
+    "total_likes": 393,
+    "total_comments": 13,
+    "first_collab": "2025-12-14",
+    "last_collab": "2025-12-14",
+    "videos": [
+      {
+        "video_id": "Rnjq26ifMVA",
+        "title": "PUBG MOBILE | Chicko Smash Moment",
+        "published_at": "2025-12-14",
+        "view_count": 1587770,
+        "like_count": 393,
+        "comment_count": 13,
+        "url": "https://www.youtube.com/watch?v=Rnjq26ifMVA"
+      }
+    ]
+  },
+  {
     "name": "GODZILLA",
     "category": "Movie",
     "video_count": 2,
@@ -7196,6 +7196,36 @@
         "like_count": 670,
         "comment_count": 82,
         "url": "https://www.youtube.com/watch?v=0wPXjK7899k"
+      }
+    ]
+  },
+  {
+    "name": "BamBam x MINNIE",
+    "category": "Artist",
+    "video_count": 2,
+    "total_views": 1176667,
+    "total_likes": 3412,
+    "total_comments": 199,
+    "first_collab": "2026-03-21",
+    "last_collab": "2026-03-27",
+    "videos": [
+      {
+        "video_id": "o0wJKNCJcKc",
+        "title": "CARRY YOU - BamBam x MINNIE (Official Music Video) | PUBG MOBILE",
+        "published_at": "2026-03-27",
+        "view_count": 1065546,
+        "like_count": 3083,
+        "comment_count": 175,
+        "url": "https://www.youtube.com/watch?v=o0wJKNCJcKc"
+      },
+      {
+        "video_id": "bN06HjIVvkQ",
+        "title": "CARRY YOU - BamBam x MINNIE (MV Teaser) | PUBG MOBILE",
+        "published_at": "2026-03-21",
+        "view_count": 111121,
+        "like_count": 329,
+        "comment_count": 24,
+        "url": "https://www.youtube.com/watch?v=bN06HjIVvkQ"
       }
     ]
   },
@@ -9002,27 +9032,6 @@
         "like_count": 809,
         "comment_count": 41,
         "url": "https://www.youtube.com/watch?v=gP0kr44iBMo"
-      }
-    ]
-  },
-  {
-    "name": "BamBam x MINNIE",
-    "category": "Artist",
-    "video_count": 1,
-    "total_views": 111121,
-    "total_likes": 329,
-    "total_comments": 24,
-    "first_collab": "2026-03-21",
-    "last_collab": "2026-03-21",
-    "videos": [
-      {
-        "video_id": "bN06HjIVvkQ",
-        "title": "CARRY YOU - BamBam x MINNIE (MV Teaser) | PUBG MOBILE",
-        "published_at": "2026-03-21",
-        "view_count": 111121,
-        "like_count": 329,
-        "comment_count": 24,
-        "url": "https://www.youtube.com/watch?v=bN06HjIVvkQ"
       }
     ]
   },

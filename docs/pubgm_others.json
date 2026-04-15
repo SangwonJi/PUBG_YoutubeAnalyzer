@@ -1,8 +1,8 @@
 {
-  "video_count": 3838,
-  "total_views": 1731480112,
-  "total_likes": 7713276,
-  "total_comments": 423885,
+  "video_count": 3837,
+  "total_views": 1727314576,
+  "total_likes": 7706561,
+  "total_comments": 423596,
   "content_types": [
     {
       "name": "Event",
@@ -3219,10 +3219,10 @@
     },
     {
       "name": "Map",
-      "video_count": 176,
-      "total_views": 69819886,
-      "total_likes": 355543,
-      "total_comments": 28449,
+      "video_count": 175,
+      "total_views": 68603458,
+      "total_likes": 355471,
+      "total_comments": 28446,
       "videos": [
         {
           "video_id": "vfnHQSYjXZk",
@@ -3385,15 +3385,6 @@
           "like_count": 596,
           "comment_count": 67,
           "url": "https://www.youtube.com/watch?v=v_zic8hza2E"
-        },
-        {
-          "video_id": "od5c6A_4hj0",
-          "title": "PUBG MOBILE | WOW-BABYMONSTER MapRecommendation",
-          "published_at": "2025-11-28",
-          "view_count": 1216428,
-          "like_count": 72,
-          "comment_count": 3,
-          "url": "https://www.youtube.com/watch?v=od5c6A_4hj0"
         },
         {
           "video_id": "vRpEmZBUBsI",
@@ -3673,6 +3664,15 @@
           "like_count": 5846,
           "comment_count": 485,
           "url": "https://www.youtube.com/watch?v=X_RAyUme4dI"
+        },
+        {
+          "video_id": "mCQe6c4IfDo",
+          "title": "PUBG Mobile 0.10.0 - Vikendi Snow Map - Official Teaser #2",
+          "published_at": "2018-12-18",
+          "view_count": 150962,
+          "like_count": 8252,
+          "comment_count": 1067,
+          "url": "https://www.youtube.com/watch?v=mCQe6c4IfDo"
         }
       ]
     },
@@ -4596,10 +4596,10 @@
     },
     {
       "name": "Anniversary",
-      "video_count": 42,
-      "total_views": 49508621,
-      "total_likes": 148555,
-      "total_comments": 10044,
+      "video_count": 41,
+      "total_views": 46554726,
+      "total_likes": 141780,
+      "total_comments": 9735,
       "videos": [
         {
           "video_id": "VPeM74-loiA",
@@ -4636,15 +4636,6 @@
           "like_count": 2715,
           "comment_count": 60,
           "url": "https://www.youtube.com/watch?v=waXL4h2SEkY"
-        },
-        {
-          "video_id": "GurTT4S84a0",
-          "title": "Join BABYMONSTER in Celebrating PUBG MOBILE’s 7th Anniversary!",
-          "published_at": "2025-03-21",
-          "view_count": 2953895,
-          "like_count": 6775,
-          "comment_count": 309,
-          "url": "https://www.youtube.com/watch?v=GurTT4S84a0"
         },
         {
           "video_id": "VerzQqOteRk",
@@ -6684,10 +6675,10 @@
     },
     {
       "name": "Other",
-      "video_count": 96,
-      "total_views": 28857127,
-      "total_likes": 152294,
-      "total_comments": 5349,
+      "video_count": 97,
+      "total_views": 28861914,
+      "total_likes": 152426,
+      "total_comments": 5372,
       "videos": [
         {
           "video_id": "YX2cURcx4XA",
