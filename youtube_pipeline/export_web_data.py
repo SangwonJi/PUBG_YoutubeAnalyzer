@@ -298,6 +298,13 @@ with open(DOCS_DIR / 'data.json', 'w', encoding='utf-8') as f:
 
 print(f"  Exported combined {len(partners)} partners to docs/data.json")
 
+import shutil
+if 'pubgm' in all_channels_data:
+    pubgm_others_path = DOCS_DIR / CHANNELS['pubgm']['others_file']
+    if pubgm_others_path.exists():
+        shutil.copy2(pubgm_others_path, DOCS_DIR / 'others.json')
+        print(f"  Synced others.json from {CHANNELS['pubgm']['others_file']}")
+
 # 3. Summary stats
 print("\n" + "="*60)
 print("Summary:")
