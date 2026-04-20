@@ -137,7 +137,7 @@ for channel_id, channel_info in CHANNELS.items():
     for row in cursor.fetchall():
         content_type = row[0] or 'Other'
         
-        # Get top 50 videos for this content type
+        # Get top 50 videos by views + all videos from last 30 days for this content type
         cursor.execute(f"""
             SELECT video_id, title, published_at, view_count, like_count, comment_count
             FROM videos 
@@ -146,9 +146,29 @@ for channel_id, channel_info in CHANNELS.items():
             ORDER BY view_count DESC
             LIMIT 50
         """, (content_type, content_type))
+        top_vids = set()
+        top_rows = cursor.fetchall()
+        for v in top_rows:
+            top_vids.add(v[0])
+
+        # Also fetch recent videos (last 30 days) that may not be in top 50
+        cursor.execute(f"""
+            SELECT video_id, title, published_at, view_count, like_count, comment_count
+            FROM videos 
+            WHERE is_collab = 0 AND (content_type = ? OR (content_type IS NULL AND ? = 'Other'))
+                  AND {channel_filter}
+                  AND published_at >= date('now', '-30 days')
+            ORDER BY published_at DESC
+        """, (content_type, content_type))
+        recent_rows = cursor.fetchall()
+        combined_rows = list(top_rows)
+        for v in recent_rows:
+            if v[0] not in top_vids:
+                combined_rows.append(v)
+                top_vids.add(v[0])
         
         videos = []
-        for v in cursor.fetchall():
+        for v in combined_rows:
             videos.append({
                 'video_id': v[0],
                 'title': v[1],
